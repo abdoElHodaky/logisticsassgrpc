@@ -4,5 +4,5 @@ COPY . .
 RUN rm package-lock.json
 RUN apk add --no-cache tzdata sqlite-dev postgresql-dev mysql-dev
 RUN yarn add global npx && yarn
-EXPOSE 3000
+EXPOSE ${PORT}
 RUN npx ts-node "./src/app.ts"
