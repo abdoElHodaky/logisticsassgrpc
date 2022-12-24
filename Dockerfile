@@ -7,5 +7,5 @@ RUN yarn add global npx &&  yarn
 ENV PORT 3000
 EXPOSE ${PORT}
 RUN npx tsc
-CMD ["node", "./src/app.js"]
+CMD ["npm", "start"]
 
