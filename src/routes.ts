@@ -1,4 +1,4 @@
-var express = require('./app');
+var express = require('./app.js');
 
 var apiv1 = express.Router();
 
