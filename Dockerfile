@@ -7,5 +7,5 @@ RUN yarn add @types/express
 RUN yarn install -y
 ENV PORT 3000
 EXPOSE ${PORT}
-RUN npx ts-node ./src/app.ts
+CMD ["sh","./tsrun.sh"]
 
