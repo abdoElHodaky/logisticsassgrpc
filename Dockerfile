@@ -1,4 +1,4 @@
-FROM node:16alpine-3.16
+FROM node:16-alpine3.16
 WORKDIR /app
 COPY . .
 RUN rm package-lock.json
