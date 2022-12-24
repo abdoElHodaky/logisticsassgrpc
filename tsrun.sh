@@ -1,3 +1,3 @@
 #!/user/bin/bash
-
-npx nodemon ./src/app.ts
+npx tsc
+node ./dist/app.js
