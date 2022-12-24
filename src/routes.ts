@@ -1,7 +1,6 @@
 import { getDataSource } from "./data-source"
 import { DataSource } from "typeorm"
 import { User } from "./entity/User";
-import * as express from "express"
 import { Request, Response,Router } from "express";
 let AppDataSource:DataSource;
  getDataSource(1000).then(d=>{

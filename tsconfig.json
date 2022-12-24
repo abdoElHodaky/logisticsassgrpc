@@ -1,10 +1,23 @@
-{
-"extends": "@tsconfig/node18/tsconfig.json",
-  "compilerOptions": {
-   "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "sourceMap": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules"]
-}
+ {
+   "extends": "@tsconfig/node16/tsconfig.json",
+   "compilerOptions": {
+
+         "target": "esnext",
+         "module": "commonjs",                          
+         "outDir": "./dist",                              
+         "rootDir": "./src",                             
+         "strict": true,                                
+         "moduleResolution": "node",                  
+         "esModuleInterop": true,                      
+         "skipLibCheck": true,                           
+         "forceConsistentCasingInFileNames": true,
+         "experimentalDecorators": true,
+         "strictPropertyInitialization": false,
+         "emitDecoratorMetadata": true,
+         "allowSyntheticDefaultImports": true
+      
+   },
+   "include": ["src"],
+   "exclude": ["node_modules"],
+   "skipLibCheck": true
+ }
