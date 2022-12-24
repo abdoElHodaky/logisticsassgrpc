@@ -1,10 +1,9 @@
 
 import "reflect-metadata";
-
-const express = require('express')
-const app = express()
-const port = process.env.PORT
-const apiv1=require("./routes")
+import * as express from "express"
+import { apiv1 } from "./routes";
+const app=express();
+const port = process.env.PORT||3000
 
 /*app.get('/', (req:any, res:any) => {
   res.json({"Articles":[
