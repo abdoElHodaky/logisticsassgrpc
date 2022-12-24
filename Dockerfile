@@ -4,7 +4,9 @@ COPY . .
 RUN rm package-lock.json
 RUN yarn add global npx
 RUN apk add --no-cache tzdata sqlite-dev postgresql-dev mysql-dev 
-
+USER node
+COPY --chown=node:node . .
+COPY --chown=npx:node . .
 RUN yarn
-RUN npx ts-node "./src/app.ts"
 EXPOSE 3000
+CMD["npx ts-node ","./src/app.ts"]
