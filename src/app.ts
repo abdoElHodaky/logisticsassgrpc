@@ -4,7 +4,7 @@ import "reflect-metadata";
 const express = require('express')
 const app = express()
 const port = process.env.PORT
-const routes=require("./routes")
+const routes=require("./routes.js")
 
 /*app.get('/', (req:any, res:any) => {
   res.json({"Articles":[
