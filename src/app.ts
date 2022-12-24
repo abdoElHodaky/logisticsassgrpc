@@ -4,8 +4,9 @@ import "reflect-metadata";
 const express = require('express')
 const app = express()
 const port = process.env.PORT
+const routes=require("./routes")
 
-app.get('/', (req:any, res:any) => {
+/*app.get('/', (req:any, res:any) => {
   res.json({"Articles":[
     {
         title:"d",
@@ -18,7 +19,8 @@ app.get('/', (req:any, res:any) => {
         url:"d/d/d"
     }
   ]})
-})
+})*/
+app.use(routes)
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
