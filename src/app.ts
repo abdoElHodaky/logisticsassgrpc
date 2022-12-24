@@ -3,7 +3,7 @@ import "reflect-metadata";
 
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.get('/', (req:any, res:any) => {
   res.json({"Articles":[
