@@ -4,7 +4,7 @@ COPY ./src .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev 
 RUN yarn add npx global
 RUN yarn add @types/express
-RUN npm i
+RUN yarn install -y
 ENV PORT 3000
 EXPOSE ${PORT}
 RUN npx ts-node ./app.ts
