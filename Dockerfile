@@ -1,4 +1,4 @@
-FROM efrecon/ts-node:10.8.1
+FROM efrecon/ts-node:10.9.1
 WORKDIR /app
 COPY . .
 RUN rm package-lock.json
