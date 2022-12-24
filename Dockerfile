@@ -5,5 +5,5 @@ RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev npm
 RUN npm ci
 ENV PORT 3000
 EXPOSE ${PORT}
-CMD ["npm run", "start"]
+Run npm run start
 
