@@ -3,7 +3,7 @@ WORKDIR /app
 COPY ./src .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev 
 RUN yarn add npx global
-RUN yarn
+RUN yarn install
 ENV PORT 3000
 EXPOSE ${PORT}
 RUN npx ts-node ./app.ts
