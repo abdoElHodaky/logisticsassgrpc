@@ -1,9 +1,8 @@
-FROM node:18-alpine3.16
+FROM node:16-alpine3.15
 WORKDIR /app
 COPY . .
 RUN rm package-lock.json
-RUN yarn add global npx
-RUN apk add --no-cache tzdata sqlite-dev postgresql-dev mysql-dev 
+RUN apk add --no-cache tzdata npx sqlite-dev postgresql-dev mysql-dev 
 RUN yarn
 EXPOSE 3000
-CMD ["sudo npx ts-node ","./src/app.ts"]
+CMD ["npx ts-node ","./src/app.ts"]
