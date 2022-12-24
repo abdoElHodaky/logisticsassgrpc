@@ -9,4 +9,4 @@ COPY --chown=node:node . .
 COPY --chown=npx:node . .
 RUN yarn
 EXPOSE 3000
-CMD["npx ts-node ","./src/app.ts"]
+CMD ["npx ts-node ","./src/app.ts"]
