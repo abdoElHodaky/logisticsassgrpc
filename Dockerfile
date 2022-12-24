@@ -6,4 +6,4 @@ RUN apk add --no-cache tzdata sqlite-dev postgresql-dev mysql-dev
 
 RUN npm install 
 EXPOSE 3000
-Run npx ts-node ./src/app.ts
+RUN npx ts-node ./src/app.ts
