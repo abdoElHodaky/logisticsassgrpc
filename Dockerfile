@@ -5,5 +5,5 @@ RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev
 RUN yarn add npx global
 ENV PORT 3000
 EXPOSE ${PORT}
-RUN npx ts-node ./src/app.ts
+RUN npx ts-node "./app.ts"
 
