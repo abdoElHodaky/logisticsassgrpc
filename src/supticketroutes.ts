@@ -31,7 +31,7 @@ suptickeroute.get("/tickets/create",(req:Request,res:Response)=>{
         .relation(User, "tickets")
         .of(id)
         .add(supticket)
-        res.end("did")
+        res.json({...supticket})
     
     //res.end("did")
   });
