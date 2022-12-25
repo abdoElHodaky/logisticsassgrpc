@@ -17,6 +17,13 @@ export class User {
     @Column()
     age: number
 
+    @Column({ unique: true })
+    username: string;
+
+    @Column()
+    passwordHash: string
+
+
     @OneToMany(type=>supTicket,ticket=>ticket.user) tickets:supTicket[]
 
 }
