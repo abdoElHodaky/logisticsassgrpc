@@ -17,8 +17,8 @@ export class User {
     @Column()
     age: number
 
-    @Column({default:2980865431210})
-    IDcardNumber: number
+    @Column({default:"2980865431210"})
+    IDcardNumber: string
 
     @Column({type: "varchar", nullable:true})
     username: string;
