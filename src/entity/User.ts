@@ -17,10 +17,10 @@ export class User {
     @Column()
     age: number
 
-    @Column({ unique: true })
+    @Column({type: "varchar", nullable: true, unique:true})
     username: string;
 
-    @Column()
+    @Column({type: "varchar", nullable: true})
     passwordHash: string
 
 
