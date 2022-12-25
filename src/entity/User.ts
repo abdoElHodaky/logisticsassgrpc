@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { type } from "os"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { supTicket } from "./supTicket"
 
 @Entity()
 export class User {
@@ -14,5 +16,7 @@ export class User {
 
     @Column()
     age: number
+
+    @OneToMany(type=>supTicket,ticket=>ticket.user) tickets:supTicket[]
 
 }

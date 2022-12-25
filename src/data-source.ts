@@ -1,5 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User"
 
 export const AppDataSource = new DataSource({
@@ -7,7 +8,7 @@ export const AppDataSource = new DataSource({
     database: "database.sqlite",
     synchronize: true,
     logging: false,
-    entities: [User],
+    entities: [User,supTicket],
     migrations: [],
     subscribers: []
 })

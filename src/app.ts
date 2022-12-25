@@ -1,6 +1,8 @@
 
 import "reflect-metadata";
 import application from "express"
+import { json,urlencoded } from "express";
+import cors from "cors";
 import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||3000
@@ -19,6 +21,9 @@ const port = process.env.PORT||3000
     }
   ]})
 })*/
+app.use(urlencoded({extended: true}))
+app.use(cors())
+app.use(json())
 app.use(apiv1)
 
 app.listen(port, () => {
