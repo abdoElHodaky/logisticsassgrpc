@@ -1,4 +1,4 @@
-import { Entity,Column,PrimaryGeneratedColumn,CreateDateColumn,UpdateDateColumn } from "typeorm"
+import { Entity,Column,PrimaryGeneratedColumn} from "typeorm"
 
 @Entity()
 export class Article {
@@ -16,10 +16,4 @@ export class Article {
 
     @Column({type: "varchar", nullable: true})
     cateogry: string;
-
-    @CreateDateColumn({type: "timestamp", nullable: true})
-    created_at: string;
-
-    @UpdateDateColumn({type: "timestamp", nullable: true})
-    updated_at: string;
 }
