@@ -38,7 +38,7 @@ usersroute.get('/users/create', function(req:Request, res:Response) {
   
   })
 
-  usersroute.get("/users/:userid/delete",function(req:Request, res:Response){
+  usersroute.delete("/users/:userid",function(req:Request, res:Response){
     let id=Number(req.params["userid"])
     AppDataSource.getRepository(User).delete({id:id}).
     then(d=>{
