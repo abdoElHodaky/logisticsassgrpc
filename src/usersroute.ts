@@ -24,7 +24,14 @@ usersroute.get('/users/create', function(req:Request, res:Response) {
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
     let id=Number(req.params["userid"])
-    AppDataSource.getRepository(User).findOneByOrFail({id:id}).
+    AppDataSource.getRepository(User).findOneOrFail({
+      where:{
+        id:id
+      },
+      relations:{
+        tickets:true
+      }
+    }).
     then(d=>{
       res.jsonp({"user":d});  
     }).catch(console.log);
