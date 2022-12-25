@@ -17,7 +17,7 @@ export class User {
     @Column()
     age: number
 
-    @Column({type: "varchar", nullable: true, unique:true})
+    @Column({type: "varchar", unique:true})
     username: string;
 
     @Column({type: "varchar", nullable: true})
