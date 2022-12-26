@@ -17,13 +17,13 @@ export class User {
     @Column()
     age: number
 
-    @Column({default:2980865431210})
+    @Column({default:2980865431210,select:false})
     IDcardNumber: number
 
-    @Column({type: "varchar", nullable:true})
+    @Column({type: "varchar",default:"test",nullable:true })
     username: string;
 
-    @Column({type: "varchar", nullable: true})
+    @Column({type: "varchar", nullable: true,select:false})
     passwordHash: string
 
 
