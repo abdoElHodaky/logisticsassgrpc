@@ -4,7 +4,7 @@ import { User } from "./entity/User";
 export const authroute=Router();
 
 authroute.post("/auth/signup/",(req,res)=>{
-    let user=<User>req.body
+    let user:User=<User>{...req.body}
     //console.log(req.body)
     res.jsonp(user)
     /*AppDataSource.manager.save(User,user).then(d=>{
