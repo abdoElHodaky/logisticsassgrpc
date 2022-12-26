@@ -5,8 +5,8 @@ export const authroute=Router();
 
 authroute.post("/auth/signup/",(req,res)=>{
     let user=req.body;
-    console.log(req)
-    res.json(req)
+    console.log(req.body)
+    res.json(req.body)
     /*AppDataSource.manager.save(User,user).then(d=>{
         res.json({messsage:"created succefully",user:user})
     }).catch(console.log)*/
