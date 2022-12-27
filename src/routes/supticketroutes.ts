@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { Request,Response } from "express";
-import { AppDataSource } from "./_datasource";
-import { User } from "./entity/User";
-import { supTicket } from "./entity/supTicket";
+import { AppDataSource } from "../_datasource";
+import { User } from "../entity/User";
+import { supTicket } from "../entity/supTicket";
 import * as CircularJSON from "circular-json";
 export const suptickeroute=Router({mergeParams:true});
 suptickeroute.get("/tickets/",(req:Request,res:Response)=>{

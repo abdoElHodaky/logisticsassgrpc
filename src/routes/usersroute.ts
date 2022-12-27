@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Request,Response } from "express";
-import { AppDataSource } from "./_datasource";
-import { User } from "./entity/User";
+import { AppDataSource } from "../_datasource";
+import { User } from "../entity/User";
 import { suptickeroute } from "./supticketroutes";
 export const usersroute=Router();
 usersroute.get('/users/create', function(req:Request, res:Response) {

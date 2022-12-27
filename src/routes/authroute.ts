@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { AppDataSource } from "./data-source";
-import { User } from "./entity/User";
+import { AppDataSource } from "../_datasource";
+import { User } from "../entity/User";
 export const authroute=Router();
 
-authroute.post("/auth/signup/",(req,res)=>{
+authroute.post("/auth/register/",(req,res)=>{
     let user:User=<User>{...req.body}
     console.log(user)
     AppDataSource.manager.save(User,user).then(d=>{

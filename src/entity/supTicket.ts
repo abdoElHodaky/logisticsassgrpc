@@ -16,6 +16,6 @@ export class supTicket {
     @Column()
     description: string
 
-    @ManyToOne(type=>User,user=>user.tickets) user:User
+    @ManyToOne(()=>User,user=>user.tickets) user:User
 
 }

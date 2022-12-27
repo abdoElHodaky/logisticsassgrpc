@@ -1,5 +1,6 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Email } from "./Email"
 import { supTicket } from "./supTicket"
 
 @Entity()
@@ -26,7 +27,10 @@ export class User {
     @Column({type: "varchar", nullable: true,select:false})
     passwordHash: string
 
+    @Column(()=>Email)
+    email:Email
 
-    @OneToMany(type=>supTicket,ticket=>ticket.user) tickets:supTicket[]
+    @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
+
 
 }

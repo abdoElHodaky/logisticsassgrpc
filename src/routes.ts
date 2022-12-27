@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { authroute } from "./authroute";
+import { authroute } from "./routes/authroute";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
-import { usersroute } from "./usersroute";
+import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
 export const apiv1=Router();
 apiv1.get("/",(req,res)=>{
