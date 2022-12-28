@@ -12,6 +12,8 @@ export const usersroute=Router();
     AppDataSource.manager.save(user)
     res.end("did")
   });*/
+
+
   usersroute.get("/users",function(req:Request, res:Response){
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
