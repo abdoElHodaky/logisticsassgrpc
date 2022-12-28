@@ -4,14 +4,14 @@ import { AppDataSource } from "../_datasource";
 import { User } from "../entity/User";
 import { suptickeroute } from "./supticketroutes";
 export const usersroute=Router();
-usersroute.get('/users/create', function(req:Request, res:Response) {
+/*usersroute.get('/users/create', function(req:Request, res:Response) {
     let user=new User()
     user.lastName="moh"
     user.firstName="abdo"
     user.age=26
     AppDataSource.manager.save(user)
     res.end("did")
-  });
+  });*/
   usersroute.get("/users",function(req:Request, res:Response){
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
