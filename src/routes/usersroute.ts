@@ -4,17 +4,10 @@ import { AppDataSource } from "../_datasource";
 import { User } from "../entity/User";
 import { suptickeroute } from "./supticketroutes";
 export const usersroute=Router();
-/*usersroute.get('/users/create', function(req:Request, res:Response) {
-    let user=new User()
-    user.lastName="moh"
-    user.firstName="abdo"
-    user.age=26
-    AppDataSource.manager.save(user)
-    res.end("did")
-  });*/
-
-
-  usersroute.get("/users",function(req:Request, res:Response){
+function isNumeric(value:string) {
+  return /^\d+$/.test(value);
+}
+usersroute.get("/users",function(req:Request, res:Response){
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
     then(d=>{
@@ -25,19 +18,24 @@ export const usersroute=Router();
   })
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
-    let id=Number(req.params["userid"])
+    let id:any=req.params["userid"]
+    if(isNumeric(id)==true){id=Number(id)
     AppDataSource.getRepository(User).findOneOrFail({
-      where:{
-        id:id
-      },
-      relations:{
-        tickets:true
-      }
-    }).
-    then(d=>{
-      res.jsonp({"user":d});  
-    }).catch(console.log);
-  
+        where:{
+          id:id
+        },
+        relations:{
+          tickets:true
+        }
+      }).
+      then(d=>{
+        res.jsonp({"user":d});  
+      }).catch(console.log);
+    
+    }
+    else{
+      res.json({message:"user not found or you used invalid paramter"})
+    }
   })
 
   usersroute.delete("/users/:userid",function(req:Request, res:Response){
