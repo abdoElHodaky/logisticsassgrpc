@@ -25,11 +25,13 @@ app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
 app.use(apiv1)
+
 app.use('*',(error, req, res, next) => {
   return res
     .status(error.statusCode)
     .json({ error: error.toString() });
 });
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
