@@ -3,6 +3,7 @@ import { DataSource } from "typeorm"
 import { Article } from "./entity/Article";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User"
+import { Verification } from "./entity/Verification";
 
 export const AppDataSource = new DataSource({
     type: "sqlite",
@@ -10,7 +11,7 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [User,supTicket,Article,
-      ],
+      Verification],
     migrations: [],
     subscribers: []
 })

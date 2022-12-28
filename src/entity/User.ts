@@ -2,6 +2,7 @@ import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 import { Email } from "./Email"
 import { supTicket } from "./supTicket"
+import { Verification } from "./Verification"
 
 @Entity()
 export class User {
@@ -31,6 +32,6 @@ export class User {
     email:Email
 
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
-
+    @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
 
 }
