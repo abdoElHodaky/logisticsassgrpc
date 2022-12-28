@@ -5,6 +5,6 @@ export class Email {
     @Column({default:"test@test.com"})
     value:string
 
-    @Column({default:false})
+    @Column({default:false, select:false})
     verifed:boolean
 }
