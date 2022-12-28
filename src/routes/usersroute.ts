@@ -25,7 +25,8 @@ usersroute.get("/users",function(req:Request, res:Response){
           id:id
         },
         relations:{
-          tickets:true
+          tickets:true,
+          verifications:true
         }
       }).
       then(d=>{
