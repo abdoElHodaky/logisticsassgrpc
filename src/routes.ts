@@ -8,6 +8,11 @@ export const apiv1=Router();
 apiv1.get("/",(req,res)=>{
     res.end("Hello")
 })
+apiv1.route("/articles/").get((req,res)=>{
+    const {body}=req;
+    const {json}=res;
+    return json({message:"Articles"});
+})
 apiv1.get("/suptickets",(req,res)=>{
     AppDataSource.manager.find(supTicket).
     then(d=>{
