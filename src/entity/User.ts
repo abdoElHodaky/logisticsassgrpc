@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
 import { Email } from "./Email"
 import { supTicket } from "./supTicket"
 import { Verification } from "./Verification"
-
+import { Article } from "./Article"
 @Entity()
 export class User {
 
@@ -33,5 +33,5 @@ export class User {
 
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
-
+    @OneToMany(()=>Article,article=>article.user) articles:Article[];
 }
