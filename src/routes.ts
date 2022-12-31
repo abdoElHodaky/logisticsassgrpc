@@ -46,5 +46,26 @@ apiv1.post("/suptickets/create",(req,res)=>{
     
 
 })
+
+apiv1.post("/articles/create",(req,res)=>{
+    let article:Article=<Article>{...req.body.ticket}
+    let userid=req.body.userid
+    let user:User;
+    AppDataSource.manager.findOneByOrFail(User,{id:userid}).then(d=>{
+        user=d;
+        return user
+    }).then(a=>{
+        article.user=a;
+        a.articles=[]
+        a.articles.push(article)
+        return article
+    }).then(a=>{
+        AppDataSource.manager.save(Article,a)
+        //AppDataSource.manager.save(a.user)
+        res.json({message:"created successfully"})
+    })
+    .catch(console.log);
+})
+
 apiv1.use(authroute)
 apiv1.use(usersroute);
