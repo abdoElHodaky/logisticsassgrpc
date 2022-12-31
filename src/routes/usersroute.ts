@@ -3,10 +3,8 @@ import { Request,Response } from "express";
 import { AppDataSource } from "../_datasource";
 import { User } from "../entity/User";
 import { suptickeroute } from "./supticketroutes";
+import { isNumeric,nationalIdvalid } from "../helpers";
 export const usersroute=Router();
-function isNumeric(value:string) {
-  return /^\d+$/.test(value);
-}
 usersroute.get("/users",function(req:Request, res:Response){
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
@@ -19,7 +17,9 @@ usersroute.get("/users",function(req:Request, res:Response){
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
     let id:any=req.params["userid"]
-    if(isNumeric(id)==true){id=Number(id)
+    if(isNumeric(id)==true){
+      console.log(nationalIdvalid(id))
+      id=Number(id)
     AppDataSource.getRepository(User).findOneOrFail({
         where:{
           id:id
