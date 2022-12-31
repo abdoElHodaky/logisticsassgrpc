@@ -2,14 +2,18 @@ import { Router } from "express";
 import { authroute } from "./routes/authroute";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
+import { Article } from "./entity/Article"
 import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
 export const apiv1=Router();
 apiv1.get("/",(req,res)=>{
     res.end("Hello")
 })
-apiv1.route("/articles/").get((req,res)=>{
-    return res.json({message:"Articles"});
+apiv1.get("/articles/",(req,res)=>{
+    AppDataSource.manager.find(Article).
+    then(d=>{
+        res.json(d)
+    }).catch(console.log)
 })
 apiv1.get("/suptickets",(req,res)=>{
     AppDataSource.manager.find(supTicket).
