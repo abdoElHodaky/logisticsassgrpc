@@ -30,7 +30,7 @@ usersroute.get("/users",function(req:Request, res:Response){
         }
       }).
       then(d=>{
-        res.jsonp({"user":d});  
+        res.jsonp({...d});  
       }).catch(console.log);
     
     }
