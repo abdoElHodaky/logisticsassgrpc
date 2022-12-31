@@ -50,12 +50,12 @@ apiv1.post("/suptickets/create",(req,res)=>{
 apiv1.post("/articles/create",(req,res)=>{
     let article:Article=<Article>{...req.body.ticket}
     let userid=req.body.userid
-    let user:User;
+    let author:User;
     AppDataSource.manager.findOneByOrFail(User,{id:userid}).then(d=>{
-        user=d;
-        return user
+        author=d;
+        return author
     }).then(a=>{
-        article.user=a;
+        article.author=a;
         a.articles=[]
         a.articles.push(article)
         return article
