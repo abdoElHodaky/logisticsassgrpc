@@ -5,7 +5,7 @@ import { User } from "../entity/User";
 import { supTicket } from "../entity/supTicket";
 import * as CircularJSON from "circular-json";
 export const suptickeroute=Router({mergeParams:true});
-suptickeroute.get("/tickets/",(req:Request,res:Response)=>{
+suptickeroute.get("/",(req:Request,res:Response)=>{
     let id=Number(req.params["userid"])
     let user:User
     /*AppDataSource.manager.findOneByOrFail(User,{id:id}).then(d=>{
@@ -33,7 +33,7 @@ suptickeroute.get("/tickets/",(req:Request,res:Response)=>{
   });
 
 
-suptickeroute.get("/tickets/create",(req:Request,res:Response)=>{
+suptickeroute.get("/create",(req:Request,res:Response)=>{
     let id=Number(req.params["userid"])
     let supticket=new supTicket()
     let user:User;
