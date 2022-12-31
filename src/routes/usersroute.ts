@@ -2,7 +2,7 @@ import { Router } from "express";
 import { Request,Response } from "express";
 import { AppDataSource } from "../_datasource";
 import { User } from "../entity/User";
-import { suptickeroute } from "./supticketroutes";
+import { suptickeroute } from "./usersupticketroutes";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const usersroute=Router();
 usersroute.get("/users",function(req:Request, res:Response){
