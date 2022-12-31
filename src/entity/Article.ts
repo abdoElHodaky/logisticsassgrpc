@@ -18,5 +18,5 @@ export class Article {
     @Column({type: "varchar", nullable: true})
     cateogry: string;
 
-    @ManyToOne(()=>User,user=>user.articles) user:User;
+    @ManyToOne(()=>User,author=>author.articles) author:User;
 }
