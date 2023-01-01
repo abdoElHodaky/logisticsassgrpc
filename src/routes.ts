@@ -2,18 +2,13 @@ import { Router } from "express";
 import { authroute } from "./routes/authroute";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
-import { Article } from "./entity/Article"
 import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
+import { articlesroute } from "./routes/articlesroute";
+import { authorsroutes } from "./routes/authorsroutes";
 export const apiv1=Router();
 apiv1.get("/",(req,res)=>{
     res.end("Hello")
-})
-apiv1.get("/articles/",(req,res)=>{
-    AppDataSource.manager.find(Article).
-    then(d=>{
-        res.json(d)
-    }).catch(console.log)
 })
 apiv1.get("/suptickets",(req,res)=>{
     AppDataSource.manager.find(supTicket).
@@ -47,25 +42,7 @@ apiv1.post("/suptickets/create",(req,res)=>{
 
 })
 
-apiv1.post("/articles/create",(req,res)=>{
-    let article:Article=<Article>{...req.body.ticket}
-    let userid=req.body.userid
-    let author:User;
-    AppDataSource.manager.findOneByOrFail(User,{id:userid}).then(d=>{
-        author=d;
-        return author
-    }).then(a=>{
-        article.author=a;
-        a.articles=[]
-        a.articles.push(article)
-        return article
-    }).then(a=>{
-        AppDataSource.manager.save(Article,a)
-        //AppDataSource.manager.save(a.user)
-        res.json({message:"created successfully"})
-    })
-    .catch(console.log);
-})
-
 apiv1.use(authroute)
 apiv1.use(usersroute);
+apiv1.use(authorsroutes)
+apiv1.use(articlesroute)

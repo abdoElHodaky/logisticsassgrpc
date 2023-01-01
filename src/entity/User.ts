@@ -1,10 +1,11 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance } from "typeorm"
 import { Email } from "./Email"
 import { supTicket } from "./supTicket"
 import { Verification } from "./Verification"
 import { Article } from "./Article"
 @Entity()
+@TableInheritance({column:{type:"varchar",name:"type"}})
 export class User {
 
     @PrimaryGeneratedColumn()
@@ -33,5 +34,5 @@ export class User {
 
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
-    @OneToMany(()=>Article,article=>article.user) articles:Article[];
+    
 }

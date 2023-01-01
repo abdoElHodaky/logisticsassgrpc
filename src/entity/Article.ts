@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,PrimaryGeneratedColumn} from "typeorm"
-import { User } from "./User";
+import { Author } from "./Author";
 
 @Entity()
 export class Article {
@@ -18,5 +18,5 @@ export class Article {
     @Column({type: "varchar", nullable: true})
     cateogry: string;
 
-    @ManyToOne(()=>User,author=>author.articles) author:User;
+    @ManyToOne(()=>Author,author=>author.articles) author:Author;
 }
