@@ -9,12 +9,19 @@ import { Verification } from "./entity/Verification";
 export const AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
+    cache: {
+        duration: 30000 // 30 seconds
+    },
     synchronize: true,
     logging: false,
     entities: [User,supTicket,Article,
       Verification,Author],
     migrations: [],
-    subscribers: []
+    subscribers: [],
+    extra: {
+        connectionTimeoutMillis: 1000,
+        idleTimeoutMillis: 1500
+    }
 })
 
 AppDataSource.initialize()
