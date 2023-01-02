@@ -39,7 +39,8 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
         },
         relations:{
           tickets:true,
-          verifications:true
+          verifications:true,
+          articles:true
         }
       }).
       then(d=>{
