@@ -29,6 +29,7 @@ app.use(json())
 app.use(apiv1)
 
 app.use((error:any, req:any, res:any, next:any) => {
+  console.log(error)
   console.log("Error Handling Middleware called")
   console.log('Path: ', req.path)
   next() // (optional) invoking next middleware
