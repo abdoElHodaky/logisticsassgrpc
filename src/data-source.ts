@@ -12,7 +12,7 @@ export const AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     cache: {
-        duration: 30000 // 30 seconds
+        duration: 30000
     },
     synchronize: true,
     logging: false,
@@ -21,8 +21,8 @@ export const AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
     extra: {
-        connectionTimeoutMillis: 1000,
-        idleTimeoutMillis: 1500
+        connectionTimeoutMillis: 3000,
+        idleTimeoutMillis: 3500
     }
 })
 
