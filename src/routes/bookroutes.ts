@@ -11,3 +11,9 @@ booksroute.get("/",(req,res)=>{
     }).catch(console.log)
 })
 
+booksroute.post("/create/",(req,res)=>{
+    let book=<Book>{...req.body}
+    console.log(book)
+    res.jsonp(book)
+})
+
