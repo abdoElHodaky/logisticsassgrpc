@@ -8,7 +8,7 @@ import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User"
 import { Verification } from "./entity/Verification";
 
-export const AppDataSource = new DataSource({
+export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     cache: {
@@ -25,19 +25,18 @@ export const AppDataSource = new DataSource({
         idleTimeoutMillis: 3500
     }
 })
-
-AppDataSource.initialize()
+_AppDataSource.initialize()
   .then(async () => {
     console.log("Connection initialized with database...");
   })
   .catch((error) => console.log(error));
 
 export const getDataSource =  (delay = 3000): Promise<DataSource> => {
-  if (AppDataSource.isInitialized) return Promise.resolve(AppDataSource);
+  if (_AppDataSource.isInitialized) return Promise.resolve(_AppDataSource);
 
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (AppDataSource.isInitialized) resolve(AppDataSource);
+      if (_AppDataSource.isInitialized) resolve(_AppDataSource);
       else reject("Failed to create connection with database");
     }, delay);
   });
