@@ -3,6 +3,7 @@ WORKDIR /app
 COPY . .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev 
 RUN yarn add npx global
+RUN yarn add pm2 global
 RUN yarn add @types/express
 RUN yarn add @types/cors
 RUN yarn install -y
