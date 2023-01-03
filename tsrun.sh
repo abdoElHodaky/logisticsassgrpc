@@ -1,3 +1,3 @@
 #!/user/bin/bash
 npx tsc
-pm2 start ./dist/app.js
+node ./dist/app.js
