@@ -6,6 +6,7 @@ import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
 import { articlesroute } from "./routes/articlesroute";
 import { authorsroutes } from "./routes/authorsroutes";
+import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
 apiv1.get("/",(req,res)=>{
     res.end("Hello")
@@ -46,3 +47,4 @@ apiv1.use(authroute)
 apiv1.use(usersroute);
 apiv1.use(authorsroutes)
 apiv1.use(articlesroute)
+apiv1.use(attachmentsroute)
