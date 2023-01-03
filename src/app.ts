@@ -8,6 +8,7 @@ import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||3000
 
+AppDataSource
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
