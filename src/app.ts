@@ -3,9 +3,11 @@ import "reflect-metadata";
 import application from "express"
 import { json,urlencoded } from "express";
 import cors from "cors";
+import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||3000
+AppDataSource 
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
