@@ -1,3 +1,3 @@
 #!/user/bin/bash
 npx tsc
-pm2-runtime npx ts-node ./dist/app.js
+pm2 start ./dist/app.js
