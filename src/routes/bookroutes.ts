@@ -16,9 +16,10 @@ booksroute.get("/",(req,res)=>{
 booksroute.post("/create/",(req,res)=>{
     let book=<Book>{...req.body.book}
     let userid=req.body.userid
-    if(nationalIdvalid(userid)
-    && isNumeric(userid)){
-        console.log(book)
+    if(isNumeric(userid)
+    ){
+        userid=nationalIdvalid(userid)==true?userid:0
+        console.log(book,userid)
         res.jsonp(book)
     }
     else{
