@@ -1,8 +1,10 @@
-import { Column, Entity, PrimaryGeneratedColumn, TableInheritance } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance } from "typeorm"
+import { User } from "./User";
 @TableInheritance({column:{
     type:"varchar",
     name:"type"
-}})
+}
+})
 @Entity()
 export class Attachment {
     @PrimaryGeneratedColumn("increment")
@@ -15,4 +17,6 @@ export class Attachment {
     thumbnail:string;
     @Column({default:""})
     source:string;
+
+    @ManyToOne(()=>User,uploader=>uploader.media) uploader:User
 }

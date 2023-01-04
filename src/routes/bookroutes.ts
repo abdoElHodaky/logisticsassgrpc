@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { Book } from "../entity/Book";
+import { isNumeric, nationalIdvalid } from "../helpers";
+//import { User } from "../entity/User";
 import { AppDataSource } from "../_datasource";
 
 export const booksroute=Router()
@@ -12,8 +14,16 @@ booksroute.get("/",(req,res)=>{
 })
 
 booksroute.post("/create/",(req,res)=>{
-    let book=<Book>{...req.body}
-    console.log(book)
-    res.jsonp(book)
+    let book=<Book>{...req.body.book}
+    let userid=req.body.userid
+    if(nationalIdvalid(userid)
+    && isNumeric(userid)){
+        console.log(book)
+        res.jsonp(book)
+    }
+    else{
+        res.json({message:"check your info"})
+    }
+    
 })
 
