@@ -7,7 +7,7 @@ import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||3000
-setInterval(function (){
+/*setInterval(function (){
 if(AppDataSource.isConnected==false)
 {
   AppDataSource.connect().then(e=>{
@@ -16,7 +16,7 @@ if(AppDataSource.isConnected==false)
 }
 
 },500000)
-
+*/
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
