@@ -13,7 +13,7 @@ if(AppDataSource.isConnected==false)
   AppDataSource.connect()
 }
 
-},100000)
+},1000000)
 
 
 app.use(urlencoded({extended: true}))
