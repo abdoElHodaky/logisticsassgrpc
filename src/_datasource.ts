@@ -5,3 +5,7 @@ export let AppDataSource:DataSource=_AppDataSource
   AppDataSource=d
 
  }).catch(console.log);*/
+
+do{
+ AppDataSource.connect()
+}while (AppDataSource.isConnected==false)
