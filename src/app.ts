@@ -10,10 +10,12 @@ const port = process.env.PORT||3000
 setInterval(function (){
 if(AppDataSource.isConnected==false)
 {
-  AppDataSource.connect()
+  AppDataSource.connect().then(e=>{
+  console.log("connected")
+  }).catch(console.log)
 }
 
-},1000000)
+},500000)
 
 
 app.use(urlencoded({extended: true}))
