@@ -3,10 +3,19 @@ import "reflect-metadata";
 import application from "express"
 import { json,urlencoded } from "express";
 import cors from "cors";
-//import { AppDataSource } from "./_datasource";
+import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||3000
+setInterval(function (){
+if(AppDataSource.isConnected==false)
+{
+  AppDataSource.connect()
+}
+
+},100000)
+
+
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
