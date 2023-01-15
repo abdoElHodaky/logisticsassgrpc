@@ -41,3 +41,13 @@ export const getDataSource =  (delay = 3000): Promise<DataSource> => {
     }, delay);
   });
 };
+
+setInterval(function (){
+if(_AppDataSource.isConnected==false)
+{
+  _AppDataSource.connect().then(e=>{
+  console.log("connected")
+  }).catch(console.log)
+}
+
+},500000)
