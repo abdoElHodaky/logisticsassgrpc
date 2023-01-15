@@ -49,5 +49,8 @@ if(_AppDataSource.isConnected==false)
   console.log("connected")
   }).catch(console.log)
 }
+else{
+ console.log("connected")
+}
 
 },500000)
