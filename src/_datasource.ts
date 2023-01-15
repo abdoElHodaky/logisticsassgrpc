@@ -6,6 +6,3 @@ export let AppDataSource:DataSource=_AppDataSource
 
  }).catch(console.log);*/
 
-do{
- AppDataSource.connect()
-}while (AppDataSource.isConnected==false)
