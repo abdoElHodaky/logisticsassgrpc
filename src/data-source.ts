@@ -50,7 +50,7 @@ if(_AppDataSource.isConnected==false)
   }).catch(console.log)
 }
 else{
- console.log("connected")
+ console.log(" already connected")
 }
 
 },500000)
