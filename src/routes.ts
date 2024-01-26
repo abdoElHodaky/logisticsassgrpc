@@ -8,9 +8,6 @@ import { articlesroute } from "./routes/articlesroute";
 import { authorsroutes } from "./routes/authorsroutes";
 import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
-apiv1.get("/",(req,res)=>{
-    res.redirect("endpoints")
-})
 apiv1.get("/suptickets",(req,res)=>{
     AppDataSource.manager.find(supTicket).
     then(d=>{
