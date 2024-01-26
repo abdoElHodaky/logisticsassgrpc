@@ -5,7 +5,7 @@ const endpointsFiles = ['./dist/routes/*.js'];
 
 const config = {
     info: {
-        title: 'BlockChain API Documentation',
+        title: 'Elearning endpoints docs',
         description: '',
     },
     tags: [ ],
