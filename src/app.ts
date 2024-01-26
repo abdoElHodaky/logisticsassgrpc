@@ -32,8 +32,11 @@ app.use((error:any, req:any, res:any, next:any) => {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
-app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.get("/",(req,res)=>{
+    res.redirect("endpoints")
+})
+app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
