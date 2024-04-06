@@ -6,12 +6,17 @@ import { AppDataSource } from "../_datasource";
 export const articlesroute=Router()
 
 articlesroute.get("/articles/",(req,res)=>{
-    AppDataSource.manager.find(Article).
+    /* 	#swagger.tags = ['Article']
+        #swagger.description = 'Endpoint to get articles' */
+
+
+   /* AppDataSource.manager.find(Article).
     then(d=>{
         res.json(d)
-    }).catch(console.log)
+    }).catch(console.log)*/ 
 })
 
+    
 /*articlesroute.get("/articles/seed",(req,res)=>{
     let author:Author;
     let articles:Article[]=<Article[]>[
