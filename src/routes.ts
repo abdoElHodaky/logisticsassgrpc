@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { attachControllers } from '@decorators/express'
-import { authroute } from "./routes/authroute";
+import { AuthController } from "./controllers/auths";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { UserController } from "./controllers/users";
@@ -40,8 +40,8 @@ apiv1.post("/suptickets/create",(req,res)=>{
     
 
 })
-
-apiv1.use(authroute)
+attachControllers(apiv1,[AuthController])
+//apiv1.use(authroute)
 //apiv1.use(usersroute);
 attachControllers(apiv1,[UserController])
 apiv1.use(authorsroutes)
