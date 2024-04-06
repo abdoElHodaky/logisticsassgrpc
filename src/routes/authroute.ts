@@ -4,11 +4,15 @@ import { User } from "../entity/User";
 export const authroute=Router();
 
 authroute.post("/auth/register/",(req,res)=>{
-    let user:User=<User>{...req.body}
+/* 	#swagger.tags = ['Auth'] 
+    #swagger.description = 'Endpoint to register specific user' */
+
+    
+   /* let user:User=<User>{...req.body}
     console.log(user)
     AppDataSource.manager.save(User,user).then(d=>{
         res.json({messsage:"created succefully",user:user})
-    }).catch(console.log)
+    }).catch(console.log) */
 })
 
 authroute.post("/auth/login/",(req,res)=>{
