@@ -23,6 +23,14 @@ const config = {
     ],
     host: '',
     schemes: [],
+    components:{
+        schemas:{
+            LoginUser:{
+                username:"",
+                passwordHash:""
+            }
+        }
+    },
 };
 
 swaggerAutogen(outputFile, endpointsFiles, config);
