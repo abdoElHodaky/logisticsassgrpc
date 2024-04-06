@@ -7,7 +7,11 @@ import { Response ,Request} from "express"
 @Controller('/auth')
 export class AuthController {
   constructor(){}
+
+  @Post("login")
+  async login(@Res() res,@Body() loginUserDto: LoginUserDto){
     
+  }
 }
 
 
