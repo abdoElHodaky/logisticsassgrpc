@@ -5,10 +5,10 @@ import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket } from "../entity/supTicket";
 
-@Controller('/users/:userid/tickets/')
+@Controller('/users/:userid/')
 export class UserTicketController {
 
-  @Get("")
+  @Get("tickets")
   async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
   {
     
@@ -24,7 +24,7 @@ export class UserTicketController {
     res.json(tickets)
   }
   
-  @Post("create")
+  @Post("")
   async create(@Params("userid") userid:string){
     
     
