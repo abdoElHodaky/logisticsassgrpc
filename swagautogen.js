@@ -41,7 +41,7 @@ const config = {
                 imgurl:"",
                 content:"",
                 title:"",
-                $authorId:4
+                $userid:4
             }
     }
 };
