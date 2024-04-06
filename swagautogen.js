@@ -13,8 +13,8 @@ const config = {
       description: ''
     },
         {
-            name:"Article",
-            description:"",
+            name:'Article',
+            description:''
         }
     ],
     host: '',
