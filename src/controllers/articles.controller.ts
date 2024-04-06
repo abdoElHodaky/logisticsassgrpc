@@ -18,7 +18,7 @@ export class ArticleController {
 
   @Post("create")
   async create(@Response() res:Response ,@Body() createArticleDto:CreateArticleDto){
-    let {article,useris}=createArticleDto
+    let {article,userid}=createArticleDto
     article=<Article>{...article}
     let author:Author=await AppDataSource.manager.findOneByOrFail(Author,{id:userid})
     article.author=author
