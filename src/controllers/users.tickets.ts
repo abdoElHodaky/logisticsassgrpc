@@ -22,4 +22,22 @@ export class UserTicketController {
     let tickets=user.tickets
     res.json(tickets)
   }
+  
+  @Post("create")
+  async create(@Params("userid") userid:string){
+    
+    let id=Number(userid)
+    let supticket=new supTicket()
+    let user:User;
+    let ticket:supTicket;
+    supticket.type="inquiry"
+    supticket.subject="Greet"
+    supticket.description="How are you?"
+    user=await AppDataSource.manager.findOneByOrFail(User,{id:id})
+    user.tickets.push(supticket)
+    await AppDataSource.manager.save(User,user)
+    return {message:"created success"}
+    
+  }
+  
 }
