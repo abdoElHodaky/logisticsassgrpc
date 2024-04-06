@@ -9,31 +9,16 @@ export class AuthController {
   constructor(){}
 
   @Post("login")
-  async login(@Res() res,@Body() loginUserDto: LoginUserDto){
+  async login(@Body() loginUserDto: LoginUserDto){
      const { username,passwordHash,id}=loginUserDto
      let user= await AppDataSource.manager.findOneOrFail(User,{where:{
         username:username,
         passwordHash:passwordHash,
         id:id
     }})
+
+    if (user) return {message:"Login Succefully",user:user})
+    else return {message:"Login failed"}
+    
   }
 }
-
-
-
-
-
-
-
-
-
-let user:User=<User>{...req.body}
-    AppDataSource.manager.findOneOrFail(User,{where:{
-        username:user.username,
-        passwordHash:user.passwordHash,
-        id:user.id
-    }}).then(d=>{
-        res.json({message:"Login Succefully",user:d})
-    }).catch(err=>{
-        res.json({message:"Login failed"})
-    })
