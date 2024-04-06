@@ -6,7 +6,8 @@
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "ts-node src/app.ts",
-      "typeorm": "typeorm-ts-node-commonjs"
+      "typeorm": "typeorm-ts-node-commonjs",
+      "build":"tsc"
    },
    "author": "abdoElHodaky",
    "license": "ISC",
