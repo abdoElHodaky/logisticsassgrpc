@@ -23,24 +23,12 @@ const config = {
     ],
     host: '',
     schemes: [],
-    components:{
-        schemas:{
+    definitions:{
             LoginUser:{
                 username:"",
                 passwordHash:""
             },
              CreateUser:{
-                 username:"",
-                 firstname:"",
-                 lastname:"",
-                 $IDcardNumber:2980865431210,
-                 email:"",
-                 $age:0
-             }
-        }
-    },
-    definitions:{
-        CreateUser:{
                  username:"",
                  firstname:"",
                  lastname:"",
