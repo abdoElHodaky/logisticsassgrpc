@@ -22,7 +22,7 @@ export class ArticleController {
   }
 
   @Post("/create")
-  //async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
+  async create(@Res() res:Response){
    //  #swagger.tags = ['Article']
     
 }
