@@ -13,7 +13,7 @@ export class ArticleController {
   @Get('')
   async all(@Response() res:Response) {
     let articles=await AppDataSource.manager.find(Article)
-    res.json(articles)
+    res.send(articles)
   }
 
   @Post("create")
