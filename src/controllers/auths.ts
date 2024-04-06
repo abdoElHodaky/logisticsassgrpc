@@ -1,6 +1,6 @@
 import { User } from "../entity/User"
 import { AppDataSource } from "../_datasource";
-//import { CreateArticleDto } from "../dto/create-article.dto"
+import { LoginUserDto } from "../dto/login-user.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 
@@ -10,7 +10,12 @@ export class AuthController {
 
   @Post("login")
   async login(@Res() res,@Body() loginUserDto: LoginUserDto){
-    
+     const { username,passwordHash,id}=loginUserDto
+     let user= await AppDataSource.manager.findOneOrFail(User,{where:{
+        username:username,
+        passwordHash:passwordHash,
+        id:id
+    }})
   }
 }
 
