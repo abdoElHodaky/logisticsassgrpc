@@ -71,7 +71,16 @@ const config = {
             },
             userSupTicket:{
                 $userid:"4"
-            }
+            },
+            AddBook:{
+               $userid:"4",
+               $book:{
+                   title:"",
+                   description:"",
+                   source:"",
+                   thumbnail:""
+               }
+           }
     }
 };
 
