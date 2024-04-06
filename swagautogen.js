@@ -60,6 +60,11 @@ const config = {
                 title:"",
                 $userid:4
             },
+            userAddTicket:{
+                $type:"inquiry|complaint",
+                $subject:"greet",
+                $description:"how are you?"
+            },
             userSupTicket:{
                 $userid:"4"
             }
