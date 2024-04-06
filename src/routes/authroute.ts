@@ -12,7 +12,7 @@ authroute.post("/auth/register/",(req,res)=>{
 })
 
 authroute.post("/auth/login/",(req,res)=>{
-/* 	#swagger.tags = ['User'] 
+/* 	#swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to login specific user' */
 
     
