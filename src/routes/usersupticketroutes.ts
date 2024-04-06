@@ -6,17 +6,17 @@ import { supTicket } from "../entity/supTicket";
 import * as CircularJSON from "circular-json";
 export const suptickeroute=Router({mergeParams:true});
 suptickeroute.get("/",(req:Request,res:Response)=>{
-    /* 	#swagger.tags = ['suptickets']
+    /* 	#swagger.tags = ['User|Ticket']
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['userid'] = {
             in: 'path',
-            description: get tickets.',
+            description: 'get tickets.',
             schema: { $ref: '#/definitions/userSupTicket' }
     } 
     */
     
-    let id=Number(req.params["userid"])
-    let user:User
+  //  let id=Number(req.params["userid"])
+   // let user:User
     /*AppDataSource.manager.findOneByOrFail(User,{id:id}).then(d=>{
         d.tickets=[]
         user=d
@@ -27,7 +27,7 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
         res.jsonp({...user})
         }).catch(console.log)
       */
-        AppDataSource.manager.findOneOrFail(User,{where:{
+      /*  AppDataSource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
@@ -38,7 +38,7 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
                 return user
             }).then(a=>{
                 res.jsonp(a)
-            }).catch(console.log)    
+            }).catch(console.log)    */
   });
 
 
