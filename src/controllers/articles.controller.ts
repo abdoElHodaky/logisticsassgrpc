@@ -2,11 +2,8 @@ import { Author } from "../entity/Author";
 import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
-import { CreateArticle } from "../dto/create-article.dto"
-import {
-  Res, Post, Controller, Get,
-  attachControllers, Middleware
-} from '@decorators/express';
+import { CreateArticleDto } from "../dto/create-article.dto"
+import { Res, Post, Controller, Get } from '@decorators/express';
 
 @Controller('articles')
 class ArticleController {
