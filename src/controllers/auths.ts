@@ -21,4 +21,15 @@ export class AuthController {
     else return {message:"Login failed"};
     
   }
+
+  @Post("register")
+  async register(@Body() user:User):Promise<User>{
+    
+    let _user:User=user
+    console.log(_user)
+    _user=await AppDataSource.manager.save(User,_user)
+    return _user
+  }
+
+  
 }
