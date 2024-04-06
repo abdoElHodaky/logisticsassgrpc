@@ -3,7 +3,7 @@ import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
 import { CreateArticleDto } from "../dto/create-article.dto"
-import { Response, Post, Controller, Get } from '@decorators/express';
+import { Response, Post, Controller, Get, Body } from '@decorators/express';
 
 @Controller('articles')
 export class ArticleController {
