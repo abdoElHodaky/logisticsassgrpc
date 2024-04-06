@@ -4,7 +4,8 @@ import { User } from "../entity/User";
 export const authroute=Router();
 
 authroute.post("/auth/register/",(req,res)=>{
-/* 	#swagger.tags = ['Auth'] 
+    
+/*  #swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to register specific user' 
     #swagger.requestBody = {
             required: true,
@@ -26,6 +27,7 @@ authroute.post("/auth/register/",(req,res)=>{
 })
 
 authroute.post("/auth/login/",(req,res)=>{
+    
 /* 	#swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to login specific user' 
     #swagger.requestBody = {
