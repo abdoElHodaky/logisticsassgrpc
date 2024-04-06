@@ -27,7 +27,7 @@ export class AuthorController {
     return _author
   }
   @Get("/:id")
-  async user(@Params("id") id:string, @Res() res: Response ):Promise<User|void> 
+  async user(@Params("id") id:string, @Res() res: Response ):Promise<Author|void> 
   {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
