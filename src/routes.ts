@@ -1,10 +1,11 @@
 import { Router } from "express";
+import { attachControllers } from '@decorators/express'
 import { authroute } from "./routes/authroute";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
-import { articlesroute } from "./routes/articlesroute";
+import { ArticleController } from "./controllers/articles.controller";
 import { authorsroutes } from "./routes/authorsroutes";
 import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
@@ -43,5 +44,6 @@ apiv1.post("/suptickets/create",(req,res)=>{
 apiv1.use(authroute)
 apiv1.use(usersroute);
 apiv1.use(authorsroutes)
-apiv1.use(articlesroute)
+attachControllers(apiv1,[])
+//apiv1.use(attachControllers())
 apiv1.use(attachmentsroute)
