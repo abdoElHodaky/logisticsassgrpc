@@ -19,7 +19,7 @@ class ArticleController {
   @Post("create")
   async create(@Body() createArticleDto:CreateArticleDto, @Res() res:Res){
     let {article,useris}=createArticleDto
-    let article=<Article>{...article}
+    article=<Article>{...article}
     let author:Author=await AppDataSource.manager.findOneByOrFail(Author,{id:userid})
     article.author=author
     author.articles.push(article)
