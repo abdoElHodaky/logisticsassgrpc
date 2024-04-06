@@ -7,16 +7,11 @@ authroute.post("/auth/register/",(req,res)=>{
     
 /*  #swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to register specific user' 
-    #swagger.requestBody = {
-            required: true,
-            content: {
-                "application/json": {
-                    schema: {
-                        $ref: "#/components/schemas/CreateUser"
-                    }  
-                }
-            }
-        } 
+    #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Add new user.',
+            schema: { $ref: '#/components/schema/CreateUser' }
+    } 
     */
     
    /* let user:User=<User>{...req.body}
