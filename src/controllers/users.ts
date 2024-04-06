@@ -18,17 +18,17 @@ export class UserController {
   }
 
   @Get("/:id")
-  async user(@Params("id") id:string, @Res() res: Response ):Promise<User> |void 
+  async user(@Params("id") id:string, @Res() res: Response ):Promise<User|void> 
   {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
 
     if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
-      id=Number(id)
+      const _id=Number(id)
      let user=await AppDataSource.getRepository(User).findOneOrFail({
         where:{
-          id:id
+          id:_id
         },
         relations:{
           tickets:true,
