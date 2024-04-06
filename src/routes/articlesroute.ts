@@ -203,9 +203,9 @@ articlesroute.get("/articles/",(req,res)=>{
 
 })*/
 
-articlesroute.post("/articles/create",({article:Article,userid:String}{body},res)=>{
-    let article:Article=article//<Article>{...req.body.article}
-    let userid=userid
+articlesroute.post("/articles/create",({body},res)=>{
+    let article:Article=body.article//<Article>{...req.body.article}
+    let userid=body.userid
     let author:Author;
     AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
         author=d;
