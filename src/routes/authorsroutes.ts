@@ -45,6 +45,16 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
   })
   
   authorsroutes.get("/authors/:userid",function(req:Request, res:Response){
+    /*  #swagger.tags = ['Author'] 
+    #swagger.description = 'Endpoint to get author' 
+    #swagger.parameters['userid'] = {
+            in: 'path',
+            description: get  author.',
+            schema: { 
+              $userid:"4"
+            }
+    } 
+    */
     let id:any=req.params["userid"]
     if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
@@ -70,6 +80,15 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
   })
 
   authorsroutes.delete("/authors/:userid",function(req:Request, res:Response){
+  /* #swagger.tags = ['Author'] 
+    #swagger.description = 'Endpoint to delete author' 
+    #swagger.parameters['userid'] = {
+            in: 'path',
+            description: delete author.',
+            schema: { $userid:"4" }
+    } 
+    */
+      
     let id=Number(req.params["userid"])
     AppDataSource.getRepository(Author).delete({id:id}).
     then(d=>{
