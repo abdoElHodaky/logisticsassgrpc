@@ -44,6 +44,6 @@ apiv1.post("/suptickets/create",(req,res)=>{
 apiv1.use(authroute)
 apiv1.use(usersroute);
 apiv1.use(authorsroutes)
-attachControllers(apiv1,[])
+attachControllers(apiv1,[ArticleController])
 //apiv1.use(attachControllers())
 apiv1.use(attachmentsroute)
