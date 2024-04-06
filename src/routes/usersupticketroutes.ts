@@ -9,7 +9,7 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
     /* 	#swagger.tags = ['Support_Ticket']
         #swagger.description = 'Endpoint to get tickets' 
         
-    } */
+    */
     
     let id=Number(req.params["userid"])
     let user:User
