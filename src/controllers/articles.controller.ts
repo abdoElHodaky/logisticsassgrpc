@@ -12,7 +12,7 @@ export class ArticleController {
 
   constructor() {}
 
-  @Get()
+  @Get("/")
   async all(@Res() res:Response) {
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
