@@ -13,6 +13,10 @@ const config = {
         description:"Authentication"
     },
     {
+        name:"Attachment",
+        description:"Attachment endpoints"
+    },
+    {
       name: 'User',
       description: 'users endpoints'
     },
