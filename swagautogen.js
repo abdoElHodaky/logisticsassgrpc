@@ -39,6 +39,16 @@ const config = {
              }
         }
     },
+    definitions:{
+        CreateUser:{
+                 username:"",
+                 firstname:"",
+                 lastname:"",
+                 $IDcardNumber:2980865431210,
+                 email:"",
+                 $age:0
+             }
+    }
 };
 
 swaggerAutogen(outputFile, endpointsFiles, config);
