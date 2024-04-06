@@ -2,7 +2,7 @@ import { Author } from "../entity/Author";
 import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
-
+import { CreateArticle } from "../dto/create-article.dto"
 import {
   Response, Params, Controller, Get,
   attachControllers, Middleware
@@ -20,7 +20,7 @@ class ArticleController {
   }
 
   @Post("create")
-  async create(@Body() createArticleDto:CreateArticleDto){
+  async create(@Body() createArticleDto:CreateArticleDto, @Res() res){
     let {article,useris}=createArticleDto
     let article=<Article>{...article}
     let author:Author=await AppDataSource.manager.findOneByOrFail(Author,{id:userid})
