@@ -3,7 +3,7 @@ import { attachControllers } from '@decorators/express'
 import { authroute } from "./routes/authroute";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
-import { usersroute } from "./routes/usersroute";
+import { UserController } from "./controllers/users";
 import { AppDataSource } from "./_datasource";
 import { ArticleController } from "./controllers/articles";
 import { authorsroutes } from "./routes/authorsroutes";
@@ -42,8 +42,9 @@ apiv1.post("/suptickets/create",(req,res)=>{
 })
 
 apiv1.use(authroute)
-apiv1.use(usersroute);
+//apiv1.use(usersroute);
+attachControllers(apiv1,[UserController])
 apiv1.use(authorsroutes)
 attachControllers(apiv1,[ArticleController])
-//apiv1.use(attachControllers())
+//apiv1.use(articlesroute)
 apiv1.use(attachmentsroute)
