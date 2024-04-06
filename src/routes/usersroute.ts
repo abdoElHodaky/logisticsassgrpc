@@ -54,6 +54,6 @@ usersroute.get("/users",function(req:Request, res:Response){
   
   })
 
-usersroute.use("/users/:userid/tickets",suptickeroute)
+usersroute.use(suptickeroute)
 
 
