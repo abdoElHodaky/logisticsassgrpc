@@ -24,7 +24,7 @@ export class ArticleController {
     article.author=author
     author.articles.push(article)
     await article.save()
-    res.json({message:"created successfully"})
+    res.send({message:"created successfully"})
     /*AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
         author=d;
         return author
