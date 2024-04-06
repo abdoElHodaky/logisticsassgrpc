@@ -8,7 +8,7 @@ import { Response ,Request} from "express"
 
 
 @Controller('/suptickets')
-export class ArticleController {
+export class SupticketController {
 
   constructor() {}
 
@@ -16,7 +16,7 @@ export class ArticleController {
   async all(@Res() res:Response) {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
-
+   return
    }
     
   }
@@ -24,5 +24,6 @@ export class ArticleController {
   @Post("/create")
   async create(@Res() res:Response){
    //  #swagger.tags = ['Article']
-    
+    return
+  }
 }
