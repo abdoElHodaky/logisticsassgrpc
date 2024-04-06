@@ -4,7 +4,11 @@ import { AppDataSource } from "../_datasource";
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 
-
+@Controller('/auth')
+export class AuthController {
+  constructor(){}
+    
+}
 
 
 
