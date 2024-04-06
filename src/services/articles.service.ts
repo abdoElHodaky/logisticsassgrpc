@@ -8,6 +8,6 @@ export class ArticleService {
   constructor (){}
 
   async all():Promise<Article>{
-    
+    return
   }
 }
