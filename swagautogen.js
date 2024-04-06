@@ -35,7 +35,14 @@ const config = {
                  $IDcardNumber:2980865431210,
                  email:"",
                  $age:0
-             }
+             },
+            AddArticle{
+                cateogry:"",
+                imgurl:"",
+                content:"",
+                title:"",
+                $authorId:4
+            }
     }
 };
 
