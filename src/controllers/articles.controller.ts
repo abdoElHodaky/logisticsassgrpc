@@ -13,7 +13,7 @@ class ArticleController {
 
   constructor() {}
 
-  @Get('articles')
+  @Get('')
   async all(@Response() res:Res) {
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
