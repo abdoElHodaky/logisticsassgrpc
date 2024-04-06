@@ -6,7 +6,7 @@ import { Response ,Request} from "express"
 import { supTicket } from "../entity/supTicket";
 
 @Controller('/users/:userid/tickets/')
-export class userTicketController {
+export class UserTicketController {
 
   @Get("")
   async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
