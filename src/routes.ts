@@ -5,7 +5,7 @@ import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { usersroute } from "./routes/usersroute";
 import { AppDataSource } from "./_datasource";
-import { ArticleController } from "./controllers/articles.controller";
+import { ArticleController } from "./controllers/articles";
 import { authorsroutes } from "./routes/authorsroutes";
 import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
