@@ -20,7 +20,7 @@ export class ArticleController {
   async create(@Response() res:Response ,@Body() createArticleDto:CreateArticleDto){
     let {article,userid}=createArticleDto
     article=<Article>{...article}
-    let author=await AppDataSource.manager.findOneByOrFail(Author,{id:userid})
+    let author=await AppDataSource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
     article.author=author
     author.articles.push(article)
     await article.save()
