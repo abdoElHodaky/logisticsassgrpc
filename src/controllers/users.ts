@@ -13,6 +13,9 @@ export class UserController {
   
   @Get("/")
   async all():Promise<User[]>{
+    /* 	#swagger.tags = ['User']
+        #swagger.description = 'Endpoint to get users' */
+
     let resd:User[]=await AppDataSource.getRepository(User).find()
     return resd
   }
