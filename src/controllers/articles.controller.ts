@@ -6,7 +6,7 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get } from '@decorators/express';
 
 @Controller('articles')
-class ArticleController {
+export class ArticleController {
 
   constructor() {}
 
