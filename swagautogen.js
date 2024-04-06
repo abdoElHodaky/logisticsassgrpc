@@ -29,7 +29,6 @@ const config = {
                 username:"",
                 passwordHash:""
             },
-            {
              CreateUser:{
                  username:"",
                  firstname:"",
@@ -38,7 +37,6 @@ const config = {
                  email:"",
                  $age:0
              }
-            }
         }
     },
 };
