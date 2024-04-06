@@ -7,14 +7,18 @@ const config = {
         title: 'Elearning endpoints docs',
         description: '',
     },
-    tags: [                   
+    tags: [
+    {
+        name:"Auth",
+        description:"Authentication"
+    },
     {
       name: 'User',
-      description: ''
+      description: 'users endpoints'
     },
         {
             name:'Article',
-            description:''
+            description:'articles endpoints'
         }
     ],
     host: '',
