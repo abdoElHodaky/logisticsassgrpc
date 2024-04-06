@@ -17,6 +17,10 @@ const config = {
       description: 'users endpoints'
     },
     {
+      name: 'Author',
+      description: 'authors endpoints'
+    },
+    {
         name:'Article',
         description:'articles endpoints'
     },
