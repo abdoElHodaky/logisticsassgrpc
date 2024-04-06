@@ -5,7 +5,7 @@ import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket } from "../entity/supTicket";
 
-@Controller('/users/:userix/tickets/')
+@Controller('/users/:userid/tickets/')
 export class userTicketController extends supTicketController {
 
   @Get("")
