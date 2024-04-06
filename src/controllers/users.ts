@@ -47,6 +47,9 @@ export class UserController {
 
   @Delete("/:id")
   async delete(@Params("id") id:string, @Res() res:Response){
+    /* 	#swagger.tags = ['User']
+        #swagger.description = 'Endpoint to delete specific user' */
+
    let u=await AppDataSource.getRepository(User).delete({id:Number(id)})
    if(u) res.jsonp({message:"deleted succefully"})
    
