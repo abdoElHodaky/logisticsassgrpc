@@ -11,6 +11,14 @@ export class UserTicketController {
   @Get("")
   async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
   {
+    /* 	#swagger.tags = ['User|Ticket']
+        #swagger.description = 'Endpoint to get tickets' 
+        #swagger.parameters['userid'] = {
+            in: 'path',
+            description: get tickets.',
+            schema: { $ref: '#/definitions/userSupTicket' }
+    } 
+    */
     let id=Number(userid)
     let user=await AppDataSource.manager.findOneOrFail(User,{where:{
             id:id
@@ -25,6 +33,14 @@ export class UserTicketController {
   
   @Post("create")
   async create(@Params("userid") userid:string){
+    /* 	#swagger.tags = ['User|Ticket']
+        #swagger.description = 'Endpoint to get tickets' 
+        #swagger.parameters['userid'] = {
+            in: 'path',
+            description: get tickets.',
+            schema: { $ref: '#/definitions/userSupTicket' }
+    } 
+    */
     
     let id=Number(userid)
     let supticket=new supTicket()
