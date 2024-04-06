@@ -10,7 +10,7 @@ authroute.post("/auth/register/",(req,res)=>{
     #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new user.',
-            schema: { $ref: '#/components/schema/CreateUser' }
+            schema: { $ref: '#/definitions/CreateUser' }
     } 
     */
     
