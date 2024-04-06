@@ -8,7 +8,11 @@ export const suptickeroute=Router({mergeParams:true});
 suptickeroute.get("/",(req:Request,res:Response)=>{
     /* 	#swagger.tags = ['Support_Ticket']
         #swagger.description = 'Endpoint to get tickets' 
-        
+        #swagger.parameters['userid'] = {
+            in: 'path',
+            description: 'Add new article.',
+            schema: { $ref: '#/definitions/userSupTicket' }
+    } 
     */
     
     let id=Number(req.params["userid"])
