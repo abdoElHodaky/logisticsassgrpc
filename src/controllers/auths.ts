@@ -14,7 +14,7 @@ export class AuthController {
      let user= await AppDataSource.manager.findOneOrFail(User,{where:{
         username:username,
         passwordHash:passwordHash,
-        id:id
+       // id:id
     }})
 
     if (user) return {message:"Login Succefully",user:user})
