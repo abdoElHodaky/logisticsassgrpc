@@ -7,7 +7,7 @@ const config = {
         title: 'Elearning endpoints docs',
         description: '',
     },
-    tags: ["Users"],
+    tags: ["Users","Articles"],
     host: '',
     schemes: [],
 };
