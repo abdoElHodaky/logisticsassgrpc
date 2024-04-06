@@ -10,7 +10,7 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['userid'] = {
             in: 'path',
-            description: 'Add new article.',
+            description: get tickets.',
             schema: { $ref: '#/definitions/userSupTicket' }
     } 
     */
