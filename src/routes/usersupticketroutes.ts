@@ -42,7 +42,18 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
   });
 
 
-suptickeroute.get("/create",(req:Request,res:Response)=>{
+suptickeroute.post("/create",(req:Request,res:Response)=>{
+    
+    /* 	#swagger.tags = ['User|Ticket']
+        #swagger.description = 'Endpoint to get tickets' 
+        #swagger.parameters['userid'] = {
+            in: 'body',
+            description: 'add tickets. for specific user',
+            schema: { $ref: '#/definitions/userAddTicket' }
+    } 
+    */
+    
+    
     let id=Number(req.params["userid"])
     let supticket=new supTicket()
     let user:User;
