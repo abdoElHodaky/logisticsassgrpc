@@ -7,6 +7,9 @@ import { AppDataSource } from "../_datasource";
 export const booksroute=Router()
 
 booksroute.get("/",(req,res)=>{
+    /* 	#swagger.tags = ['Attachment.Book']
+        #swagger.description = 'Endpoint to get books' 
+    */
     AppDataSource.manager.find(Book).
     then(d=>{
         res.json(d)
@@ -14,6 +17,14 @@ booksroute.get("/",(req,res)=>{
 })
 
 booksroute.post("/create/",(req,res)=>{
+    /* 	#swagger.tags = ['Attachment.Book']
+        #swagger.description = 'Endpoint to get tickets' 
+        #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'book.',
+            schema: { $ref: '#/definitions/AddBook' }
+    } 
+    */
     let book=<Book>{...req.body.book}
     let userid=req.body.userid
     if(isNumeric(userid)
