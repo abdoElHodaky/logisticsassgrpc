@@ -16,10 +16,14 @@ const config = {
       name: 'User',
       description: 'users endpoints'
     },
-        {
-            name:'Article',
-            description:'articles endpoints'
-        }
+    {
+        name:'Article',
+        description:'articles endpoints'
+    },
+    {
+       name:'suptickets',
+       description:'tickets endpoints'
+    }
     ],
     host: '',
     schemes: [],
