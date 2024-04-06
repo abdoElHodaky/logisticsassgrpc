@@ -5,7 +5,7 @@ import { User } from "../entity/User";
 import { supTicket } from "../entity/supTicket";
 import * as CircularJSON from "circular-json";
 export const suptickeroute=Router({mergeParams:true});
-suptickeroute.get("/",(req:Request,res:Response)=>{
+suptickeroute.get("/users/:userid/tickets",(req:Request,res:Response)=>{
     /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['userid'] = {
@@ -42,7 +42,7 @@ suptickeroute.get("/",(req:Request,res:Response)=>{
   });
 
 
-suptickeroute.post("/create",(req:Request,res:Response)=>{
+suptickeroute.post("/users/:userid/tickets/",(req:Request,res:Response)=>{
     
     /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get tickets' 
