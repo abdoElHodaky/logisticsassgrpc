@@ -2,7 +2,7 @@ import { Article } from "../entity/Article"
 import { User } from "../entity/User"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
+import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
@@ -40,6 +40,13 @@ export class UserController {
     else{
        res.json({message:"user not found or you used invalid paramter"})
     }
+  }
+
+  @Delete("/:id")
+  async delete(@Params("id") id:string, @Res() res:Response){
+   let u=await AppDataSource.getRepository(User).delete({id:Number(id)})
+   if(u) res.jsonp({message:"deleted succefully"})
+   
   }
 
   
