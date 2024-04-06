@@ -24,7 +24,7 @@ export class UserTicketController {
     res.json(tickets)
   }
   
-  @Post("")
+  @Post("tickets")
   async create(@Params("userid") userid:string){
     
     
