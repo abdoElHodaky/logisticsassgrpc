@@ -49,7 +49,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
     #swagger.description = 'Endpoint to get author' 
     #swagger.parameters['userid'] = {
             in: 'path',
-            description: get  author.',
+            description:' get  author.',
             schema: { 
               $userid:"4"
             }
@@ -84,7 +84,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
     #swagger.description = 'Endpoint to delete author' 
     #swagger.parameters['userid'] = {
             in: 'path',
-            description: delete author.',
+            description:' delete author.',
             schema: { $userid:"4" }
     } 
     */
