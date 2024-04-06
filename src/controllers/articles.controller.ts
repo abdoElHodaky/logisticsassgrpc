@@ -14,7 +14,10 @@ export class ArticleController {
 
   @Get("/")
   async all(@Res() res:Response) {
-     //#swagger.tags = ['Article']
+   /* 	#swagger.tags = ['Article']
+        #swagger.description = 'Endpoint to get articles' */
+
+    
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
   }
