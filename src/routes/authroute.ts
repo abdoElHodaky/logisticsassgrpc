@@ -12,7 +12,11 @@ authroute.post("/auth/register/",(req,res)=>{
 })
 
 authroute.post("/auth/login/",(req,res)=>{
-    let user:User=<User>{...req.body}
+/* 	#swagger.tags = ['User'] 
+    #swagger.description = 'Endpoint to login specific user' */
+
+    
+   /* let user:User=<User>{...req.body}
     AppDataSource.manager.findOneOrFail(User,{where:{
         username:user.username,
         passwordHash:user.passwordHash,
@@ -21,5 +25,5 @@ authroute.post("/auth/login/",(req,res)=>{
         res.json({message:"Login Succefully",user:d})
     }).catch(err=>{
         res.json({message:"Login failed"})
-    })
+    })*/
 })
