@@ -11,7 +11,7 @@ export class ArticleController {
   constructor() {}
 
   @Get('')
-  async all(@Response() res:Res) {
+  async all(@Response() res:Response) {
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
   }
