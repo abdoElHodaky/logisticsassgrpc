@@ -8,7 +8,7 @@ import {
   attachControllers, Middleware
 } from '@decorators/express';
 
-@Controller('/')
+@Controller('articles')
 class ArticleController {
 
   constructor() {}
