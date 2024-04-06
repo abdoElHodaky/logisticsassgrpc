@@ -1,7 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./dist/routes/*.js','./dist/routes.js','./dist/controllers/*.controller.js'];
+const endpointsFiles = ['./dist/routes/*.js','./dist/routes.js','./dist/controllers/*.js'];
 const config = {
     info: {
         title: 'Elearning endpoints docs',
