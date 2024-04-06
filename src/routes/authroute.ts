@@ -30,7 +30,7 @@ authroute.post("/auth/login/",(req,res)=>{
             content: {
                 "application/json": {
                     schema: {
-                        $ref: "#/components/schemas/LoginUser"
+                        $ref: "#/definitions/LoginUser"
                     }  
                 }
             }
