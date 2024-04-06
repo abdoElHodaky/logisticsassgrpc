@@ -22,11 +22,11 @@ apiv1.get("/suptickets",(req,res)=>{
     }).catch(console.log)
 })
 apiv1.post("/suptickets/create",(req,res)=>{
-    /* 	#swagger.tags = ['User|Ticket']
-        #swagger.description = 'Endpoint to get tickets' 
+    /* 	#swagger.tags = ['suptickets']
+        #swagger.description = 'Endpoint to create tickets for specific user' 
         #swagger.parameters['userid'] = {
             in: 'body',
-            description: 'get tickets.',
+            description: 'userid',
             schema: { $ref: '#/definitions/userAddTicket' }
     } 
     */
