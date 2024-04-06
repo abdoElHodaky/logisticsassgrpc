@@ -10,15 +10,15 @@ export class AuthController {
 
   @Post("login")
   async login(@Body() loginUserDto: LoginUserDto){
-     const { username,passwordHash,id}=loginUserDto
+     const { username,passwordHash}=loginUserDto
      let user= await AppDataSource.manager.findOneOrFail(User,{where:{
         username:username,
         passwordHash:passwordHash,
        // id:id
     }})
 
-    if (user) return {message:"Login Succefully",user:user})
-    else return {message:"Login failed"}
+    if (user) return {message:"Login Succefully",user:user};
+    else return {message:"Login failed"};
     
   }
 }
