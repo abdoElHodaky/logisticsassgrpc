@@ -40,6 +40,15 @@ const config = {
                  email:"",
                  $age:0
              },
+             CreateAuthor:{
+                 username:"",
+                 firstname:"",
+                 lastname:"",
+                 $IDcardNumber:2980865431210,
+                 email:"",
+                 $age:0,
+                 type:"author"
+             },
             AddArticle:{
                 cateogry:"",
                 imgurl:"",
