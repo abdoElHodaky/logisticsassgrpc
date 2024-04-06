@@ -4,7 +4,7 @@ import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
 import { CreateArticle } from "../dto/create-article.dto"
 import {
-  Response, Params, Controller, Get,
+  Response, Post, Controller, Get,
   attachControllers, Middleware
 } from '@decorators/express';
 
