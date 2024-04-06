@@ -203,7 +203,7 @@ articlesroute.get("/articles/",(req,res)=>{
 
 })*/
 
-articlesroute.post("/articles/create",({article:Article,userid:string},res)=>{
+articlesroute.post("/articles/create",({body.article:Article,body.userid:string},res)=>{
     let article:Article=article//<Article>{...req.body.article}
     let userid=userid
     let author:Author;
