@@ -6,6 +6,7 @@ import { suptickeroute } from "./usersupticketroutes";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const usersroute=Router();
 usersroute.get("/users",function(req:Request, res:Response){
+    #swagger.tags = ['Users']
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
     then(d=>{
