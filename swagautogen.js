@@ -36,7 +36,7 @@ const config = {
                  email:"",
                  $age:0
              },
-            AddArticle{
+            AddArticle:{
                 cateogry:"",
                 imgurl:"",
                 content:"",
