@@ -11,6 +11,10 @@ import { AuthorController } from "./controllers/authors";
 import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
 apiv1.get("/suptickets",(req,res)=>{
+/* 	#swagger.tags = ['suptickets']
+        #swagger.description = 'Endpoint to get tickets' 
+    */
+    
     AppDataSource.manager.find(supTicket).
     then(d=>{
         //d.map((el,i)=>console.log(el.user))
@@ -18,6 +22,15 @@ apiv1.get("/suptickets",(req,res)=>{
     }).catch(console.log)
 })
 apiv1.post("/suptickets/create",(req,res)=>{
+    /* 	#swagger.tags = ['User|Ticket']
+        #swagger.description = 'Endpoint to get tickets' 
+        #swagger.parameters['userid'] = {
+            in: 'body',
+            description: 'get tickets.',
+            schema: { $ref: '#/definitions/userAddTicket' }
+    } 
+    */
+    
     let supticket:supTicket=<supTicket>{...req.body.ticket}
     let userid=req.body.userid
     let user:User;
