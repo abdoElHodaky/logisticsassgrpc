@@ -9,7 +9,7 @@ const config = {
     },
     tags: [ ],
     host: '',
-    schemes: ["./dist/dto/*"],
+    schemes: [],
 };
 
 swaggerAutogen(outputFile, endpointsFiles, config);
