@@ -209,7 +209,15 @@ articlesroute.get("/articles/",(req,res)=>{
 })*/
 
 articlesroute.post("/articles/create",({body},res)=>{
-    let article:Article=body.article//<Article>{...req.body.article}
+    /* 	#swagger.tags = ['Article']
+        #swagger.description = 'Endpoint to add new article' 
+        #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Add new article.',
+            schema: { $ref: '#/definitions/AddArticle' }
+    } */
+    
+   /* let article:Article=body.article
     let userid=body.userid
     let author:Author;
     AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
@@ -224,7 +232,7 @@ articlesroute.post("/articles/create",({body},res)=>{
         AppDataSource.manager.save(Article,a)
         //AppDataSource.manager.save(a.user)
         res.json({message:"created successfully"})
-    })
+    })*/
 })
 
 /*articlesroute.post("/articles/create",(req,res)=>{
