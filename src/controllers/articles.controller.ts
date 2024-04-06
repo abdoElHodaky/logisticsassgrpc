@@ -6,7 +6,7 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
-#swagger.tags = ['Article']
+//#swagger.tags = ['Article']
 @Controller('/articles')
 export class ArticleController {
 
