@@ -11,7 +11,8 @@ export class UserController {
   constructor(){}
   
   @Get("/")
-  async all():Promise<User[]>{
-    
+  async all(@Res() res:Response):Promise<User[]>{
+    let resd:User[]=await AppDataSource.getRepository(User).find()
+    return res.jsonp(resd)
   }
 }
