@@ -7,18 +7,18 @@ import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
 #swagger.tags = ['Article']
-@Controller('articles')
+@Controller('/articles')
 export class ArticleController {
 
   constructor() {}
 
-  @Get('')
+  @Get()
   async all(@Res() res:Response) {
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
   }
 
-  @Post("create")
+  @Post("/create")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
     let {article,userid}=createArticleDto
     article=<Article>{...article}
