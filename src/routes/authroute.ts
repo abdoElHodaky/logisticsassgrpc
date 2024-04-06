@@ -19,6 +19,17 @@ authroute.post("/auth/login/",(req,res)=>{
 /* 	#swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to login specific user' */
 
+    /*  #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: {
+                        $ref: "#/components/schemas/LoginUser"
+                    }  
+                }
+            }
+        } 
+    */
     
    /* let user:User=<User>{...req.body}
     AppDataSource.manager.findOneOrFail(User,{where:{
