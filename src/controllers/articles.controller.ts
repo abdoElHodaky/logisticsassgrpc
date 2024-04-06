@@ -14,14 +14,14 @@ export class ArticleController {
 
   @Get("/")
   async all(@Res() res:Response) {
-    #swagger.tags = ['Article']
+    // #swagger.tags = ['Users']
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
   }
 
   @Post("/create")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
-    #swagger.tags = ['Article']
+    // #swagger.tags = ['Users']
     let {article,userid}=createArticleDto
     article=<Article>{...article}
     let author=await AppDataSource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
