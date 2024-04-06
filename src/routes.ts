@@ -45,7 +45,7 @@ attachControllers(apiv1,[AuthController])
 //apiv1.use(authroute)
 //apiv1.use(usersroute);
 attachControllers(apiv1,[UserController,userTicketController])
-attacbControllers(apiv1,[AuthorController])
+attachControllers(apiv1,[AuthorController])
 //apiv1.use(authorsroutes)
 attachControllers(apiv1,[ArticleController])
 //apiv1.use(articlesroute)
