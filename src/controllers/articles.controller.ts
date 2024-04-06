@@ -6,7 +6,7 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
-//#swagger.tags = ['Article']
+
 @Controller('/articles')
 export class ArticleController {
 
@@ -14,12 +14,14 @@ export class ArticleController {
 
   @Get("/")
   async all(@Res() res:Response) {
+    #swagger.tags = ['Article']
     let articles=await AppDataSource.manager.find(Article)
     res.json(articles)
   }
 
   @Post("/create")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
+    #swagger.tags = ['Article']
     let {article,userid}=createArticleDto
     article=<Article>{...article}
     let author=await AppDataSource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
