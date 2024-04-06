@@ -7,8 +7,8 @@ import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 
-@Controller('/users')
-export class UserController {
+@Controller('/authors')
+export class AuthorController {
   constructor(){}
   
   @Get("/")
