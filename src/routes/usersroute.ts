@@ -6,7 +6,9 @@ import { suptickeroute } from "./usersupticketroutes";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const usersroute=Router();
 usersroute.get("/users",function(req:Request, res:Response){
-    #swagger.tags = ['Users']
+    /* 	#swagger.tags = ['User']
+        #swagger.description = 'Endpoint to sign in a specific user' */
+
     let resd:User[]=[];
     AppDataSource.getRepository(User).find().
     then(d=>{
@@ -17,6 +19,9 @@ usersroute.get("/users",function(req:Request, res:Response){
   })
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
+   /* 	#swagger.tags = ['User']
+        #swagger.description = 'Endpoint to sign in a specific user' */
+
     let id:any=req.params["userid"]
     if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
