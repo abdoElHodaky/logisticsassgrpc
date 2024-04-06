@@ -6,7 +6,7 @@ import { User } from "./entity/User";
 import { UserController } from "./controllers/users";
 import { AppDataSource } from "./_datasource";
 import { ArticleController } from "./controllers/articles";
-import { authorsroutes } from "./routes/authorsroutes";
+import { AuthorController } from "./controllers/authors";
 import { attachmentsroute } from "./routes/attachmentroutes";
 export const apiv1=Router();
 apiv1.get("/suptickets",(req,res)=>{
@@ -44,7 +44,8 @@ attachControllers(apiv1,[AuthController])
 //apiv1.use(authroute)
 //apiv1.use(usersroute);
 attachControllers(apiv1,[UserController])
-apiv1.use(authorsroutes)
+attacbControllers(apiv1,[AuthorController])
+//apiv1.use(authorsroutes)
 attachControllers(apiv1,[ArticleController])
 //apiv1.use(articlesroute)
 apiv1.use(attachmentsroute)
