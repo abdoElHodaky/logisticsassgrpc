@@ -6,7 +6,13 @@ import { Author } from "../entity/Author";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const authorsroutes=Router();
 authorsroutes.get("/authors",function(req:Request, res:Response){
-    let resd:Author[]=[];
+    /*  #swagger.tags = ['Author'] 
+    #swagger.description = 'Endpoint to get authors' 
+    */
+    
+    
+    
+    /*let resd:Author[]=[];
     AppDataSource.getRepository(Author).find().
     then(d=>{
         let author:Author;
@@ -17,15 +23,25 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
           
     }).catch(console.log);
     //console.log(resd)
-  
+   */
   })
 
   authorsroutes.post("/authors/create",function(req:Request, res:Response){
-    let author:Author=<Author>{...req.body}
+    
+/*  #swagger.tags = ['Author'] 
+    #swagger.description = 'Endpoint to add author' 
+    #swagger.parameters['body'] = {
+            in: 'body',
+            description: 'Add new author.',
+            schema: { $ref: '#/definitions/CreateAuthor' }
+    } 
+    */
+      
+    /*let author:Author=<Author>{...req.body}
     AppDataSource.getRepository(Author).save(author).
     then(d=>{
       res.jsonp({...d});  
-    }).catch(console.log);
+    }).catch(console.log); */
   })
   
   authorsroutes.get("/authors/:userid",function(req:Request, res:Response){
