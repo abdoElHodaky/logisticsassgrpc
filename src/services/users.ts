@@ -19,7 +19,7 @@ export class UserService {
 
 
     if(isNumeric(userId)==true){
-      console.log(nationalIdvalid(userId))
+      console.log((userId)
       const _id=Number(userId)
      let user:User=await this.datasource.getRepository(User).findOneOrFail({
         where:{
@@ -30,6 +30,7 @@ export class UserService {
           verifications:true
         }
       })
+      console.log(user)
       if (typeof(user)=="boolean" && user==false) return new User()
       else return user
     }
