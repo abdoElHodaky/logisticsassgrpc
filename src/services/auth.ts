@@ -21,9 +21,12 @@ export class AuthService {
 
   }
   
-  async create():Promise<User|void> {
+  async create(user:User):Promise<User|void> {
 
-
+    let _user:User=user
+    console.log(_user)
+    _user=await this.datasource.manager.save(User,_user)
+    return _user
     
   }
   
