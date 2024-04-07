@@ -24,13 +24,14 @@ export class ArticleController {
   @Post("")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
    //  #swagger.tags = ['Article']
-    let {article,userid}=createArticleDto
+    /*let {article,userid}=createArticleDto
     article=<Article>{...article}
     let author=await AppDataSource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
     article.author=author
     author.articles.push(article)
-    await AppDataSource.manager.save(Article,article)
-    res.json({message:"created successfully"})
+    await AppDataSource.manager.save(Article,article)*/
+    let article=await this.articleS.create(createArticleDto)
+    if(article) res.json({message:"created successfully"})
     /*AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
         author=d;
         return author
