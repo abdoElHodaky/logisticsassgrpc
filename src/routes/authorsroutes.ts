@@ -26,7 +26,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
    */
   })
 
-  authorsroutes.post("/authors/create",function(req:Request, res:Response){
+  authorsroutes.post("/authors/",function(req:Request, res:Response){
     
 /*  #swagger.tags = ['Author'] 
     #swagger.description = 'Endpoint to add author' 
