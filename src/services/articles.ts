@@ -16,13 +16,13 @@ export class ArticleService {
 
  async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
      
-     let {article,userid}=createArticleDto
-    article=<Article>{...article}
+    const {article,userid}=createArticleDto
+    let _article=<Article>{...article}
     let author=await this.datasource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
-    article.author=author
-    author.articles.push(article)
-    article=await this.datasource.manager.save(Article,article)
-    return article
+    _article.author=author
+    author.articles.push(_article)
+    _article=await this.datasource.manager.save(Article,_article)
+    return _article
    
  }
 }
