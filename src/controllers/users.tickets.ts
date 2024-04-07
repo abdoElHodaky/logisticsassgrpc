@@ -24,7 +24,7 @@ export class UserTicketController {
   }
   
   @Post("/:userid/tickets")
-  async create(@Params("userid") userid:string):Promise<supTicket|object> {
+  async create(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void> {
     
     
    /* let id=Number(userid)
@@ -38,7 +38,7 @@ export class UserTicketController {
     user.tickets.push(supticket)
     await AppDataSource.manager.save(User,user)*/
     let ticket=await this.userticketS.create(userid)
-    if(ticket) return {message:"created success"}
+    if(ticket) res.json({message:"created success"})
     
   }
   
