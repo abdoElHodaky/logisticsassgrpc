@@ -53,9 +53,9 @@ export class AuthorController {
     else{
        res.json({message:"user not found or you used invalid paramter"})
     }*/
-    let user =await this.authorS.id(id)
-    if (!user) res.json({message:"user not found or you used invalid paramter"})
-    else return user
+    let author =await this.authorS.id(id)
+    if (!author) res.json({message:"user not found or you used invalid paramter"})
+    else return author
     
   }
 
