@@ -1,21 +1,18 @@
-import { User } from "../entity/User"
-import { AppDataSource } from "../_datasource";
+import { User } from "../entity/"
+//import { AppDataSource } from "../_datasource";
 import { LoginUserDto } from "../dto/login-user.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 
 @Controller('/auth')
 export class AuthController {
+  private authS:AuthService=new AuthService()
   constructor(){}
 
   @Post("login")
   async login(@Body() loginUserDto: LoginUserDto){
-     const { username,passwordHash}=loginUserDto
-     let user= await AppDataSource.manager.findOneOrFail(User,{where:{
-        username:username,
-        passwordHash:passwordHash,
-       // id:id
-    }})
+     //const { username,passwordHash}=loginUserDto
+     let user= await this.authS.login(loginUserDto)
 
     if (user) return {message:"Login Succefully",user:user};
     else return {message:"Login failed"};
@@ -27,7 +24,7 @@ export class AuthController {
     
     let _user:User=user
     console.log(_user)
-    _user=await AppDataSource.manager.save(User,_user)
+    _user=await this.authS.create(user)
     return _user
   }
 
