@@ -4,23 +4,24 @@ import { AppDataSource } from "../_datasource";
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket } from "../entity/supTicket";
+import { UserTicketService } from "../services/users.tickets";
 
 @Controller('/users/')
 export class UserTicketController {
-
+ private userticketS:UserTicketService =new UserTicketService()
   @Get(":userid/tickets")
   async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
   {
     
-    let id=Number(userid)
+   /* let id=Number(userid)
     let user=await AppDataSource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
             tickets:true
            }
-            })
-    let tickets=user.tickets
+            })*/
+    let tickets=await this.userticketS.all(id)
     res.json(tickets)
   }
   
