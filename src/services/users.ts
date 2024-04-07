@@ -31,7 +31,7 @@ export class UserService {
         }
       })
       console.log(user)
-      if (typeof(user)=="boolean" && user==false) return new User()
+      if (user==null) return new User()
       else return user
     }
     //else return 
