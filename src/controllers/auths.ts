@@ -1,7 +1,7 @@
 import { User } from "../entity/"
 import { AuthService } from "../services/";
 //import { AppDataSource } from "../_datasource";
-import { LoginUserDto } from "../dto/login-user.dto"
+import { LoginUserDto ,CreateUserDto } from "../dto/"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 
@@ -21,9 +21,9 @@ export class AuthController {
   }
 
   @Post("register")
-  async register(@Body() user:User):Promise<User>{
+  async register(@Body() user:CreateUserDto):Promise<User>{
     
-    let _user:User=user
+    let _user:User=<User>{...user}
     console.log(_user)
     _user=await this.authS.create(user)
     return _user
