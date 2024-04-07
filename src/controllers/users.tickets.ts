@@ -5,10 +5,10 @@ import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket } from "../entity/supTicket";
 
-@Controller('/users')
+@Controller('/users/')
 export class UserTicketController {
 
-  @Get("/:userid/tickets")
+  @Get(":userid/tickets")
   async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
   {
     
@@ -24,11 +24,11 @@ export class UserTicketController {
     res.json(tickets)
   }
   
-  @Post("/:userid/tickets")
+  @Post(":userid/tickets")
   async create(@Params("userid") userid:string){
     
     
-    let id=Number(userid)
+   /* let id=Number(userid)
     let supticket=new supTicket()
     let user:User;
     let ticket:supTicket;
@@ -37,8 +37,9 @@ export class UserTicketController {
     supticket.description="How are you?"
     user=await AppDataSource.manager.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
-    await AppDataSource.manager.save(User,user)
-    return {message:"created success"}
+    await AppDataSource.manager.save(User,user)*/
+    let ticket=await this.userticketS.create(userid)
+    if(ticket) return {message:"created success"}
     
   }
   
