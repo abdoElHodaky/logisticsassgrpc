@@ -36,8 +36,8 @@ export class UserTicketService {
     supticket.description="How are you?"
     user=await this.datasource.manager.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
-    await this.datasource.manager.save(User,user)
-    return
+    let u=await this.datasource.manager.save(User,user)
+    return u.tickets.at(-1)
     
   }
   
