@@ -35,8 +35,8 @@ export class AuthorService {
    // else return 
   }
 
-  async create(author:CreateAuthorDto):Promise<Article|void>{
-    let _author=<Author>{...author}
+  async create(author:CreateAuthorDto):Promise<Author|void>{
+    let _author={...author}
    _author=await this.datasource.getRepository(Author).save(author)
     return _author
   }
