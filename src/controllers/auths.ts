@@ -21,7 +21,7 @@ export class AuthController {
   }
 
   @Post("register")
-  async register(@Body() user:CreateUserDto):Promise<User>{
+  async register(@Body() user:User):Promise<User>{
     
     let _user:User
     _user=await this.authS.create(user)
