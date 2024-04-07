@@ -1,1 +1,1 @@
-
+export {AuthController} from "./auths";
