@@ -7,24 +7,23 @@ import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
 
-@Controller('/articles')
+@Controller('/articles/')
 export class ArticleController {
   
   private articleS:ArticleService
   
   constructor( ) {}
 
-  @Get("/")
+  @Get("")
   async all(@Res() res:Response) {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
-
-    
+    this.articleS.datasource=AppDataSource
     let articles=await this.articleS.all()
     res.json(articles)
   }
 
-  @Post("/create")
+  @Post("")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
    //  #swagger.tags = ['Article']
     let {article,userid}=createArticleDto
