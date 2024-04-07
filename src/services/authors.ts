@@ -4,7 +4,7 @@ import { DataSource ,AppDataSource  } from "../includes"
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
-@Injectable()
+//@Injectable()
 export class AuthorService {
   
   public  datasource:DataSource=AppDataSource
