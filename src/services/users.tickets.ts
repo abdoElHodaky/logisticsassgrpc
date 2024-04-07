@@ -8,12 +8,12 @@ import { supTicket ,User } from "../entity/";
 
 export class UserTicketService {
 
-  
+  private  datasource:DataSource=AppDataSource
   async all(id:string):Promise<supTicket|void>
   {
     
     let id=Number(userid)
-    let user=await AppDataSource.manager.findOneOrFail(User,{where:{
+    let user=await this.datasource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
@@ -21,11 +21,10 @@ export class UserTicketService {
            }
             })
     let tickets=user.tickets
-    res.json(tickets)
+    return tickets
   }
   
-  @Post("/:userid/tickets")
-  async create(@Params("userid") userid:string){
+  async create(userid:string):Promise<object|void>{
     
     
     let id=Number(userid)
@@ -35,10 +34,10 @@ export class UserTicketService {
     supticket.type="inquiry"
     supticket.subject="Greet"
     supticket.description="How are you?"
-    user=await AppDataSource.manager.findOneByOrFail(User,{id:id})
+    user=await this.datasource.manager.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
-    await AppDataSource.manager.save(User,user)
-    return {message:"created success"}
+    await this.datasource.manager.save(User,user)
+    return
     
   }
   
