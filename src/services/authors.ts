@@ -34,5 +34,9 @@ export class AuthorService {
     }
    // else return 
   }
+
+  async articles():Promise<Article[]|void>{
+    return
+  }
   
 }
