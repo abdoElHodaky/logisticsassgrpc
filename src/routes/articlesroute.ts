@@ -5,7 +5,7 @@ import { AppDataSource } from "../_datasource";
 
 export const articlesroute=Router()
 
-articlesroute.get("/articles",(req,res)=>{
+articlesroute.get("/articles/",(req,res)=>{
     /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
 
@@ -208,7 +208,7 @@ articlesroute.get("/articles",(req,res)=>{
 
 })*/
 
-articlesroute.post("/articles",({body},res)=>{
+articlesroute.post("/articles/",({body},res)=>{
     /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to add new article' 
         #swagger.parameters['body'] = {
