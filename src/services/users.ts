@@ -4,13 +4,14 @@ import { DataSource ,AppDataSource  } from "../includes"
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
-@Injectable()
+//@Injectable()
 export class UserService {
   
   public  datasource:DataSource=AppDataSource
   constructor ( ){}
 
   async all():Promise<User[]>{
+    console.log(this.datasource)
     return await this.datasource.manager.find(User)
   }
   
