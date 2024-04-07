@@ -7,8 +7,10 @@ import { UserTicketService } from "../services/";
 @Controller('/users')
 export class UserTicketController {
  private userticketS:UserTicketService =new UserTicketService()
+  
+ 
   @Get("/:userid/tickets")
-  async all(@Params("id") id:string, @Res() res:Response):Promise<supTicket[]|void>
+  async all(@Params("userid") id:string, @Res() res:Response):Promise<supTicket[]|void>
   {
     
    /* let id=Number(userid)
