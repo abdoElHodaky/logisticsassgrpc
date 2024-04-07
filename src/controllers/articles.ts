@@ -31,7 +31,7 @@ export class ArticleController {
     author.articles.push(article)
     await AppDataSource.manager.save(Article,article)*/
     let article=await this.articleS.create(createArticleDto)
-    if(article) res.json({message:"created successfully"})
+    res.json({message:"created successfully"})
     /*AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
         author=d;
         return author
