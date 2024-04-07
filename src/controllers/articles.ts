@@ -10,7 +10,7 @@ import { Response ,Request} from "express"
 @Controller('/articles/')
 export class ArticleController {
   
-  private articleS:ArticleService
+  private articleS:ArticleService=new ArticleService()
   
   constructor( ) {}
 
