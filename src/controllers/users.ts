@@ -48,7 +48,7 @@ export class UserController {
        res.json({message:"user not found or you used invalid paramter"})
     }*/
     let user=await this.userS.id(id)
-    if(user===false) res.json({message:"user not found or you used invalid paramter"})
+    if(user===false) res.status(405).json({message:"user not found or you used invalid paramter"})
     return user
   }
 
