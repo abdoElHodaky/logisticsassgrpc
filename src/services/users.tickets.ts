@@ -1,5 +1,5 @@
 
-import { AppDataSource , DataSource } from "../_datasource";
+import { AppDataSource , DataSource } from "../includes";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
@@ -9,7 +9,7 @@ import { supTicket ,User } from "../entity/";
 export class UserTicketService {
 
   private  datasource:DataSource=AppDataSource
-  async all(userId:string):Promise<supTicket[]|void>
+  async all(userId:string):Promise<supTicket[]>
   {
     
     let id=Number(userId)
