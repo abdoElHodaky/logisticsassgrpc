@@ -1,3 +1,5 @@
+import { Inject } from "@decorators/di";
+import { AuthorService} from "../services/authors";
 import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
@@ -9,7 +11,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Controller('/authors')
 export class AuthorController {
-  constructor(){}
+  constructor(@Inject("authorS") private readonly authorS:AuthorService ){}
   
   @Get("/")
   async all():Promise<Author[]>{
