@@ -1,2 +1,2 @@
 export {DataSource } from "typeorm";
-export {AppDataSource } from "./_datasource"
+export {AppDataSource , _datasource } from "./_datasource"
