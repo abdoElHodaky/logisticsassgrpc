@@ -11,7 +11,6 @@ export class ArticleService {
 
   async all():Promise<Article[]>
   {
-    let articles=await this.datasource.manager.find(Article)
-    return articles
+    return this.datasource.manager.find(Article)
   }
 }
