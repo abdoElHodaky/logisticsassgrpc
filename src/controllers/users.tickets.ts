@@ -1,16 +1,14 @@
-import { User } from "../entity/User"
-import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
-import { supTicket } from "../entity/supTicket";
+import { supTicket , User } from "../entity/";
 import { UserTicketService } from "../services/users.tickets";
 
 @Controller('/users/')
 export class UserTicketController {
  private userticketS:UserTicketService =new UserTicketService()
   @Get(":userid/tickets")
-  async all(@Params("userid") userid:string, @Res() res:Response):Promise<supTicket|void>
+  async all(@Params("id") id:string, @Res() res:Response):Promise<supTicket[]|void>
   {
     
    /* let id=Number(userid)
