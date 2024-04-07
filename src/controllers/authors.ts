@@ -9,11 +9,11 @@ import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 
-@Controller('/authors')
+@Controller('/authors/')
 export class AuthorController {
   constructor(@Inject("AuthorService") private readonly authorS:AuthorService ){}
   
-  @Get("/")
+  @Get("")
   async all():Promise<Author[]>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
@@ -23,13 +23,14 @@ export class AuthorController {
     return resd
   }
 
-  @Post("create")
+  @Post("")
   async create(@Body() author:Author):Promise<Author>{
     let _author=<Author>{...author}
    _author=await AppDataSource.getRepository(Author).save(author)
     return _author
   }
-  @Get("/:id")
+  
+  @Get(":id")
   async user(@Params("id") id:string, @Res() res: Response ):Promise<Author|void> 
   {
     /* 	#swagger.tags = ['User']
