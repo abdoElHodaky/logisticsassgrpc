@@ -20,8 +20,11 @@ usersroute.get("/users",function(req:Request, res:Response){
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
    /* 	#swagger.tags = ['User']
-        #swagger.description = 'Endpoint to sign in a specific user' */
-
+        #swagger.description = 'Endpoint to sign in a specific user' 
+        #swagger.responses[404] = {
+            description: ' specific user not found',
+            
+    } */
     let id:any=req.params["userid"]
     if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
