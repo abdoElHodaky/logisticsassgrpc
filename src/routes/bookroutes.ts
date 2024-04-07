@@ -16,7 +16,7 @@ booksroute.get("/attachments/books",(req,res)=>{
     }).catch(console.log)
 })
 
-booksroute.post("/attachments/books/create/",(req,res)=>{
+booksroute.post("/attachments/books",(req,res)=>{
     /* 	#swagger.tags = ['Attachment.Book']
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['body'] = {
