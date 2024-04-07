@@ -9,7 +9,7 @@ import { supTicket ,User } from "../entity/";
 export class UserTicketService {
 
   private  datasource:DataSource=AppDataSource
-  async all(id:string):Promise<supTicket|void>
+  async all(id:string):Promise<supTicket[]|void>
   {
     
     let id=Number(userid)
