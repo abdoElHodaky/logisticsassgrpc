@@ -21,7 +21,8 @@ export class UserController {
         #swagger.description = 'Endpoint to get users' */
 
     //let resd:User[]=await AppDataSource.getRepository(User).find()
-    return await this.userS.all()
+    let users= await this.userS.all()
+    return users
   }
 
   @Get(":id")
