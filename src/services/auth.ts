@@ -21,7 +21,7 @@ export class AuthService {
 
   }
   
-  async create(user:User):Promise<User|void> {
+  async create(user:User):Promise<User> {
 
     let _user:User=user
     console.log(_user)
