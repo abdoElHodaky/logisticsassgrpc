@@ -1,8 +1,6 @@
 import { Injectable , Inject } from "@decorators/di";
 import { DataSource } from "typeorm"
-import { Article } from "../entity/Article"
-import { Author } from "../entity/Author"
-import { User } from "../entity/User";
+import { Article,User,Author } from "../entity/"
 import { AppDataSource , _datasourceInject } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
@@ -10,7 +8,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 export class UserService {
   constructor (@Inject(_datasourceInject) private readonly datasource: DataSource){}
 
-  async all():Promise<User>{
+  async all():Promise<User[]>{
     return await this.datasource.manager.find(User)
   }
   
