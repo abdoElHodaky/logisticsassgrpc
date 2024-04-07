@@ -11,14 +11,15 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Controller('/authors')
 export class AuthorController {
-  constructor(@Inject("authorS") private readonly authorS:AuthorService ){}
+  constructor(@Inject("AuthorService") private readonly authorS:AuthorService ){}
   
   @Get("/")
   async all():Promise<Author[]>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
 
-    let resd:Author[]=await AppDataSource.getRepository(Author).find()
+    let resd:Author[]=await this.authorS.all()
+      //await AppDataSource.getRepository(Author).find()
     return resd
   }
 
