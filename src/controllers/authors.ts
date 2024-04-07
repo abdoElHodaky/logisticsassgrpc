@@ -1,7 +1,7 @@
 import { AuthorService} from "../services/";
 import { Article , Author } from "../entity/"
 import { AppDataSource } from "../_datasource";
-//import { CreateArticleDto } from "../dto/create-article.dto"
+import { CreateAuthorDto } from "../dto/create-author.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
@@ -23,7 +23,7 @@ export class AuthorController {
   }
 
   @Post("/")
-  async create(@Body() author:Author):Promise<Author>{
+  async create(@Body() author:CreateAuthorDto):Promise<Author>{
     let _author=<Author>{...author}
    _author=await AppDataSource.getRepository(Author).save(author)
     return _author
