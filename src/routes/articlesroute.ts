@@ -208,7 +208,7 @@ articlesroute.get("/articles/",(req,res)=>{
 
 })*/
 
-articlesroute.post("/articles/create",({body},res)=>{
+articlesroute.post("/articles/",({body},res)=>{
     /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to add new article' 
         #swagger.parameters['body'] = {
