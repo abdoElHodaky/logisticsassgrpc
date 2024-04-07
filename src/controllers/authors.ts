@@ -24,8 +24,8 @@ export class AuthorController {
 
   @Post("/")
   async create(@Body() author:CreateAuthorDto):Promise<Author>{
-    let _author=author
-   _author=await AppDataSource.getRepository(Author).save(author)
+    let _author=<Author>{...author}
+   _author=await this.authorS.create(_author)
     return _author
   }
   
