@@ -1,5 +1,5 @@
 import { UserService } from "../services/";
-import { Article ,User } from "../entity/Article"
+import { Article ,User } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
