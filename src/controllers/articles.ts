@@ -18,7 +18,7 @@ export class ArticleController {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
     let articles=await this.articleS.all()
-    res.json(articles)
+    return articles
   }
 
   @Post("")
