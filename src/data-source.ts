@@ -1,5 +1,6 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
+import { InjectionToken } from "@decorators/di"
 import { Article } from "./entity/Article";
 import { Attachment } from "./entity/Attachment";
 import { Author } from "./entity/Author";
@@ -54,3 +55,5 @@ else{
 }
 
 },500000)
+
+export _datasourceInject=new InjectionToken("DataSource",_AppDataSource)
