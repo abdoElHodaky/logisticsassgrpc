@@ -9,6 +9,7 @@ export class ArticleService {
   constructor (@Inject(_datasourceInject) private readonly datasource: DataSource){}
 
   async all():Promise<Article[]>{
-    return await this.datasource.manager.find(Article)
+    let articles=await this.datasource.manager.find(Article)
+    return articles
   }
 }
