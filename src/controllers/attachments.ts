@@ -19,4 +19,5 @@ export class AttachmentController {
         #swagger.description = 'Endpoint to get articles' */
     let attachments=await this.attachmentS.all()
     res.json(attachments)
+   }
   }
