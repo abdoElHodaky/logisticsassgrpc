@@ -10,8 +10,8 @@ export class UserService {
   private readonly datasource: DataSource
   constructor ( ){}
 
-  async all(){
-    return await this.datasource.manager.find(User)
+  async all():Promise<User[]>{
+    return  this.datasource.manager.find(User)
   }
   
   async id(userId:string):Promise<User|void> {
