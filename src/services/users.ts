@@ -1,13 +1,13 @@
 import { Injectable , Inject } from "@decorators/di";
 import { DataSource } from "typeorm"
 import { Article,User,Author } from "../entity/"
-//import {  _datasourceInject } from "../data-source";
+import {  AppDataSource } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 //@Injectable()
 export class UserService {
   
-  private readonly datasource: DataSource
+  @Inject("datasource") private readonly datasource: DataSource=AppDataSource 
   constructor ( ){}
 
   async all():Promise<User[]>{
