@@ -27,7 +27,7 @@ authroute.post("/auth/login",(req,res)=>{
     #swagger.description = 'Endpoint to login specific user' 
      #swagger.parameters['body'] = {
             in: 'body',
-            description: login of specific user.',
+            description: 'login of specific user.',
             schema: { $ref: '#/definitions/LoginUser' }
     } 
     */
