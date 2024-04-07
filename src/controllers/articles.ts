@@ -1,7 +1,6 @@
-import { ArticleService} from "../services/articles";
-import { Article } from "../entity/Article"
-import { Author } from "../entity/Author"
-import { AppDataSource } from "../_datasource";
+import { ArticleService} from "../services/";
+import { Article , Article } from "../entity/"
+//import { AppDataSource } from "../_datasource";
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
