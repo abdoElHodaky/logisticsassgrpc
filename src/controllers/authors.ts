@@ -11,7 +11,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Controller('/authors/')
 export class AuthorController {
-  constructor(@Inject("AuthorService") private readonly authorS:AuthorService ){}
+  constructor(@Inject("authorS") private readonly authorS:AuthorService ){}
   
   @Get("")
   async all():Promise<Author[]>{
