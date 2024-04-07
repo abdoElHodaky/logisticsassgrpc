@@ -5,7 +5,7 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
 export class ArticleService {
-   private  datasource=AppDataSource 
+    public datasource:DataSource 
   constructor (){}
 
   async all():Promise<Article[]>
