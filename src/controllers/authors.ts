@@ -23,9 +23,9 @@ export class AuthorController {
   }
 
   @Post("/")
-  async create(@Body() author:CreateAuthorDto):Promise<Author|void>{
+  async create(@Body() author:Author):Promise<Author|void>{
     let _author;
-   _author=await this.authorS.create(author.to_ob())
+   _author=await this.authorS.create(author)
     return _author
   }
   
