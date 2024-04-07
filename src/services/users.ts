@@ -11,7 +11,7 @@ export class UserService {
   constructor ( ){}
 
   async all():Promise<User[]>{
-    console.log(this.datasource)
+    //console.log(this.datasource)
     return await this.datasource.manager.find(User)
   }
   
@@ -32,7 +32,7 @@ export class UserService {
       })
       return user
     }
-    else return 
+    //else return 
   }
   
 }
