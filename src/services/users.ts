@@ -12,7 +12,7 @@ export class UserService {
     return await this.datasource.manager.find(User)
   }
   
-  async id(userId:string):Promise<User>{
+  async id(userId:string):Promise<User|void>{
 
 
     if(isNumeric(userId)==true){
@@ -29,7 +29,7 @@ export class UserService {
       })
       return user
     }
-    else return {}
+    else return 
   }
   
 }
