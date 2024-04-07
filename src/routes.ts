@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { attachControllers } from '@decorators/express'
-import * as Controllers from "./controllers/auths";
+import { controllers } from "./controllers/";
 import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { AppDataSource } from "./_datasource";
@@ -50,8 +50,8 @@ apiv1.post("/suptickets/create",(req,res)=>{
     
 
 })
-console.log(Controllers)
-attachControllers(apiv1,[Controllers])
+console.log(controllers)
+attachControllers(apiv1,[controllers])
 //apiv1.use(authroute)
 //apiv1.use(usersroute);
 //attachControllers(apiv1,[UserController,UserTicketController ])
