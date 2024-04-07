@@ -18,7 +18,6 @@ export class ArticleController {
   async all(@Res() res:Response) {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
-    console.log(this.articleS.datasource)
     let articles=await this.articleS.all()
     res.json(articles)
   }
