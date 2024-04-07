@@ -6,7 +6,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 @Injectable()
 export class UserService {
   
-  private  datasource=AppDataSource 
+  public  datasource:DataSource 
   constructor ( ){}
 
   async all():Promise<User[]>{
