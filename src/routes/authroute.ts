@@ -25,16 +25,11 @@ authroute.post("/auth/login",(req,res)=>{
     
 /* 	#swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to login specific user' 
-    #swagger.requestBody = {
-            required: true,
-            content: {
-                "application/json": {
-                    schema: {
-                        $ref: "#/definitions/LoginUser"
-                    }  
-                }
-            }
-        } 
+     #swagger.parameters['body'] = {
+            in: 'body',
+            description: login of specific user.',
+            schema: { $ref: '#/definitions/LoginUser' }
+    } 
     */
     
    /* let user:User=<User>{...req.body}
