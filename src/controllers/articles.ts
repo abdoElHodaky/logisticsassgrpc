@@ -6,7 +6,7 @@ import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
 
-@Controller('/articles/')
+@Controller('/articles')
 export class ArticleController {
   
   private articleS:ArticleService=new ArticleService()
