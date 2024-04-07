@@ -6,7 +6,7 @@ import { AppDataSource } from "../_datasource";
 
 export const booksroute=Router()
 
-booksroute.get("/",(req,res)=>{
+booksroute.get("/attachments/books",(req,res)=>{
     /* 	#swagger.tags = ['Attachment.Book']
         #swagger.description = 'Endpoint to get books' 
     */
@@ -16,7 +16,7 @@ booksroute.get("/",(req,res)=>{
     }).catch(console.log)
 })
 
-booksroute.post("/create/",(req,res)=>{
+booksroute.post("/attachments/books/create/",(req,res)=>{
     /* 	#swagger.tags = ['Attachment.Book']
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['body'] = {
