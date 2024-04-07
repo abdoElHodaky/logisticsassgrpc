@@ -10,7 +10,9 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Controller('/users')
 export class UserController {
-  constructor(private readonly userS:UserService){}
+  
+  private  userS:UserService
+  constructor(){}
   
   @Get("/")
   async all():Promise<User[]>{
