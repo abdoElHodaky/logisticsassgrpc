@@ -7,9 +7,9 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 
 @Injectable()
 export class ArticleService {
-  constructor (@Inject(_datasourceInject) datasource: DataSource){}
+  constructor (@Inject(_datasourceInject) private readonly datasource: DataSource){}
 
-  async all():Promise<any>{
-    return 
+  async all():Promise<Article>{
+    return await this.datasource.manager.find(Article)
   }
 }
