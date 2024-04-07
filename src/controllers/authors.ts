@@ -1,6 +1,5 @@
-import { AuthorService} from "../services/authors";
-import { Article } from "../entity/Article"
-import { Author } from "../entity/Author"
+import { AuthorService} from "../services/";
+import { Article , Author } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
