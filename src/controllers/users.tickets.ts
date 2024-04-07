@@ -24,7 +24,7 @@ export class UserTicketController {
   }
   
   @Post("/:userid/tickets")
-  async create(@Params("userid") userid:string):Promise<supTicket|void> {
+  async create(@Params("userid") userid:string):Promise<supTicket|object> {
     
     
    /* let id=Number(userid)
