@@ -61,7 +61,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
             }
     } 
     */
-    let id:any=req.params["userid"]
+   /* let id:any=req.params["userid"]
     if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
       id=Number(id)
@@ -82,7 +82,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
     }
     else{
       res.json({message:"user not found or you used invalid paramter"})
-    }
+    }*/
   })
 /*
   authorsroutes.delete("/authors/:userid",function(req:Request, res:Response){
