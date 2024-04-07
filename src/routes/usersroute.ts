@@ -44,7 +44,7 @@ usersroute.get("/users",function(req:Request, res:Response){
       res.json({message:"user not found or you used invalid paramter"})
     }
   })
-
+/*
   usersroute.delete("/users/:userid",function(req:Request, res:Response){
     let id=Number(req.params["userid"])
     AppDataSource.getRepository(User).delete({id:id}).
@@ -52,7 +52,7 @@ usersroute.get("/users",function(req:Request, res:Response){
         res.jsonp({message:"deleted succefully"})
     }).catch(console.log);
   
-  })
+  })*/
 
 usersroute.use(suptickeroute)
 
