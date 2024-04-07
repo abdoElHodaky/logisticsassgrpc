@@ -5,7 +5,7 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Injectable()
-export class UserService {
+export class AuthorService {
   
   public  datasource:DataSource=AppDataSource
   constructor ( ){}
