@@ -56,4 +56,4 @@ else{
 
 },500000)
 
-export const _datasourceInject=new InjectionToken("DataSource",_AppDataSource)
+export const _datasourceInject=new InjectionToken("DataSource")
