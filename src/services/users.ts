@@ -28,6 +28,8 @@ export class UserService {
         }
       })
       return user
+    }
+    else return {}
   }
   
 }
