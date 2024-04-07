@@ -8,13 +8,13 @@ import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 
-@Controller('/users/')
+@Controller('/users')
 export class UserController {
   
   private  userS:UserService=new UserService()
   constructor(){}
   
-  @Get("")
+  @Get("/")
   async all():Promise<User[]>{
     //this.userS.datasource=AppDataSource
     /* 	#swagger.tags = ['User']
@@ -25,7 +25,7 @@ export class UserController {
     return users
   }
 
-  @Get(":id")
+  @Get("/:id")
   async user(@Params("id") id:string, @Res() res: Response ):Promise<User|void> 
   {
     /* 	#swagger.tags = ['User']
