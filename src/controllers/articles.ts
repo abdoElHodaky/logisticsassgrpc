@@ -9,8 +9,10 @@ import { Response ,Request} from "express"
 
 @Controller('/articles')
 export class ArticleController {
-
-  constructor(private readonly articleS:ArticleService ) {}
+  
+  private articleS:ArticleService
+  
+  constructor( ) {}
 
   @Get("/")
   async all(@Res() res:Response) {
