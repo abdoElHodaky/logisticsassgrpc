@@ -53,7 +53,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
             schema: { 
               $userid:"4"
             }
-       #swagger.responses[404] = {
+   #swagger.responses[404] = {
             description: ' specific user not found',
             schema:{
               message:"user not found ,please check and try again"
