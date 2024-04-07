@@ -13,7 +13,7 @@ export class ArticleController {
   
   constructor( ) {}
 
-  @Get("")
+  @Get("/")
   async all(@Res() res:Response) {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
@@ -21,7 +21,7 @@ export class ArticleController {
     res.json(articles)
   }
 
-  @Post("")
+  @Post("/")
   async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto){
    //  #swagger.tags = ['Article']
     /*let {article,userid}=createArticleDto
