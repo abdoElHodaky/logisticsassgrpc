@@ -78,7 +78,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
       res.json({message:"user not found or you used invalid paramter"})
     }
   })
-
+/*
   authorsroutes.delete("/authors/:userid",function(req:Request, res:Response){
   /* #swagger.tags = ['Author'] 
     #swagger.description = 'Endpoint to delete author' 
@@ -87,7 +87,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
             description:' delete author.',
             schema: { $userid:"4" }
     } 
-    */
+    
       
     let id=Number(req.params["userid"])
     AppDataSource.getRepository(Author).delete({id:id}).
@@ -95,7 +95,7 @@ authorsroutes.get("/authors",function(req:Request, res:Response){
         res.jsonp({message:"deleted succefully"})
     }).catch(console.log);
   
-  })
+  })*/
 
 //authorsroutes.use("/users/:userid/tickets",suptickeroute)
 
