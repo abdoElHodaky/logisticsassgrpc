@@ -24,7 +24,7 @@ export class UserTicketService {
     return tickets
   }
   
-  async create(userId:string):Promise<object|void>{
+  async create(userId:string):Promise<supTicket|void>{
     
     
     let id=Number(userId)
