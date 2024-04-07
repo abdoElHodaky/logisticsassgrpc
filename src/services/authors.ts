@@ -1,7 +1,7 @@
 import { Injectable , Inject } from "@decorators/di";
 import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
-import { CreateArticleDto } from "../dto/create-article.dto"
+import { CreateAuthorDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 //@Injectable()
@@ -35,8 +35,10 @@ export class AuthorService {
    // else return 
   }
 
-  async articles():Promise<Article[]|void>{
-    return
+  async create(author:CreateAuthorDto):Promise<Article|void>{
+    let _author=<Author>{...author}
+   _author=await this.datasource.getRepository(Author).save(author)
+    return _author
   }
   
 }
