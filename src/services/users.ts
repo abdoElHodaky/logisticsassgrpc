@@ -30,7 +30,8 @@ export class UserService {
           verifications:true
         }
       })
-      return user
+      if (typeof(user)=="boolean" && user==false) return new User()
+      else return user
     }
     //else return 
   }
