@@ -1,3 +1,4 @@
+import { UserService } from "../services/users";
 import { Article } from "../entity/Article"
 import { User } from "../entity/User"
 import { AppDataSource } from "../_datasource";
@@ -9,15 +10,15 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 
 @Controller('/users')
 export class UserController {
-  constructor(){}
+  constructor(private readonly userS:UserService){}
   
   @Get("/")
   async all():Promise<User[]>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
 
-    let resd:User[]=await AppDataSource.getRepository(User).find()
-    return resd
+    //let resd:User[]=await AppDataSource.getRepository(User).find()
+    return await this.userS.all()
   }
 
   @Get("/:id")
@@ -26,7 +27,7 @@ export class UserController {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
 
-    if(isNumeric(id)==true){
+   /* if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
       const _id=Number(id)
      let user=await AppDataSource.getRepository(User).findOneOrFail({
@@ -42,7 +43,10 @@ export class UserController {
     }
     else{
        res.json({message:"user not found or you used invalid paramter"})
-    }
+    }*/
+    let user=await this.userS.id(userid)
+    if (!user) res.json({message:"user not found or you used invalid paramter"})
+    else return user
   }
 
   @Delete("/:id")
