@@ -1,12 +1,14 @@
 import { Injectable , Inject } from "@decorators/di";
 import { DataSource } from "typeorm"
 import { Article,User,Author } from "../entity/"
-import {  _datasourceInject } from "../data-source";
+//import {  _datasourceInject } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 //@Injectable()
 export class UserService {
-  constructor (@Inject(_datasourceInject) private readonly datasource: DataSource){}
+  
+  private readonly datasource: DataSource
+  constructor ( ){}
 
   async all():Promise<User[]>{
     return await this.datasource.manager.find(User)
