@@ -14,7 +14,7 @@ export class ArticleService {
     return await this.datasource.manager.find(Article)
   }
 
- async create(createArticleDto:CreateArticleDto):Promise<Article:void>{
+ async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
      
      let {article,userid}=createArticleDto
     article=<Article>{...article}
