@@ -4,10 +4,10 @@ import { Response ,Request} from "express"
 import { supTicket , User } from "../entity/";
 import { UserTicketService } from "../services/users.tickets";
 
-@Controller('/users/')
+@Controller('/users')
 export class UserTicketController {
  private userticketS:UserTicketService =new UserTicketService()
-  @Get(":userid/tickets")
+  @Get("/:userid/tickets")
   async all(@Params("id") id:string, @Res() res:Response):Promise<supTicket[]|void>
   {
     
@@ -23,7 +23,7 @@ export class UserTicketController {
     res.json(tickets)
   }
   
-  @Post(":userid/tickets")
+  @Post("/:userid/tickets")
   async create(@Params("userid") userid:string){
     
     
