@@ -23,8 +23,7 @@ export class AuthController {
   @Post("register")
   async register(@Body() user:CreateUserDto):Promise<User>{
     
-    let _user:User=<User>{...user}
-    console.log(_user)
+    let _user:User
     _user=await this.authS.create(user)
     return _user
   }
