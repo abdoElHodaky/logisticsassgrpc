@@ -36,7 +36,7 @@ export class AuthorController {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
 
-    if(isNumeric(id)==true){
+   /* if(isNumeric(id)==true){
       console.log(nationalIdvalid(id))
       const _id=Number(id)
      let user=await AppDataSource.getRepository(Author).findOneOrFail({
@@ -52,7 +52,11 @@ export class AuthorController {
     }
     else{
        res.json({message:"user not found or you used invalid paramter"})
-    }
+    }*/
+    let user =await this.authorS.id(id)
+    if (!user) res.json({message:"user not found or you used invalid paramter"})
+    else return user
+    
   }
 
   @Delete("/:id")
