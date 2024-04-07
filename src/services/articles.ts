@@ -4,7 +4,7 @@ import { Article,User,Author } from "../entity/"
 import { AppDataSource } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 
-//@Injectable()
+@Injectable()
 export class ArticleService {
   @Inject("datasource") private readonly datasource: DataSource=AppDataSource 
   constructor (){}
