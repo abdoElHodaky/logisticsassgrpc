@@ -3,7 +3,7 @@ import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
-@Injectable()
+//@Injectable()
 export class UserService {
   
   public  datasource:DataSource 
