@@ -19,7 +19,7 @@ export class UserTicketController {
             tickets:true
            }
             })*/
-    let tickets=await this.userticketS.all(id)
+    let tickets:supTicket[] =await this.userticketS.all(id)
     return tickets
   }
   
