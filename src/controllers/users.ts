@@ -11,7 +11,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 @Controller('/users')
 export class UserController {
   
-  private  userS:UserService
+  private  userS:UserService=new UserService()
   constructor(){}
   
   @Get("/")
