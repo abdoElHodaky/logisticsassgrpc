@@ -21,7 +21,7 @@ export class AuthorService {
     if(isNumeric(userId)==true){
       console.log(nationalIdvalid(userId))
       const _id=Number(userId)
-     let user=await this.datasource.getRepository(User).findOneOrFail({
+     let user=await this.datasource.getRepository(Author).findOneOrFail({
         where:{
           id:_id
         },
