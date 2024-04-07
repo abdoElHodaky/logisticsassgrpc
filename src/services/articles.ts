@@ -5,11 +5,12 @@ import { CreateArticleDto } from "../dto/create-article.dto"
 
 @Injectable()
 export class ArticleService {
-    public datasource:DataSource 
+    public datasource:DataSource=AppDataSource
   constructor (){}
 
   async all():Promise<Article[]>
   {
+    console.log(this.datasource)
     return await this.datasource.manager.find(Article)
   }
 }
