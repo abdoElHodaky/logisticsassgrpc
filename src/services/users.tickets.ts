@@ -9,10 +9,10 @@ import { supTicket ,User } from "../entity/";
 export class UserTicketService {
 
   private  datasource:DataSource=AppDataSource
-  async all(id:string):Promise<supTicket[]|void>
+  async all(userId:string):Promise<supTicket[]|void>
   {
     
-    let id=Number(userid)
+    let id=Number(userId)
     let user=await this.datasource.manager.findOneOrFail(User,{where:{
             id:id
            },
@@ -24,10 +24,10 @@ export class UserTicketService {
     return tickets
   }
   
-  async create(userid:string):Promise<object|void>{
+  async create(userId:string):Promise<object|void>{
     
     
-    let id=Number(userid)
+    let id=Number(userId)
     let supticket=new supTicket()
     let user:User;
     let ticket:supTicket;
