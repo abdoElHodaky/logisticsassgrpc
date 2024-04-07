@@ -1,4 +1,4 @@
-import { ArticleService} from "../service/articles";
+import { ArticleService} from "../services/articles";
 import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
