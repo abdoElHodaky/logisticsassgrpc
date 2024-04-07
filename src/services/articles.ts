@@ -9,7 +9,7 @@ export class ArticleService {
   private readonly datasource: DataSource
   constructor (){}
 
-  async all():Article[]
+  async all():Promise<Article[]>
   {
     let articles=await this.datasource.manager.find(Article)
     return articles
