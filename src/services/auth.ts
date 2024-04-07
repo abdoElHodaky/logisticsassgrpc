@@ -1,7 +1,7 @@
 import { Injectable , Inject } from "@decorators/di";
 import { User } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
-import { LoginUserDto } from "../dto/login-user.dto"
+import { LoginUserDto , CreateUserDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 //@Injectable()
@@ -21,10 +21,9 @@ export class AuthService {
 
   }
   
-  async create(user:User):Promise<User> {
+  async create(user:CreateUserDto):Promise<User> {
 
-    let _user:User=user
-    console.log(_user)
+    let _user=user
     _user=await this.datasource.manager.save(User,_user)
     return _user
     
