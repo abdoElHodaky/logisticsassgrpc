@@ -17,7 +17,7 @@ export class ArticleController {
   async all():Promise<Article[]> {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
-    let articles=await this.articleS.all()
+    let articles:Article[]=await this.articleS.all()
     return articles
   }
 
