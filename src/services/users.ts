@@ -6,11 +6,11 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 @Injectable()
 export class UserService {
   
-  private readonly datasource: DataSource=AppDataSource 
+  private  datasource=AppDataSource 
   constructor ( ){}
 
   async all():Promise<User[]>{
-    return  this.datasource.manager.find(User)
+    return await this.datasource.manager.find(User)
   }
   
   async id(userId:string):Promise<User|void> {
