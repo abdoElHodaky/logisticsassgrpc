@@ -16,6 +16,7 @@ export class UserController {
   
   @Get("/")
   async all():Promise<User[]>{
+    this.userS.datasource=AppDataSource
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
 
