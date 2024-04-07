@@ -3,7 +3,7 @@ import { AppDataSource } from "../_datasource";
 import { User } from "../entity/User";
 export const authroute=Router();
 
-authroute.post("/auth/register/",(req,res)=>{
+authroute.post("/auth/register",(req,res)=>{
     
 /*  #swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to register specific user' 
@@ -21,7 +21,7 @@ authroute.post("/auth/register/",(req,res)=>{
     }).catch(console.log) */
 })
 
-authroute.post("/auth/login/",(req,res)=>{
+authroute.post("/auth/login",(req,res)=>{
     
 /* 	#swagger.tags = ['Auth'] 
     #swagger.description = 'Endpoint to login specific user' 
