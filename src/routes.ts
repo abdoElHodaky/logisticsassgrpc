@@ -50,6 +50,7 @@ apiv1.post("/suptickets/create",(req,res)=>{
     
 
 })
+console.log(Controllers)
 attachControllers(apiv1,[Controllers])
 //apiv1.use(authroute)
 //apiv1.use(usersroute);
