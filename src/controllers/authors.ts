@@ -12,7 +12,7 @@ export class AuthorController {
   private readonly authorS:AuthorService=new AuthorService()
   constructor( ){}
   
-  @Get("/")
+  @Get("")
   async all():Promise<Author[]>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
@@ -22,7 +22,7 @@ export class AuthorController {
     return resd
   }
 
-  @Post("/")
+  @Post("")
   async create(@Body() author:Author):Promise<Author|void>{
     let _author;
    _author=await this.authorS.create(author)
