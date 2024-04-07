@@ -2,7 +2,7 @@
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket , User } from "../entity/";
-import { UserTicketService } from "../services/users.tickets";
+import { UserTicketService } from "../services/";
 
 @Controller('/users')
 export class UserTicketController {
