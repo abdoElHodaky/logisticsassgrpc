@@ -15,7 +15,7 @@ export class AuthorService {
     return await this.datasource.manager.find(Author)
   }
   
-  async id(userId:string):Promise<User|void> {
+  async id(userId:string):Promise<Author|void> {
 
 
     if(isNumeric(userId)==true){
