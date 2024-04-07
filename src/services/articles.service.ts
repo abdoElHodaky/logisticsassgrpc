@@ -10,6 +10,6 @@ export class ArticleService {
   constructor (@Inject(_datasourceInject) datasource: DataSource){}
 
   async all():Promise<any>{
-    return
+    return 
   }
 }
