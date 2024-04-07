@@ -17,4 +17,4 @@ attachmentsroute.get("/attachments/",(req,res)=>{
         res.json(d)
     }).catch(console.log)
 })
-attachmentsroute.use("/attachments/books/",booksroute)
+attachmentsroute.use(booksroute)
