@@ -42,7 +42,7 @@ suptickeroute.get("/users/:userid/tickets",(req:Request,res:Response)=>{
   });
 
 
-suptickeroute.post("/users/:userid/tickets/",(req:Request,res:Response)=>{
+suptickeroute.post("/users/:userid/tickets",(req:Request,res:Response)=>{
     
     /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get tickets' 
