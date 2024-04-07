@@ -4,7 +4,7 @@ import { Article,User,Author } from "../entity/"
 import { AppDataSource , _datasourceInject } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
-@Injectable()
+//@Injectable()
 export class UserService {
   constructor (@Inject(_datasourceInject) private readonly datasource: DataSource){}
 
