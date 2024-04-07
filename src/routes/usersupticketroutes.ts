@@ -54,7 +54,7 @@ suptickeroute.post("/users/:userid/tickets",(req:Request,res:Response)=>{
     */
     
     
-    let id=Number(req.params["userid"])
+  /*  let id=Number(req.params["userid"])
     let supticket=new supTicket()
     let user:User;
     let ticket:supTicket;
@@ -70,7 +70,7 @@ suptickeroute.post("/users/:userid/tickets",(req:Request,res:Response)=>{
         .relation(User, "tickets")
         .of(a)
         .add(supticket)*/
-        supticket.user=a;
+      /*  supticket.user=a;
         a.tickets=[]
         a.tickets.push(supticket)
         return supticket
