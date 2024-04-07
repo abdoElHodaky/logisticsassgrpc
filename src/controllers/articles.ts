@@ -1,4 +1,4 @@
-
+import { ArticleService} from "../service/articles";
 import { Article } from "../entity/Article"
 import { Author } from "../entity/Author"
 import { AppDataSource } from "../_datasource";
@@ -10,7 +10,7 @@ import { Response ,Request} from "express"
 @Controller('/articles')
 export class ArticleController {
 
-  constructor() {}
+  constructor(private readonly articleS:ArticleService ) {}
 
   @Get("/")
   async all(@Res() res:Response) {
@@ -18,7 +18,7 @@ export class ArticleController {
         #swagger.description = 'Endpoint to get articles' */
 
     
-    let articles=await AppDataSource.manager.find(Article)
+    let articles=await this.articleS.all()
     res.json(articles)
   }
 
