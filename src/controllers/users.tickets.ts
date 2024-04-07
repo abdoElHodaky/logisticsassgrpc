@@ -20,11 +20,11 @@ export class UserTicketController {
            }
             })*/
     let tickets=await this.userticketS.all(id)
-    res.json(tickets)
+    return tickets
   }
   
   @Post("/:userid/tickets")
-  async create(@Params("userid") userid:string){
+  async create(@Params("userid") userid:string):Promise<supTicket|void> {
     
     
    /* let id=Number(userid)
