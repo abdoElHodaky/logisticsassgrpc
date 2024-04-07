@@ -23,7 +23,7 @@ export class AuthService {
   
   async create(user:CreateUserDto):Promise<User> {
 
-    let _user=<User>{...user}
+    let _user={...user}
     _user=await this.datasource.manager.save(User,_user)
     return _user
     
