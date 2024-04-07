@@ -6,7 +6,7 @@ import {ArticleController} from "./articles";
 import {AttachmentController} from "./attachments";
 
 
-export const controllers=[AuthController,ArticleController
+export const controllers=[AuthController,ArticleController,
                           AuthorController,
                           UserController,
                           UserTicketController,
