@@ -21,7 +21,7 @@ export class AuthService {
 
   }
   
-  async create(user:CreateUserDto):Promise<User> {
+  async create(user:User):Promise<User> {
 
     let _user;
     _user=await this.datasource.manager.create(User,user)
