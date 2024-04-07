@@ -20,9 +20,12 @@ usersroute.get("/users",function(req:Request, res:Response){
   
   usersroute.get("/users/:userid",function(req:Request, res:Response){
    /* 	#swagger.tags = ['User']
-        #swagger.description = 'Endpoint to sign in a specific user' 
+        #swagger.description = 'Endpoint to sign in a specific user'
         #swagger.responses[404] = {
             description: ' specific user not found',
+            schema:{
+              message:"user not found ,please check and try again"
+            }
             
     } */
     let id:any=req.params["userid"]
