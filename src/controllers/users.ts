@@ -48,8 +48,8 @@ export class UserController {
        res.json({message:"user not found or you used invalid paramter"})
     }*/
     let user=await this.userS.id(id)
-    if (!user) res.json({message:"user not found or you used invalid paramter"})
-    else return user
+    //if (!user) res.json({message:"user not found or you used invalid paramter"})
+    return user
   }
 
   @Delete("/:id")
