@@ -8,6 +8,6 @@ import {AttachmentController} from "./attachments";
 
 export const controllers=[AuthController,
                           AuthorController,
-                          UserController
+                          UserController,
                           UserTicketController,
                           AttachmentController]
