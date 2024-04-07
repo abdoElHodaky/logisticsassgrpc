@@ -1,7 +1,6 @@
 import { Injectable , Inject } from "@decorators/di";
 import { DataSource } from "typeorm"
-import { Article } from "../entity/Article"
-import { Author } from "../entity/Author"
+import { Article,User,Author } from "../entity/"
 import { AppDataSource , _datasourceInject } from "../data-source";
 import { CreateArticleDto } from "../dto/create-article.dto"
 
