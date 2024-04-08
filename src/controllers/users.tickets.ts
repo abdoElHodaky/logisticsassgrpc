@@ -22,7 +22,7 @@ export class UserTicketController {
            }
             })*/
     let tickets:supTicket[] =await this.userticketS.all(id)
-    if (tickets instanceof Array) return tickets
+    if (tickets instanceof Array<supTicket>) return tickets
     else res.status(404).jsonp({message:tickets?.message})
   }
   
