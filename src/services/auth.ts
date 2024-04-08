@@ -1,14 +1,14 @@
 import { Injectable , Inject } from "@decorators/di";
 import { User } from "../entity/"
-import { DataSource ,AppDataSource  } from "../includes"
+import { _Data } from "./datasource";
 import { LoginUserDto , CreateUserDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 
 //@Injectable()
-export class AuthService {
+export class AuthService extends _Data {
   
-  public  datasource:DataSource=AppDataSource
-  constructor ( ){}
+  
+  constructor ( ){ super() }
 
   async login(loginUserDto:LoginUserDto):Promise<User>{
     const { username,passwordHash}=loginUserDto
