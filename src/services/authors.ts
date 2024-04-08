@@ -3,7 +3,7 @@ import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
 import { CreateAuthorDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
-import { NotFoundError ,Error } from "@types/common-errors";
+import { NotFoundError ,Error } from "common-errors";
 //@Injectable()
 export class AuthorService {
   
