@@ -5,7 +5,7 @@ import { CreateAuthorDto } from "../dto/"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
-import { Error } from "common-errors";
+import { Error } from "@types/common-errors";
 
 @Controller('/authors')
 export class AuthorController {
