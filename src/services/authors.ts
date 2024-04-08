@@ -1,13 +1,14 @@
 import { Injectable , Inject } from "@decorators/di";
 import { Article,User,Author } from "../entity/"
-import { DataSource ,AppDataSource  } from "../includes"
+//import { DataSource ,AppDataSource  } from "../includes"
 import { CreateAuthorDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { NotFoundError ,Error ,TypeError } from "common-errors";
+import {_ServiceData} from "./datasource.interface"
 //@Injectable()
-export class AuthorService {
+export class AuthorService  implements _ServiceData {
   
-  public  datasource:DataSource=AppDataSource
+  //public  datasource:DataSource=AppDataSource
   constructor ( ){}
 
   async all():Promise<Author[]>{
