@@ -4,9 +4,9 @@ import { Article,User,Author } from "../entity/"
 import { CreateAuthorDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { NotFoundError ,Error ,TypeError } from "common-errors";
-import {_Service} from "./service.interface"
+import {_Data} from "./service.interface"
 //@Injectable()
-export class AuthorService  extends _Service {
+export class AuthorService  extends _Data {
   
   //public  datasource:DataSource=AppDataSource
   constructor ( ){
