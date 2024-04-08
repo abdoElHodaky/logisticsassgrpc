@@ -33,7 +33,7 @@ export class UserService {
       })
       return user }
       catch (error){
-        console.error(error)
+        return new User()
       }
     }
     //else return 
