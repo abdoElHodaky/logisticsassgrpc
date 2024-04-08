@@ -32,7 +32,7 @@ export class AuthorService {
         }
       })
       return user
-    } catch(err){
+    } catch(err:any){
       return new  NotFoundError("author",err)
     }
     }
