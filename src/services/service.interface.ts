@@ -1,5 +1,14 @@
 import {AppDataSource,DataSource} from "includes"
 
-export interface _Service{
+export abstract class _Service{
  readonly  datasource:DataSource=AppDataSource
+ 
+ async all(){}
+
+ async create(){}
+
+ async id(){}
+
+ 
+
 }
