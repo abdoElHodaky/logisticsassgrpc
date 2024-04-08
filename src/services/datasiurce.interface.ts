@@ -1,5 +1,5 @@
 import {AppDataSource,DataSource} from "includes"
 
-export interface _DataSource {
+export class _ServiceDataSource {
  protected datasource:DataSource=AppDataSource
 }
