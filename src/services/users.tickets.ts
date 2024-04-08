@@ -4,16 +4,17 @@ import { AppDataSource , DataSource } from "../includes";
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket ,User } from "../entity/";
-
+import { Error , NotFoundError } from "common-errors";
 
 export class UserTicketService {
 
   private  datasource:DataSource=AppDataSource
-  async all(userId:string):Promise<supTicket[]>
+  async all(userId:string):Promise<supTicket[]|Error>
   {
-    
-    let id=Number(userId)
-    let user=await this.datasource.manager.findOneOrFail(User,{where:{
+    if(isNumeric(userId)==true){
+     let id=Number(userId)
+    try{
+     let user=await this.datasource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
@@ -21,7 +22,13 @@ export class UserTicketService {
            }
             })
     let tickets=user.tickets
-    return tickets
+    return tickets }
+    catch (err:any){
+      return new NotFoundError("Tickets")
+    }
+
+    }
+    else return new TypeError("userId should be number")
   }
   
   async create(userId:string):Promise<supTicket|void>{
