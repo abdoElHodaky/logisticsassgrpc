@@ -23,7 +23,7 @@ export class UserTicketController {
             })*/
     let tickets=await this.userticketS.all(id)
     if (tickets instanceof Array) return tickets
-    else res.status(404).jsonp({message:tickets?.message})
+    else res.status(404).jsonp({message:tickets?.message+" requested user"})
   }
   
   @Post("/:userid/tickets")
