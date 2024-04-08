@@ -19,8 +19,9 @@ export class AuthorService {
 
 
     if(isNumeric(userId)==true){
-      console.log(nationalIdvalid(userId))
+      //console.log(nationalIdvalid(userId))
       const _id=Number(userId)
+    try{
      let user=await this.datasource.getRepository(Author).findOneOrFail({
         where:{
           id:_id
@@ -31,8 +32,11 @@ export class AuthorService {
         }
       })
       return user
+    } catch(error){
+      return new Author()
     }
-   // else return 
+    }
+    else return 
   }
 
   async create(author:Author):Promise<Author>{
