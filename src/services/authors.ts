@@ -6,7 +6,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 import { NotFoundError ,Error ,TypeError } from "common-errors";
 import {_Service} from "./service.interface"
 //@Injectable()
-export class AuthorService  implements _ServiceData {
+export class AuthorService  extends _Service {
   
   //public  datasource:DataSource=AppDataSource
   constructor ( ){}
