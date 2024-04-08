@@ -32,8 +32,8 @@ export class UserService {
         }
       })
       return user }
-      catch (err){
-        console.log(error)
+      catch (Error err){
+        console.log(err)
       }
     }
     //else return 
