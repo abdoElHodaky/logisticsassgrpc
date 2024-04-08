@@ -5,7 +5,7 @@ import { CreateAuthorDto } from "../dto/"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
-
+import { Error } from "common-errors";
 
 @Controller('/authors')
 export class AuthorController {
@@ -30,7 +30,7 @@ export class AuthorController {
   }
   
   @Get("/:id")
-  async user(@Params("id") id:string, @Res() res: Response ):Promise<Author|void> 
+  async user(@Params("id") id:string, @Res() res: Response ):Promise<Author|Error|void> 
   {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
