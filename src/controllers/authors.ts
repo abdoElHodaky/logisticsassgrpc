@@ -55,7 +55,7 @@ export class AuthorController {
     let author =await this.authorS.id(id)
    // console.log(author)
     if (author instanceof Author){return author}
-    else res.status(404).send({message:"author requested not exist"})
+    else res.status(404).jsonp({message:author?.message})
    // else res.json({message:"user not found or you used invalid paramter"})
     
     
