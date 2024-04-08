@@ -15,7 +15,7 @@ export class AuthorService {
     return await this.datasource.manager.find(Author)
   }
   
-  async id(userId:string):Promise<Author|Error|void> {
+  async id(userId:string):Promise<Author|NotFoundError|void> {
 
 
     if(isNumeric(userId)==true){
@@ -32,7 +32,7 @@ export class AuthorService {
         }
       })
       return user
-    } catch(Error error){
+    } catch(error:Error){
       return new  NotFoundError("specific user",error)
     }
     }
