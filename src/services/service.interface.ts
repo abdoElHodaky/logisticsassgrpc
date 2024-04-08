@@ -1,5 +1,5 @@
 import {AppDataSource,DataSource} from "includes"
 
-export interface _ServiceDataSource {
+export interface _Service{
  readonly  datasource:DataSource=AppDataSource
 }
