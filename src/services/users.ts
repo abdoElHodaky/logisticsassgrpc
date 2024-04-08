@@ -1,14 +1,12 @@
 import { Injectable , Inject } from "@decorators/di";
 import { Article,User,Author } from "../entity/"
-//import { DataSource ,AppDataSource  } from "../includes"
-import { CreateArticleDto } from "../dto/create-article.dto"
+//import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { NotFoundError , Error ,TypeError } from "common-errors";
 import { _Data } from "./datasource";
 //@Injectable()
 export class UserService extends _Data {
-  
-  //public  datasource:DataSource=AppDataSource
+
   constructor ( ){
     super()
   }
