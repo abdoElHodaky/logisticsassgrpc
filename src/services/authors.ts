@@ -9,7 +9,9 @@ import {_Service} from "./service.interface"
 export class AuthorService  extends _Service {
   
   //public  datasource:DataSource=AppDataSource
-  constructor ( ){}
+  constructor ( ){
+    super()
+  }
 
   async all():Promise<Author[]>{
    // console.log(this.datasource)
