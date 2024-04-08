@@ -5,7 +5,7 @@ import { AppDataSource } from "../_datasource";
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
-
+import { Error , NotFoundError } from "common-errors";
 
 @Controller('/users')
 export class UserController {
@@ -25,7 +25,7 @@ export class UserController {
   }
 
   @Get("/:id")
-  async user(@Params("id") id:string, @Res() res: Response ):Promise<User|void> 
+  async user(@Params("id") id:string, @Res() res: Response ):Promise<User|Error|void> 
   {
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to sign in a specific user' */
@@ -48,8 +48,8 @@ export class UserController {
        res.json({message:"user not found or you used invalid paramter"})
     }*/
     let user=await this.userS.id(id)
-    //if(typeof(user)=="boolean" && user==false)  res.json({message:"user not found or you used invalid paramter"})
-    return user
+    if(user instanceof Error)  res.json({message:"user not found or you used invalid paramter"})
+    else  return user
   }
 
   @Delete("/:id")
