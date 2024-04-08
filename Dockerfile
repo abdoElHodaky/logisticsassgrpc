@@ -3,6 +3,7 @@ WORKDIR /app
 COPY . .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev
 RUN rm -rf package-lock.json
+RUN yarn add @types/common-errors
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
 RUN yarn upgrade -y
