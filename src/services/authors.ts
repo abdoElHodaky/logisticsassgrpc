@@ -32,8 +32,8 @@ export class AuthorService {
         }
       })
       return user
-    } catch(error:Error){
-      return new  NotFoundError("author",error)
+    } catch(err:Error){
+      return new  NotFoundError("author",err)
     }
     }
     else return new TypeError("authorId should be number")
