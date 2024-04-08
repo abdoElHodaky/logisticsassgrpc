@@ -1,14 +1,16 @@
-
-import { AppDataSource , DataSource } from "../includes";
+import {_Data} from "./datasource";
+//import { AppDataSource , DataSource } from "../includes";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket ,User } from "../entity/";
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
-export class UserTicketService {
+export class UserTicketService extends _Data {
 
-  private  datasource:DataSource=AppDataSource
+ // private  datasource:DataSource=AppDataSource
+  constructor(){super()}
+  
   async all(userId:string):Promise<supTicket[]|Error>
   {
     if(isNumeric(userId)==true){
