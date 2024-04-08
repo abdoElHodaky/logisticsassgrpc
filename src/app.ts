@@ -2,7 +2,7 @@
 import "reflect-metadata";
 import application from "express"
 import { json,urlencoded } from "express";
-import { rateLimit } from 'express-rate-limit'
+//import { rateLimit } from 'express-rate-limit'
 import cors from "cors";
 import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
@@ -23,10 +23,10 @@ app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
 app.use(apiv1)
-app.use(rateLimit({
+/*app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	}))
+	}))*/
 app.use((error:any, req:any, res:any, next:any) => {
   console.log(error)
   console.log("Error Handling Middleware called")
