@@ -10,7 +10,7 @@ export class UserTicketController {
   
  
   @Get("/:userid/tickets")
-  async all(@Params("userid") id:string, @Res() res:Response):Promise<supTicket[]|void>
+  async all(@Params("userid") id:string, @Res() res:Response):Promise<supTicket[]|Error|void>
   {
     
    /* let id=Number(userid)
