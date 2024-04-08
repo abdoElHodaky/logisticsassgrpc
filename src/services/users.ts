@@ -3,7 +3,7 @@ import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
-import { NotFoundError , Error } from "common-errors";
+import { NotFoundError , Error ,TypeError } from "common-errors";
 //@Injectable()
 export class UserService {
   
@@ -36,7 +36,7 @@ export class UserService {
         return new NotFoundError("User",error)
       }
     }
-    //else return 
+    else return new TypeError("userId should be number")
   }
   
 }
