@@ -5,7 +5,7 @@ import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket ,User } from "../entity/";
 import { Error , NotFoundError } from "common-errors";
-
+import { isNumeric } from "../helpers";
 export class UserTicketService {
 
   private  datasource:DataSource=AppDataSource
