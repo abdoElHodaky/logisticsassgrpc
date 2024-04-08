@@ -1,12 +1,13 @@
 import { Injectable , Inject } from "@decorators/di";
-import { DataSource ,AppDataSource ,_datasource } from "../includes"
+import { _Data } from "./datasource";
 import { Article,User,Author } from "../entity/"
 import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
-export class ArticleService {
-    private datasource:DataSource=AppDataSource
-  constructor (){}
+export class ArticleService extends _Data {
+  constructor (){
+      super()
+  }
 
   async all():Promise<Article[]>
   {
