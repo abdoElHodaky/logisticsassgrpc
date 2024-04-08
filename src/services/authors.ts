@@ -3,7 +3,7 @@ import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
 import { CreateAuthorDto } from "../dto/"
 import { isNumeric,nationalIdvalid } from "../helpers";
-import { NotFoundError ,Error } from "common-errors";
+import { NotFoundError ,Error ,TypeError } from "common-errors";
 //@Injectable()
 export class AuthorService {
   
@@ -36,7 +36,7 @@ export class AuthorService {
       return new  NotFoundError("author",error)
     }
     }
-    else return 
+    else return new TypeError("authorId should be number")
   }
 
   async create(author:Author):Promise<Author>{
