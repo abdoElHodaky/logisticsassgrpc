@@ -49,7 +49,7 @@ export class UserController {
     }*/
     let user=await this.userS.id(id)
     if (user instanceof User){return user}
-    else res.status(404).send({message:user?.message})
+    else res.status(404).json({message:user?.message})
    
   }
 
