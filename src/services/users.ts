@@ -21,7 +21,8 @@ export class UserService {
     if(isNumeric(userId)==true){
       console.log(userId)
       const _id=Number(userId)
-     let user:User=await this.datasource.getRepository(User).findOneOrFail({
+    try{
+      let user:User=await this.datasource.getRepository(User).findOneOrFail({
         where:{
           id:_id
         },
@@ -30,9 +31,10 @@ export class UserService {
           verifications:true
         }
       })
-      console.log(user)
-      if (user==null) return new User()
-      else return user
+      return user }
+      catch (err){
+        console.log(error)
+      }
     }
     //else return 
   }
