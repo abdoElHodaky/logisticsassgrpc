@@ -32,7 +32,7 @@ export class UserService {
         }
       })
       return user }
-      catch (error:Error){
+      catch (error){
         return new NotFoundError("User",error)
       }
     }
