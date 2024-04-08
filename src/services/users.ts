@@ -3,7 +3,7 @@ import { Article,User,Author } from "../entity/"
 import { DataSource ,AppDataSource  } from "../includes"
 import { CreateArticleDto } from "../dto/create-article.dto"
 import { isNumeric,nationalIdvalid } from "../helpers";
-
+import { NotFoundError , Error } from "common-errors";
 //@Injectable()
 export class UserService {
   
@@ -15,7 +15,7 @@ export class UserService {
     return await this.datasource.manager.find(User)
   }
   
-  async id(userId:string):Promise<User|void> {
+  async id(userId:string):Promise<User|Error|void> {
 
 
     if(isNumeric(userId)==true){
@@ -32,8 +32,8 @@ export class UserService {
         }
       })
       return user }
-      catch (error){
-        return new User()
+      catch (error:Error){
+        return new NotFoundError("User",error)
       }
     }
     //else return 
