@@ -8,14 +8,14 @@ message User {
  int32 id=1;
  optional string type=2;
  optional string username=3;
- optional string firstname=4;
- optional string lastname=5;
- optional string email=6;
- optional string passwordHash=7;
+  string firstname=4;
+  string lastname=5;
+  string email=6;
+  string passwordHash=7;
  optional google.protobuf.Timestamp created_at = 8;
  optional google.protobuf.Timestamp updated_at = 9;
- optional repeated article.Article articles =10
- optional repeated ticket.Ticket tickets=11
+ optional repeated article.Article articles =10;
+ optional repeated ticket.Ticket tickets=11;
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
 }
