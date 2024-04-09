@@ -1,8 +1,8 @@
 syntax ="proto3";
-package protos;
+//package protos;
 import "google/protobuf/timestamp.proto";
-//import "./ticket.proto";
-//import "./article.proto";
+import "./ticket.proto";
+import "./article.proto";
 
 message User {
 
