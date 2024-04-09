@@ -1,4 +1,5 @@
 syntax ="proto3";
+package protos;
 import "google/protobuf/timestamp.proto";
 
 message Ticket {
