@@ -1,9 +1,8 @@
 syntax ="proto3";
-package protos;
+//package protos;
 import "google/protobuf/timestamp.proto";
 
 message Article {
-
 
  int32 id=1;
  string imgurl=2;
@@ -11,7 +10,7 @@ message Article {
  string title=4;
  int32 authorId=5;
  optional google.protobuf.Timestamp created_at = 6;
-optional google.protobuf.Timestamp updated_at = 7;
+ optional google.protobuf.Timestamp updated_at = 7;
  
 }
 
