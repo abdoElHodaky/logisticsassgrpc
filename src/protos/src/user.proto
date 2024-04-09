@@ -1,7 +1,8 @@
 syntax ="proto3";
+package protos
 import "google/protobuf/timestamp.proto";
-import "./ticket.proto";
-import "./article.proto";
+//import "./ticket.proto";
+//import "./article.proto";
 
 message User {
 
@@ -12,8 +13,8 @@ message User {
   string lastname=5;
   string email=6;
   string passwordHash=7;
- optional repeated Article articles =8;
- optional repeated Ticket tickets=9;
+ optional repeated protos.Article articles =8;
+ optional repeated protos.Ticket tickets=9;
  optional google.protobuf.Timestamp created_at = 10;
  optional google.protobuf.Timestamp updated_at = 11;
  
