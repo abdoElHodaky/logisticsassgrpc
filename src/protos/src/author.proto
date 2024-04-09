@@ -3,9 +3,7 @@ package author;
 import "./user.proto";
 
 message Author {
- extension user {
- 
- }
+ extend user ;
 }
 
 
