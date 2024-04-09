@@ -12,10 +12,11 @@ message User {
   string lastname=5;
   string email=6;
   string passwordHash=7;
- optional google.protobuf.Timestamp created_at = 8;
- optional google.protobuf.Timestamp updated_at = 9;
- optional repeated Article articles =10;
- optional repeated Ticket tickets=11;
+ optional repeated Article articles =8;
+ optional repeated Ticket tickets=9;
+ optional google.protobuf.Timestamp created_at = 10;
+ optional google.protobuf.Timestamp updated_at = 11;
+ 
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
 }
