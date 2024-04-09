@@ -1,0 +1,35 @@
+syntax ="proto3";
+//package protos;
+import "google/protobuf/timestamp.proto";
+import "./ticket.proto";
+import "./article.proto";
+
+message User {
+
+ int32 id=1;
+ optional string type=2;
+ optional string username=3;
+  string firstname=4;
+  string lastname=5;
+  string email=6;
+  string passwordHash=7;
+ optional repeated protos.Article articles =8;
+ optional repeated protos.Ticket tickets=9;
+ optional google.protobuf.Timestamp created_at = 10;
+ optional google.protobuf.Timestamp updated_at = 11;
+ 
+ //optional repeated int32 articleIds=10
+ //optional repeated int32 ticketIds=10
+}
+
+message createUserReq {
+  User user=1;
+}
+message createUserRes{
+ User user=1;
+}
+
+service UserService {
+  rpc createUser(createUserReq) returns(
+  createUserRes);
+}

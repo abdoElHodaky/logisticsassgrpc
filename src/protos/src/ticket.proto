@@ -1,0 +1,28 @@
+syntax ="proto3";
+//package protos;
+import "google/protobuf/timestamp.proto";
+
+message Ticket {
+
+ int32 id=1;
+ string type=2;
+ string content=3;
+ string title=4;
+ int32 userId=5;
+ optional google.protobuf.Timestamp created_at = 6;
+optional google.protobuf.Timestamp updated_at = 7;
+ 
+}
+
+message createTicketReq {
+  int32 userId=1;
+  Ticket ticket=2;
+}
+message createTicketRes{
+ Ticket ticket=1;
+}
+
+service TicketService {
+  rpc createTicket(createTicketReq) returns(
+  createTicketRes);
+}
