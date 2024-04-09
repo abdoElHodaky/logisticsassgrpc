@@ -1,6 +1,12 @@
 syntax ="proto3";
-
 package author;
+import "./user.proto"
+
+message Author {
+ extension user {
+ 
+ }
+}
 
 
 
