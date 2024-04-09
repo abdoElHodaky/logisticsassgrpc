@@ -1,15 +1,28 @@
 syntax ="proto3";
-package user;
 import "google/protobuf/timestamp.proto";
 
 message User {
- int32 id;
- string type;
- string username;
- string firstname;
- string lastname;
- string email;
- string passwordHash;
- google.protobuf.Timestamp created_at = 6;
- google.protobuf.Timestamp updated_at = 7;
+
+ int32 id=1;
+ optional string type=2;
+ optional string username=3;
+ optional string firstname=4;
+ optional string lastname=5;
+ optional string email=6;
+ optional string passwordHash=7;
+ optional google.protobuf.Timestamp created_at = 8;
+ optional google.protobuf.Timestamp updated_at = 9;
+ 
+}
+
+message createUserReq {
+  User user=1;
+}
+message createUserRes{
+ User user=1;
+}
+
+service UserService {
+  rpc createUser(createUserReq) returns(
+  createUserRes);
 }
