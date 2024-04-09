@@ -1,5 +1,7 @@
 syntax ="proto3";
 import "google/protobuf/timestamp.proto";
+import "./ticket.proto";
+import "./article.proto";
 
 message User {
 
@@ -12,6 +14,8 @@ message User {
  optional string passwordHash=7;
  optional google.protobuf.Timestamp created_at = 8;
  optional google.protobuf.Timestamp updated_at = 9;
+ optional repeated article.Article articles =10
+ optional repeated ticket.Ticket tickets=11
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
 }
