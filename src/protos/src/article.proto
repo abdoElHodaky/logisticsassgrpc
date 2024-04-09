@@ -1,5 +1,5 @@
 syntax ="proto3";
-package pros.Article
+package pros.article;
 import "google/protobuf/timestamp.proto";
 
 message Article {
