@@ -12,7 +12,8 @@ message User {
  optional string passwordHash=7;
  optional google.protobuf.Timestamp created_at = 8;
  optional google.protobuf.Timestamp updated_at = 9;
- 
+ //optional repeated int32 articleIds=10
+ //optional repeated int32 ticketIds=10
 }
 
 message createUserReq {
