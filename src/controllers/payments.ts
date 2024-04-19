@@ -2,7 +2,7 @@ import { UserService } from "../services/";
 import { Article ,User } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
+import { Res, Post, Controller, Get, Body , Params ,Delete,Req } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
@@ -30,12 +30,19 @@ export class PaymentController {
    
   }
 
-  @Post("/:id/PayCallback")
-  async callback(){
+  @Post("/payCallback")
+  async callback(@Req() req:Request){
+    let res=await this.paymentService.payCallback(req.body)
+    let rp=await this.paymentService.verify(res.transR,res.paymentId)
+   
     
   }
 
-  @Post("/:id/PayReturn")
-  async return(){}
+  @Post("/payReturn")
+  async return(@Req() req:Request){
+    let res=await this.paymentService.payCallback(req.body)
+    let rp=await this.paymentService.verify(res.transR,res.paymentId)
+    
+  }
   
 }
