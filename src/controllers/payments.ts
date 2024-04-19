@@ -27,12 +27,12 @@ export class PaymentController {
   async pay(@Params("id") id:string, @Req() req: Request ):Promise<any> 
   {
     
-   const url =`${req.baseUrl}${req.path}`
+   const url =`${req.baseUrl}`
     return await this.paymentService.Pay(paymentId,{callback:url+"/callback",return:url+"/return"});
 
   }
 
-  @Post("/payCallback")
+  @Post("/callback")
   async callback(@Req() req:Request){
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
@@ -40,7 +40,7 @@ export class PaymentController {
     
   }
 
-  @Post("/payReturn")
+  @Post("/return")
   async return(@Req() req:Request){
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
