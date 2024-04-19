@@ -64,9 +64,9 @@ export class PayTabService{
     });
     return {transRef:transR,code:res['response_code:'],valid:valid}
   }
-  start(){
+ async start(){
     const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=process.env
-    this.config(
+    await paytabs.setConfig(
       PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION
     )
   }
