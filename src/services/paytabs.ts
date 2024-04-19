@@ -17,11 +17,11 @@ export class PayTabService{
     let res;
     let client=payment.by
     const {firstname,lastname,email,address}=client
-    const {id,currency,amount,desc,shipping}=payment
+    const {id,currency,amount,shipping}=payment
     const {title,...resship}=shipping
     let shippinginfo=resship
     let clientinfo=[firstname+" "+lastname,email,phone]
-    let paymentinfo=[id,currency,amount,desc]
+    let paymentinfo=[id,currency,amount,""]
     let _urls=[urls.callback,urls.return]
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
