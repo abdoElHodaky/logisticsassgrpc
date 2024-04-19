@@ -7,8 +7,8 @@ import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 
-@Controller('/users')
-export class UserController {
+@Controller('/payments)
+export class PaymentController {
   
   
   constructor(){}
