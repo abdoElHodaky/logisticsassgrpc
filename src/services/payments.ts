@@ -1,11 +1,12 @@
 import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
 import { CreatePaymentDto } from "../dto/create-payment.dto"
-import { PayTabService } from "../paytabs.service";
+import { service } from "./";
 
 //@Injectable()
 export class PaymentService extends _Data {
-  private payTabService:PayTabService
+  @service("PayTabGate")
+  private payTabService
   constructor (){
       this.payTabService.start()
       super()
@@ -20,12 +21,12 @@ export class PaymentService extends _Data {
  async create(createPaymentDto: CreatePaymentDto):Promise<Payment|void>{
      
     const {purshasedItem,userid}=createPaymentDto
-    /*let _article=<Article>{...article}
-    let author=await this.datasource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
-    _article.author=author
-    author.articles.push(_article)
-    _article=await this.datasource.manager.save(Article,_article)
-    return _article*/
+    let _article=<Payment>{...payment}
+    let author=await this.datasource.manager.findOneByOrFail(User,{id:parseInt(userid)})
+    _article.by=author
+    author.payments.push(_article)
+    _article=await this.datasource.manager.save(Payment,_article)
+    return _article
    
  }
 
