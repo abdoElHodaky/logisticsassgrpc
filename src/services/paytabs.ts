@@ -17,8 +17,9 @@ export class PayTabService{
     let res;
     let client=payment.by
     const {firstname,lastname,email,address}=client
-    const {id,currency,amount,desc}=payment
-    let shippinginfo=payment.shipping
+    const {id,currency,amount,desc,shipping}=payment
+    const {title,...resship}=shipping
+    let shippinginfo=resship
     let clientinfo=[firstname+" "+lastname,email,phone]
     let paymentinfo=[id,currency,amount,desc]
     let _urls=[urls.callback,urls.return]
