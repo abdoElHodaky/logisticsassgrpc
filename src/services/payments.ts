@@ -37,4 +37,25 @@ async pay(paymentId:string,urls:{callback:string,return:string}){
 async payCallback(result:any):Promise<any>{
    return await this.payTabService.payCallback(result)
 }
+
+async verify(transR:string,paymentId:string):Promise<any>{
+    let res= await this.payTabService.payVerify(transR)
+    let { valid,code }=res
+    if (valid===true){
+      let payment=await this.datasource.find(Payment,{
+        where:{id:parseInt(paymentId)}
+      })
+      payment.status="paid"
+      payment.transR=transR
+      await payment.save()
+      return {message:"Payment success , Thanks"}
+
+    }
+    else{
+      return res
+    }
+    
+  }
+
+  
 }
