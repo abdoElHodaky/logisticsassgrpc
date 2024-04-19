@@ -1,6 +1,6 @@
 import paytabs from "paytabs_pt2";
 import { Client } from "./entity/";
-import { Payment } from "./payments/interface/payment.interface";
+import { Payment } from "./entity/";
 export class PayTabService{
   async values(obj){
       let arr=[]
