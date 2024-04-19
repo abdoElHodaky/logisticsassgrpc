@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,PrimaryGeneratedColumn} from "typeorm"
-import { User } from "./User";
+import { User,Address } from "./";
 
 @Entity()
 export class Payment {
@@ -21,5 +21,8 @@ export class Payment {
     @Column({type: "varchar", nullable: true})
     currency: string;
 
+    @Column(()=>Address)
+    shipping: Address;
+    
     @ManyToOne(()=>User,user=>user.payments) user:User;
 }
