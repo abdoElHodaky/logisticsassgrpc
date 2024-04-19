@@ -24,10 +24,12 @@ export class PaymentController {
   }
 
   @Post("/:id/Pay")
-  async pay(@Params("id") id:string, @Res() res: Response ):Promise<User|Error|void> 
+  async pay(@Params("id") id:string, @Req() req: Request ):Promise<any> 
   {
     
-   
+   const url =`${req.baseUrl}${req.path}`
+    return await this.paymentService.Pay(paymentId,{callback:url+"/callback",return:url+"/return"});
+
   }
 
   @Post("/payCallback")
