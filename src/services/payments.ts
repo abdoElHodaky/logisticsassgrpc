@@ -7,6 +7,7 @@ import { PayTabService } from "../paytabs.service";
 export class PaymentService extends _Data {
   private payTabService:PayTabService
   constructor (){
+      this.payTabService.start()
       super()
   }
 
