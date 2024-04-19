@@ -64,5 +64,11 @@ export class PayTabService{
     });
     return {transRef:transR,code:res['response_code:'],valid:valid}
   }
+  start(){
+    const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=process.env
+    this.config(
+      PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION
+    )
+  }
   
 }
