@@ -15,10 +15,12 @@ export class PayTabService{
     }
    async createPage(payment:Payment,urls:any):Promise<any>{
     let res;
-    let client=payment.client
-    let shippinginfo=await payment.shipping
-    let clientinfo=await values(client)
-    let paymentinfo=await values(payment)
+    let client=payment.by
+    const {firstname,lastname,email,address}=client
+    const {id,currency,amount,desc}=payment
+    let shippinginfo=payment.shipping
+    let clientinfo=[firstname+" "+lastname,email,phone]
+    let paymentinfo=[id,currency,amount,desc]
     let _urls=[urls.callback,urls.return]
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
