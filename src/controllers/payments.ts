@@ -7,7 +7,7 @@ import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 
-@Controller('/payments)
+@Controller('/payments')
 export class PaymentController {
   
   
