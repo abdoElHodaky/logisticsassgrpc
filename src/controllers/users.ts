@@ -1,4 +1,4 @@
-import { UserService } from "../services/";
+import { service } from "../services/";
 import { Article ,User } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
@@ -9,8 +9,10 @@ import { Error , NotFoundError } from "common-errors";
 
 @Controller('/users')
 export class UserController {
-  
-  private  userS:UserService=new UserService()
+
+
+  @service("User")
+  private  userS:any;
   constructor(){}
   
   @Get("/")
