@@ -2,11 +2,13 @@
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket , User } from "../entity/";
-import { UserTicketService } from "../services/";
+import { service } from "../services/";
 import { Error } from "common-errors";
 @Controller('/users')
 export class UserTicketController {
- private userticketS:UserTicketService =new UserTicketService()
+ 
+ @service("Ticket")
+ private userticketS
   
  
   @Get("/:userid/tickets")
