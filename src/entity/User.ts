@@ -1,11 +1,8 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance } from "typeorm"
 import { Email } from "./Email"
-import { supTicket } from "./supTicket"
-import { Verification } from "./Verification"
-import { Article } from "./Article"
-import { Attachment } from "./Attachment"
-import { Payment } from "./Payment";
+import { supTicket,Article,Attachment,Payment,Verification } from "./"
+
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
 export class User {
