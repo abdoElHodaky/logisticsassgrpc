@@ -33,4 +33,8 @@ async pay(paymentId:string,urls:{callback:string,return:string}){
   return await this.payTabService.createPage(payment,urls)
 
  }
+
+async payCallback(result:any):Promise<any>{
+   return await this.payTabService.payCallback(result)
+}
 }
