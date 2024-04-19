@@ -6,7 +6,8 @@ import {UserService} from "./users";
 import {AuthorService} from "./authors";
 import {ArticleService} from "./articles";
 import {UserTicketService} from "./users.tickets";
-
+import {PaymentService } from "./payments";
+import { PayTabService } from "./paytabs"
 const services:any={
   "Auth":AuthService,
   "Author":AuthorService,
@@ -14,6 +15,8 @@ const services:any={
   "Article":ArticleService,
   "Attachment":AttachmentService,
   "Ticket":UserTicketService,
+  "Payment":PaymentService,
+  "PayTabGate":PayTabService
 }
 
 export function service(service:string) {
