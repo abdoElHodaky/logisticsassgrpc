@@ -1,5 +1,5 @@
 import { Entity ,Column,PrimaryGeneratedColumn, OneToMany, ChildEntity} from "typeorm"
-import { Article ,User} from "./";
+import { User} from "./";
 //import { User } from "./";
 
 //@Entity()
