@@ -1,14 +1,14 @@
 
-import {AuthService} from "./auth";
-import {AttachmentService} from "./attachments";
-import {UserService} from "./users";
-import {AuthorService} from "./authors";
-import {ArticleService} from "./articles";
-import {UserTicketService} from "./users.tickets";
-import {ArticleGrpcService} from "./articles.grpc";
-import {TicketGrpcService} from "./tickets.grpc";
-import {AuthGrpcService} from "./auth.grpc";
-import {AuthorGrpcService} from "./authors.grpc";
+import {AuthService} from "./";
+import {AttachmentService} from "./";
+import {UserService} from "./";
+import {AuthorService} from "./";
+import {ArticleService} from "./";
+import {UserTicketService} from "./";
+import {ArticleGrpcService} from "./";
+import {TicketGrpcService} from "./";
+import {AuthGrpcService} from "./";
+import {AuthorGrpcService} from "./";
 
 export const services:object={
   "Auth":AuthService,
