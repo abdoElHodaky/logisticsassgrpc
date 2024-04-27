@@ -1,10 +1,8 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance } from "typeorm"
 import { Email } from "./Email"
-import { supTicket } from "./supTicket"
-import { Verification } from "./Verification"
-import { Article } from "./Article"
-import { Attachment } from "./Attachment"
+import { supTicket,Article,Attachment,Address,Verification } from "./"
+
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
 export class User {
@@ -32,7 +30,10 @@ export class User {
 
     @Column(()=>Email)
     email:Email
-
+    
+    @Column(()=>Address)
+    address:Address
+    
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
