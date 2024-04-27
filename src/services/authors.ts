@@ -42,10 +42,20 @@ export class AuthorService  extends _Data {
     else return new TypeError("authorId should be number")
   }
 
-  async create(author:Author):Promise<Author>{
+  async create(authord:any):Promise<Author|void>{
     let _author;
-   _author=await this.datasource.getRepository(Author).create(author)
-    return _author
+    console.log(authord)
+    let dauthor=authord
+  /*  for(var i in authord){
+      for(var j in dauthor){
+        dauthor[j]=authord[i]
+      }
+ 
+    }*/
+   //_author=await this.datasource.manager.create(Author,dauthor)
+    
+//    return await this.datasource.manager.save(Author,_author)
+    return
   }
   
 }
