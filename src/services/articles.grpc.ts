@@ -5,7 +5,7 @@ import  {_Article} from "../protos/dist/";
 import { services } from "./services";
 console.log(services)
 export class ArticleGrpcService  {
-  static service:any=new services["Article"]()
+  static service:any=services["Article"]()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Article.ArticleServiceServer = {
    async all (call: ServerUnaryCall<_Article.GetAllReq,_Article.GetAllRes>,
