@@ -10,7 +10,7 @@ import {TicketGrpcService} from "./tickets.grpc";
 import {AuthGrpcService} from "./auth.grpc";
 import {AuthorGrpcService} from "./authors.grpc";
 
-export let services:any={
+export const services:object={
   "Auth":AuthService,
   "Author":AuthorService,
   "User":UserService,
