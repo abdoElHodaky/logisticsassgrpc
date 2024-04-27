@@ -10,7 +10,7 @@ import {TicketGrpcService} from "./";
 import {AuthGrpcService} from "./";
 import {AuthorGrpcService} from "./";
 
-export const services:object={
+const services:any={
   "Auth":AuthService,
   "Author":AuthorService,
   "User":UserService,
@@ -22,4 +22,8 @@ export const services:object={
   "Grpc.Auth":AuthGrpcService,
   "Grpc.Author":AuthorGrpcService
 
+}
+
+export default function service(name:string ):any{
+  return new services[name]()
 }
