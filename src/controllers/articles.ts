@@ -9,7 +9,7 @@ import { Response ,Request} from "express"
 @Controller('/articles')
 export class ArticleController {
   
-  private articleS:ArticleService=new services["Article"]()
+  private articleS:any=new services["Article"]()
   
   constructor( ) {}
 
