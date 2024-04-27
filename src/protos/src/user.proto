@@ -1,8 +1,10 @@
 syntax ="proto3";
 //package protos;
 import "google/protobuf/timestamp.proto";
-import "./ticket.proto";
-import "./article.proto";
+import "article.proto";
+import "ticket.proto";
+import "error.proto";
+//option experimental_allow_proto3_optional=true;
 
 message User {
 
@@ -13,8 +15,8 @@ message User {
   string lastname=5;
   string email=6;
   string passwordHash=7;
- optional repeated protos.Article articles =8;
- optional repeated protos.Ticket tickets=9;
+  repeated Article articles =8;
+  repeated Ticket tickets=9;
  optional google.protobuf.Timestamp created_at = 10;
  optional google.protobuf.Timestamp updated_at = 11;
  
@@ -22,14 +24,38 @@ message User {
  //optional repeated int32 ticketIds=10
 }
 
-message createUserReq {
+message CreateUserReq {
   User user=1;
 }
-message createUserRes{
+message CreateUserRes{
  User user=1;
 }
 
+message GetUserIdReq {
+  int32 userId=1;
+
+}
+message GetUserIdRes{
+ User user=1;
+ optional Error error=2;
+
+}
+
+message GetAllUserReq{
+ optional string type=1;
+
+}
+
+message GetAllUserRes{
+  repeated User users=1;
+  optional Error error=2;
+
+}
+
 service UserService {
-  rpc createUser(createUserReq) returns(
-  createUserRes);
+  rpc create(CreateUserReq) returns(
+  CreateUserRes);
+  rpc  id(GetUserIdReq) returns(GetUserIdRes);
+  rpc all( GetAllUserReq)  returns ( GetAllUserRes );
+
 }
