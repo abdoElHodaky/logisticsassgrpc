@@ -1,13 +1,7 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
-import { Article } from "./entity/Article";
-import { Attachment } from "./entity/Attachment";
-import { Author } from "./entity/Author";
-import { Book } from "./entity/Book";
-import { supTicket } from "./entity/supTicket";
-import { User } from "./entity/User"
-import { Verification } from "./entity/Verification";
+import { Article,Attachment,User,Author,Book,supTicket,Verification } from "./entity/";
 
 export const _AppDataSource = new DataSource({
     type: "sqlite",
