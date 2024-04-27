@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,PrimaryGeneratedColumn} from "typeorm"
-import { Author } from "./User";
+import { Author } from "./";
 
 @Entity()
 export class Article {
