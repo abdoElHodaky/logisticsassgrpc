@@ -1,4 +1,4 @@
-import { ArticleService} from "../services/";
+import { services} from "../services/services";
 import { Article  } from "../entity/"
 //import { AppDataSource } from "../_datasource";
 import { CreateArticleDto } from "../dto/create-article.dto"
@@ -9,7 +9,7 @@ import { Response ,Request} from "express"
 @Controller('/articles')
 export class ArticleController {
   
-  private articleS:ArticleService=new ArticleService()
+  private articleS:ArticleService=new services["Article"]()
   
   constructor( ) {}
 
