@@ -1,7 +1,8 @@
 syntax ="proto3";
 //package protos;
 import "google/protobuf/timestamp.proto";
-
+//option experimental_allow_proto3_optional=true;
+import "error.proto";
 message Article {
 
  int32 id=1;
@@ -14,16 +15,26 @@ message Article {
  
 }
 
-message createArticleReq {
+message CreateReq {
   int32 userId=1;
   Article article=2;
 }
-message createArticleRes{
+
+message CreateRes{
  Article article=1;
 }
 
-service ArticleService {
-  rpc createUser(createArticleReq) returns(
-  createArticleRes);
+message GetAllReq {
+ optional int32 authorId=1;
 }
 
+message GetAllRes {
+ repeated Article articles=1;
+ optional Error error=2;
+}
+
+service ArticleService {
+  rpc create(CreateReq) returns(
+  CreateRes);
+  rpc all(GetAllReq) returns (GetAllRes);
+}
