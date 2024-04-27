@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_User} from "../protos/dist/";
-import  { Author } from "../entity/";
+import  { Author } from "../entity/User";
 //import { Service } from "./service.decorator"
 import {services} from "./services";
 export class AuthorGrpcService  {
