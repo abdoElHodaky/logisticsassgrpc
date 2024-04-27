@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn, OneToMany, ChildEntity} from "typeorm"
-import { Article } from "./Article";
-import { User } from "./User";
+import { Article ,User} from "./";
+//import { User } from "./";
 
 //@Entity()
 @ChildEntity()
