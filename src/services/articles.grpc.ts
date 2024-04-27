@@ -3,6 +3,7 @@ import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryC
 import  {_Article} from "../protos/dist/";
 //import { Service} from "./service.decorator";
 import { services } from "./services";
+console.log(services)
 export class ArticleGrpcService  {
   static service:any=new services["Article"]()
   //public [name: string]:UntypedHandleCall;
