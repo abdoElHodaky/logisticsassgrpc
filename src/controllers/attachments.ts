@@ -9,7 +9,7 @@ import { Response ,Request} from "express"
 @Controller('/attachments')
 export class AttachmentController {
   
-  private attachmentS:AttachmentService=new services["Attachment"]()
+  private attachmentS:any=new services["Attachment"]()
   
   constructor( ) {}
 
