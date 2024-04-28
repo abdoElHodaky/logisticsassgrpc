@@ -26,7 +26,7 @@ export class AuthorGrpcService  {
     if(authors instanceof Array){ 
      
      let _authors=authors.map(_User.User.fromJSON)
-      console.log(_authors)
+     // console.log(_authors)
       const res:_User.GetAllUserRes={
           users:_authors,
           error:{
