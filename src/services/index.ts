@@ -1,12 +1,25 @@
+import {AuthService} from "./auth";
+import {AttachmentService} from "./attachments";
+import {UserService} from "./users";
+import {AuthorService} from "./authors";
+import {ArticleService} from "./articles";
+import {UserTicketService} from "./users.tickets";
+import {ArticleGrpcService} from "./articles.grpc";
+import {TicketGrpcService} from "./tickets.grpc";
+import {AuthGrpcService} from "./auth.grpc";
+import {AuthorGrpcService} from "./authors.grpc";
 
 
-export {AuthService} from "./auth";
-export {AttachmentService} from "./attachments";
-export {UserService} from "./users";
-export {AuthorService} from "./authors";
-export {ArticleService} from "./articles";
-export {UserTicketService} from "./users.tickets";
-export {ArticleGrpcService} from "./articles.grpc";
-export {TicketGrpcService} from "./tickets.grpc";
-export {AuthGrpcService} from "./auth.grpc";
-export {AuthorGrpcService} from "./authors.grpc";
+
+export enum services{
+  Auth=new AuthService(),
+  Author=new AuthorService(),
+  User=new UserService(),
+  Article=new ArticleService(),
+  Attachment=new AttachmentService(),
+  Ticket=new UserTicketService(),
+  Grpc_Ticket=new TicketGrpcService(),
+  Grpc_Article=new ArticleGrpcService(),
+  Grpc_Auth=new AuthGrpcService(),
+  Grpc_Author=new AuthorGrpcService()
+}
