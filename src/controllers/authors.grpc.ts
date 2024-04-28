@@ -3,7 +3,7 @@ import {_User } from "../protos/dist/";
 import { Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
 
-const address = `localhost:${process.env.GRPCPORT}`;
+const address = "localhost:50051";
 
 @Controller("/grpc/authors")
 export class GrpcAuthorController {
