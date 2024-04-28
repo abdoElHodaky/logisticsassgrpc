@@ -2,8 +2,8 @@ import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Article} from "../protos/dist/";
 //import { Service} from "./service.decorator";
-import services  from "./services";
-console.log(Service)
+import { services ,Service }from "./services";
+console.log(Service,services)
 export class ArticleGrpcService  {
   static service:any=Service("Article")
   //public [name: string]:UntypedHandleCall;
