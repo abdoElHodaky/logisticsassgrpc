@@ -10,7 +10,7 @@ import "address.proto";
 message User {
 message Email{
    string value=1;
-   string verified=2;
+   optional string verified=2;
   }
  int32 id=1;
  optional string type=2;
