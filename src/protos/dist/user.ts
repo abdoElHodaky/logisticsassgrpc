@@ -62,11 +62,11 @@ export interface GetAllUserReq {
 }
 
 export interface GetAllUserRes {
-  users: string[];
+  users: User[];
   error?: Error | undefined;
 }
 
-export function createBaseUser(): User {
+function createBaseUser(): User {
   return {
     id: 0,
     type: undefined,
@@ -690,7 +690,7 @@ function createBaseGetAllUserRes(): GetAllUserRes {
 export const GetAllUserRes = {
   encode(message: GetAllUserRes, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.users) {
-      writer.uint32(10).string(v!);
+      User.encode(v!, writer.uint32(10).fork()).ldelim();
     }
     if (message.error !== undefined) {
       Error.encode(message.error, writer.uint32(18).fork()).ldelim();
@@ -710,7 +710,7 @@ export const GetAllUserRes = {
             break;
           }
 
-          message.users.push(reader.string());
+          message.users.push(User.decode(reader, reader.uint32()));
           continue;
         case 2:
           if (tag !== 18) {
@@ -730,7 +730,7 @@ export const GetAllUserRes = {
 
   fromJSON(object: any): GetAllUserRes {
     return {
-      users: globalThis.Array.isArray(object?.users) ? object.users.map((e: any) => globalThis.String(e)) : [],
+      users: globalThis.Array.isArray(object?.users) ? object.users.map((e: any) => User.fromJSON(e)) : [],
       error: isSet(object.error) ? Error.fromJSON(object.error) : undefined,
     };
   },
@@ -738,7 +738,7 @@ export const GetAllUserRes = {
   toJSON(message: GetAllUserRes): unknown {
     const obj: any = {};
     if (message.users?.length) {
-      obj.users = message.users;
+      obj.users = message.users.map((e) => User.toJSON(e));
     }
     if (message.error !== undefined) {
       obj.error = Error.toJSON(message.error);
@@ -751,7 +751,7 @@ export const GetAllUserRes = {
   },
   fromPartial<I extends Exact<DeepPartial<GetAllUserRes>, I>>(object: I): GetAllUserRes {
     const message = createBaseGetAllUserRes();
-    message.users = object.users?.map((e) => e) || [];
+    message.users = object.users?.map((e) => User.fromPartial(e)) || [];
     message.error = (object.error !== undefined && object.error !== null) ? Error.fromPartial(object.error) : undefined;
     return message;
   },
