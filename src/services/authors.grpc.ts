@@ -27,23 +27,25 @@ export class AuthorGrpcService  {
      authors.forEach(e=>{
        e=_User.User.fromJSON(e)
      })
-   //  console.log()
-     let res:_User.GetAllUserRes={users:[JSON.stringify(authors)],error:{
-       Message:"",type:"",name:""
-     }}
-     callback({code:status.OK},res)}
+      let _authors=JSON.stringify(authors)
+      const res:_User.GetAllUserRes={
+          users:[_authors],
+          error:{
+            Message:"",name:"",type:""
+          }
+         }
+         callback(null,res)
+     }
      else{
-      let  res:_User.GetAllUserRes={users:[],error:{
+      callback({ code: status.NOT_FOUND }, {users:[],error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
-          }}
-       callback({ code: status.NOT_FOUND }, res);
+          }});
      }
     }
      catch(err){
-       let res:_User.GetAllUserRes= {users:[],error:{
-        Message:"Some Internal Error",type:"InternalError",name:""
-        }  }
-       callback({ code: status.INTERNAL },res);
+       callback({ code: status.NOT_FOUND }, {users:[],error:{
+            Message:"No Records matching request",type:"NotFoundError",name:""
+          }});
        console.error(err);
      }
       }
