@@ -5,6 +5,8 @@ import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { AppDataSource } from "./_datasource";
 import { attachmentsroute } from "./routes/attachmentroutes";
+import { authorsgrpc } from "./routes/authorsgrpc";
+
 export const apiv1=Router();
 apiv1.get("/suptickets",(req,res)=>{
 /* 	#swagger.tags = ['suptickets']
@@ -57,7 +59,7 @@ attachControllers(apiv1,[...controllers])
 //attachControllers(apiv1,[UserController,UserTicketController ])
 //attachControllers(apiv1,[])
 //attachControllers(apiv1,[AuthorController])
-//apiv1.use(authorsroutes)
+apiv1.use(authorsgrpc)
 //attachControllers(apiv1,[ArticleController])
 //apiv1.use(articlesroute)
 //apiv1.use(attachmentsroute)
