@@ -18,4 +18,4 @@ server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 /*server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })*/
-export default server
+export  server
