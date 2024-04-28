@@ -24,11 +24,9 @@ export class AuthorGrpcService  {
      let authors=await AuthorGrpcService.service.all()
        //console.log(authors.map(JSON.stringify))
     if(authors instanceof Array){ 
-     authors.forEach(e=>{
-       e=_User.User.fromJSON(e)
-     })
-     let _authors=JSON.stringify(authors)
-      console.log(authors)
+     
+     let _authors=authors.map(_User.User.fromJSON)
+      console.log(_authors)
       const res:_User.GetAllUserRes={
           users:_authors,
           error:{
