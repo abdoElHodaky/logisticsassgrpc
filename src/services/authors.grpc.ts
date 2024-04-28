@@ -21,7 +21,7 @@ export class AuthorGrpcService  {
      }
      try{
      let authors=await AuthorGrpcService.service.all()
-       console.log(authors, authors instanceof Array)
+       console.log(authors.map(_User.User.fromJSON))
     if(authors instanceof Array){ 
      let _authors=authors.map(_User.User.fromJSON)
      res={users:_authors,error:{
