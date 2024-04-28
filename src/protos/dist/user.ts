@@ -26,14 +26,18 @@ export interface User {
   username?: string | undefined;
   firstname: string;
   lastname: string;
-  value?: string | undefined;
-  verified?: string | undefined;
-  passwordHash: string;
+  email: User_Email | undefined;
+  passwordHash?: string | undefined;
   articles: Article[];
   tickets: Ticket[];
   address: Address | undefined;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
+}
+
+export interface User_Email {
+  verified: string;
+  value: string;
 }
 
 export interface CreateUserReq {
@@ -69,9 +73,8 @@ function createBaseUser(): User {
     username: undefined,
     firstname: "",
     lastname: "",
-    value: undefined,
-    verified: undefined,
-    passwordHash: "",
+    email: undefined,
+    passwordHash: undefined,
     articles: [],
     tickets: [],
     address: undefined,
@@ -97,29 +100,26 @@ export const User = {
     if (message.lastname !== "") {
       writer.uint32(42).string(message.lastname);
     }
-    if (message.value !== undefined) {
-      writer.uint32(50).string(message.value);
+    if (message.email !== undefined) {
+      User_Email.encode(message.email, writer.uint32(50).fork()).ldelim();
     }
-    if (message.verified !== undefined) {
-      writer.uint32(58).string(message.verified);
-    }
-    if (message.passwordHash !== "") {
-      writer.uint32(66).string(message.passwordHash);
+    if (message.passwordHash !== undefined) {
+      writer.uint32(58).string(message.passwordHash);
     }
     for (const v of message.articles) {
-      Article.encode(v!, writer.uint32(74).fork()).ldelim();
+      Article.encode(v!, writer.uint32(66).fork()).ldelim();
     }
     for (const v of message.tickets) {
-      Ticket.encode(v!, writer.uint32(82).fork()).ldelim();
+      Ticket.encode(v!, writer.uint32(74).fork()).ldelim();
     }
     if (message.address !== undefined) {
-      Address.encode(message.address, writer.uint32(90).fork()).ldelim();
+      Address.encode(message.address, writer.uint32(82).fork()).ldelim();
     }
     if (message.createdAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(98).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(90).fork()).ldelim();
     }
     if (message.updatedAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(106).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(98).fork()).ldelim();
     }
     return writer;
   },
@@ -171,52 +171,45 @@ export const User = {
             break;
           }
 
-          message.value = reader.string();
+          message.email = User_Email.decode(reader, reader.uint32());
           continue;
         case 7:
           if (tag !== 58) {
             break;
           }
 
-          message.verified = reader.string();
+          message.passwordHash = reader.string();
           continue;
         case 8:
           if (tag !== 66) {
             break;
           }
 
-          message.passwordHash = reader.string();
+          message.articles.push(Article.decode(reader, reader.uint32()));
           continue;
         case 9:
           if (tag !== 74) {
             break;
           }
 
-          message.articles.push(Article.decode(reader, reader.uint32()));
+          message.tickets.push(Ticket.decode(reader, reader.uint32()));
           continue;
         case 10:
           if (tag !== 82) {
             break;
           }
 
-          message.tickets.push(Ticket.decode(reader, reader.uint32()));
+          message.address = Address.decode(reader, reader.uint32());
           continue;
         case 11:
           if (tag !== 90) {
             break;
           }
 
-          message.address = Address.decode(reader, reader.uint32());
+          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           continue;
         case 12:
           if (tag !== 98) {
-            break;
-          }
-
-          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
-          continue;
-        case 13:
-          if (tag !== 106) {
             break;
           }
 
@@ -238,9 +231,8 @@ export const User = {
       username: isSet(object.username) ? globalThis.String(object.username) : undefined,
       firstname: isSet(object.firstname) ? globalThis.String(object.firstname) : "",
       lastname: isSet(object.lastname) ? globalThis.String(object.lastname) : "",
-      value: isSet(object.value) ? globalThis.String(object.value) : undefined,
-      verified: isSet(object.verified) ? globalThis.String(object.verified) : undefined,
-      passwordHash: isSet(object.passwordHash) ? globalThis.String(object.passwordHash) : "",
+      email: isSet(object.email) ? User_Email.fromJSON(object.email) : undefined,
+      passwordHash: isSet(object.passwordHash) ? globalThis.String(object.passwordHash) : undefined,
       articles: globalThis.Array.isArray(object?.articles) ? object.articles.map((e: any) => Article.fromJSON(e)) : [],
       tickets: globalThis.Array.isArray(object?.tickets) ? object.tickets.map((e: any) => Ticket.fromJSON(e)) : [],
       address: isSet(object.address) ? Address.fromJSON(object.address) : undefined,
@@ -266,13 +258,10 @@ export const User = {
     if (message.lastname !== "") {
       obj.lastname = message.lastname;
     }
-    if (message.value !== undefined) {
-      obj.value = message.value;
+    if (message.email !== undefined) {
+      obj.email = User_Email.toJSON(message.email);
     }
-    if (message.verified !== undefined) {
-      obj.verified = message.verified;
-    }
-    if (message.passwordHash !== "") {
+    if (message.passwordHash !== undefined) {
       obj.passwordHash = message.passwordHash;
     }
     if (message.articles?.length) {
@@ -303,9 +292,10 @@ export const User = {
     message.username = object.username ?? undefined;
     message.firstname = object.firstname ?? "";
     message.lastname = object.lastname ?? "";
-    message.value = object.value ?? undefined;
-    message.verified = object.verified ?? undefined;
-    message.passwordHash = object.passwordHash ?? "";
+    message.email = (object.email !== undefined && object.email !== null)
+      ? User_Email.fromPartial(object.email)
+      : undefined;
+    message.passwordHash = object.passwordHash ?? undefined;
     message.articles = object.articles?.map((e) => Article.fromPartial(e)) || [];
     message.tickets = object.tickets?.map((e) => Ticket.fromPartial(e)) || [];
     message.address = (object.address !== undefined && object.address !== null)
@@ -313,6 +303,80 @@ export const User = {
       : undefined;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;
+    return message;
+  },
+};
+
+function createBaseUser_Email(): User_Email {
+  return { verified: "", value: "" };
+}
+
+export const User_Email = {
+  encode(message: User_Email, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.verified !== "") {
+      writer.uint32(10).string(message.verified);
+    }
+    if (message.value !== "") {
+      writer.uint32(18).string(message.value);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): User_Email {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseUser_Email();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.verified = reader.string();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.value = reader.string();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): User_Email {
+    return {
+      verified: isSet(object.verified) ? globalThis.String(object.verified) : "",
+      value: isSet(object.value) ? globalThis.String(object.value) : "",
+    };
+  },
+
+  toJSON(message: User_Email): unknown {
+    const obj: any = {};
+    if (message.verified !== "") {
+      obj.verified = message.verified;
+    }
+    if (message.value !== "") {
+      obj.value = message.value;
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<User_Email>, I>>(base?: I): User_Email {
+    return User_Email.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<User_Email>, I>>(object: I): User_Email {
+    const message = createBaseUser_Email();
+    message.verified = object.verified ?? "";
+    message.value = object.value ?? "";
     return message;
   },
 };
