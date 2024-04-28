@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
-import  {_User} from "../protos/dist/";
+import  {_User, _Article,_Ticket} from "../protos/dist/";
 import  { Author } from "../entity/User";
 //import { Service } from "./service.decorator"
 import {AuthorService} from "./";
@@ -21,9 +21,13 @@ export class AuthorGrpcService  {
      }
      try{
      let authors=await AuthorGrpcService.service.all()
-       console.log(authors.map(JSON.stringify))
+       //console.log(authors.map(JSON.stringify))
     if(authors instanceof Array){ 
-     let _authors=authors.map(_User.User.fromJSON)
+     let _authors=authors.map(e=>{
+       e.articles=_Article.Article.fromJSON(e.articles)
+       e.tickets=_Ticket.Ticket.fromJSON(e.tickets)
+     })
+     console.log(authors.map(JSON.stringify))
      res={users:_authors,error:{
        Message:"",type:"",name:""
      }}
