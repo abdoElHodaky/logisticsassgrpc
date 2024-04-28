@@ -13,7 +13,12 @@ export class AuthorGrpcService  {
    async all (call: ServerUnaryCall<_User.GetAllUserReq,_User.GetAllUserRes>,
     callback: sendUnaryData<_User.GetAllUserRes>
  ){
-     let res:_User.GetAllUserRes
+     let res:_User.GetAllUserRes={
+       users:[],
+       error:{
+       Message:"",type:"",name:""
+      }
+     }
      try{
      let authors=await AuthorGrpcService.service.all()
        console.log(authors)
