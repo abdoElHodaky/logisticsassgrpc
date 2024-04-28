@@ -8,3 +8,4 @@ export {ArticleGrpcService} from "./articles.grpc";
 export {TicketGrpcService} from "./tickets.grpc";
 export {AuthGrpcService} from "./auth.grpc";
 export {AuthorGrpcService} from "./authors.grpc";
+export {UserGrpcService} from "./users.grpc";
