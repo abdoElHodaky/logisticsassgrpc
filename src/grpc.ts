@@ -9,10 +9,10 @@ const PORT =  "50051";
 const server = new Server()
 const address = `${HOST}:${PORT}`;
 console.log(services)
-server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImp)
-server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImp)
+server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
+server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
-server.addService(_User.UserServiceService,services.Grpc_Author.SrvImp)
+server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 
 
 server.bindAsync('localhost:3030', ServerCredentials.createInsecure(), () => {
