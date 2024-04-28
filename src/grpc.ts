@@ -15,7 +15,7 @@ server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 
 
-server.bindAsync('localhost:3030', ServerCredentials.createInsecure(), () => {
+server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
 export default server
