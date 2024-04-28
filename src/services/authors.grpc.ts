@@ -25,8 +25,7 @@ export class AuthorGrpcService  {
        //console.log(authors.map(JSON.stringify))
     if(authors instanceof Array){ 
      authors.forEach(e=>{
-       e.articles=_Article.Article.fromJSON(e.articles)
-       e.tickets=_Ticket.Ticket.fromJSON(e.tickets)
+       e=_User.User.fromJSON(e)
      })
      console.log(authors)
      res={users:_authors,error:{
