@@ -8,7 +8,7 @@ import {ArticleGrpcService} from "./articles.grpc";
 import {TicketGrpcService} from "./tickets.grpc";
 import {AuthGrpcService} from "./auth.grpc";
 import {AuthorGrpcService} from "./authors.grpc";
-
+import {UserGrpcService} from "./users.grpc";
 
 
 export let services={
@@ -21,5 +21,6 @@ export let services={
   Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
-  Grpc_Author:new AuthorGrpcService()
+  Grpc_Author:new AuthorGrpcService(),
+  Grpc_User:new UserGrpcService()
 }
