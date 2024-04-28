@@ -28,7 +28,7 @@ export class AuthorGrpcService  {
        e=_User.User.fromJSON(e)
      })
    //  console.log()
-     res={users:_User.User.toJSON(authors),error:{
+     res={users:JSON.stringify(authors),error:{
        Message:"",type:"",name:""
      }}
      callback({code:status.OK},res)}
