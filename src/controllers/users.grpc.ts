@@ -6,7 +6,7 @@ import { Response  } from "express";
 const address = "localhost:50051";
 
 @Controller("/grpc/users")
-export class GrpcAuthorController {
+export class GrpcUserController {
   private client =new _User.UserServiceClient(
     address,
     credentials.createInsecure()
