@@ -18,7 +18,7 @@ export let services={
   Article:new ArticleService(),
   Attachment:new AttachmentService(),
   Ticket:new UserTicketService(),
-  Grpc_Ticke:new TicketGrpcService(),
+  Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
   Grpc_Author:new AuthorGrpcService()
