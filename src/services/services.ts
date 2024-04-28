@@ -14,6 +14,6 @@ export let services:any={
 
 }
 
-export const Service:any=(servname)=>{
+export const Service=(servname:string)=>{
    return new services[servname]()
 }
