@@ -1,29 +1,19 @@
-
-import {AuthService} from "./";
-import {AttachmentService} from "./";
-import {UserService} from "./";
-import {AuthorService} from "./";
-import {ArticleService} from "./";
-import {UserTicketService} from "./";
-import {ArticleGrpcService} from "./";
-import {TicketGrpcService} from "./";
-import {AuthGrpcService} from "./";
-import {AuthorGrpcService} from "./";
-
-const services:any={
-  "Auth":AuthService,
-  "Author":AuthorService,
-  "User":UserService,
-  "Article":ArticleService,
-  "Attachment":AttachmentService,
-  "Ticket":UserTicketService,
-  "Grpc.Ticket":TicketGrpcService,
-  "Grpc.Article":ArticleGrpcService,
-  "Grpc.Auth":AuthGrpcService,
-  "Grpc.Author":AuthorGrpcService
+import * as Services from "./";
+let servkey = Symbol("servname");
+export let services:any={
+  "Auth":Services.AuthService,
+  "Author":Services.AuthorService,
+  "User":Services.UserService,
+  "Article":Services.ArticleService,
+  "Attachment":Services.AttachmentService,
+  "Ticket":Services.UserTicketService,
+  "Grpc.Ticket":Services.TicketGrpcService,
+  "Grpc.Article":Services.ArticleGrpcService,
+  "Grpc.Auth":Services.AuthGrpcService,
+  "Grpc.Author":Services.AuthorGrpcService
 
 }
 
-export default function service(name:string ):any{
-  return new services[name]()
+export const Service:any=(servname)=>{
+   return new services[servname]()
 }
