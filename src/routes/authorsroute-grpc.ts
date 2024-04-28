@@ -1,14 +1,15 @@
 import { Router } from "express";
-//import { Author } from "../entity/Author";
+import { User } from "../entity/";
 //import { Article } from "../entity/Article"
-//import { AppDataSource } from "../_datasource";
+import { AppDataSource } from "../_datasource";
 
 export const authorsgrpc=Router()
 
 authorsgrpc.get("/grpc/authors",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Author']
         #swagger.description = 'Endpoint to get authors via grpc' */
-
+  let users; 
+    AppDataSource.manager.find(User).then(console.log).catch(console.log)
 })
 
     
