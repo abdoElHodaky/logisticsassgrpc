@@ -29,7 +29,7 @@ export class AuthorGrpcService  {
      })
       let _authors=JSON.stringify(authors)
       const res:_User.GetAllUserRes={
-          users:[_authors],
+          users:JSON.parse(_authors),
           error:{
             Message:"",name:"",type:""
           }
