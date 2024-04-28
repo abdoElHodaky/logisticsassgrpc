@@ -8,8 +8,8 @@ export enum services{
   Article=Services.ArticleService,
   Attachment=Services.AttachmentService,
   Ticket=Services.UserTicketService,
-  Grpc_Ticket:=ervices.TicketGrpcService,
+  Grpc_Ticket=Services.TicketGrpcService,
   Grpc_Article=Services.ArticleGrpcService,
   Grpc_Auth=Services.AuthGrpcService,
-  Grpc_Author.AuthorGrpcService
+  Grpc_Author=AuthorGrpcService
 }
