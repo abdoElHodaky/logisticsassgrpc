@@ -36,7 +36,7 @@ app.use((error:any, req:any, res:any, next:any) => {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
-
+const server=require("./grpc")
 app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
@@ -44,6 +44,9 @@ app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
+  server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
+    console.log("Server started")
+    server.start(); })
 })
 
 module.exports = app;
