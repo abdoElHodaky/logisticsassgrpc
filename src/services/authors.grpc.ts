@@ -27,7 +27,7 @@ export class AuthorGrpcService  {
      authors.forEach(e=>{
        e=_User.User.fromJSON(e)
      })
-     console.log(authors)
+     console.log(JSON.stringify(authors))
      res={users:_authors,error:{
        Message:"",type:"",name:""
      }}
