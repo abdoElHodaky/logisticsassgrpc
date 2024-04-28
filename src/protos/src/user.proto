@@ -52,7 +52,7 @@ message GetAllUserReq{
 }
 
 message GetAllUserRes{
-  repeated string users=1;
+  repeated User users=1;
   optional Error error=2;
 
 }
