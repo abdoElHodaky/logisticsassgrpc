@@ -13,7 +13,7 @@ server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl,services.Grpc_User.SrvImpl)
-s//erver.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
+//server.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
 
 
 server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
