@@ -13,6 +13,7 @@ export class AuthorGrpcService  {
    async all (call: ServerUnaryCall<_User.GetAllUserReq,_User.GetAllUserRes>,
     callback: sendUnaryData<_User.GetAllUserRes>
  ){
+     let base:_User.User=_User.createBaseUser()
      let res:_User.GetAllUserRes={
        users:[],
        error:{
@@ -23,11 +24,11 @@ export class AuthorGrpcService  {
      let authors=await AuthorGrpcService.service.all()
        //console.log(authors.map(JSON.stringify))
     if(authors instanceof Array){ 
-     let _authors=authors.map(e=>{
+     authors.forEach(e=>{
        e.articles=_Article.Article.fromJSON(e.articles)
        e.tickets=_Ticket.Ticket.fromJSON(e.tickets)
      })
-     console.log(_authors)
+     console.log(authors)
      res={users:_authors,error:{
        Message:"",type:"",name:""
      }}
