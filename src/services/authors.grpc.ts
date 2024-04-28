@@ -27,9 +27,9 @@ export class AuthorGrpcService  {
      authors.forEach(e=>{
        e=_User.User.fromJSON(e)
      })
-      let _authors=JSON.stringify(authors)
+    //  let _authors=JSON.stringify(authors)
       const res:_User.GetAllUserRes={
-          users:JSON.parse(_authors),
+          users:authors,
           error:{
             Message:"",name:"",type:""
           }
