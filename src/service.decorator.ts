@@ -11,7 +11,7 @@ export function Service(servname: string): Function {
         };
     };*/
         
-    //target[propertyKey]=new types[servname]()
+    target[propertyKey]=services[servname]
     console.log(target,propertyKey)
     console.log(servname)
    
