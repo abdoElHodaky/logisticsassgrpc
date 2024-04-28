@@ -12,7 +12,7 @@ export function Service(servname: string): Function {
     };*/
         
     //target[propertyKey]=new types[servname]()
-    console.log(target,propertyKey,types)
+    console.log(target,propertyKey)
     console.log(servname)
    
   }
