@@ -2,10 +2,10 @@ import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Article} from "../protos/dist/";
 //import { Service} from "./service.decorator";
-import { services }from "./enum";
+import { ArticleService }from "./";
 console.log(services)
 export class ArticleGrpcService  {
-  static service:any=services.Article
+  static service:any=new ArticleService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Article.ArticleServiceServer = {
    async all (call: ServerUnaryCall<_Article.GetAllReq,_Article.GetAllRes>,
