@@ -28,6 +28,7 @@ export class AuthorGrpcService  {
        e=_User.User.fromJSON(e)
      })
      let _authors=JSON.stringify(authors)
+      console.log(authors)
       const res:_User.GetAllUserRes={
           users:_authors,
           error:{
