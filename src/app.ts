@@ -42,16 +42,8 @@ app.get("/",(req,res)=>{
 })
 app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const configureApplication =  () => {
-   server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
-    console.log("Server started")
-    server.start(); })
-   app.listen(port, () => {
-	   console.log(`Example app listening on port ${port}`)
-
-  });
-}
-
-configureApplication();
+app.listen(port, () => { 
+	console.log(`Example app listening on port ${port}`)
+});
 
 module.exports = app;
