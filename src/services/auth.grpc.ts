@@ -1,10 +1,10 @@
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall, handleUnaryCall } from "@grpc/grpc-js";
 import  {_Auth} from "../protos/dist/";
-import {services} from "./enum";
+import {AuthService} from "./";
 
 export class AuthGrpcService {
   
-  static service:any=services.Auth
+  static service:any=new AuthService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Auth.AuthServiceServer = {
  
