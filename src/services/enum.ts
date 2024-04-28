@@ -11,7 +11,7 @@ import {AuthorGrpcService} from "./authors.grpc";
 
 
 
-export default const services={
+exports.services={
   Auth:new AuthService(),
   Author:new AuthorService(),
   User:new UserService(),
