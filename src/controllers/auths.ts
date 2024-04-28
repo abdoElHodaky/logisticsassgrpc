@@ -1,5 +1,5 @@
 import { User } from "../entity/"
-import { services } from "../services/services";
+import { services } from "../services/enum";
 //import { AppDataSource } from "../_datasource";
 import { LoginUserDto ,CreateUserDto } from "../dto/"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
@@ -7,7 +7,7 @@ import { Response ,Request} from "express"
 
 @Controller('/auth')
 export class AuthController {
-  private authS:any=new services["Auth"]()
+  private authS:any=services.Auth
   constructor(){}
 
   @Post("login")
