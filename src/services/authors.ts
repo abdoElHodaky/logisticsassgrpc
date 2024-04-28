@@ -15,7 +15,13 @@ export class AuthorService  extends _Data {
 
   async all():Promise<Author[]>{
    // console.log(this.datasource)
-    return await this.datasource.manager.find(Author)
+    return await this.datasource.manager.find(Author,{
+      where:{},
+      relations:{
+        articles:true,
+        tickets:true
+      }
+    })
   }
   
   async id(userId:string):Promise<Author|NotFoundError|void> {
