@@ -8,22 +8,22 @@ import "address.proto";
 //option experimental_allow_proto3_optional=true;
 
 message User {
-
+message Email{
+   string verified=1;
+   string value=2;
+  }
  int32 id=1;
  optional string type=2;
  optional string username=3;
   string firstname=4;
   string lastname=5;
-  oneof email {
-        string value = 6;
-        string verified = 7;
-    };
-  string passwordHash=8;
-  repeated Article articles =9;
-  repeated Ticket tickets=10;
-  Address address=11;
- optional google.protobuf.Timestamp created_at = 12;
- optional google.protobuf.Timestamp updated_at = 13;
+  Email email=6;
+  optional string passwordHash=7;
+  repeated Article articles =8;
+  repeated Ticket tickets=9;
+  Address address=10;
+ optional google.protobuf.Timestamp created_at = 11;
+ optional google.protobuf.Timestamp updated_at = 12;
  
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
