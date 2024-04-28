@@ -27,7 +27,7 @@ export class AuthorGrpcService  {
        e.articles=_Article.Article.fromJSON(e.articles)
        e.tickets=_Ticket.Ticket.fromJSON(e.tickets)
      })
-     console.log(authors.map(JSON.stringify))
+     console.log(_authors)
      res={users:_authors,error:{
        Message:"",type:"",name:""
      }}
