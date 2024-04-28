@@ -11,12 +11,13 @@ export class TicketGrpcService   {
     async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
     callback: sendUnaryData<_Ticket.GetAllTicketRes>)
       {
+       let {userId}=call.request
     try
     {
-      let tickets=await TicketGrpcService.service.all(call.request.userId)
+      let tickets=await TicketGrpcService.service.all(userId)
       if (tickets instanceof Array){
         let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
-        _tickets.each((e,i)=>{e.userId=call.request.userId})
+        _tickets.forEach((e,i)=>{e.userId=userId})
         const res:_Ticket.GetAllTicketRes={
           tickets:_tickets,
           error:{
