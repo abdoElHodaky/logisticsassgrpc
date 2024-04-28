@@ -105,7 +105,10 @@ export class AuthorGrpcService  {
         ,error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }}
-        callback({ code: status.NOT_FOUND }, res);
+        callback({ code: status.NOT_FOUND }, {user: base
+      ,error:{
+        Message:"Some Internal Error",type:"InternalError",name:""
+       }  });
       }
            }
      catch(err){
@@ -113,7 +116,10 @@ export class AuthorGrpcService  {
       ,error:{
         Message:"Some Internal Error",type:"InternalError",name:""
        }  }
-      callback({ code: status.INTERNAL }, res);
+      callback({ code: status.INTERNAL }, {user: base
+      ,error:{
+        Message:"Some Internal Error",type:"InternalError",name:""
+       }  });
      console.error(err);    
  
      }   
