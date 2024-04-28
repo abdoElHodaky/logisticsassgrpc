@@ -4,7 +4,7 @@ import "google/protobuf/timestamp.proto";
 import "article.proto";
 import "ticket.proto";
 import "error.proto";
-import "addresses.proto"
+import "addresses.proto";
 //option experimental_allow_proto3_optional=true;
 
 message User {
