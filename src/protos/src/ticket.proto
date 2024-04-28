@@ -8,8 +8,8 @@ message Ticket {
 
  int32 id=1;
  string type=2;
- string content=3;
- string title=4;
+ string subject=3;
+ string description=4;
  int32 userId=5;
  optional google.protobuf.Timestamp created_at = 6;
 optional google.protobuf.Timestamp updated_at = 7;
