@@ -8,7 +8,7 @@ const HOST =  "0.0.0.0";
 const PORT =  "50051";
 const server = new Server()
 const address = `${HOST}:${PORT}`;
-console.log(services)
+//console.log(services)
 server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
