@@ -3,7 +3,7 @@ import { Server, ServerCredentials } from "@grpc/grpc-js";
 
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
 //import { _Ticket  } from "./protos/dist/"
-import services from "./services/enum";
+import { services } from "./services/enum";
 const HOST =  "0.0.0.0";
 const PORT =  "50051";
 const server = new Server()
