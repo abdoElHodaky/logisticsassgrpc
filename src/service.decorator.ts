@@ -13,7 +13,7 @@ export function Service(servname: string): Function {
         
     
     console.log(target[propertyKey])
-    console.log(services.keys())
+    console.log(services.Auth)
    
   }
 }
