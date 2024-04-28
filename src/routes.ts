@@ -5,7 +5,7 @@ import { supTicket } from "./entity/supTicket";
 import { User } from "./entity/User";
 import { AppDataSource } from "./_datasource";
 import { attachmentsroute } from "./routes/attachmentroutes";
-import { authorsgrpc } from "./routes/authorsgrpc";
+import { authorsgrpc } from "./routes/authorsroute-grpc";
 
 export const apiv1=Router();
 apiv1.get("/suptickets",(req,res)=>{
