@@ -1,4 +1,4 @@
-import {services} from "./services/enum"
+import * as services from "./services/"
 import "reflect-metadata";
 console.log(services)
 
@@ -13,7 +13,7 @@ export function Service(servname: string): Function {
         
     
     console.log(target[propertyKey])
-    console.log(services[servname])
+    console.log(services)
    
   }
 }
