@@ -7,7 +7,8 @@ import {AttachmentController} from "./attachments";
 import {GrpcArticleController} from "./articles.grpc";
 import {GrpcTicketController} from "./tickets.grpc";
 import {GrpcAuthController} from "./auth.grpc";
+import {GrpcAuthorController} from "./authors.grpc";
 
-export const controllers=[GrpcAuthController,
+export const controllers=[GrpcAuthController,GrpcAuthorController,
                           GrpcArticleController,GrpcTicketController
                          ]
