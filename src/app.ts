@@ -6,6 +6,8 @@ import { json,urlencoded } from "express";
 import cors from "cors";
 import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
+import { ServerCredentials } from "@grpc/grpc-js";
+
 const app=application();
 const port = process.env.PORT||3000
 /*setInterval(function (){
@@ -42,8 +44,16 @@ app.get("/",(req,res)=>{
 })
 app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.listen(port, () => { 
-	console.log(`Example app listening on port ${port}`)
-});
+const configureApplication =  () => {
+   server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
+    console.log("Server started")
+    server.start(); })
+   app.listen(port, () => {
+	   console.log(`Example app listening on port ${port}`)
+
+  });
+}
+
+configureApplication();
 
 module.exports = app;
