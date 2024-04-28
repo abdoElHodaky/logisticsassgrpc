@@ -11,9 +11,9 @@ export function Service(servname: string): Function {
         };
     };*/
         
-    target[propertyKey]=services[servname]
-    console.log(target,propertyKey)
-    console.log(servname)
+    
+    console.log(target[propertyKey])
+    console.log(services[servname])
    
   }
 }
