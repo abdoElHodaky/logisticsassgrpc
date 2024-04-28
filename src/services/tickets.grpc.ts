@@ -1,11 +1,11 @@
 import { sendUnaryData, ServerUnaryCall, status,UntypedHandleCall } from "@grpc/grpc-js";
 import { supTicket }from "../entity/"
 import  {_Ticket} from "../protos/dist/";
-import  {services} from "./services";
+import  {UserTicketService} from "./";
 
 //@service("Ticket")
 export class TicketGrpcService   {
- static service:any=new services["Ticket"]()
+ static service:any=new UserTicketService()
  // public [name: string]:UntypedHandleCall;
   public SrvImpl:_Ticket.TicketServiceServer={
     async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
