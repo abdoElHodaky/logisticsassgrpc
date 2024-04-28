@@ -16,7 +16,7 @@ export class TicketGrpcService   {
       let tickets=await TicketGrpcService.service.all(call.request.userId)
       if (tickets instanceof Array){
         let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
-        _tickets=_tickets.map(e=>e.userId=call.request.userId)
+        _tickets.each((e,i)=>{e.userId=call.request.userId})
         const res:_Ticket.GetAllTicketRes={
           tickets:_tickets,
           error:{
