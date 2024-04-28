@@ -11,7 +11,7 @@ import {AuthorGrpcService} from "./authors.grpc";
 
 
 
-exports=services={
+export let services={
   Auth:new AuthService(),
   Author:new AuthorService(),
   User:new UserService(),
