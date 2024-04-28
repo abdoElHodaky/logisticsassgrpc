@@ -12,7 +12,7 @@ export class GrpcAuthorController {
     credentials.createInsecure()
   )
   
-  @Get("")
+  @Get()
   async all(@Res() res:Response ):Promise<void>{
     const req:_User.GetAllUserReq={}
     this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
