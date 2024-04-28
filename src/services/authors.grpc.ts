@@ -3,11 +3,11 @@ import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryC
 import  {_User} from "../protos/dist/";
 import  { Author } from "../entity/User";
 //import { Service } from "./service.decorator"
-import {Service} from "./services";
+import {services} from "./enum";
 export class AuthorGrpcService  {
   
   
-  static service:any=Service("Author")
+  static service:any=services.Author
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _User.UserServiceServer = {
    async all (call: ServerUnaryCall<_User.GetAllUserReq,_User.GetAllUserRes>,
