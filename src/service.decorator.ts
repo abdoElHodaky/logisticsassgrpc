@@ -1,4 +1,4 @@
-import {services} from "./services/enu."
+import {services} from "./services/enum"
 import "reflect-metadata";
 console.log(services)
 
