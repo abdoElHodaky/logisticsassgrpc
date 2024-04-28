@@ -1,14 +1,18 @@
 /* eslint-disable */
-import { ChannelCredentials, Client, makeGenericClientConstructor, Metadata } from "@grpc/grpc-js";
-import type {
-  CallOptions,
-  ClientOptions,
-  ClientUnaryCall,
-  handleUnaryCall,
-  ServiceError,
-  UntypedServiceImplementation,
+import {
+  type CallOptions,
+  ChannelCredentials,
+  Client,
+  type ClientOptions,
+  type ClientUnaryCall,
+  type handleUnaryCall,
+  makeGenericClientConstructor,
+  Metadata,
+  type ServiceError,
+  type UntypedServiceImplementation,
 } from "@grpc/grpc-js";
 import _m0 from "protobufjs/minimal";
+import { Address } from "./address";
 import { Article } from "./article";
 import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
@@ -22,10 +26,12 @@ export interface User {
   username?: string | undefined;
   firstname: string;
   lastname: string;
-  email: string;
+  value?: string | undefined;
+  verified?: string | undefined;
   passwordHash: string;
   articles: Article[];
   tickets: Ticket[];
+  address: Address | undefined;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
 }
@@ -56,17 +62,19 @@ export interface GetAllUserRes {
   error?: Error | undefined;
 }
 
-export function createBaseUser(): User {
+function createBaseUser(): User {
   return {
     id: 0,
     type: undefined,
     username: undefined,
     firstname: "",
     lastname: "",
-    email: "",
+    value: undefined,
+    verified: undefined,
     passwordHash: "",
     articles: [],
     tickets: [],
+    address: undefined,
     createdAt: undefined,
     updatedAt: undefined,
   };
@@ -89,23 +97,29 @@ export const User = {
     if (message.lastname !== "") {
       writer.uint32(42).string(message.lastname);
     }
-    if (message.email !== "") {
-      writer.uint32(50).string(message.email);
+    if (message.value !== undefined) {
+      writer.uint32(50).string(message.value);
+    }
+    if (message.verified !== undefined) {
+      writer.uint32(58).string(message.verified);
     }
     if (message.passwordHash !== "") {
-      writer.uint32(58).string(message.passwordHash);
+      writer.uint32(66).string(message.passwordHash);
     }
     for (const v of message.articles) {
-      Article.encode(v!, writer.uint32(66).fork()).ldelim();
+      Article.encode(v!, writer.uint32(74).fork()).ldelim();
     }
     for (const v of message.tickets) {
-      Ticket.encode(v!, writer.uint32(74).fork()).ldelim();
+      Ticket.encode(v!, writer.uint32(82).fork()).ldelim();
+    }
+    if (message.address !== undefined) {
+      Address.encode(message.address, writer.uint32(90).fork()).ldelim();
     }
     if (message.createdAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(82).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(98).fork()).ldelim();
     }
     if (message.updatedAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(90).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(106).fork()).ldelim();
     }
     return writer;
   },
@@ -157,38 +171,52 @@ export const User = {
             break;
           }
 
-          message.email = reader.string();
+          message.value = reader.string();
           continue;
         case 7:
           if (tag !== 58) {
             break;
           }
 
-          message.passwordHash = reader.string();
+          message.verified = reader.string();
           continue;
         case 8:
           if (tag !== 66) {
             break;
           }
 
-          message.articles.push(Article.decode(reader, reader.uint32()));
+          message.passwordHash = reader.string();
           continue;
         case 9:
           if (tag !== 74) {
             break;
           }
 
-          message.tickets.push(Ticket.decode(reader, reader.uint32()));
+          message.articles.push(Article.decode(reader, reader.uint32()));
           continue;
         case 10:
           if (tag !== 82) {
             break;
           }
 
-          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          message.tickets.push(Ticket.decode(reader, reader.uint32()));
           continue;
         case 11:
           if (tag !== 90) {
+            break;
+          }
+
+          message.address = Address.decode(reader, reader.uint32());
+          continue;
+        case 12:
+          if (tag !== 98) {
+            break;
+          }
+
+          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          continue;
+        case 13:
+          if (tag !== 106) {
             break;
           }
 
@@ -210,10 +238,12 @@ export const User = {
       username: isSet(object.username) ? globalThis.String(object.username) : undefined,
       firstname: isSet(object.firstname) ? globalThis.String(object.firstname) : "",
       lastname: isSet(object.lastname) ? globalThis.String(object.lastname) : "",
-      email: isSet(object.email) ? globalThis.String(object.email) : "",
+      value: isSet(object.value) ? globalThis.String(object.value) : undefined,
+      verified: isSet(object.verified) ? globalThis.String(object.verified) : undefined,
       passwordHash: isSet(object.passwordHash) ? globalThis.String(object.passwordHash) : "",
       articles: globalThis.Array.isArray(object?.articles) ? object.articles.map((e: any) => Article.fromJSON(e)) : [],
       tickets: globalThis.Array.isArray(object?.tickets) ? object.tickets.map((e: any) => Ticket.fromJSON(e)) : [],
+      address: isSet(object.address) ? Address.fromJSON(object.address) : undefined,
       createdAt: isSet(object.createdAt) ? fromJsonTimestamp(object.createdAt) : undefined,
       updatedAt: isSet(object.updatedAt) ? fromJsonTimestamp(object.updatedAt) : undefined,
     };
@@ -236,8 +266,11 @@ export const User = {
     if (message.lastname !== "") {
       obj.lastname = message.lastname;
     }
-    if (message.email !== "") {
-      obj.email = message.email;
+    if (message.value !== undefined) {
+      obj.value = message.value;
+    }
+    if (message.verified !== undefined) {
+      obj.verified = message.verified;
     }
     if (message.passwordHash !== "") {
       obj.passwordHash = message.passwordHash;
@@ -247,6 +280,9 @@ export const User = {
     }
     if (message.tickets?.length) {
       obj.tickets = message.tickets.map((e) => Ticket.toJSON(e));
+    }
+    if (message.address !== undefined) {
+      obj.address = Address.toJSON(message.address);
     }
     if (message.createdAt !== undefined) {
       obj.createdAt = message.createdAt.toISOString();
@@ -267,10 +303,14 @@ export const User = {
     message.username = object.username ?? undefined;
     message.firstname = object.firstname ?? "";
     message.lastname = object.lastname ?? "";
-    message.email = object.email ?? "";
+    message.value = object.value ?? undefined;
+    message.verified = object.verified ?? undefined;
     message.passwordHash = object.passwordHash ?? "";
     message.articles = object.articles?.map((e) => Article.fromPartial(e)) || [];
     message.tickets = object.tickets?.map((e) => Ticket.fromPartial(e)) || [];
+    message.address = (object.address !== undefined && object.address !== null)
+      ? Address.fromPartial(object.address)
+      : undefined;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;
     return message;
