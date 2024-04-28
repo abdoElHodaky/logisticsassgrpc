@@ -14,12 +14,12 @@ export class AuthorGrpcService  {
     callback: sendUnaryData<_User.GetAllUserRes>
  ){
      let base:_User.User=_User.createBaseUser()
-     let res:_User.GetAllUserRes={
+    /* let res:_User.GetAllUserRes={
        users:[],
        error:{
        Message:"",type:"",name:""
       }
-     }
+     }*/
      try{
      let authors=await AuthorGrpcService.service.all()
        //console.log(authors.map(JSON.stringify))
@@ -28,19 +28,19 @@ export class AuthorGrpcService  {
        e=_User.User.fromJSON(e)
      })
    //  console.log()
-     res={users:[JSON.stringify(authors)],error:{
+     let res:_User.GetAllUserRes={users:[JSON.stringify(authors)],error:{
        Message:"",type:"",name:""
      }}
      callback({code:status.OK},res)}
      else{
-       res={users:[],error:{
+      let  res:_User.GetAllUserRes={users:[],error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }}
        callback({ code: status.NOT_FOUND }, res);
      }
     }
      catch(err){
-       res= {users:[],error:{
+       let res:_User.GetAllUserRes= {users:[],error:{
         Message:"Some Internal Error",type:"InternalError",name:""
         }  }
        callback({ code: status.INTERNAL },res);
