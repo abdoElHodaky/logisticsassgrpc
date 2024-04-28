@@ -1,8 +1,8 @@
-//import {services} from "./services"
+import {services} from "./services/enu."
 import "reflect-metadata";
-//console.log(services)
+console.log(services)
 
-export function Service(servname: string,types:any): Function {
+export function Service(servname: string): Function {
     return function (target: any, propertyKey: string, descriptor?: PropertyDescriptor) {
      /*  const originalMethod = descriptor.value;
         descriptor.value = function (...args: any[]) {
