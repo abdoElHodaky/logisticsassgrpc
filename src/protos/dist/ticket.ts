@@ -20,8 +20,8 @@ export const protobufPackage = "";
 export interface Ticket {
   id: number;
   type: string;
-  content: string;
-  title: string;
+  subject: string;
+  description: string;
   userId: number;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
@@ -47,7 +47,7 @@ export interface GetAllTicketRes {
 }
 
 function createBaseTicket(): Ticket {
-  return { id: 0, type: "", content: "", title: "", userId: 0, createdAt: undefined, updatedAt: undefined };
+  return { id: 0, type: "", subject: "", description: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 
 export const Ticket = {
@@ -58,11 +58,11 @@ export const Ticket = {
     if (message.type !== "") {
       writer.uint32(18).string(message.type);
     }
-    if (message.content !== "") {
-      writer.uint32(26).string(message.content);
+    if (message.subject !== "") {
+      writer.uint32(26).string(message.subject);
     }
-    if (message.title !== "") {
-      writer.uint32(34).string(message.title);
+    if (message.description !== "") {
+      writer.uint32(34).string(message.description);
     }
     if (message.userId !== 0) {
       writer.uint32(40).int32(message.userId);
@@ -102,14 +102,14 @@ export const Ticket = {
             break;
           }
 
-          message.content = reader.string();
+          message.subject = reader.string();
           continue;
         case 4:
           if (tag !== 34) {
             break;
           }
 
-          message.title = reader.string();
+          message.description = reader.string();
           continue;
         case 5:
           if (tag !== 40) {
@@ -145,8 +145,8 @@ export const Ticket = {
     return {
       id: isSet(object.id) ? globalThis.Number(object.id) : 0,
       type: isSet(object.type) ? globalThis.String(object.type) : "",
-      content: isSet(object.content) ? globalThis.String(object.content) : "",
-      title: isSet(object.title) ? globalThis.String(object.title) : "",
+      subject: isSet(object.subject) ? globalThis.String(object.subject) : "",
+      description: isSet(object.description) ? globalThis.String(object.description) : "",
       userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
       createdAt: isSet(object.createdAt) ? fromJsonTimestamp(object.createdAt) : undefined,
       updatedAt: isSet(object.updatedAt) ? fromJsonTimestamp(object.updatedAt) : undefined,
@@ -161,11 +161,11 @@ export const Ticket = {
     if (message.type !== "") {
       obj.type = message.type;
     }
-    if (message.content !== "") {
-      obj.content = message.content;
+    if (message.subject !== "") {
+      obj.subject = message.subject;
     }
-    if (message.title !== "") {
-      obj.title = message.title;
+    if (message.description !== "") {
+      obj.description = message.description;
     }
     if (message.userId !== 0) {
       obj.userId = Math.round(message.userId);
@@ -186,8 +186,8 @@ export const Ticket = {
     const message = createBaseTicket();
     message.id = object.id ?? 0;
     message.type = object.type ?? "";
-    message.content = object.content ?? "";
-    message.title = object.title ?? "";
+    message.subject = object.subject ?? "";
+    message.description = object.description ?? "";
     message.userId = object.userId ?? 0;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;

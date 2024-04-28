@@ -36,8 +36,8 @@ export interface User {
 }
 
 export interface User_Email {
-  verified: string;
   value: string;
+  verified?: string | undefined;
 }
 
 export interface CreateUserReq {
@@ -62,11 +62,11 @@ export interface GetAllUserReq {
 }
 
 export interface GetAllUserRes {
-  users: User[];
+  users: string[];
   error?: Error | undefined;
 }
 
-export function createBaseUser(): User {
+function createBaseUser(): User {
   return {
     id: 0,
     type: undefined,
@@ -308,16 +308,16 @@ export const User = {
 };
 
 function createBaseUser_Email(): User_Email {
-  return { verified: "", value: "" };
+  return { value: "", verified: undefined };
 }
 
 export const User_Email = {
   encode(message: User_Email, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.verified !== "") {
-      writer.uint32(10).string(message.verified);
-    }
     if (message.value !== "") {
-      writer.uint32(18).string(message.value);
+      writer.uint32(10).string(message.value);
+    }
+    if (message.verified !== undefined) {
+      writer.uint32(18).string(message.verified);
     }
     return writer;
   },
@@ -334,14 +334,14 @@ export const User_Email = {
             break;
           }
 
-          message.verified = reader.string();
+          message.value = reader.string();
           continue;
         case 2:
           if (tag !== 18) {
             break;
           }
 
-          message.value = reader.string();
+          message.verified = reader.string();
           continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
@@ -354,18 +354,18 @@ export const User_Email = {
 
   fromJSON(object: any): User_Email {
     return {
-      verified: isSet(object.verified) ? globalThis.String(object.verified) : "",
       value: isSet(object.value) ? globalThis.String(object.value) : "",
+      verified: isSet(object.verified) ? globalThis.String(object.verified) : undefined,
     };
   },
 
   toJSON(message: User_Email): unknown {
     const obj: any = {};
-    if (message.verified !== "") {
-      obj.verified = message.verified;
-    }
     if (message.value !== "") {
       obj.value = message.value;
+    }
+    if (message.verified !== undefined) {
+      obj.verified = message.verified;
     }
     return obj;
   },
@@ -375,8 +375,8 @@ export const User_Email = {
   },
   fromPartial<I extends Exact<DeepPartial<User_Email>, I>>(object: I): User_Email {
     const message = createBaseUser_Email();
-    message.verified = object.verified ?? "";
     message.value = object.value ?? "";
+    message.verified = object.verified ?? undefined;
     return message;
   },
 };
@@ -690,7 +690,7 @@ function createBaseGetAllUserRes(): GetAllUserRes {
 export const GetAllUserRes = {
   encode(message: GetAllUserRes, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     for (const v of message.users) {
-      User.encode(v!, writer.uint32(10).fork()).ldelim();
+      writer.uint32(10).string(v!);
     }
     if (message.error !== undefined) {
       Error.encode(message.error, writer.uint32(18).fork()).ldelim();
@@ -710,7 +710,7 @@ export const GetAllUserRes = {
             break;
           }
 
-          message.users.push(User.decode(reader, reader.uint32()));
+          message.users.push(reader.string());
           continue;
         case 2:
           if (tag !== 18) {
@@ -730,7 +730,7 @@ export const GetAllUserRes = {
 
   fromJSON(object: any): GetAllUserRes {
     return {
-      users: globalThis.Array.isArray(object?.users) ? object.users.map((e: any) => User.fromJSON(e)) : [],
+      users: globalThis.Array.isArray(object?.users) ? object.users.map((e: any) => globalThis.String(e)) : [],
       error: isSet(object.error) ? Error.fromJSON(object.error) : undefined,
     };
   },
@@ -738,7 +738,7 @@ export const GetAllUserRes = {
   toJSON(message: GetAllUserRes): unknown {
     const obj: any = {};
     if (message.users?.length) {
-      obj.users = message.users.map((e) => User.toJSON(e));
+      obj.users = message.users;
     }
     if (message.error !== undefined) {
       obj.error = Error.toJSON(message.error);
@@ -751,7 +751,7 @@ export const GetAllUserRes = {
   },
   fromPartial<I extends Exact<DeepPartial<GetAllUserRes>, I>>(object: I): GetAllUserRes {
     const message = createBaseGetAllUserRes();
-    message.users = object.users?.map((e) => User.fromPartial(e)) || [];
+    message.users = object.users?.map((e) => e) || [];
     message.error = (object.error !== undefined && object.error !== null) ? Error.fromPartial(object.error) : undefined;
     return message;
   },
