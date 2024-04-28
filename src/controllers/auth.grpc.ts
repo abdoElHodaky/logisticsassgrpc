@@ -3,7 +3,7 @@ import {_Auth } from "../protos/dist/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
-const address = "localhost:3030";
+const address = "localhost:50051";
 
 @Controller("/grpc/auth")
 export class GrpcAuthController {
