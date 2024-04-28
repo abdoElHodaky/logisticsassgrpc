@@ -1,6 +1,6 @@
 import * as services from "./services/"
 import "reflect-metadata";
-console.log(services)
+let servs=services
 
 export function Service(servname: string): Function {
     return function (target: any, propertyKey: string, descriptor?: PropertyDescriptor) {
@@ -13,7 +13,7 @@ export function Service(servname: string): Function {
         
     
     console.log(target[propertyKey])
-    console.log(services)
+    console.log(services.keys())
    
   }
 }
