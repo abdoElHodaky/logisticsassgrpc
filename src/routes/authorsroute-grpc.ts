@@ -19,7 +19,7 @@ authorsgrpc.post("/grpc/authors",({body},res)=>{
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new author.',
-            schema: { $ref: '#/definitions/AddAuthor' }
+            schema: { $ref: '#/definitions/CreateAuthor' }
     } */
     
    
