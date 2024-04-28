@@ -1,4 +1,4 @@
-import { services} from "../services/";
+import { services} from "../services/enum";
 import { Article  } from "../entity/"
 //import { AppDataSource } from "../_datasource";
 import { CreateArticleDto } from "../dto/create-article.dto"
