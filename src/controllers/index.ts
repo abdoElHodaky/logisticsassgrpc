@@ -10,7 +10,7 @@ import {GrpcAuthController} from "./auth.grpc";
 import {GrpcAuthorController} from "./authors.grpc";
 import {GrpcUserController} from "./users.grpc";
 
-export const controllers=[GrpcAuthController,GrpcAuthorController,
+export const controllers=[GrpcAuthController,
                           GrpcArticleController,GrpcTicketController,
                           GrpcUserController
                          ]
