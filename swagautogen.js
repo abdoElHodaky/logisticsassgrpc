@@ -33,6 +33,9 @@ const config = {
        description:'tickets endpoints'
     },
     {
+        name:"GRPC.Auth",description:"authentication endpoints via grpc"
+    },
+    {
         name:"GRPC.Article",description:"articles endpoints via grpc"
     },{
         name:"GRPC.Author",description:"authors endpoints via grpc"
