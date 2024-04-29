@@ -28,7 +28,7 @@ export class UserGrpcService  {
      
      let _users=users.map(_User.User.fromJSON)
      _users.forEach(({id,articles,tickets},i)=>{
-       cinsole.log(id)
+       console.log(id)
      })
      // console.log(_authors)
       const res:_User.GetAllUserRes={
