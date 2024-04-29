@@ -84,6 +84,14 @@ export function createBaseUser(): User {
 }
 
 export const User = {
+  set(message:User,prop:string,value:any):void{
+    if(prop=="articles") message.articles =value
+    if(prop=="tickets" ) message.tickets=value
+  },
+  get(message:User,prop:string):Array<any>{
+    if(prop=="articles")return  message.articles
+    if(prop=="tickets" )return  message.tickets
+  },
   keys(message:User):Array<string>{
     return [
     "id",
