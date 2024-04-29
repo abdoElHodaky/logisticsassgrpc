@@ -33,7 +33,7 @@ export class UserGrpcService  {
        prop.forEach(p=>{
          let _p=_User.User.get(e,p)
          if(_p.length!=0){
-           _User.User.set(e,p,_p.map(ep=>ep.userId=id))
+           _User.User.set(e,p,_p.map(ep:any=>ep.userId=id))
          }
        })
       // if(articles.length!=0) articles=articles.map(a=>a.userId=id)
