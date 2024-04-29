@@ -18,7 +18,7 @@ export class ArticleGrpcService  {
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
      }}
-     callback({code:status.OK},res)
+     callback(null,res)
       }
     , async create (
     call: ServerUnaryCall<_Article.CreateReq,_Article.CreateRes>,
