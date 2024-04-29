@@ -27,17 +27,17 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach((e,inx)=>{
-       let id=e.id
-       let prop=_User.User.keys(e).filter(p=>p.includes("s"))
+     _users.forEach(({id,articles,tickets},inx)=>{
+       
+      /* let prop=_User.User.keys(e).filter(p=>p.includes("s"))
        prop.forEach(p=>{
          let _p=_User.User.get(e,p)
          if(_p.length!=0){
            _User.User.set(e,p,_p.map(ep:any=>ep.userId=id))
          }
-       })
-      // if(articles.length!=0) articles=articles.map(a=>a.userId=id)
-      // if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)
+       })*/
+      if(articles.length!=0) articles=articles.map(a=>a.userId=id)
+      if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)
        
     
      })
