@@ -13,10 +13,10 @@ export class ArticleGrpcService  {
     callback: sendUnaryData<_Article.GetAllRes>
  ){
      let articles=await ArticleGrpcService.service.all()
-     console.log(articles)
+     //console.log(articles)
      let _articles=articles.map(_Article.Article.fromJSON)
-     _articles.forEach(({userId},inx)=>{   
-       userId=articles[inx].author.id
+     _articles.forEach((a,inx)=>{   
+       a.userId=articles[inx].author.id
      })
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
