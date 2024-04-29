@@ -26,7 +26,7 @@ export class TicketGrpcService   {
          }
          callback(null,res)}
         else {
-          callback({ code: status.NOT_FOUND }, {tickets:[],error:{
+          callback(null, {tickets:[],error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }});
         }
