@@ -38,7 +38,7 @@ export class UserGrpcService  {
        })*/
       if(articles.length!=0) articles=articles.map(a=>a.userId=id)
       if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)
-       console.log(articles.sort((a,b)=>return -1))
+       console.log(articles.sort((a,b)=>-1))
        
     
      })
