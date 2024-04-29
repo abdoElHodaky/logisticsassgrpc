@@ -13,6 +13,7 @@ export class ArticleGrpcService  {
     callback: sendUnaryData<_Article.GetAllRes>
  ){
      let articles=await ArticleGrpcService.service.all()
+     console.log(articles)
      let _articles=articles.map(_Article.Article.fromJSON)
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
