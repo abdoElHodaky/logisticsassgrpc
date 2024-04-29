@@ -36,8 +36,8 @@ export class UserGrpcService  {
            _User.User.set(e,p,_p.map(ep:any=>ep.userId=id))
          }
        })*/
-      if(articles.length!=0) articles=articles.map(a=>a.userId=id).sort(function(a, b) {return (a.id < b.id);})
-      if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id).sort(function(a, b) {return (a.id < b.id);})
+      if(articles.length!=0) articles=articles.map(a=>a.userId=id).sort(function(a, b) {return (a.id < b.id)?:-1:1;})
+      if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id).sort(function(a, b) {return (a.id < b.id)?-1:1;})
        
     
      })
