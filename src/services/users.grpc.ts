@@ -27,10 +27,10 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach((e,inx)=>{
-       /*if(articles.length!=0) articles=articles.map(a=>a.authorId=id)
-       if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)*/
-       for (var i of e){
+     _users.forEach(({id,articles,tickets},inx)=>{
+       if(articles.length!=0) articles=articles.map(a=>a.authorId=id)
+       if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)
+       /*for (var i of e){
          if(i instanceof Array){
            if(i.length!=0){
            i=i.map(a=>{
@@ -40,7 +40,7 @@ export class UserGrpcService  {
              })
            })}
          }
-       }
+       }*/
     
      })
      // console.log(_authors)
