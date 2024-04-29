@@ -32,7 +32,7 @@ export class TicketGrpcService   {
         }
      }
    catch (err){
-     callback(null,{tickets:[],error:{
+     callback({code:status.INTERNAL},{tickets:[],error:{
         Message:"Some Internet Error",type:"InternalError",name:""
      }  });
      console.error(err);
