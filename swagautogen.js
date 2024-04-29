@@ -31,7 +31,16 @@ const config = {
     {
        name:'suptickets',
        description:'tickets endpoints'
-    }
+    },
+    {
+        name:"GRPC.Article",description:"articles endpoints via grpc"
+    },{
+        name:"GRPC.Author",description:"authors endpoints via grpc"
+    },{
+        name:"GRPC.User",description:"users endpoints via grpc"
+    },{
+        name:"GRPC.User.Ticket",description:"users' tickets endpoints via grpc"
+      }
     ],
     host: '',
     schemes: [],
