@@ -28,7 +28,7 @@ export class UserGrpcService  {
      
      let _users=users.map(_User.User.fromJSON)
      _users.forEach(({id,articles,tickets},i)=>{
-       console.log(id)
+       if(articles.length!=0) articles=articles.map(a=>a.authorId=id)
      })
      // console.log(_authors)
       const res:_User.GetAllUserRes={
