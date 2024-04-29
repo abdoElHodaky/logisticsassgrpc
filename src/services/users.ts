@@ -17,7 +17,7 @@ export class UserService extends _Data {
       where:{},
       relations:{
         articles:true,
-        tickets:true,
+        tickets:true
       }
     })
   }
