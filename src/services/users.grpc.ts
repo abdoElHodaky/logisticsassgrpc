@@ -31,8 +31,9 @@ export class UserGrpcService  {
        let id=e.id
        let prop=_User.User.keys(e).filter(p=>p.includes("s"))
        prop.forEach(p=>{
-         if(e[p].length!=0){
-           e[p]=e[p].map(ep=>ep.userId=id)
+         let _p=_User.User.get(e,p)
+         if(_p.length!=0){
+           _User.User.set(e,p_p.map(ep=>ep.userId=id))
          }
        })
       // if(articles.length!=0) articles=articles.map(a=>a.userId=id)
