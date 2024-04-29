@@ -84,6 +84,22 @@ export function createBaseUser(): User {
 }
 
 export const User = {
+  keys(message:User):Array{
+    return [
+    "id",
+   " type",
+   " username",
+   " firstname",
+    "lastname",
+   " email",
+    "passwordHash",
+   " articles",
+    "tickets",
+    "address",
+    "createdAt",
+    "updatedAt"
+    ]
+  },
   encode(message: User, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
     if (message.id !== 0) {
       writer.uint32(8).int32(message.id);
