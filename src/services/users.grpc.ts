@@ -27,7 +27,7 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users=_users.map(e=>{
+     _users.forEach(e=>{
        if(e.articles.length>0){
            e.articles=e.articles.map(a=>a.authorId=e.id)
         }
