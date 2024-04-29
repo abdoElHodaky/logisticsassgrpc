@@ -27,6 +27,14 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
+     _users=_users.map(e=>{
+       if(e.articles.length>0){
+           e.articles=e.articles.map(a=>a.authorId=e.id)
+        }
+        if(e.tickets.length>0){
+           e.tickets=e.tickets.map(a=>a.userId=e.id)
+        }
+     })
      // console.log(_authors)
       const res:_User.GetAllUserRes={
           users:_users,
