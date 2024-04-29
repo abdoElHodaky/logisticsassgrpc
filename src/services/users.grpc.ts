@@ -27,7 +27,7 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach((i,{id,articles,tickets})=>{
+     _users.forEach(({id,articles,tickets},i)=>{
        cinsole.log(id)
      })
      // console.log(_authors)
