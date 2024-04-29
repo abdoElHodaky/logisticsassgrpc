@@ -8,7 +8,7 @@ const config = {
         description: '',
     },
     tags: [
-    {
+   /* {
         name:"Auth",
         description:"Authentication"
     },
@@ -27,7 +27,7 @@ const config = {
     {
         name:'Article',
         description:'articles endpoints'
-    },
+    },*/
     {
        name:'suptickets',
        description:'tickets endpoints'
