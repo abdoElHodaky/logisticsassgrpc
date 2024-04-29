@@ -21,7 +21,7 @@ server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server2.start(); })
 
-server2.bindAsync('localhost:50052', ServerCredentials.createInsecure(), () => {
+server2.bindAsync('localhost:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server.start(); })
 
