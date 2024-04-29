@@ -66,7 +66,7 @@ export interface GetAllUserRes {
   error?: Error | undefined;
 }
 
-export function createBaseUser(): User {
+function createBaseUser(): User {
   return {
     id: 0,
     type: undefined,

@@ -22,7 +22,7 @@ export interface Article {
   imgurl: string;
   content: string;
   title: string;
-  authorId: number;
+  userId: number;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
 }
@@ -46,7 +46,7 @@ export interface GetAllRes {
 }
 
 function createBaseArticle(): Article {
-  return { id: 0, imgurl: "", content: "", title: "", authorId: 0, createdAt: undefined, updatedAt: undefined };
+  return { id: 0, imgurl: "", content: "", title: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 
 export const Article = {
@@ -63,8 +63,8 @@ export const Article = {
     if (message.title !== "") {
       writer.uint32(34).string(message.title);
     }
-    if (message.authorId !== 0) {
-      writer.uint32(40).int32(message.authorId);
+    if (message.userId !== 0) {
+      writer.uint32(40).int32(message.userId);
     }
     if (message.createdAt !== undefined) {
       Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(50).fork()).ldelim();
@@ -115,7 +115,7 @@ export const Article = {
             break;
           }
 
-          message.authorId = reader.int32();
+          message.userId = reader.int32();
           continue;
         case 6:
           if (tag !== 50) {
@@ -146,7 +146,7 @@ export const Article = {
       imgurl: isSet(object.imgurl) ? globalThis.String(object.imgurl) : "",
       content: isSet(object.content) ? globalThis.String(object.content) : "",
       title: isSet(object.title) ? globalThis.String(object.title) : "",
-      authorId: isSet(object.authorId) ? globalThis.Number(object.authorId) : 0,
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
       createdAt: isSet(object.createdAt) ? fromJsonTimestamp(object.createdAt) : undefined,
       updatedAt: isSet(object.updatedAt) ? fromJsonTimestamp(object.updatedAt) : undefined,
     };
@@ -166,8 +166,8 @@ export const Article = {
     if (message.title !== "") {
       obj.title = message.title;
     }
-    if (message.authorId !== 0) {
-      obj.authorId = Math.round(message.authorId);
+    if (message.userId !== 0) {
+      obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
       obj.createdAt = message.createdAt.toISOString();
@@ -187,7 +187,7 @@ export const Article = {
     message.imgurl = object.imgurl ?? "";
     message.content = object.content ?? "";
     message.title = object.title ?? "";
-    message.authorId = object.authorId ?? 0;
+    message.userId = object.userId ?? 0;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;
     return message;
