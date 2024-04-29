@@ -84,7 +84,7 @@ export function createBaseUser(): User {
 }
 
 export const User = {
-  keys(message:User):Array{
+  keys(message:User):Array<string>{
     return [
     "id",
    " type",
