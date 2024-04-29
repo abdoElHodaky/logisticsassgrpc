@@ -19,7 +19,7 @@ server2.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
 
 server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
-    server.start(); })
+    server2.start(); })
 
 server2.bindAsync('localhost:50052', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
