@@ -27,13 +27,8 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach(e=>{
-       if(e.articles.length>0){
-           e.articles=e.articles.map(a=>a.authorId=e.id)
-        }
-        if(e.tickets.length>0){
-           e.tickets=e.tickets.map(a=>a.userId=e.id)
-        }
+     _users.forEach((i,{id,articles,tickets})=>{
+       cinsole.log(id)
      })
      // console.log(_authors)
       const res:_User.GetAllUserRes={
