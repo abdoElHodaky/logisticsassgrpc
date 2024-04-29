@@ -27,9 +27,19 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach(({id,articles,tickets},i)=>{
-       if(articles.length!=0) articles=articles.map(a=>a.authorId=id)
-       if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)
+     _users.forEach((e,i)=>{
+       /*if(articles.length!=0) articles=articles.map(a=>a.authorId=id)
+       if(tickets.length!=0) tickets=tickets.map(a=>a.userId=id)*/
+       for (var i of e){
+         if(i instanceof Array && i?.length!=0){
+           i=i.map(a=>{
+             let prop=a.keys().filter(p=>p.includes("Id"))
+             prop.forEach(k=>{
+               a[k]=id
+             })
+           })
+         }
+       }
     
      })
      // console.log(_authors)
