@@ -28,7 +28,7 @@ export class AuthorGrpcService  {
      let _authors=authors.map(_User.User.fromJSON)
      // console.log(_authors)
       _authors.forEach(({id,articles},inx)=>{
-        if(articles.length!=0) articles=articles.map(a=>a.userId=id)
+        if(articles.length!=0) articles=articles.map(a=>a.userId=id).sort(function(a, b) {return (a.id - b.id);})
       })
       const res:_User.GetAllUserRes={
           users:_authors,
