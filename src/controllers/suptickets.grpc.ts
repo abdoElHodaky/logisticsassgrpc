@@ -15,7 +15,7 @@ export class GrpcSupTicketController {
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Ticket.GetAllTicketRes={  
-      userId:0
+      
     }
     this.client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
       if (err) {
