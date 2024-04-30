@@ -9,8 +9,8 @@ export class TicketGrpcService  {
   static service:any=new supTicketService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Ticket.TicketServiceServer = {
-   async all (call: ServerUnaryCall<_Ticket.GetAllReq,_Ticket.GetAllRes>,
-    callback: sendUnaryData<_Ticket.GetAllRes>
+   async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
+    callback: sendUnaryData<_Ticket.GetAllTicketRes>
  ){
      let tickets=await TicketGrpcService.service.all()
      //console.log(articles)
@@ -18,14 +18,14 @@ export class TicketGrpcService  {
      _tickets.forEach((a,inx)=>{   
        a.userId=tickets[inx].user.id
      })
-     let res:_Ticket.GetAllRes={articles:_articles,error:{
+     let res:_Ticket.GetAllTicketRes={articles:_articles,error:{
        Message:"",type:"",name:""
      }}
      callback(null,res)
       }
     , async create (
-    call: ServerUnaryCall<_Ticket.CreateReq,_Ticket.CreateRes>,
-    callback: sendUnaryData<_Ticket.CreateRes>
+    call: ServerUnaryCall<_Ticket.CreateTicketReq,_Ticket.CreateTicketRes>,
+    callback: sendUnaryData<_Ticket.CreateTicketRes>
   ){
        
      }}
