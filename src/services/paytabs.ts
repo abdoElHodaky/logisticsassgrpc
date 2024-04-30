@@ -54,7 +54,7 @@ export class PayTabService{
   async payVerify(transR:string){
     let valid=false;
     let res;
-    paytabs.validatePayment(transR,result=>{
+    paytabs.validatePayment(transR,result:any=>{
       if (result['response_code:'] === 400)
     {
         valid=false
