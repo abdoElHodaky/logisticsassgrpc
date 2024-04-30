@@ -25,7 +25,7 @@ export class supTicketService extends _Data {
     let id=Number(userId)
     let supticket=new supTicket()
     let user:User;
-    let ticket:supTicket;
+  //  let ticket:supTicket;
     supticket.type=ticket.type
     supticket.subject=ticket.subject
     supticket.description=ticket.description
