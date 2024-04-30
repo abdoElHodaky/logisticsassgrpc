@@ -18,7 +18,7 @@ export class supTicketGrpcService  {
      //console.log(tickets)
     _tickets.forEach((a,inx)=>{   
        console.log(a,inx)
-       _tickets[inx].userId=tickets[inx].user.id
+      // _tickets[inx].userId=tickets[inx].user.id
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
        Message:"",type:"",name:""
