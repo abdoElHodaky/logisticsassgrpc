@@ -12,7 +12,11 @@ export class supTickeStervice extends _Data {
   async all():Promise<supTicket[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(supTicket)
+    return await this.datasource.manager.find(supTicket,{
+      relations:{
+        user:true
+      }
+    })
   }
 
  async create(userId:string,ticket:object):Promise<supTicket|void>{
