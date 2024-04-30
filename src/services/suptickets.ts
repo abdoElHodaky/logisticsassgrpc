@@ -19,7 +19,7 @@ export class supTicketService extends _Data {
     })
   }
 
- async create(userId:string,ticket:object):Promise<supTicket|void>{
+ async create(userId:string,ticket:{type:string,subject:string,description:string}):Promise<supTicket|void>{
     
     
     let id=Number(userId)
