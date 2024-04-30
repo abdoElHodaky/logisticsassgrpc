@@ -1,26 +1,26 @@
 import { Router } from "express";
 import { attachControllers } from '@decorators/express'
 import { controllers } from "./controllers/";
-import { supTicket } from "./entity/supTicket";
-import { User } from "./entity/User";
-import { AppDataSource } from "./_datasource";
+//import { supTicket } from "./entity/supTicket";
+//import { User } from "./entity/User";
+//import { AppDataSource } from "./_datasource";
 import { attachmentsroute } from "./routes/attachmentroutes";
 import { authorsgrpc } from "./routes/authorsroute-grpc";
 
 export const apiv1=Router();
-apiv1.get("/suptickets",(req,res)=>{
-/* 	#swagger.tags = ['suptickets']
+apiv1.get("/grpc/suptickets",(req,res)=>{
+/* 	#swagger.tags = ['GRPC.suptickets']
         #swagger.description = 'Endpoint to get tickets' 
     */
     
-    AppDataSource.manager.find(supTicket).
+  /*  AppDataSource.manager.find(supTicket).
     then(d=>{
         //d.map((el,i)=>console.log(el.user))
         res.json(d)
-    }).catch(console.log)
+    }).catch(console.log)*/
 })
-apiv1.post("/suptickets/create",(req,res)=>{
-    /* 	#swagger.tags = ['suptickets']
+apiv1.post("/grpc/suptickets",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.suptickets']
         #swagger.description = 'Endpoint to create tickets for specific user' 
         #swagger.parameters['userid'] = {
             in: 'body',
@@ -29,7 +29,7 @@ apiv1.post("/suptickets/create",(req,res)=>{
     } 
     */
     
-    let supticket:supTicket=<supTicket>{...req.body.ticket}
+   /* let supticket:supTicket=<supTicket>{...req.body.ticket}
     let userid=req.body.userid
     let user:User;
     AppDataSource.manager.findOneByOrFail(User,{id:userid}).then(d=>{
@@ -45,7 +45,7 @@ apiv1.post("/suptickets/create",(req,res)=>{
         //AppDataSource.manager.save(a.user)
         res.json({message:"created successfully"})
     })
-    .catch(console.log);
+    .catch(console.log);*/
     /*AppDataSource.manager.save(supTicket,ticket).then(d=>{
         res.json({message:"created successfully"});
     }).catch(console.log);*/
