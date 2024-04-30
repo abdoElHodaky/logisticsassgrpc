@@ -11,6 +11,7 @@ import {AuthorGrpcService} from "./authors.grpc";
 import {UserGrpcService} from "./users.grpc";
 import {supTicketGrpcService} from "./suptickets.grpc";
 import {supTicketService} from "./suptickets";
+import {PaymentService} from "./payments";
 
 
 export let services={
@@ -20,11 +21,13 @@ export let services={
   Article:new ArticleService(),
   Attachment:new AttachmentService(),
   Ticket:new UserTicketService(),
+  supTicket:new supTicketService(),
+  Payment:new PaymentService(),
   Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
   Grpc_Author:new AuthorGrpcService(),
   Grpc_User:new UserGrpcService(),
-  Grpc_supTicket:new supTicketGrpcService(),
-  supTicket:new supTicketService()
+  Grpc_supTicket:new supTicketGrpcService()
+  
 }
