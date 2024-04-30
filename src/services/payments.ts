@@ -8,8 +8,8 @@ export class PaymentService extends _Data {
  // @service("PayTabGate")
   private payTabService=new PayTabService()
   constructor (){
-      this.payTabService.start()
       super()
+      this.payTabService.start()
   }
 
   async all():Promise<Payment[]>
