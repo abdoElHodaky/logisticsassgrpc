@@ -9,7 +9,7 @@ export class PaymentService extends _Data {
   private payTabService=new PayTabService()
   constructor (){
       super()
-      this.payTabService.start()
+     // this.payTabService.start()
   }
 
   async all():Promise<Payment[]>
