@@ -9,7 +9,9 @@ import { authorsgrpc } from "./routes/authorsroute-grpc";
 
 export const apiv1=Router();
 apiv1.get("/grpc/suptickets",(req,res)=>{
+        console.log(req)
 /* 	#swagger.tags = ['GRPC.suptickets']
+
         #swagger.description = 'Endpoint to get tickets' 
     */
     
