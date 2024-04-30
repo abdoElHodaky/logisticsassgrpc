@@ -11,3 +11,4 @@ export {AuthorGrpcService} from "./authors.grpc";
 export {UserGrpcService} from "./users.grpc";
 export {supTicketService} from "./suptickets";
 export {supTicketGrpcService} from "./suptickets.grpc";
+export {PayTabService} from "./paytabs";
