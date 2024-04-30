@@ -6,7 +6,7 @@ import { Response  } from "express";
 const address = "localhost:3030";
 
 @Controller("/grpc/suptickets")
-export class GrpcsupTicketController {
+export class GrpcSupTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
     credentials.createInsecure()
