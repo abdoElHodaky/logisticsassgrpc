@@ -16,7 +16,7 @@ export class TicketGrpcService  {
      //console.log(articles)
      let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
      _tickets.forEach((a,inx)=>{   
-       a.userId=tickets[inx].author.id
+       a.userId=tickets[inx].user.id
      })
      let res:_Ticket.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
