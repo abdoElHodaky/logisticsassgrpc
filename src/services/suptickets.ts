@@ -4,7 +4,7 @@ import { supTicket,User } from "../entity/"
 //import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
-export class supTicketStervice extends _Data {
+export class supTicketService extends _Data {
   constructor (){
       super()
   }
