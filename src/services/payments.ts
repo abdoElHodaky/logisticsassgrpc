@@ -21,12 +21,12 @@ export class PaymentService extends _Data {
  async create(createPaymentDto: CreatePaymentDto):Promise<Payment|void>{
      
     const {purshasedItem,userid}=createPaymentDto
-    let _article=<Payment>{...payment}
-    let author=await this.datasource.manager.findOneByOrFail(User,{id:parseInt(userid)})
+    //let _article=<Payment>{...payment}
+    /*let user=await this.datasource.manager.findOneByOrFail(User,{id:parseInt(userid)})
     _article.by=author
     author.payments.push(_article)
     _article=await this.datasource.manager.save(Payment,_article)
-    return _article
+    return _article*/ return
    
  }
 
