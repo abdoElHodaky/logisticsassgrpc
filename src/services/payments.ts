@@ -1,6 +1,6 @@
 import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
-import { CreatePaymentDto } from "../dto/create-payment.dto"
+import { CreatePaymemtDto } from "../dto/create-payment.dto"
 import { PayTabService } from "./";
 
 //@Injectable()
@@ -18,7 +18,7 @@ export class PaymentService extends _Data {
     return await this.datasource.manager.find(Payment)
   }
 
- async create(createPaymentDto: CreatePaymentDto):Promise<Payment|void>{
+ async create(createPaymentDto: CreatePaymemtDto):Promise<Payment|void>{
      
     const {purshasedItem,userid}=createPaymentDto
     //let _article=<Payment>{...payment}
