@@ -18,6 +18,7 @@ export class supTicketGrpcService  {
      //console.log(tickets)
     _tickets.forEach((a,inx)=>{   
      if(tickets[inx].user!=null) a.userId=tickets[inx].user.id
+     else delete a.userId
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
        Message:"",type:"",name:""
