@@ -1,12 +1,12 @@
 import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
 import { CreatePaymentDto } from "../dto/create-payment.dto"
-//import { service } from "./";
+import { PayTabService } from "./";
 
 //@Injectable()
 export class PaymentService extends _Data {
  // @service("PayTabGate")
-  private payTabService
+  private payTabService=new PayTabService()
   constructor (){
       this.payTabService.start()
       super()
