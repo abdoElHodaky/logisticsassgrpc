@@ -13,7 +13,7 @@ export class PayTabService{
     {
       await paytabs.setConfig(profile,serverk,region)
     }
-   async createPage(payment:Payment,urls:any):Promise<any>{
+   async createPage(payment:Payment,urls:{callback:string,return:string}):Promise<any>{
     let res;
     let client=payment.by
     const {firstname,lastname,email,address}=client
