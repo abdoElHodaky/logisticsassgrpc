@@ -17,7 +17,7 @@ export class supTicketGrpcService  {
      let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
      console.log(tickets)
     _tickets.forEach((a,inx)=>{   
-       a.userId=tickets[inx]?.user.id
+       _tickets[inx].userId=tickets[inx].user.id.toString()
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
        Message:"",type:"",name:""
