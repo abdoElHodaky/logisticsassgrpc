@@ -4,7 +4,7 @@ import  {_Ticket} from "../protos/dist/";
 import { supTicketService }from "./";
 //import { Service } from "../service.decorator";
 //console.log(services)
-export class TicketGrpcService  {
+export class supTicketGrpcService  {
  // @Service("Article")
   static service:any=new supTicketService()
   //public [name: string]:UntypedHandleCall;
