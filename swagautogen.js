@@ -27,11 +27,11 @@ const config = {
     {
         name:'Article',
         description:'articles endpoints'
-    },*/
+    },
     {
        name:'suptickets',
        description:'tickets endpoints'
-    },
+    },*/
     {
         name:"GRPC.Auth",description:"authentication endpoints via grpc"
     },
