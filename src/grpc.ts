@@ -15,6 +15,7 @@ server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 server2.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
+server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 
 
 server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
