@@ -17,6 +17,7 @@ export class GrpcSupTicketController {
     const req:_Ticket.GetAllTicketReq={  
       userId:0
     }
+    console.log(req)
     this.client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
       if (err) {
       res.jsonp(err);
