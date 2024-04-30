@@ -12,7 +12,7 @@ export class supTicketGrpcService  {
    async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
     callback: sendUnaryData<_Ticket.GetAllTicketRes>
  ){
-     let tickets=await TicketGrpcService.service.all()
+     let tickets=await supTicketGrpcService.service.all()
      //console.log(articles)
      let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
      _tickets.forEach((a,inx)=>{   
