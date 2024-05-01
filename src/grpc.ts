@@ -23,6 +23,3 @@ server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
 server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
-
-const protoLoader = require('@grpc/proto-loader');
-console.log(protoLoader)
