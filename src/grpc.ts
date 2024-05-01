@@ -1,8 +1,5 @@
 import "reflect-metadata";
-import { Server, ServerCredentials , loadPackageDefinition }  from "@grpc/grpc-js";
-import { ReflectionService } from '@grpc/reflection';
-const protoLoader = require('@grpc/proto-loader');
-let pkgticket:any;
+import { Server, ServerCredentials  }  from "@grpc/grpc-js";
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
 //import { _Ticket  } from "./protos/dist/"
 import { services } from "./services/enum";
@@ -26,12 +23,3 @@ server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
 server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
-
-
-protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
-//console.log(pkgd)
-  const reflection = new ReflectionService(loadPackageDefinition(pkgd));
-  reflection.addToServer(server2);
-    console.log(reflection)
-}).catch(console.log)
-
