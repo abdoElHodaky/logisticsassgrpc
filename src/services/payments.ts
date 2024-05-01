@@ -31,7 +31,9 @@ export class PaymentService extends _Data {
  }
 
 async pay(paymentId:string,urls:{callback:string,return:string}){
-  let payment = await this.id(parseInt(paymentId))
+  let payment = await await this.datasource.manager.find(Payment,{
+        where:{id:parseInt(paymentId)}
+      })
   return await this.payTabService.createPage(payment,urls)
 
  }
