@@ -1,7 +1,7 @@
 import paytabs from "paytabs_pt2";
 import { Payment , User} from "../entity/";
 export class PayTabService{
-  async values(obj){
+  async values(obj:any){
       let arr=[]
       for(var i in obj){
         arr.push(obj[i])
@@ -24,7 +24,7 @@ export class PayTabService{
     let _urls=[urls.callback,urls.return]
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
-    "AR",_urls,(result)=>{
+    "AR",_urls,(result:any)=>{
        res=result
      })
      return  res.redirect_url
@@ -50,7 +50,7 @@ export class PayTabService{
       paymentId:cart.cart_id
     }
   }
-  async payVerify(transR:string){
+  async payVerify(transR:string):any{
     let valid=false;
     let res;
     paytabs.validatePayment(transR,(result:any)=>{
