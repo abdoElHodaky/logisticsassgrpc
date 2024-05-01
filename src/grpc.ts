@@ -33,5 +33,6 @@ protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
   pkgticket=loadPackageDefinition(pkgd)
   const reflection = new ReflectionService(pkgticket);
   reflection.addToServer(server2);
+    console.log(reflection)
 }).catch(console.log)
 
