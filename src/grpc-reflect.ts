@@ -4,7 +4,7 @@ import { loadPackageDefinition }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 
-protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd:any=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(pkgd);
   reflection.addToServer(server2);
@@ -12,7 +12,7 @@ protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 }).catch(console.log)
 
 
-protoLoader.load("src/protos/src/user.proto").then(pkgd=>{
+protoLoader.load("src/protos/src/user.proto").then(pkgd:any=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(pkgd);
   reflection.addToServer(server2);
