@@ -31,4 +31,4 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     server2.start(); })
 
 
-
+console.log(pkgticket)
