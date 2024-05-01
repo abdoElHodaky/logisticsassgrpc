@@ -3,7 +3,7 @@ export class CreatePurshaseDto {
    items:Array
 }
 
-export class CreateSubscribtionDto {
+export class CreateSubscriptionDto {
   userId:string
   items:Array
 }
