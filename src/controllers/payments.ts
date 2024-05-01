@@ -23,7 +23,7 @@ export class PaymentController {
     
   }
 
-  @Post("/:id/Pay")
+  @Post("/:paymentId/Pay")
   async pay(@Params("paymentId") paymentId:string, @Req() req: Request ):Promise<any> 
   {
     
