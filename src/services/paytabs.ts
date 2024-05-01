@@ -27,7 +27,7 @@ export class PayTabService{
     "AR",_urls,(result:any)=>{
        res=result
      })
-     return await res?.redirect_url
+     return await (res!=undefined)? res.redirect_url:{}
      
    }
   async payCallback(result:any):Promise<any> {
