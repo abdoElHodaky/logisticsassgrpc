@@ -14,7 +14,7 @@ export class PayTabService{
     }
    async createPage(payment:Payment,urls:{callback:string,return:string}):Promise<any>{
     let res;
-    let client=payment.by
+    let client=payment.user
     const {firstname,lastname,email,address}=client
     const {id,currency,amount,shipping}=payment
     const {title,...resship}=shipping
