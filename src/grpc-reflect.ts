@@ -1,4 +1,3 @@
-import "reflect-metadata";
 import {server,server2} from "./grpc";
 import { loadPackageDefinition }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
