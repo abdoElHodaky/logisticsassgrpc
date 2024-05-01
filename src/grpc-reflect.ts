@@ -16,24 +16,9 @@ protoLoader.load("./src/protos/src/user.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server2)
-// console.log(reflect,pkg) 
+console.log(reflect,pkg) 
 }).catch(console.log)
-/*protoLoader.load("./src/protos/src/auth.proto").then((pkg:any)=>{
-  pkg=loadPackageDefinition(pkg)
-  const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server)
-  //console.log(reflect,pkg) 
-}).catch(console.log)
-/*
-protoLoader.load("./src/protos/src/ticket.proto").then((pkg:any)=>{
-  pkg=loadPackageDefinition(pkg)
-  const reflect=new ReflectionService(pkg)
-  const reflect2=new ReflectionService(pkg)
-  reflect.addToServer(server)
-  reflect2.addToServer(server2)
-  //console.log(reflect,pkg) 
-}).catch(console.log)
-*/
+
 /*
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
