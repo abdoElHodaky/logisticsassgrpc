@@ -27,7 +27,7 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach(({id,articles,tickets},inx)=>{
+     _users.forEach(({id,articles,tickets},inx:number)=>{
        
       /* let prop=_User.User.keys(e).filter(p=>p.includes("s"))
        prop.forEach(p=>{
