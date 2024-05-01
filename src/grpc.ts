@@ -3,7 +3,7 @@ import { Server, ServerCredentials , loadPackageDefinition }  from "@grpc/grpc-j
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
-protoLoader.loadSync("src/protos/src/ticket.proto").then(pkgd=>{
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 console.log(pkgd)
   pkgticket=loadPackageDefinition(pkgd)
 }).catch(console.log)
