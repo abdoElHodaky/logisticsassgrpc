@@ -18,7 +18,7 @@ export class UserService extends _Data {
       relations:{
        "articles":true,
         "tickets":true
-      }:FindOptionsRelationByString
+      } as FindOptionsRelationByString
     })
   }
   
