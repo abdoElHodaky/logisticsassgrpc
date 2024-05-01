@@ -28,7 +28,7 @@ export class PaymentController {
   {
     
    const url =`${req.baseUrl}`
-    return await this.paymentService.Pay(paymentId,{callback:url+"/callback",return:url+"/return"});
+    return await this.paymentService.pay(paymentId,{callback:url+"/callback",return:url+"/return"});
 
   }
 
