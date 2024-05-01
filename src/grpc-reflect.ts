@@ -12,7 +12,7 @@ protoLoader.load("./src/protos/src/article.proto").then((pkg:any)=>{
   
  // console.log(reflect,pkg) 
 }).catch(console.log)
-protoLoader.load("./src/protos/src/user.proto").then((pkg:any)=>{
+protoLoader.load("./src/protos/src/auth.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server2)
