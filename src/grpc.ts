@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { Server, ServerCredentials } from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
-const pkg =await protoLoader.load("./protos/src"); // Load your gRPC package definition as normal
+const pkg = protoLoader.load("./protos/src"); // Load your gRPC package definition as normal
 
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
 //import { _Ticket  } from "./protos/dist/"
