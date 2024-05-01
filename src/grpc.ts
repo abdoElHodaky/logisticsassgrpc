@@ -22,7 +22,7 @@ server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 
 const reflection = new ReflectionService(pkgticket);
 reflection.addToServer(server2);
-server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
+server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
 
