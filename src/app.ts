@@ -9,7 +9,7 @@ import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
 
 const app=application();
-const port = process.env.PORT||3000
+const port = process.env.HTTPPORT||3000
 /*setInterval(function (){
 if(AppDataSource.isConnected==false)
 {
