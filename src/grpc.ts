@@ -24,8 +24,8 @@ server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 server2.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
 server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 
-const reflection = new ReflectionService(pkgticket);
-reflection.addToServer(server2);
+//const reflection = new ReflectionService(pkgticket);
+//reflection.addToServer(server2);
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
