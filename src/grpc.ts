@@ -5,7 +5,7 @@ const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
 protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 console.log(pkgd)
-   //pkgticket=loadPackageDefinition(pkgd)
+  pkgticket=pkgd
 }).catch(console.log)
 
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
@@ -24,8 +24,8 @@ server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 server2.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
 server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 
-//const reflection = new ReflectionService(pkgticket);
-//reflection.addToServer(server2);
+const reflection = new ReflectionService(pkgticket);
+reflection.addToServer(server2);
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
