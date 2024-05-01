@@ -51,7 +51,7 @@ async verify(transR:string,paymentId:string):Promise<any>{
       })
       payment.status="paid"
       payment.transR=transR
-      await payment.save()
+      await this.datasource.manager.save(Payment,payment)
       return {message:"Payment success , Thanks"}
 
     }
