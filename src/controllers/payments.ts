@@ -6,7 +6,7 @@ import { Res, Post, Controller, Get, Body , Params ,Delete,Req } from '@decorato
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
-import {services} from "./services/enum";
+import {services} from "../services/enum";
 @Controller('/payments')
 export class PaymentController {
   
