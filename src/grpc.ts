@@ -4,7 +4,7 @@ import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
 protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
-console.log(pkgd)
+//console.log(pkgd)
   pkgticket=loadPackageDefinition(pkgd).Ticket
 }).catch(console.log)
 
