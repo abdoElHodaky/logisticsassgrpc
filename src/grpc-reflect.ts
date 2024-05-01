@@ -7,14 +7,15 @@ const protoLoader = require('@grpc/proto-loader');
 
 protoLoader.load("./src/protos/src/article.proto").then(pkg=>{
 const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server)
+  console.log(reflect,pkg)
+ // reflect.addToServer(server)
 }).catch(console.log)
 protoLoader.load("./src/protos/src/user.proto").then(pkg=>{
 const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server)
+  //reflect.addToServer(server)
 }).catch(console.log)
 protoLoader.load("./src/protos/src/auth.proto").then(pkg=>{
 const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server)
-  console.log(reflect)
+ // reflect.addToServer(server)
+ // console.log(reflect)
 }).catch(console.log)
