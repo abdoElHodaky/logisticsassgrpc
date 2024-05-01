@@ -35,6 +35,13 @@ protoLoader.load("src/protos/src/user.proto").then(pkgd=>{
     //console.log(reflection)
 }).catch(console.log)
 
+protoLoader.load("src/protos/src/article.proto").then(pkgd=>{
+//console.log(pkgd)
+  const reflection = new ReflectionService(loadPackageDefinition(pkgd));
+  reflection.addToServer(server);
+    //console.log(reflection)
+}).catch(console.log)
+
 protoLoader.load("src/protos/src/auth.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
