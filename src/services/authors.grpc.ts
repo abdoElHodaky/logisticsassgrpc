@@ -29,7 +29,7 @@ export class AuthorGrpcService  {
      // console.log(_authors)
       _authors.forEach(({id,articles},inx)=>{
         articles.sort((a,b)=>b.id-a.id)
-        if(articles.length!=0){ articles=articles.map(a=>a.userId=id)}
+        if(articles.length!=0){ articles.forEach(a=>a.userId=id)}
         
       })
       const res:_User.GetAllUserRes={
