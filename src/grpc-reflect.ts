@@ -24,7 +24,7 @@ protoLoader.load("./src/protos/src/auth.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
-  c//onsole.log(reflect,pkg) 
+  //console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/ticket.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
