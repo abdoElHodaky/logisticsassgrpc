@@ -6,9 +6,9 @@ const protoLoader = require('@grpc/proto-loader');
 
 protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
   console.log(pkgd)
-  const reflection = new ReflectionService(pkgd);
-  reflection.addToServer(server2);
-    console.log(reflection)
+  //const reflection = new ReflectionService(pkgd);
+ // reflection.addToServer(server2);
+   // console.log(reflection)
 }).catch(console.log)
 
 /*
