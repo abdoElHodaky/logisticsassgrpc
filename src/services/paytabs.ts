@@ -1,6 +1,5 @@
 import paytabs from "paytabs_pt2";
-import { User } from "./entity/";
-import { Payment } from "../entity/";
+import { Payment , User} from "../entity/";
 export class PayTabService{
   async values(obj){
       let arr=[]
