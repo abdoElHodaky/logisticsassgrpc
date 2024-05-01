@@ -1,4 +1,4 @@
-import paytabs from "paytabs_pt2";
+const paytabs =require("paytabs_pt2");
 import { Payment , User} from "../entity/";
 export class PayTabService{
   async values(obj:any){
@@ -27,7 +27,7 @@ export class PayTabService{
     "AR",_urls,(result:any)=>{
        res=result
      })
-     return  res.redirect_url
+     return await res.redirect_url
      
    }
   async payCallback(result:any):Promise<any> {
@@ -50,7 +50,7 @@ export class PayTabService{
       paymentId:cart.cart_id
     }
   }
-  async payVerify(transR:string):any{
+  async payVerify(transR:string):Promise<any>{
     let valid=false;
     let res;
     paytabs.validatePayment(transR,(result:any)=>{
