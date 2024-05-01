@@ -27,7 +27,7 @@ export class PayTabService{
     "AR",_urls,(result:any)=>{
        res=result
      })
-     return await res.redirect_url
+     return await res?.redirect_url
      
    }
   async payCallback(result:any):Promise<any> {
@@ -52,7 +52,7 @@ export class PayTabService{
   }
   async payVerify(transR:string):Promise<any>{
     let valid=false;
-    let res;
+    let res:any;
     paytabs.validatePayment(transR,(result:any)=>{
       if (result['response_code:'] === 400)
     {
@@ -64,7 +64,7 @@ export class PayTabService{
     }
          res=result
     });
-    return {transRef:transR,code:res['response_code:'],valid:valid}
+    return await {transRef:transR,code:res['response_code:'],valid:valid}
   }
  async start(){
     const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=process.env
