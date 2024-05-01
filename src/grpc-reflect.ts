@@ -6,9 +6,9 @@ const protoLoader = require('@grpc/proto-loader');
 //console.log(protoLoader,ReflectionService)
 
 protoLoader.load("./src/protos/src/article.proto").then(pkg=>{
-const reflect=new ReflectionService(pkg)
-  console.log(reflect,pkg)
- // reflect.addToServer(server)
+const reflect=new ReflectionService(loadPackageDefinition(pkg))
+  reflect.addToServer(server)
+  console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/user.proto").then(pkg=>{
 const reflect=new ReflectionService(pkg)
