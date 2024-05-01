@@ -16,8 +16,9 @@ export class supTicketGrpcService  {
      //console.log(tickets)
      let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
      //console.log(tickets)
-    _tickets.forEach((a,inx)=>{   
-     if(tickets[inx].user!=null) a.userId=tickets[inx].user.id
+    _tickets.forEach((a,inx)=>{
+     let {user}=tickets[inx]
+     if(user!=null) a.userId=user.id
    //  else a.userId =Math.random(1,inx/3)
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
