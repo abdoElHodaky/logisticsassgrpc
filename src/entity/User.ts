@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity} from "typeorm"
 import { Email } from "./Email"
-import { supTicket,Article,Attachment,Address,Verification } from "./"
+import { supTicket,Article,Attachment,Address,Verification,Payment } from "./"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -37,6 +37,8 @@ export class User {
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
+    @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
+   
 }
 
 
