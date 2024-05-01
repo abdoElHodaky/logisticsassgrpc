@@ -5,5 +5,5 @@ export class CreatePurshaseDto {
 
 export class CreateSubscriptionDto {
   userId:string
-  items:Array
+  items:Array<any>
 }
