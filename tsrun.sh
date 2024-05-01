@@ -1,6 +1,6 @@
 #!/user/bin/bash
 
-npm run build
-node swagautogen.js
+#npm run build
+=node swagautogen.js
 #node ./dist/grpc.js
-node ./dist/grpc-reflect.js
+npx ts-node ./src/grpc-reflect.ts
