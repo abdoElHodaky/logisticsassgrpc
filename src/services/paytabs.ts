@@ -25,9 +25,9 @@ export class PayTabService{
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
     "AR",_urls,(result:any)=>{
-       res=result
+       return await (result!=undefined)? result.redirect_url:{}
      })
-     return await (res!=undefined)? res.redirect_url:{}
+     
      
    }
   async payCallback(result:any):Promise<any> {
