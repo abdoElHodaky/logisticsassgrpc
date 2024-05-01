@@ -28,7 +28,7 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     server2.start(); })
 
 
-protoLoader.load("src/protos/src/*.proto").then(pkgd=>{
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server2);
