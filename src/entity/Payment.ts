@@ -24,5 +24,9 @@ export class Payment {
     @Column(()=>Address)
     shipping: Address;
     
+    @Column({type: "varchar", nullable: true})
+    transR: string;
+
+
     @ManyToOne(()=>User,user=>user.payments) user:User;
 }
