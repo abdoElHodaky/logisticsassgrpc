@@ -9,12 +9,14 @@ protoLoader.load("./src/protos/src/article.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
+  
   console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/user.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
+  reflect.addToServer(server2)
   console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/auth.proto").then((pkg:any)=>{
@@ -23,9 +25,10 @@ protoLoader.load("./src/protos/src/auth.proto").then((pkg:any)=>{
   reflect.addToServer(server)
   console.log(reflect,pkg) 
 }).catch(console.log)
-protoLoader.load("./src/protos/src/article.proto").then((pkg:any)=>{
+protoLoader.load("./src/protos/src/ticket.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
+  reflect.addToServer(server2)
   console.log(reflect,pkg) 
 }).catch(console.log)
