@@ -4,7 +4,7 @@ import { loadPackageDefinition }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 
-protoLoader.load("src/protos/src/ticket.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server2);
@@ -12,7 +12,7 @@ protoLoader.load("src/protos/src/ticket.proto").then((pkgd:any)=>{
 }).catch(console.log)
 
 
-protoLoader.load("src/protos/src/user.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/user.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server2);
@@ -20,7 +20,7 @@ protoLoader.load("src/protos/src/user.proto").then((pkgd:any)=>{
 }).catch(console.log)
 
 
-protoLoader.load("src/protos/src/ticket.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server);
@@ -28,21 +28,21 @@ protoLoader.load("src/protos/src/ticket.proto").then((pkgd:any)=>{
 }).catch(console.log)
 
 
-protoLoader.load("src/protos/src/user.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/user.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server);
     //console.log(reflection)
 }).catch(console.log)
 
-protoLoader.load("src/protos/src/article.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/article.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server);
     //console.log(reflection)
 }).catch(console.log)
 
-protoLoader.load("src/protos/src/auth.proto").then((pkgd:any)=>{
+protoLoader.load("src/protos/src/auth.proto").then(pkgd=>{
 //console.log(pkgd)
   const reflection = new ReflectionService(loadPackageDefinition(pkgd));
   reflection.addToServer(server);
