@@ -14,7 +14,6 @@ export class UserService extends _Data {
   async all():Promise<User[]>{
     //console.log(this.datasource)
     return await this.datasource.manager.find(User,{
-      where:{},
       relations:{
         articles:true,
         tickets:true
