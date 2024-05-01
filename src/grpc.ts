@@ -4,7 +4,8 @@ import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
 protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
-   pkgticket=loadPackageDefinition(pkgd)
+console.log(pkgd)
+   //pkgticket=loadPackageDefinition(pkgd)
 }).catch(console.log)
 
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
