@@ -15,8 +15,8 @@ export class UserService extends _Data {
     //console.log(this.datasource)
     return await this.datasource.manager.find(User,{
       relations:{
-        articles:true,
-        tickets:true
+       "articles":true,
+        "tickets":true
       }
     })
   }
