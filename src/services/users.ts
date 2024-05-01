@@ -1,3 +1,4 @@
+import {FindOptionsRelationByString} from "typeorm";
 import { Injectable , Inject } from "@decorators/di";
 import { Article,User,Author } from "../entity/"
 //import { CreateArticleDto } from "../dto/create-article.dto"
@@ -17,7 +18,7 @@ export class UserService extends _Data {
       relations:{
        "articles":true,
         "tickets":true
-      }
+      }:FindOptionsRelationByString
     })
   }
   
