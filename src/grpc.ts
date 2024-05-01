@@ -3,13 +3,6 @@ import { Server, ServerCredentials , loadPackageDefinition }  from "@grpc/grpc-j
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
-protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
-//console.log(pkgd)
-  pkgticket=loadPackageDefinition(pkgd)
-  const reflection = new ReflectionService(pkgticket);
-  reflection.addToServer(server2);
-}).catch(console.log)
-
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
 //import { _Ticket  } from "./protos/dist/"
 import { services } from "./services/enum";
@@ -25,10 +18,7 @@ server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
 server2.addService(_User.UserServiceService,services.Grpc_User.SrvImpl)
 server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
-console.log(pkgticket)
-//const reflection = new ReflectionService(pkgticket);
-//reflection.addToServer(server2);
-//console.log(reflection)
+
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
@@ -38,4 +28,10 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     server2.start(); })
 
 
+protoLoader.load("src/protos/src/ticket.proto").then(pkgd=>{
+//console.log(pkgd)
+  pkgticket=loadPackageDefinition(pkgd)
+  const reflection = new ReflectionService(pkgticket);
+  reflection.addToServer(server2);
+}).catch(console.log)
 
