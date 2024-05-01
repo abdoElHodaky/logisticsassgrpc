@@ -4,5 +4,8 @@ import { loadPackageDefinition }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 console.log(protoLoader,ReflectionService)
-let pkg=protoLoader.load("./src/protos/src/*")
-console.log(pkg)
+protoLoader.load("./src/protos/src/ticket.proto")
+protoLoader.load("./src/protos/src/article.proto")
+protoLoader.load("./src/protos/src/user.proto")
+protoLoader.load("./src/protos/src/auth.proto")
+console.log(protoLoader)
