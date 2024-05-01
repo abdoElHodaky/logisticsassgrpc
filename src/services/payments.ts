@@ -44,7 +44,7 @@ async verify(transR:string,paymentId:string):Promise<any>{
     let res= await this.payTabService.payVerify(transR)
     let { valid,code }=res
     if (valid===true){
-      let payment=await this.datasource.find(Payment,{
+      let payment=await this.datasource.manager.find(Payment,{
         where:{id:parseInt(paymentId)}
       })
       payment.status="paid"
