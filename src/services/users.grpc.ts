@@ -38,8 +38,8 @@ export class UserGrpcService  {
        })*/
       if(articles.length!=0){ 
         articles.sort((a,b)=>b.id-a.id)
-        articles=articles.map(a=>a.userId=id)}
-      if(tickets.length!=0) {tickets=tickets.map(a=>a.userId=id)}
+        articles.forEach(a=>a.userId=id)}
+      if(tickets.length!=0) {tickets.forEach(a=>a.userId=id)}
        
        
     
