@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { Server, ServerCredentials,loadPackageDefinition } from "@grpc/grpc-js";
+import { Server, ServerCredentials }, loadPackageDefinition  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 let pkgticket:any;
