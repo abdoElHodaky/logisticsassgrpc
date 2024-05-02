@@ -31,3 +31,22 @@ export let services:any={
   Grpc_supTicket:new supTicketGrpcService()
   
 }
+
+
+export let _services:any={
+  "Auth":new AuthService(),
+  "Author":new AuthorService(),
+  "User":new UserService(),
+  "Article":new ArticleService(),
+  "Attachment":new AttachmentService(),
+  "Ticket":new UserTicketService(),
+  "supTicket":new supTicketService(),
+  "Payment":new PaymentService(),
+  "Grpc_Ticket":new TicketGrpcService(),
+ " Grpc_Article":new ArticleGrpcService(),
+  "Grpc_Auth":new AuthGrpcService(),
+  "Grpc_Author":new AuthorGrpcService(),
+  "Grpc_User":new UserGrpcService(),
+  "Grpc_supTicket":new supTicketGrpcService()
+  
+}
