@@ -1,4 +1,4 @@
-import * as services from "./services/"
+import * as services from "./services/enum"
 import "reflect-metadata";
 let servs=services
 
