@@ -14,7 +14,7 @@ import {supTicketService} from "./suptickets";
 import {PaymentService} from "./payments";
 
 
-export let services={
+export let services:object={
   Auth:new AuthService(),
   Author:new AuthorService(),
   User:new UserService(),
