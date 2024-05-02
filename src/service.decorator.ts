@@ -16,7 +16,8 @@ export function Service(servname: string): Function {
         let keys=Object.keys(_services)
         let values=Object.values(_services)
         let inx=keys.indexOf(servname)
-        console.log(values[inx])
+        target["service"]=values[inx]
+        //console.log(values[inx])
     }).catch(console.log)
     
    
