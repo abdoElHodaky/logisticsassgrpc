@@ -5,7 +5,7 @@ import { Service} from "../service.decorator";
 export class AuthGrpcService {
   
   @Service("Auth")
-  static service:any
+  static service:any=new AuthService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Auth.AuthServiceServer = {
  
