@@ -1,6 +1,6 @@
-import * as services from "./services/enum"
+//import * as services from "./services/enum"
 import "reflect-metadata";
-let servs=services
+//let servs=services
 
 export function Service(servname: string): Function {
     return function (target: any, propertyKey: string, descriptor?: PropertyDescriptor) {
@@ -11,9 +11,11 @@ export function Service(servname: string): Function {
         };
     };*/
         
+    import("./services/enum").then(services=>{
+        console.log(services.Auth)
+    }).catch(console.log)
     
-    
-   console.log(services.Auth)
+   
    
   }
 }
