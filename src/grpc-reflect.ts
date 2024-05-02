@@ -16,7 +16,7 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server2)
-  console.log(reflect) 
+ // console.log(reflect) 
 }).catch(console.log)
 
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
