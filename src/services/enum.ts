@@ -33,7 +33,7 @@ export let services:any={
 }
 
 
-export let _services:any={
+export let _services:object={
   "Auth":new AuthService(),
   "Author":new AuthorService(),
   "User":new UserService(),
