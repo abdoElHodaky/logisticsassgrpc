@@ -11,9 +11,7 @@ export function Service(servname: string): Function {
         };
     };*/
         
-    import("./services/enum").then(services=>{
-        console.log(services.Auth)
-    }).catch(console.log)
+    import("./services/enum").then(console.log).catch(console.log)
     
    
    
