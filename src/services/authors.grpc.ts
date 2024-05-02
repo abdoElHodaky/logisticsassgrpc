@@ -7,7 +7,7 @@ import {AuthorService} from "./";
 export class AuthorGrpcService  {
   
   @Service("Author")
-  static service:any
+  static service:any=new AuthorService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _User.UserServiceServer = {
    async all (call: ServerUnaryCall<_User.GetAllUserReq,_User.GetAllUserRes>,
