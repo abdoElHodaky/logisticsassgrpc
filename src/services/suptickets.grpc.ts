@@ -2,11 +2,12 @@ import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Ticket} from "../protos/dist/";
 import { supTicketService }from "./";
-//import { Service } from "../service.decorator";
+import { Service } from "../service.decorator";
 //console.log(services)
 export class supTicketGrpcService  {
- // @Service("Article")
-  static service:any=new supTicketService()
+  
+ @Service("Ticket")
+  static service
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Ticket.TicketServiceServer = {
    async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
