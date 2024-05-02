@@ -10,7 +10,7 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
   
- console.log(reflect,pkg) 
+ //console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
@@ -18,7 +18,7 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   reflect.addToServer(server2)
 //console.log(reflect,pkg) 
 }).catch(console.log)
-export {server,server2}
+
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
@@ -26,3 +26,5 @@ server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
 server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
+
+export {server,server2}
