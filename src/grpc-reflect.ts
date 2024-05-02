@@ -10,7 +10,7 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
   
- // console.log(reflect,pkg) 
+ console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
