@@ -13,10 +13,10 @@ export function Service(servname: string): Function {
         
     import("./services/enum").then(servs=>{
         const {services}=servs
-        let keys=services.keys()
-        let values=services.values()
-        let inx=keys.indexOf(servname)
-        console.log(values[inx]==target["service"])
+        let keys=services.keys
+        let values=services.values
+       // let inx=keys.indexOf(servname)
+        console.log(keys)
     }).catch(console.log)
     
    
