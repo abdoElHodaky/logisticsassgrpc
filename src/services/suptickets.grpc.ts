@@ -7,7 +7,7 @@ import { Service } from "../service.decorator";
 export class supTicketGrpcService  {
   
  @Service("Ticket")
-  static service
+  static service:any
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Ticket.TicketServiceServer = {
    async all (call: ServerUnaryCall<_Ticket.GetAllTicketReq,_Ticket.GetAllTicketRes>,
