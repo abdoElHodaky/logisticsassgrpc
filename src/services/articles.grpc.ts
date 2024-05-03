@@ -17,7 +17,7 @@ export class ArticleGrpcService  {
      _articles.forEach((a:_Article.Article,inx:number)=>{  
        let {author,created_at,updated_at}=articles[inx]
        a.userId=author.id
-       a.createdAt=created_at?.toLocaleString("en-eg", {timeZone: "Africa/cairo"})
+       a.createdAt=created_at
        a.updatedAt=updated_at
        //console.log(created_at?.toLocaleString("en-eg", {timeZone: "Africa/cairo"}))
      })
