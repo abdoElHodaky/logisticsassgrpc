@@ -21,9 +21,9 @@ export class supTicketGrpcService  {
      let {user,created_at,updated_at}=tickets[inx]
      if(user!=null) {
       a.userId=user.id
-      a.created_at=created_at
-      a.updated_at=updated_at
-      console.log(a.created_at instanceof Date)
+      a.createdAt=created_at
+      a.updatedAt=updated_at
+      console.log(a.createdAt instanceof Date)
      }
    //  else a.userId =Math.random(1,inx/3)
      })
