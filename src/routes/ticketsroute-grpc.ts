@@ -19,7 +19,7 @@ ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
 
     
 
-ticketsgrpc.post("/grpc/users/:userId/tickets",({body},res)=>{
+ticketsgrpc.post("/users/:userId/tickets",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.User.Ticket']
         #swagger.description = 'Endpoint to add new ticket via grpc' 
         #swagger.parameters['userId'] = {
