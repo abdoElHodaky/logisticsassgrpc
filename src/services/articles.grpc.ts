@@ -15,7 +15,7 @@ export class ArticleGrpcService  {
      //console.log(articles)
      let _articles=articles.map(_Article.Article.fromJSON)
      _articles.forEach((a:_Article.Article,inx:number)=>{  
-       console.log(articles[inx])
+       //console.log(articles[inx])
        a.userId=articles[inx].author.id
      })
      let res:_Article.GetAllRes={articles:_articles,error:{
