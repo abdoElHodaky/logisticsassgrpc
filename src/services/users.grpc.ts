@@ -28,10 +28,10 @@ export class UserGrpcService  {
      
      let _users=users.map(_User.User.fromJSON)
      _users.forEach(user:_User.User,inx:number)=>{
-       let {id,created_at,updated_at,articles,tickets}=user
+       let {id,articles,tickets}=user
      
-       user.createdAt=created_at
-      user.updatedAt=updated_at
+       user.createdAt=users[inx].created_at
+      user.updatedAt=users[inx].updated_at
        
       if(articles.length!=0){ 
         articles.sort((a,b)=>b.id-a.id)
