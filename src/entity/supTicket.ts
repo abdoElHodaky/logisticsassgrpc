@@ -1,4 +1,4 @@
-import { Entity ,Column,PrimaryGeneratedColumn, ManyToOne} from "typeorm"
+import { Entity ,Column,PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { User } from "./User"
 
 @Entity()
@@ -17,5 +17,10 @@ export class supTicket {
     description: string
 
     @ManyToOne(()=>User,user=>user.tickets) user:User
+    @CreateDateColumn()
+     createdAt: Date;
+
+     @UpdateDateColumn()
+     updatedAt: Date;
 
 }
