@@ -3,7 +3,7 @@ import {_Ticket } from "../protos/dist/";
 import { Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
 
-const address = "localhost:3030";
+const address = "localhost:30";
 
 @Controller("/suptickets")
 export class GrpcSupTicketController {
