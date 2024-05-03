@@ -5,7 +5,7 @@ import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
 const address = "localhost:50051";
 
-@Controller("/grpc/auth")
+@Controller("/auth")
 export class GrpcAuthController {
   private client =new _Auth.AuthServiceClient(
     address,
