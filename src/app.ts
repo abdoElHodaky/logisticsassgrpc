@@ -38,7 +38,7 @@ app.use((error:any, req:any, res:any, next:any) => {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
-const server=require("./grpc-reflect")
+const servers=require("./grpc-main")
 app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
@@ -50,8 +50,8 @@ const configureApplication =  () => {
     server.start(); })*/
    app.listen(port, () => {
 	   console.log(`Example app listening on port ${port}`)
-      server.server
-        server.server2
+      servers.server
+        servers.server2
   });
 }
 
