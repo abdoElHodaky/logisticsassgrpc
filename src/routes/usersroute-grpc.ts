@@ -5,7 +5,7 @@ import { Router } from "express";
 
 export const usersgrpc=Router()
 
-usersgrpc.get("/grpc/users",(req,res)=>{
+usersgrpc.get("/users",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User']
         #swagger.description = 'Endpoint to get authors via grpc' */
 
@@ -13,7 +13,7 @@ usersgrpc.get("/grpc/users",(req,res)=>{
 
     
 
-usersgrpc.post("/grpc/users",({body},res)=>{
+usersgrpc.post("/users",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.User']
         #swagger.description = 'Endpoint to add new User via grpc' 
         #swagger.parameters['body'] = {
