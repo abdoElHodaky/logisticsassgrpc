@@ -1,5 +1,5 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity} from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,Address,Verification,Payment } from "./"
 
@@ -33,6 +33,11 @@ export class User {
     
     @Column(()=>Address)
     address:Address
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
     
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
