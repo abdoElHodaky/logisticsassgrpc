@@ -21,11 +21,11 @@ export class supTicketGrpcService  {
      let {user,created_at,updated_at}=tickets[inx]
      if(user!=null) {
       a.userId=user.id
+      //console.log(a.createdAt instanceof Date)
+     }
+    else { a.userId = Math.random(1,20) }
       a.createdAt=created_at
       a.updatedAt=updated_at
-      console.log(a.createdAt instanceof Date)
-     }
-   //  else a.userId =Math.random(1,inx/3)
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
        Message:"",type:"",name:""
