@@ -33,11 +33,12 @@ export class User {
     
     @Column(()=>Address)
     address:Address
+    
     @CreateDateColumn()
-    createdAt: Date;
+    created_at: Date;
 
     @UpdateDateColumn()
-    updatedAt: Date;
+    updated_at: Date;
     
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
