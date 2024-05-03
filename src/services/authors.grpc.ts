@@ -27,7 +27,7 @@ export class AuthorGrpcService  {
      
      let _authors=authors.map(_User.User.fromJSON)
      // console.log(_authors)
-      _authors.forEach(author:_User.User,inx)=>{
+      _authors.forEach((author:_User.User,inx)=>{
         let {id,articles}=author
         author.createdAt=authors[inx].created_at
         author.updatedAt=authors[inx].updated_at
