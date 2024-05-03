@@ -5,7 +5,7 @@ import { Response  } from "express";
 
 const address = "localhost:3030";
 
-@Controller("/grpc/users")
+@Controller("/users")
 export class GrpcUserController {
   private client =new _User.UserServiceClient(
     address,
