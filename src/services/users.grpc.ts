@@ -27,7 +27,7 @@ export class UserGrpcService  {
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
-     _users.forEach(user:_User.User,inx:number)=>{
+     _users.forEach((user:_User.User,inx:number)=>{
        let {id,articles,tickets}=user
      
        user.createdAt=users[inx].created_at
