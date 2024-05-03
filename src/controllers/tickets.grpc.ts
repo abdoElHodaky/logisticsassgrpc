@@ -5,7 +5,7 @@ import { Response  } from "express";
 
 const address = "localhost:50051";
 
-@Controller("/grpc/users")
+@Controller("/users")
 export class GrpcTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
