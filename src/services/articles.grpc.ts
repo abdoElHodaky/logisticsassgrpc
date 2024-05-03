@@ -19,6 +19,7 @@ export class ArticleGrpcService  {
        a.userId=author.id
        a.createdAt=created_at
        a.updatedAt=updated_at
+       console.log(typeof(created_at))
      })
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
