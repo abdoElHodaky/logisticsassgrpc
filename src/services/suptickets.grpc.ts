@@ -23,7 +23,7 @@ export class supTicketGrpcService  {
       a.userId=user.id
       //console.log(a.createdAt instanceof Date)
      }
-    else { a.userId = Math.random(1,20) }
+    else { a.userId = Math.floor(Math.random()*21) }
       a.createdAt=created_at
       a.updatedAt=updated_at
      })
