@@ -19,11 +19,11 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
  // console.log(reflect) 
 }).catch(console.log)
 
-server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
+server.bindAsync('0.0.0.0:51', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
 
-server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
+server2.bindAsync('0.0.0.0:30', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
 
