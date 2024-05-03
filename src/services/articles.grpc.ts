@@ -19,7 +19,7 @@ export class ArticleGrpcService  {
        a.userId=author.id
        a.createdAt=created_at
        a.updatedAt=updated_at
-       console.log(typeof(created_at))
+       console.log(created_at?.toLocaleString("en-eg", {timeZone: "Africa/cairo"}))
      })
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
