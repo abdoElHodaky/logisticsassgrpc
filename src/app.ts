@@ -39,8 +39,8 @@ const configureApplication =  () => {
     server.start(); })*/
    app.listen(port, () => {
 	   console.log(`Example app listening on port ${port}`)
-      servers[0].start()
-        servers[1].start()
+      servers.server
+      servers.server2
   });
 }
 
