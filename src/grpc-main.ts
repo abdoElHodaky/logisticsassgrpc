@@ -18,7 +18,7 @@ protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   reflect.addToServer(server2)
  // console.log(reflect) 
 }).catch(console.log)
-
+/*
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
@@ -27,4 +27,4 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
 
-export {server,server2}
+//export {server,server2} */
