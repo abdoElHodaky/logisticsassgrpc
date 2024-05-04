@@ -19,7 +19,7 @@ server2.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server2.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 
 
-/*
+
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
@@ -29,4 +29,4 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     server2.start(); })
 
 
-*/
+
