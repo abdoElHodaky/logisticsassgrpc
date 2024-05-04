@@ -6,7 +6,7 @@ import { services } from "./services/enum";
 
 export const server = new Server()
 export const server2 = new Server()
-const address = `${HOST}:${PORT}`;
+//const address = `${HOST}:${PORT}`;
 //console.log(services)
 server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
