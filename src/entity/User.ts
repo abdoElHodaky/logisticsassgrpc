@@ -34,10 +34,10 @@ export class User {
     @Column(()=>Address)
     address:Address
     
-    @CreateDateColumn()
+    @CreateDateColumn({type:"timestamp"})
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({type:"timestamp"})
     updated_at: Date;
     
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
