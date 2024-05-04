@@ -1,10 +1,9 @@
 import "reflect-metadata";
 import { Server, ServerCredentials  }  from "@grpc/grpc-js";
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
-//import { _Ticket  } from "./protos/dist/"
+import { reflects  } from "./grpc-reflect"
 import { services } from "./services/enum";
-const HOST =  "0.0.0.0";
-const PORT =  "50051";
+
 export const server = new Server()
 export const server2 = new Server()
 const address = `${HOST}:${PORT}`;
@@ -18,7 +17,8 @@ server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 server2.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server2.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 
-
+reflects[0].addToServer(server)
+reflects[1].addToServer(server2)
 
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
