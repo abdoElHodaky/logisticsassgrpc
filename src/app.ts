@@ -38,7 +38,7 @@ app.use((error:any, req:any, res:any, next:any) => {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
-const servers=require("./grpc-main")
+const servers=require("./grpc")
 app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
