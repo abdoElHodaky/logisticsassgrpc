@@ -1,13 +1,12 @@
 import "reflect-metadata";
-import { Server, ServerCredentials  }  from "@grpc/grpc-js";
+import { Server, ServerCredentials, loadPackageDefinition }  from "@grpc/grpc-js";
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
-import  reflects   from "./grpc-reflect"
+import  * as protoLoader  from "@grpc/proto-loader";
+import { ReflectionService } from '@grpc/reflection';
 import { services } from "./services/enum";
 
 export const server = new Server()
 export const server2 = new Server()
-//const address = `${HOST}:${PORT}`;
-//console.log(services)
 server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
@@ -17,7 +16,18 @@ server2.addService(_Ticket.TicketServiceService,services.Grpc_supTicket.SrvImpl)
 server2.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server2.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 
-console.log(reflects)
+protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
+  pkg=loadPackageDefinition(pkg)
+  const reflect=new ReflectionService(pkg)
+  reflect.addToServer(server)
+  
+}).catch(console.log)
+protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
+  pkg=loadPackageDefinition(pkg)
+  const reflect=new ReflectionService(pkg)
+  reflect.addToServer(server2)
+  reflects.push(reflect)
+}).catch(console.log)
 
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
