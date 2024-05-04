@@ -5,3 +5,4 @@ import "ticket.proto";
 import "error.proto";
 import "auth.proto";
 import "user.proto";
+import "payment.proto";
