@@ -20,9 +20,9 @@ export class Article {
 
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
 
-    @CreateDateColumn()
+    @CreateDateColumn({type:"timestamp"})
     created_at: Date;
 
-    @UpdateDateColumn()
+    @UpdateDateColumn({type:"timestamp"})
     updated_at: Date;
 }
