@@ -9,7 +9,7 @@ export class Payment {
     @Column({type: "varchar", nullable: true})
     title: string;
 
-    @Column({type:'timestamptz'})
+    @Column(/*{type:'timestamptz'}*/)
     date: string;
     
     @Column({type: "varchar", nullable: true})
