@@ -4,20 +4,22 @@ import { loadPackageDefinition, ServerCredentials  }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 const protoLoader = require('@grpc/proto-loader');
 //console.log(protoLoader,ReflectionService)
-
+let reflects:ReflectionService[]
 protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server)
-  
+ // reflect.addToServer(server)
+  reflects.push(reflect)
  //console.log(reflect,pkg) 
 }).catch(console.log)
 protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
-  reflect.addToServer(server2)
+  //reflect.addToServer(server2)
+  reflects.push(reflect)
  // console.log(reflect) 
 }).catch(console.log)
+export default reflects
 /*
 server.bindAsync('0.0.0.0:50051', ServerCredentials.createInsecure(), () => {
     console.log("Server started")
