@@ -17,10 +17,10 @@ export class supTicket {
     description: string
 
     @ManyToOne(()=>User,user=>user.tickets) user:User
-    @CreateDateColumn()
+    @CreateDateColumn({type:"timestamp"})
      created_at: Date;
 
-     @UpdateDateColumn()
+     @UpdateDateColumn({type:"timestamp"})
      updated_at: Date;
 
 }
