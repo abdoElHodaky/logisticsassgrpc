@@ -9,8 +9,8 @@ RUN rm -rf package-lock.json && yarn add ts-proto @grpc/grpc-js class-transform 
 RUN yarn upgrade -y
 #RUN protoc --plugin=$(npm-root)/.bin/protoc-gen-ts_proto  --ts_proto_out=dist --ts_proto_opt=outputServices=grpc-js --ts_proto_opt=esModuleInterop=true -I=src/ src/**/*.proto
 ENV GRPCPORT 30
-ENV GRPCPORT2 51
+ENV GRP_CPORT 51
 ENV HTTPPORT 3000
-EXPOSE ${GRPCPORT} 51 ${HTTPPORT}
+EXPOSE ${GRPCPORT} ${GRP_CPORT} ${HTTPPORT}
 CMD ["sh","./tsrun.sh"]
 
