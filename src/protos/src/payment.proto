@@ -4,7 +4,7 @@ import "google/protobuf/timestamp.proto";
 import "address.proto";
 
 enum PaymentStatus{
- PAYMENT_DEFAULT=0
+ PAYMENT_DEFAULT=0;
  PAYMENT_PENDING=1;
  PAYMENT_PAID=2;
 }
