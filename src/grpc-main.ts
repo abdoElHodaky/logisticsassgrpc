@@ -24,4 +24,4 @@ server2.bindAsync('0.0.0.0:3030', ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
 
-export default [server,server2]
+export default {server,server2}
