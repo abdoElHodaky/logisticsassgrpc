@@ -10,17 +10,6 @@ import { apiv1 } from "./routes";
 
 const app=application();
 const port = process.env.HTTPPORT||3000
-/*setInterval(function (){
-if(AppDataSource.isConnected==false)
-{
-  AppDataSource.connect().then(e=>{
-  console.log("connected")
-  }).catch(console.log)
-}
-
-},500000)
-*/
-
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
@@ -38,7 +27,7 @@ app.use((error:any, req:any, res:any, next:any) => {
 
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger.json');
-const servers=require("./grpc")
+const servers=require("./grpc-main")
 app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
@@ -50,8 +39,8 @@ const configureApplication =  () => {
     server.start(); })*/
    app.listen(port, () => {
 	   console.log(`Example app listening on port ${port}`)
-      servers.server
-        servers.server2
+      servers[0].start()
+        servers[1].start()
   });
 }
 
