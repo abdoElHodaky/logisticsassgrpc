@@ -25,8 +25,8 @@ export class PaymentController {
   {
     
    const url =`${req.baseUrl}`
-    return await this.paymentService.pay(paymentId,{callback:url+"/callback",return:url+"/return"});
-
+    let reslurl= await this.paymentService.pay(paymentId,{callback:url+"/callback",return:url+"/return"});
+    return res.redirect(reslurl)
   }
 
   @Post("/callback")
