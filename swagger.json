@@ -1,0 +1,454 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Elearning endpoints docs",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "GRPC.Auth",
+      "description": "authentication endpoints via grpc"
+    },
+    {
+      "name": "GRPC.Article",
+      "description": "articles endpoints via grpc"
+    },
+    {
+      "name": "GRPC.Author",
+      "description": "authors endpoints via grpc"
+    },
+    {
+      "name": "GRPC.User",
+      "description": "users endpoints via grpc"
+    },
+    {
+      "name": "GRPC.User.Ticket",
+      "description": "users' tickets endpoints via grpc"
+    }
+  ],
+  "schemes": [],
+  "paths": {
+    "/articles": {
+      "get": {
+        "tags": [
+          "GRPC.Article"
+        ],
+        "description": "Endpoint to get articles via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.Article"
+        ],
+        "description": "Endpoint to add new article via grpc",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new article.",
+            "schema": {
+              "$ref": "#/definitions/AddArticle"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/authors": {
+      "get": {
+        "tags": [
+          "GRPC.Author"
+        ],
+        "description": "Endpoint to get authors via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.Author"
+        ],
+        "description": "Endpoint to add new author via grpc",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new author.",
+            "schema": {
+              "$ref": "#/definitions/CreateAuthor"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "GRPC.Auth"
+        ],
+        "description": "Endpoint to authenticate via grpc",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new user.",
+            "schema": {
+              "$ref": "#/definitions/LoginUser"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "GRPC.Auth"
+        ],
+        "description": "Endpoint to add new user via grpc",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new user.",
+            "schema": {
+              "$ref": "#/definitions/CreateUser"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/suptickets": {
+      "get": {
+        "tags": [
+          "GRPC.suptickets"
+        ],
+        "description": "Endpoint to get tickets",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.suptickets"
+        ],
+        "description": "Endpoint to create tickets for specific user",
+        "parameters": [
+          {
+            "name": "userid",
+            "in": "body",
+            "description": "userid",
+            "schema": {
+              "$ref": "#/definitions/userAddTicket"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users/{userId}/tickets": {
+      "get": {
+        "tags": [
+          "GRPC.User.Ticket"
+        ],
+        "description": "Endpoint to get articles via grpc",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Add new ticket.",
+            "schema": {
+              "$ref": "#/definitions/userSupTicket"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.User.Ticket"
+        ],
+        "description": "Endpoint to add new ticket via grpc",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "Add new ticket.",
+            "schema": {
+              "$ref": "#/definitions/userSupTicket"
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new ticket.",
+            "schema": {
+              "$ref": "#/definitions/userAddTicket"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "GRPC.User"
+        ],
+        "description": "Endpoint to get authors via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.User"
+        ],
+        "description": "Endpoint to add new User via grpc",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Add new user.",
+            "schema": {
+              "$ref": "#/definitions/CreateAuthor"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LoginUser": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": ""
+        },
+        "passwordHash": {
+          "type": "string",
+          "example": ""
+        }
+      }
+    },
+    "CreateUser": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": ""
+        },
+        "firstname": {
+          "type": "string",
+          "example": ""
+        },
+        "lastname": {
+          "type": "string",
+          "example": ""
+        },
+        "IDcardNumber": {
+          "type": "number",
+          "example": 2980865431210
+        },
+        "email": {
+          "type": "string",
+          "example": ""
+        },
+        "age": {
+          "type": "number",
+          "example": 0
+        }
+      },
+      "required": [
+        "IDcardNumber",
+        "age"
+      ]
+    },
+    "CreateAuthor": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": ""
+        },
+        "firstname": {
+          "type": "string",
+          "example": ""
+        },
+        "lastname": {
+          "type": "string",
+          "example": ""
+        },
+        "IDcardNumber": {
+          "type": "number",
+          "example": 2980865431210
+        },
+        "email": {
+          "type": "string",
+          "example": ""
+        },
+        "age": {
+          "type": "number",
+          "example": 0
+        },
+        "type": {
+          "type": "string",
+          "example": "author"
+        }
+      },
+      "required": [
+        "IDcardNumber",
+        "age"
+      ]
+    },
+    "AddArticle": {
+      "type": "object",
+      "properties": {
+        "cateogry": {
+          "type": "string",
+          "example": ""
+        },
+        "imgurl": {
+          "type": "string",
+          "example": ""
+        },
+        "content": {
+          "type": "string",
+          "example": ""
+        },
+        "title": {
+          "type": "string",
+          "example": ""
+        },
+        "userid": {
+          "type": "number",
+          "example": 4
+        }
+      },
+      "required": [
+        "userid"
+      ]
+    },
+    "userAddTicket": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "example": "inquiry|complaint"
+        },
+        "subject": {
+          "type": "string",
+          "example": "greet"
+        },
+        "description": {
+          "type": "string",
+          "example": "how are you?"
+        }
+      },
+      "required": [
+        "type",
+        "subject",
+        "description"
+      ]
+    },
+    "userSupTicket": {
+      "type": "object",
+      "properties": {
+        "userid": {
+          "type": "string",
+          "example": "4"
+        }
+      },
+      "required": [
+        "userid"
+      ]
+    },
+    "AddBook": {
+      "type": "object",
+      "properties": {
+        "userid": {
+          "type": "string",
+          "example": "4"
+        },
+        "book": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "example": ""
+            },
+            "description": {
+              "type": "string",
+              "example": ""
+            },
+            "source": {
+              "type": "string",
+              "example": ""
+            },
+            "thumbnail": {
+              "type": "string",
+              "example": ""
+            }
+          }
+        }
+      },
+      "required": [
+        "userid",
+        "book"
+      ]
+    }
+  }
+}
