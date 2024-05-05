@@ -7,7 +7,7 @@ RUN rm -rf package-lock.json
 #RUN yarn add common-errors @types/common-errors express-rate-limit
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
-RUN npm install 
+RUN npm install --force
 #RUN protoc --plugin=$(npm-root)/.bin/protoc-gen-ts_proto  --ts_proto_out=dist --ts_proto_opt=outputServices=grpc-js --ts_proto_opt=esModuleInterop=true -I=src/ src/**/*.proto
 ENV GRPCPORT 3030
 ENV GRP_CPORT 50051
