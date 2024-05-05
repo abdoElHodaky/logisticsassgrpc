@@ -11,6 +11,7 @@ import {services} from "../services/enum";
 export class PaymentController {
   
   private paymentService=services.Payment
+  private result:any
   constructor(){}
   
   @Get("/")
@@ -37,12 +38,14 @@ export class PaymentController {
    const url = require('url');
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
-    res.redirect(url.format({
+    this.result=rp
+    res.json({})
+   /* res.redirect(url.format({
        pathname:req.baseUrl+"/result",
        query: {
           "result":rp ,
         }
-     }));
+     }));*/
   }
 
   @Post("/return")
@@ -50,17 +53,20 @@ export class PaymentController {
     const url = require('url');
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
-    res.redirect(url.format({
+    this.result=rp
+    res.json({})
+    /*res.redirect(url.format({
        pathname:req.baseUrl+"/result",
        query: {
           "result":rp ,
         }
-     }));
+     }));*/
     
   }
-  @Get("/result?{result}")
-  async result(@Query("result") result:any,@Res() res:Response){
-    return res.jsonp(result)
+  @Get("/result")
+  async result(@Res() res:Response){
+    return res.jsonp(this.result)
   }
+  
   
 }
