@@ -19,3 +19,11 @@ payroute.get("/payments",function(req:Request, res:Response){
      */
    
   })
+
+payroute.get("/payments/result",function(req:Request, res:Response){
+   /* 	#swagger.tags = ['Payment']
+        #swagger.description = 'Endpoint to get result of  payment'
+     */
+   
+  })
+
