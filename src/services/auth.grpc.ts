@@ -1,5 +1,6 @@
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall, handleUnaryCall } from "@grpc/grpc-js";
 import  {_Auth} from "../protos/dist/";
+import { User } from "../entity/";
 import {AuthService} from "./";
 //import { Service} from "../service.decorator";
 export class AuthGrpcService {
@@ -17,7 +18,7 @@ export class AuthGrpcService {
       let res:_Auth.RegisterUserRes={user:user,error:{
        Message:"",type:"",name:""
      }}
-     callback({code:status.OK},res)
+     callback(null,res)
       }
 
   ,
@@ -26,8 +27,30 @@ export class AuthGrpcService {
     callback: sendUnaryData<_Auth.LoginUserRes>
   )=>{
     const {username,passwordHash}=call.request
+     try{
        let user=await AuthGrpcService.service.login({username:username,passwordHash:passwordHash})
+       if(user instanceof User)
+       {
+        let _user=_User.User.fromJSON(user)
+        callback(null,{
+          user:_user,
+          error:{
+            Message:"",type:"",name:""
+          }
+        })
+       }
+       else{
+         callback(null, {user:{},error:{
+            Message:"No Records matching request",type:"NotFoundError",name:""
+          }});
+       }
+     }catch(err){
+       callback({code:status.INTERNAL},{user:{},error:{
+        Message:"Some Internet Error",type:"InternalError",name:""
+     }  });
+     console.error(err);
      }
+   }
   }
   
     
