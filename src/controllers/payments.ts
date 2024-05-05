@@ -38,7 +38,7 @@ export class PaymentController {
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
     res.redirect(url.format({
-       pathname:"/result",
+       pathname:req.baseUrl+"/result",
        query: {
           "result":rp ,
         }
@@ -51,7 +51,7 @@ export class PaymentController {
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
     res.redirect(url.format({
-       pathname:"/result",
+       pathname:req.baseUrl+"/result",
        query: {
           "result":rp ,
         }
