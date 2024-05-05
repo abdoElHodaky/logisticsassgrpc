@@ -36,8 +36,8 @@ export class PaymentController {
   @Post("/callback")
   async callback(@Req() req:Request,@Res() res:Response){
    const url = require('url');
-    let res=await this.paymentService.payCallback(req.body)
-    let rp=await this.paymentService.verify(res.transR,res.paymentId)
+    let reslt=await this.paymentService.payCallback(req.body)
+    let rp=await this.paymentService.verify(reslg.transR,reslt.paymentId)
     this.result=rp
     res.json({})
    /* res.redirect(url.format({
@@ -51,8 +51,8 @@ export class PaymentController {
   @Post("/return")
   async return(@Req() req:Request,@Res() res:Response){
     const url = require('url');
-    let res=await this.paymentService.payCallback(req.body)
-    let rp=await this.paymentService.verify(res.transR,res.paymentId)
+    let reslt=await this.paymentService.payCallback(req.body)
+    let rp=await this.paymentService.verify(reslt.transR,reslt.paymentId)
     this.result=rp
     res.json({})
     /*res.redirect(url.format({
