@@ -2,7 +2,7 @@ import { UserService } from "../services/";
 import { Article ,User } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params ,Delete,Req } from '@decorators/express';
+import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response ,Request} from "express"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
@@ -33,18 +33,34 @@ export class PaymentController {
   }
 
   @Post("/callback")
-  async callback(@Req() req:Request){
+  async callback(@Req() req:Request,@Res() res:Response){
+   const url = require('url');
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
-   
-    
+    res.redirect(url.format({
+       pathname:"/result",
+       query: {
+          "result":rp ,
+        }
+     }));
   }
 
   @Post("/return")
-  async return(@Req() req:Request){
+  async return(@Req() req:Request,@Res() res:Response){
+    const url = require('url');
     let res=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(res.transR,res.paymentId)
+    res.redirect(url.format({
+       pathname:"/result",
+       query: {
+          "result":rp ,
+        }
+     }));
     
+  }
+  @Get("/result?{result}")
+  async result(@Query("result") result:any,@Res() res:Response){
+    return res.jsonp(result)
   }
   
 }
