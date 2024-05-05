@@ -1,5 +1,5 @@
 import { UserService } from "../services/";
-import { Article ,User } from "../entity/"
+import { Article ,Payment } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
@@ -15,13 +15,9 @@ export class PaymentController {
   constructor(){}
   
   @Get("/")
-  async all():Promise<User[]|void>{
-    //this.userS.datasource=AppDataSource
-    /* 	#swagger.tags = ['User']
-        #swagger.description = 'Endpoint to get users' */
-
-    //let resd:User[]=await AppDataSource.getRepository(User).find()
-    
+  async all():Promise<Payment[]|void>{
+    let payments=await this.paymentService.all()
+    return payments
   }
 
   @Post("/:paymentId/Pay")
