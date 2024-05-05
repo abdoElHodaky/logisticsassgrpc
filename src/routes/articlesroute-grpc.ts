@@ -7,7 +7,11 @@ export const articlesgrpc=Router()
 
 articlesgrpc.get("/articles",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Article']
-        #swagger.description = 'Endpoint to get articles via grpc' */
+        #swagger.description = 'Endpoint to get articles via grpc'
+        #swagger.security = [{
+            "JWTAuth": []
+       }]
+        */
 
 })
 
@@ -20,7 +24,11 @@ articlesgrpc.post("/articles",({body},res)=>{
             in: 'body',
             description: 'Add new article.',
             schema: { $ref: '#/definitions/AddArticle' }
-    } */
+    }
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
     
    
 })
