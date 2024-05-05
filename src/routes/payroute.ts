@@ -9,7 +9,7 @@ payroute.get("/payments",function(req:Request, res:Response){
     
   })
   
-  payroute.get("/payments/:paymentId/pay",function(req:Request, res:Response){
+  payroute.get("/payments/:paymentId/Pay",function(req:Request, res:Response){
    /* 	#swagger.tags = ['Payment']
         #swagger.description = 'Endpoint to iniliatize specific payment'
         #swagger.parameters["paymentId"]={
