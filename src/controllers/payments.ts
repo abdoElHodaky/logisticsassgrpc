@@ -37,7 +37,7 @@ export class PaymentController {
   async callback(@Req() req:Request,@Res() res:Response){
    const url = require('url');
     let reslt=await this.paymentService.payCallback(req.body)
-    let rp=await this.paymentService.verify(reslg.transR,reslt.paymentId)
+    let rp=await this.paymentService.verify(reslt.transR,reslt.paymentId)
     this.result=rp
     res.json({})
    /* res.redirect(url.format({
