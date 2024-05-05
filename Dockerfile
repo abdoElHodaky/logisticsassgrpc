@@ -10,7 +10,7 @@ RUN yarn add ts-proto @grpc/grpc-js class-transform class-transformer class-vali
 RUN yarn install -y
 ENV GRPCPORT 3030
 ENV GRP_CPORT 50051
-ENV HTTPPORT 3000
+ENV HTTPPORT 4000
 EXPOSE ${GRPCPORT} ${GRP_CPORT} ${HTTPPORT}
 CMD ["sh","./tsrun.sh"]
 
