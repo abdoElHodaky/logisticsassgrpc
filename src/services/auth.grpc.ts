@@ -40,12 +40,12 @@ export class AuthGrpcService {
         })
        }
        else{
-         callback(null, {user:{},error:{
+         callback(null, {user:_User.createBaseUser()(),error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }});
        }
      }catch(err){
-       callback({code:status.INTERNAL},{user:{},error:{
+       callback({code:status.INTERNAL},{user:_User.createBaseUser(),error:{
         Message:"Some Internet Error",type:"InternalError",name:""
      }  });
      console.error(err);
