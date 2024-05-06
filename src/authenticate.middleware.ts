@@ -13,7 +13,7 @@ export class AuthenticateMiddleware implements Middleware {
       let token=authorizeHeader.split(" ")[1]
       req.user=jwt.verify(token,"secret")
     }
-    res.end("")
+   // res.end("")
     next();
   }
 }
