@@ -27,6 +27,6 @@ export class GrpcArticleController {
  // @AuthenticateMiddleware
   @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
-     res.jsonp(req?.user)
+     res.jsonp(req.locals.user)
   }
 }
