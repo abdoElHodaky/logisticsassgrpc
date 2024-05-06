@@ -15,12 +15,15 @@ supticketsroute.get("/suptickets",(req,res)=>{
 })
 supticketsroute.post("/suptickets",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.suptickets']
-        #swagger.description = 'Endpoint to create tickets for specific user' 
-        #swagger.parameters['userid'] = {
-            in: 'body',
-            description: 'userid',
-            schema: { $ref: '#/components/schemas/userAddTicket' }
-    } 
+        #swagger.description = 'Endpoint to create tickets for specific user'
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: '#/components/schemas/userAddTicket' }
+                }
+            }
+        } 
     */
     
    /* let supticket:supTicket=<supTicket>{...req.body.ticket}
