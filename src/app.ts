@@ -21,7 +21,7 @@ app.use(
     secret: "secert",
     algorithms: ["HS256"],
     credentialsRequired: false,
-    getToken: function fromHeaderOrQuerystring(req) {
+    getToken: function fromHeaderOrQuerystring(req:any) {
       if (
         req.headers.authorization &&
         req.headers.authorization.split(" ")[0] === "Bearer"
