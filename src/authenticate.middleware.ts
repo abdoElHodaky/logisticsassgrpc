@@ -1,6 +1,6 @@
 import { Middleware } from '@decorators/express';
 import {Request,Response,NextFunction  } from "express";
-import { expressjwt, Request as JWTRequest } from "express-jwt";
+import { Request as JWTRequest } from "express-jwt";
 import {services} from "./services/enum";
 export class AuthenticateMiddleware implements Middleware {
   async use(request: JWTRequest, res: Response, next: NextFunction): Promise<void> {
