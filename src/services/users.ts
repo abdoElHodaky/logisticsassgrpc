@@ -33,11 +33,11 @@ export class UserService extends _Data {
         where:{
           id:_id
         },
-        relations:{
-          tickets:true,
-          verifications:true,
-          articles:true
-        }
+        relations:[
+          "tickets",
+          "verifications",
+          "articles"
+        ]
       })
       return user }
       catch (error:any){
