@@ -31,18 +31,18 @@ export class ArticleGrpcService  {
     callback: sendUnaryData<_Article.CreateRes>
   ){
        let {userId,article}=call.request
-       let article=await ArticleGrpcService.service.create({
+       let _article=await ArticleGrpcService.service.create({
          userId:userId,
          content:article.content,
          title:article.title,imgurl:article.imgurl
          ,category:article.category
        })
-      if(article instanceof Article){
+      if(_article instanceof Article){
       callback(null,{
-        article:article
+        article:_article
       })}
       else {
-        callback({code:status.UNIMPLEMENTED},{article:Article.Article.fromJSON(new Article())})
+        callback({code:status.UNIMPLEMENTED},{article:_Article.Article.fromJSON(new Article())})
       }
   }
   }
