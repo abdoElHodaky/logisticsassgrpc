@@ -19,7 +19,7 @@ supticketsroute.post("/suptickets",(req,res)=>{
         #swagger.parameters['userid'] = {
             in: 'body',
             description: 'userid',
-            schema: { $ref: '#/definitions/userAddTicket' }
+            schema: { $ref: '#/components/schemas/userAddTicket' }
     } 
     */
     
