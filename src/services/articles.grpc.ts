@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Article} from "../protos/dist/";
-//import {Service} from "../service.decorator"
+import {Article} from "../entity/"
 import { ArticleService }from "./";
 export class ArticleGrpcService  {
   //@Service("Article")
@@ -42,7 +42,7 @@ export class ArticleGrpcService  {
         article:article
       })}
       else {
-        callback({code:status.NOT_IMPLEMENTED},{article:_User.User.fromJSON(new Article())})
+        callback({code:status.UNIMPLEMENTED},{article:Article.Article.fromJSON(new Article())})
       }
   }
   }
