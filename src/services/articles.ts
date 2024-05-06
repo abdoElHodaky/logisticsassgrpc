@@ -22,7 +22,7 @@ export class ArticleService extends _Data {
  async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
      
     const {userId,...res}=createArticleDto
-    let _article=this.datasource.manager.create(Article,res)
+    let _article:Article=this.datasource.manager.create(Article,res)
     let author=await this.datasource.manager.findOneByOrFail(Author,{id:parseInt(userId)})
     _article.author=author
     author.articles.push(_article)
