@@ -8,12 +8,15 @@ export const authgrpc=Router()
 authgrpc.post("/auth/login",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Auth']
         #swagger.description = 'Endpoint to authenticate via grpc'
-        #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Add new user.',
-            schema: { $ref: '#/components/schemas/LoginUser' }
-    }
-        
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: '#/components/schemas/LoginUser' }
+                    }
+                }
+            }
+        } 
         */
 
 })
@@ -23,11 +26,15 @@ authgrpc.post("/auth/login",({body},res)=>{
 authgrpc.post("/auth/register",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Auth']
         #swagger.description = 'Endpoint to add new user via grpc' 
-        #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Add new user.',
-            schema: { $ref: '#/components/schemas/CreateUser' }
-    } */
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: '#/components/schemas/LoginUser' }
+                    }
+                }
+            }
+     */
     
    
 })
