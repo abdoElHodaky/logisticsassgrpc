@@ -29,7 +29,7 @@ export class GrpcAuthController {
         let user=resp.user
         if(user!=undefined){
         console.log(user)
-       let token =jwt.sign({data: user}, 'secret', { expiresIn: '1h' , algorithms: ["HS256"] });
+       let token =jwt.sign(user, 'secret', { expiresIn: '1h' , algorithms: ["HS256"] });
        res.json({accessToken:token})
      }
         else {
