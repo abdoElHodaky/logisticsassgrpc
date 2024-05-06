@@ -25,8 +25,8 @@ export class GrpcArticleController {
     })
   }
   
-  @AuthenticateMiddleware
-  @Post("")
+ // @AuthenticateMiddleware
+  @Post("",AuthenticateMiddleware)
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
     
   }
