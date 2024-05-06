@@ -1,8 +1,8 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Article } from "../protos/dist/";
-import { Res,  Controller , Get } from "@decorators/express";
-import { Response  } from "express";
-
+import { Res,  Controller , Get ,Post,Req} from "@decorators/express";
+import { Response  ,Request} from "express";
+import {AuthenticateMiddleware} from "../authenticate.middleware";
 const address = "localhost:50051";
 
 @Controller("/articles")
@@ -23,5 +23,11 @@ export class GrpcArticleController {
        res.json(resp)
      }
     })
+  }
+  
+  @AuthenticateMiddleware()
+  @Post()
+  async create(@Req() req:Request,@Res() res:Response):Promise<void>{
+    
   }
 }
