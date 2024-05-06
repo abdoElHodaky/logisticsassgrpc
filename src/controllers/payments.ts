@@ -21,7 +21,7 @@ export class PaymentController {
   }
 
   @Post("/:paymentId/Pay")
-  async pay(@Params("paymentId") paymentId:string, @Req() req: Request ):Promise<any> 
+  async pay(@Params("paymentId") paymentId:string, @Req() req: Request ,@Res() res:Response):Promise<any> 
   {
     
    const url =`${req.baseUrl}`
