@@ -1,5 +1,6 @@
 import { credentials } from "@grpc/grpc-js";
-import {_Auth } from "../protos/dist/";
+import {_Auth ,User} from "../protos/dist/";
+import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
@@ -22,7 +23,7 @@ export class GrpcAuthController {
       res.jsonp(err);
         console.error(err)
     } else {
-        let token =jwt.sign(resp.user,"secret", { expiresIn: 60 * 60 })
+        let token =jwt.sign(_User.User.toJSON(resp.user) as User,"secret", { expiresIn: 60 * 60 })
        res.json({accessToken:token})
      }
     })
