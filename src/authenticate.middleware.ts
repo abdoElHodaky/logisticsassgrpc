@@ -7,7 +7,7 @@ export class AuthenticateMiddleware implements Middleware {
     const req= request as ExpressJwtRequest
     const service=services.User
    // let user= await service.id(req?.auth.id)
-    console.log(req)
+    console.log(req.headers?.authorization)
     next();
   }
 }
