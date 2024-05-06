@@ -8,9 +8,7 @@ export const articlesgrpc=Router()
 articlesgrpc.get("/articles",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Article']
         #swagger.description = 'Endpoint to get articles via grpc'
-        #swagger.security = [{
-            "JWTAuth": []
-       }]
+        
         */
 
 })
