@@ -32,9 +32,7 @@ export class UserGrpcService  {
      
        user.createdAt=users[inx].created_at
       user.updatedAt=users[inx].updated_at
-       user.IDcardNumber=users[inx].IDcardNumber
-       user.username=users[inx].username
-       user.passwordHash=users[inx].passwordHash
+       
       if(articles.length!=0){ 
         articles.sort((a,b)=>b.id-a.id)
         articles.forEach(a=>a.userId=id)}
