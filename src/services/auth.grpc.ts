@@ -1,5 +1,5 @@
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall, handleUnaryCall } from "@grpc/grpc-js";
-import  {_Auth} from "../protos/dist/";
+import  {_Auth,_User} from "../protos/dist/";
 import { User } from "../entity/";
 import {AuthService} from "./";
 //import { Service} from "../service.decorator";
