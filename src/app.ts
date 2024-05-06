@@ -7,22 +7,11 @@ import cors from "cors";
 import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
-var { expressjwt: jwt } = require("express-jwt");
-var unless=require("express-unless")
-
-jwt.unless=unless
 const app=application();
 const port = process.env.PORT||3000
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
-/*app.use(
-  jwt({
-    secret: "secert",
-    algorithms: ["HS256"],
-    credentialsRequired: false,
-  }).unless({path:["/payments/callback","/payments/return","/auth/login","/auth/register"]}))
-*/
 app.use(apiv1)
 /*app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
