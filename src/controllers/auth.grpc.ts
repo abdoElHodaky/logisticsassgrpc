@@ -1,5 +1,5 @@
 import { credentials } from "@grpc/grpc-js";
-import {_Auth ,User} from "../protos/dist/";
+import {_Auth ,_User} from "../protos/dist/";
 import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
