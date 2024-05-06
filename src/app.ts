@@ -32,7 +32,7 @@ app.use(
       }
       return null;
     },
-  }).unless({path:["/payments/callback","/payments/return"]}))
+  }).unless({path:["/payments/callback","/payments/return","/auth/login","/auth/register"]}))
 
 app.use(apiv1)
 /*app.use(rateLimit({
