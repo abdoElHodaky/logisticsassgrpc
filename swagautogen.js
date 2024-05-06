@@ -97,7 +97,7 @@ const config = {
     }},
     securityDefinitions: {
     JWTAuth: {
-      type: 'apiKey',
+      type: 'bearer',
       in: 'header', // can be 'header', 'query' or 'cookie'
       name: 'Authorization', // name of the header, query parameter or cookie
       description: 'authorization token'
