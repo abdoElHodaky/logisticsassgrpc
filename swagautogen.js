@@ -48,6 +48,12 @@ const config = {
     host: '',
     schemes: [],
     components:{
+        securitySchemes:{
+            JWTAuth: {
+                type: 'http',
+                scheme: 'bearer'
+            }
+        },
         schemas:{
             LoginUser:{
                 username:"",
@@ -94,15 +100,7 @@ const config = {
                    thumbnail:""
                }
            }
-    }},
-    securityDefinitions: {
-    JWTAuth: {
-      type: 'bearer',
-      in: 'header', // can be 'header', 'query' or 'cookie'
-      name: 'Authorization', // name of the header, query parameter or cookie
-      description: 'authorization token'
-    }
-  }
+    }}
 };
 
 swaggerAutogen(outputFile, endpointsFiles, config);
