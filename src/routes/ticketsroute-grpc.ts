@@ -10,9 +10,12 @@ ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
         #swagger.description = 'Endpoint to get articles via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
-            description: 'Add new ticket.',
+            description: 'id of specific user.',
             schema: { $ref: '#/components/schemas/userSupTicket' }
     }
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
 
     */
 })
@@ -31,7 +34,12 @@ ticketsgrpc.post("/users/:userId/tickets",({body},res)=>{
             in: 'body',
             description: 'Add new ticket.',
             schema: { $ref: '#/components/schemas/userAddTicket' }
-    } */
+    } 
+    
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
     
    
 })
