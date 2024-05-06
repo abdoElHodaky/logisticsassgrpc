@@ -36,7 +36,7 @@ export class GrpcArticleController {
      if(user instanceof User){
        let article:_Article.CreateReq={
          userId:user.id,
-         article:_Article.fromJSON(req.body)
+         article:_Article.Article.fromJSON(req.body)
        }
        /*this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
