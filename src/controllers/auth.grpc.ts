@@ -23,7 +23,8 @@ export class GrpcAuthController {
       res.jsonp(err);
         console.error(err)
     } else {
-        let user={..._User.User.toJSON(resp.user)} as User
+        let _user=new User()
+        let user={..._User.User.toJSON(resp.user)}
         let token =jwt.sign(user,"secret", { expiresIn: 60 * 60 })
        res.json({accessToken:token})
      }
