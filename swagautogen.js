@@ -1,4 +1,4 @@
-const swaggerAutogen = require('swagger-autogen')();
+const swaggerAutogen = require('swagger-autogen')({openapi:"3.0.0"});
 
 const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/routes.js','./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
@@ -47,7 +47,8 @@ const config = {
     ],
     host: '',
     schemes: [],
-    definitions:{
+    components:{
+        schemas:{
             LoginUser:{
                 username:"",
                 passwordHash:""
@@ -93,7 +94,7 @@ const config = {
                    thumbnail:""
                }
            }
-    },
+    }},
     securityDefinitions: {
     JWTAuth: {
       type: 'apiKey',
