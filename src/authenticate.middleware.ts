@@ -9,7 +9,7 @@ export class AuthenticateMiddleware implements Middleware {
     const service=services.User
    // let user= await service.id(req?.auth.id)
     let token=req.headers?.authorization.split(" ")[1]
-    console.log(jwt.verify(token,"secret"))
+    if(token!==undefined) console.log(jwt.verify(token,"secret"))
     res.end("")
     next();
   }
