@@ -11,7 +11,7 @@ authgrpc.post("/auth/login",(req,res)=>{
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new user.',
-            schema: { $ref: '#/definitions/LoginUser' }
+            schema: { $ref: '#/components/schemas/LoginUser' }
     }
         
         */
@@ -26,7 +26,7 @@ authgrpc.post("/auth/register",({body},res)=>{
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new user.',
-            schema: { $ref: '#/definitions/CreateUser' }
+            schema: { $ref: '#/components/schemas/CreateUser' }
     } */
     
    
