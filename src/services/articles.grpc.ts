@@ -44,7 +44,7 @@ export class ArticleGrpcService  {
       })}
       else {
         
-        callback({code:status.UNIMPLEMENTED},{article:_Article.CreateArticleBase()})
+        callback({code:status.UNIMPLEMENTED},{article:_Article.createBaseArticle()})
       }
   }
   }
