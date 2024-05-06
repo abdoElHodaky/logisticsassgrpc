@@ -4,6 +4,7 @@ import { Res,  Controller , Get ,Post,Req} from "@decorators/express";
 import { Response  ,Request} from "express";
 import {AuthenticateMiddleware} from "../authenticate.middleware";
 const address = "localhost:50051";
+var { expressjwt: jwt } = require("express-jwt");
 
 @Controller("/articles")
 export class GrpcArticleController {
@@ -26,7 +27,7 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("",[AuthenticateMiddleware])
+  @Post("",[jwt( { secret: "secret", algorithms: ["HS256"] } ),AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
     
   }
