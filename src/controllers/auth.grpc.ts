@@ -16,7 +16,8 @@ export class GrpcAuthController {
   @Post("/login")
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
     const req:_Auth.LoginUserReq={
-      ...loginUserDto
+      username:loginUserDto.username,
+      passwordHash:loginUserDto.passwordHash
     }
     this.client.login(req,(err:any,resp:_Auth.LoginUserRes)=>{
       if (err) {
