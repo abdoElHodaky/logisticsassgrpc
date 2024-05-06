@@ -19,7 +19,7 @@ usersgrpc.post("/users",({body},res)=>{
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new user.',
-            schema: { $ref: '#/definitions/CreateAuthor' }
+            schema: { $ref: '#/components/schemas/CreateAuthor' }
     } */
     
    
