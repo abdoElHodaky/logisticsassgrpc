@@ -20,15 +20,14 @@ message Email{
   string lastname=5;
   int32 age=6;
   optional int32 IDcardNumber=7;
-  optional string username=8;
-  Email email=9;
-  optional string passwordHash=10;
-  repeated Article articles =11;
-  repeated Ticket tickets=12;
-  repeated Payment payments=13;
-  Address address=14;
- optional google.protobuf.Timestamp created_at = 15;
- optional google.protobuf.Timestamp updated_at = 16;
+  Email email=8;
+  optional string passwordHash=9;
+  repeated Article articles =10;
+  repeated Ticket tickets=11;
+  repeated Payment payments=12;
+  Address address=13;
+ optional google.protobuf.Timestamp created_at = 14;
+ optional google.protobuf.Timestamp updated_at = 15;
  
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
