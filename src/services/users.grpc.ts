@@ -23,7 +23,7 @@ export class UserGrpcService  {
      }*/
      try{
      let users=await UserGrpcService.service.all()
-       //console.log(authors.map(JSON.stringify))
+       console.log(users)
     if(users instanceof Array){ 
      
      let _users=users.map(_User.User.fromJSON)
