@@ -22,7 +22,7 @@ export class GrpcAuthController {
       res.jsonp(err);
         console.error(err)
     } else {
-        let token =jwt.sign(resp.user,"secret", { expiresIn: 60 * 60 }) )
+        let token =jwt.sign(resp.user,"secret", { expiresIn: 60 * 60 })
        res.json({accessToken:token})
      }
     })
