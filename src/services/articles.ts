@@ -28,11 +28,11 @@ export class ArticleService extends _Data {
    _article.imgurl=article.imgurl
    _article.content=article.content
    _article.cateogry=article.cateogry
-    let author=await this.datasource.manager.findOneByOrFail(Author,{id:parseInt(userId)})
+   /* let author=await this.datasource.manager.findOneByOrFail(Author,{id:userId})
     _article.author=author
     author.articles.push(_article)
-    _article=await this.datasource.manager.save(Article,_article)
-    return _article
+    _article=await this.datasource.manager.save(Article,_article)*/
+    return 
    
  }
 }
