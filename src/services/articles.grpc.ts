@@ -37,10 +37,14 @@ export class ArticleGrpcService  {
        })
       if(_article instanceof Article){
       callback(null,{
-        article:_article
+        article:_Article.Article.fromJSON({
+          userId:userId,
+          ..._article
+        })
       })}
       else {
-        callback({code:status.UNIMPLEMENTED},{article:_Article.Article.fromJSON(new Article())})
+        
+        callback({code:status.UNIMPLEMENTED},{article:_Article.CreateArticleBase()})
       }
   }
   }
