@@ -11,7 +11,7 @@ ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
         #swagger.parameters['userId'] = {
             in: 'path',
             description: 'Add new ticket.',
-            schema: { $ref: '#/definitions/userSupTicket' }
+            schema: { $ref: '#/components/schemas/userSupTicket' }
     }
 
     */
@@ -25,12 +25,12 @@ ticketsgrpc.post("/users/:userId/tickets",({body},res)=>{
         #swagger.parameters['userId'] = {
             in: 'path',
             description: 'Add new ticket.',
-            schema: { $ref: '#/definitions/userSupTicket' }
+            schema: { $ref: '#/components/schemas/userSupTicket' }
     }
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new ticket.',
-            schema: { $ref: '#/definitions/userAddTicket' }
+            schema: { $ref: '#/components/schemas/userAddTicket' }
     } */
     
    
