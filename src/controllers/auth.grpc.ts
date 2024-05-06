@@ -6,7 +6,7 @@ import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
 const address = "localhost:50051";
 var jwt = require('jsonwebtoken');
-@Controller("/auth")
+@Controller("/auth/")
 export class GrpcAuthController {
   private client =new _Auth.AuthServiceClient(
     address,
@@ -25,7 +25,7 @@ export class GrpcAuthController {
     } else {
        // let _user=new User()
         //let usee=_User.User.toJSON(resp.user)
-        let user=resp.user
+        let {user}=resp
         console.log(user)
        // let token =jwt.sign({userId:user.id},"secret", { expiresIn: 60 * 60 })
        res.json({accessToken:""})
