@@ -1,7 +1,7 @@
 
 import "reflect-metadata";
 import application from "express"
-import { json,urlencoded } from "express";
+import { json,urlencoded,Request } from "express";
 //import { rateLimit } from 'express-rate-limit'
 import cors from "cors";
 import { AppDataSource } from "./_datasource";
@@ -21,7 +21,7 @@ app.use(
     secret: "secert",
     algorithms: ["HS256"],
     credentialsRequired: false,
-    getToken: function fromHeaderOrQuerystring(req:any) {
+    getToken: function fromHeaderOrQuerystring(req:Request) {
       if (
         req.headers.authorization &&
         req.headers.authorization.split(" ")[0] === "Bearer"
