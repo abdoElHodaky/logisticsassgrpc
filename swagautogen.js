@@ -1,7 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')({openapi:"3.0.0"});
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./dist/routes.js','./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
+const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
         title: 'Elearning endpoints docs',
