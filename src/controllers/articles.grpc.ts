@@ -1,5 +1,6 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Article } from "../protos/dist/";
+import {CreateArticleDto} from "../dto/create-article.dto";
 import { User} from "../entity/";
 import { Res,  Controller , Get ,Post,Req} from "@decorators/express";
 import { Response } from "express";
@@ -30,20 +31,22 @@ export class GrpcArticleController {
   @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
      let user=req.auth
+     let articlecdto= req.body as CreateArticleDto
+    console.log(articlecdto)
      if(user instanceof User){
        let article:_Article.CreateReq={
          userId:user.id,
          article:_Article.fromJSON(req.body)
        }
-       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+       /*this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
          res.jsonp(err);
         console.error(err)
         } else {
           res.json(resp)
          }
-    })
-       })
+    })*/
+       }
+       else {res.json({message:"error"})}
      }
   }
-}
