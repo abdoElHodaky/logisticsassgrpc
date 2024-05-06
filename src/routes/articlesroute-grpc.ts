@@ -15,7 +15,7 @@ articlesgrpc.get("/articles",(req,res)=>{
 
     
 
-articlesgrpc.post("/articles",({body},res)=>{
+articlesgrpc.post("/articles/create",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Article']
         #swagger.description = 'Endpoint to add new article via grpc' 
         #swagger.parameters['body'] = {
