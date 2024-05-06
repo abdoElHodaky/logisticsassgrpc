@@ -21,7 +21,7 @@ articlesgrpc.post("/articles",({body},res)=>{
         #swagger.parameters['body'] = {
             in: 'body',
             description: 'Add new article.',
-            schema: { $ref: '#/definitions/AddArticle' }
+            schema: { $ref: '#/components/schemas/AddArticle' }
     }
        #swagger.security = [{
             "JWTAuth": []
