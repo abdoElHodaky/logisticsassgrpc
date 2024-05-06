@@ -27,7 +27,7 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("",[/*jwt( { secret: "secret", algorithms: ["HS256"] } ),*/AuthenticateMiddleware])
+  @Post("/create",[/*jwt( { secret: "secret", algorithms: ["HS256"] } ),*/AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
     
   }
