@@ -40,7 +40,7 @@ export class AuthGrpcService {
         })
        }
        else{
-         callback(null, {user:_User.createBaseUser()(),error:{
+         callback(null, {user:_User.createBaseUser(),error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }});
        }
