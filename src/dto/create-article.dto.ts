@@ -1,5 +1,11 @@
-import { Article } from "../entity/Article"
 export class CreateArticleDto{
-  readonly article:Article
-  readonly userid:string
+
+
+readonly  cateogry:string
+readonly  imgurl:string
+readonly  content:string
+readonly title:string
+readonly  userId:number
+
+
 }
