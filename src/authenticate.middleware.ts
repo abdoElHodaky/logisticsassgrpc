@@ -11,7 +11,7 @@ export class AuthenticateMiddleware implements Middleware {
     let authorizeHeader=req.headers?.authorization
     if(authorizeHeader!==undefined){ 
       let token=authorizeHeader.split(" ")[1]
-      req.user=jwt.verify(token,"secret")
+      req.user=await service.id(jwt.verify(token,"secret").id)
     }
    // res.end("")
     next();
