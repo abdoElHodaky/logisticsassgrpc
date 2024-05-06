@@ -6,14 +6,14 @@ import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
 const address = "localhost:50051";
 var jwt = require('jsonwebtoken');
-@Controller("/auth/")
+@Controller("/auth")
 export class GrpcAuthController {
   private client =new _Auth.AuthServiceClient(
     address,
     credentials.createInsecure()
   )
   
-  @Post("login")
+  @Post("/login")
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
     const req:_Auth.LoginUserReq={
       ...loginUserDto
