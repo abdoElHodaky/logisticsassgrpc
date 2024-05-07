@@ -20,7 +20,7 @@ export class PaymentService extends _Data {
   {
     let payments= await this.datasource.manager.find(Payment,{
       where:{
-        user_id:parseInt(userId)
+        user:parseInt(userId)
       }
        })
       }catch(err:any){
