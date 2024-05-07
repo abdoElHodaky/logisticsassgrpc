@@ -80,8 +80,7 @@ const config = {
                 cateogry:"",
                 imgurl:"",
                 content:"",
-                title:"",
-                $userid:4
+                title:""
             },
             userAddTicket:{
                 $userId:"4",
