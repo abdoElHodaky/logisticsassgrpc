@@ -1,6 +1,6 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Ticket } from "../protos/dist/";
-import { Res,  Controller , Get , Body } from "@decorators/express";
+import { Res,  Controller , Get , Body ,Post } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt"
 import { AuthenticateMiddleware} from "../middlewares/";
@@ -36,11 +36,11 @@ export class GrpcSupTicketController {
     const {auth}=req
     const supticketreq:_Ticket.CreateTicketReq={  
       userId:auth.id.toString(),
-      ticket:{
+      ticket:_Ticket.Ticket.fromJSON({
         type:supticket.type,
         subject:supticket.subject,
         description:supticket.description
-      }
+      })
     }
     res.jsonp(supticketreq)
   }
