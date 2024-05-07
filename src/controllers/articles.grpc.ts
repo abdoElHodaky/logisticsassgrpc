@@ -2,7 +2,7 @@ import { credentials } from "@grpc/grpc-js";
 import {_Article } from "../protos/dist/";
 import {CreateArticleDto} from "../dto/create-article.dto";
 import { User} from "../entity/";
-import { Res,  Controller , Get ,Post,Req} from "@decorators/express";
+import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware} from "../authenticate.middleware";
