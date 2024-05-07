@@ -30,14 +30,14 @@ export class ArticleGrpcService  {
     call: ServerUnaryCall<_Article.CreateReq,_Article.CreateRes>,
     callback: sendUnaryData<_Article.CreateRes>
   ){
-       let {userId,article}=call.request
+       let {userId,article:_article}=call.request
        let _article=await ArticleGrpcService.service.create({
          userId:userId,
          article:{
-           title:article.title,
-           content:article.content,
-           imgurl:article.imgurl,
-           category:article.category
+           title:_article.title,
+           content:_article.content,
+           imgurl:_article.imgurl,
+           category:_article.category
          }
        })
       if(_article instanceof Article){
