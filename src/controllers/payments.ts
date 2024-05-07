@@ -1,12 +1,14 @@
 import { UserService } from "../services/";
 import { Article ,Payment } from "../entity/"
 import { AppDataSource } from "../_datasource";
-//import { CreateArticleDto } from "../dto/create-article.dto"
+import { AuthenticateMiddleware } from "../middlewares/"
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
-import { Response ,Request} from "express"
+import { Response} from "express"
+import { Request } from "express-jwt";
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 import {services} from "../services/enum";
+
 @Controller('/payments')
 export class PaymentController {
   
@@ -14,13 +16,13 @@ export class PaymentController {
   private reslt:any
   constructor(){}
   
-  @Get("/")
+  @Get("/",[AuthenticateMiddleware])
   async all():Promise<Payment[]|void>{
     let payments=await this.paymentService.all()
     return payments
   }
 
-  @Post("/:paymentId/Pay")
+  @Post("/:paymentId/Pay",[AuthenticateMiddleware])
   async pay(@Params("paymentId") paymentId:string, @Req() req: Request ,@Res() res:Response):Promise<any> 
   {
     
@@ -59,7 +61,7 @@ export class PaymentController {
      }));*/
     
   }
-  @Get("/result")
+  @Get("/result",[AuthenticateMiddleware])
   async result(@Res() res:Response){
     return res.jsonp(this.result)
   }
