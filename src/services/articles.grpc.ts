@@ -33,7 +33,7 @@ export class ArticleGrpcService  {
   ){
        let {userId,article}=call.request
        const {title,content,imgurl}=_Article.Article.fromJSON((article!=undefined)?article:_Article.createBaseArticle())
-      console.log({...article})
+      //console.log({...article})
        let _article=await ArticleGrpcService.service.create({
          userId:userId,
          article:{
@@ -44,9 +44,10 @@ export class ArticleGrpcService  {
          }
        })
       if(_article instanceof Article){
-        console.log(_article)
+        _article=_Article.fromJSON(_article)
+        _article.userId=userId
       callback(null,{
-        article:_Article.createBaseArticle()
+        article:_article
       })}
       else {
         
