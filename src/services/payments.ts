@@ -37,7 +37,7 @@ export class PaymentService extends _Data {
     _article.by=author
     author.payments.push(_article)
     _article=await this.datasource.manager.save(Payment,_article)
-    return _article*/ return
+    return _article*/ 
    
  }
 
