@@ -52,7 +52,7 @@ export class ArticleGrpcService  {
       })}
       else {
         
-        callback({code:status.UNIMPLEMENTED},{article:_Article.createBaseArticle()})
+        callback({code:status.UNIMPLEMENTED},null)
       }
   }
   }
