@@ -51,7 +51,7 @@ export class ArticleGrpcService  {
         article:article
       })}
       else {
-        console.log(_article)
+        console.log(_article,typeof(_article))
         callback(null,{article:_Article.createBaseArticle() })
       }
   }
