@@ -26,14 +26,16 @@ export class supTicketService extends _Data {
     let _ticket=<Ticket>{...ticket}
     let supticket=this.datasource.manager.create(Ticket,ticket)
     let user:User;
+    console.log(_ticket,supticket)
   //  let ticket:supTicket;
    /* supticket.type=ticket.type
     supticket.subject=ticket.subject
     supticket.description=ticket.description */
-    user=await this.datasource.manager.findOneByOrFail(User,{id:id})
+    /*user=await this.datasource.manager.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
     let u=await this.datasource.manager.save(User,user)
-    return u.tickets.at(-1)
+    return u.tickets.at(-1)*/
+    return _ticket
     
   }
 }
