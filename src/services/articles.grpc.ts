@@ -33,12 +33,13 @@ export class ArticleGrpcService  {
   ){
        let {userId,article}=call.request
        const {title,content,imgurl}=article
+      console.log(article)
        let _article=await ArticleGrpcService.service.create({
          userId:userId,
          article:{
-           title:title,
-           content:content,
-           imgurl:imgurl,
+           title:"title",
+           content:"content",
+           imgurl:"imgurl",
           // category:_article.category
          } as CreateArticleDto
        })
