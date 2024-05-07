@@ -17,9 +17,10 @@ export class PaymentController {
   constructor(){}
   
   @Get("/",[AuthenticateMiddleware])
-  async all():Promise<Payment[]|void>{
-    let payments=await this.paymentService.all()
-    return payments
+  async all(@Req() req:Request, @Res() res:Response):Promise<Payment[]|void>{
+    let payments=await this.paymentService.all(req.auth?.id.toString())
+    if (payments instanceof Array) return payments
+    else res.jsonp(message:payments?.message)
   }
 
   @Post("/:paymentId/Pay",[AuthenticateMiddleware])
