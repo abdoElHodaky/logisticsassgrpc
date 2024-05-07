@@ -32,7 +32,7 @@ export class ArticleService extends _Data {
     _article.author=author
     author.articles.push(_article)
     _article=await this.datasource.manager.save(Article,_article)*/
-    return 
+    return _article
    
  }
 }
