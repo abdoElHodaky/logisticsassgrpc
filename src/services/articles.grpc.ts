@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Article} from "../protos/dist/";
 import {Article} from "../entity/"
+import {CreateArticleDto} from "../dto/create-article.dto";
 import { ArticleService }from "./";
 export class ArticleGrpcService  {
   //@Service("Article")
@@ -38,7 +39,7 @@ export class ArticleGrpcService  {
            content:article.content,
            imgurl:article.imgurl,
           // category:_article.category
-         }
+         } as CreateArticleDto
        })
       if(_article instanceof Article){
       callback(null,{
