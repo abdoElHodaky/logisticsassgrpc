@@ -40,15 +40,15 @@ export class GrpcArticleController {
          userId:user.id,
          article:_article
        }
-       //res.jsonp(article)
-       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+       res.jsonp(article)
+      /* this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
          res.jsonp(err);
         console.error(err)
         } else {
           res.json(resp)
          }
-    })
+    })*/
        }
        else {res.json({message:"error"})}
      }
