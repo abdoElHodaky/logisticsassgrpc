@@ -22,6 +22,7 @@ export class PaymentService extends _Data {
       where: { user: { id: parseInt(userId) } })
   }
     catch(err:any){
+       console.log(err)
        return new NotFoundError("Payments")
       }
    }
