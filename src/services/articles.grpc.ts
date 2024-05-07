@@ -33,7 +33,12 @@ export class ArticleGrpcService  {
        let {userId,article}=call.request
        let _article=await ArticleGrpcService.service.create({
          userId:userId,
-         ...article
+         article:{
+           title:article.title,
+           content:article.content,
+           imgurl:article.imgurl,
+           category:article.category
+         }
        })
       if(_article instanceof Article){
       callback(null,{
