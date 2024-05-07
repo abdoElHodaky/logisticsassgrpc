@@ -51,7 +51,7 @@ export class ArticleGrpcService  {
         article:article
       })}
       else {
-        
+        console.log(_article)
         callback({code:status.UNIMPLEMENTED},null)
       }
   }
