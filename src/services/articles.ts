@@ -24,11 +24,10 @@ export class ArticleService extends _Data {
     const {userId,article}=articlecdto
     let _article=new Article()
      console.log(<Article>{...article})
-    _article.title=article.title
+    /*_article.title=article.title
    _article.imgurl=article.imgurl
-   _article.content=article.content
-   console.log(_article)
-  // _article.cateogry=article.cateogry
+   _article.content=article.content*/
+   console.log(article)
    /* let author=await this.datasource.manager.findOneByOrFail(Author,{id:userId})
     _article.author=author
     author.articles.push(_article)
