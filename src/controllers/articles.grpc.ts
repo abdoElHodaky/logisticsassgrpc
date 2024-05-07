@@ -5,7 +5,7 @@ import { User} from "../entity/";
 import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
-import {AuthenticateMiddleware} from "../authenticate.middleware";
+import {AuthenticateMiddleware} from "../middlewares/authenticate";
 const address = "localhost:50051";
 @Controller("/articles")
 export class GrpcArticleController {
