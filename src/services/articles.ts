@@ -23,7 +23,7 @@ export class ArticleService extends _Data {
      
     const {userId,...article}=createArticleDto
     let _article=new Article()
-   console.log(<Article>{...article})
+   console.log(<Article>{...article}, article)
     _article.title=article.title
    _article.imgurl=article.imgurl
    _article.content=article.content
