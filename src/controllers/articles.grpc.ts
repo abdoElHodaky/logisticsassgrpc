@@ -32,7 +32,7 @@ export class GrpcArticleController {
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
-    console.log(articlectdo)
+    console.log(articlecdto)
      if(user instanceof User){
        let article:_Article.CreateReq={
          userId:user.id,
