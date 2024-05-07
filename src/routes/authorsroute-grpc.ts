@@ -17,16 +17,18 @@ authorsgrpc.get("/authors",(req,res)=>{
 authorsgrpc.post("/authors",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Author']
         #swagger.description = 'Endpoint to add new author via grpc' 
-        #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Add new author.',
-            schema: { $ref: '#/components/schemas/CreateAuthor' }
-    } */
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                   schema: { $ref: '#/components/schemas/CreateAuthor' }   }
+                }
+            }
+        } 
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
     
    
 })
-
-/*articlesroute.post("/articles/create",(req,res)=>{
-    
-})
-*/
