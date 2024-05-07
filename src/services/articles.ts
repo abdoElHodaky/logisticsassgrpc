@@ -27,7 +27,7 @@ export class ArticleService extends _Data {
     /*_article.title=article.title
    _article.imgurl=article.imgurl
    _article.content=article.content*/
-   c//onsole.log(article)
+   //onsole.log(article)
    /* let author=await this.datasource.manager.findOneByOrFail(Author,{id:userId})
     _article.author=author
     author.articles.push(_article)
