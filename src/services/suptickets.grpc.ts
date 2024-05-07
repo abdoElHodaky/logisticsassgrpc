@@ -2,7 +2,7 @@ import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Ticket} from "../protos/dist/";
 import { supTicketService }from "./";
-//import { Service } from "../service.decorator";
+import { supTicket as Ticket } from "../entity/";
 //console.log(services)
 export class supTicketGrpcService  {
   
@@ -39,6 +39,16 @@ export class supTicketGrpcService  {
        let {userId,ticket:_ticket}=call.request
        _ticket=_Ticket.Ticket.toJSON((_ticket!=undefined)?_ticket:_Ticket.createBaseTicket())
        let ticket=await supTicketGrpcService.service.create(userId,_ticket)
+       if(ticket instanceof Ticket){
+         callback(null,{
+           ticket:_Ticket.Ticket.fromJSON(ticket)
+         })
+       }
+      else{
+        callback(null,{
+           ticket:_Ticket.createBaseTicket()
+         })
+      }
      }
   }
 
