@@ -23,7 +23,7 @@ export class ArticleService extends _Data {
      
     const {userId,article}=articlecdto
     let _article=this.datasource.manager.create(Article,{...article})
-     console.log("DataS",_article)
+     console.log("DataS ",_article)
     /*_article.title=article.title
    _article.imgurl=article.imgurl
    _article.content=article.content*/
