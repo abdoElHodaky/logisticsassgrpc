@@ -34,19 +34,21 @@ export class GrpcArticleController {
      let articlecdto=createarticledto
     console.log(articlecdto)
      if(user instanceof User){
+      const _article= _Article.Article.fromJSON(articlecdto)
+      _article.userId=user.id
        let article:_Article.CreateReq={
          userId:user.id,
-         article:_Article.Article.fromJSON(articlecdto)
+         article:_article
        }
-       res.jsonp(article)
-       /*this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+       //res.jsonp(article)
+       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
          res.jsonp(err);
         console.error(err)
         } else {
           res.json(resp)
          }
-    })*/
+    })
        }
        else {res.json({message:"error"})}
      }
