@@ -12,8 +12,10 @@ export class AuthenticateMiddleware implements Middleware {
     if(authorizeHeader!==undefined){ 
       let token=authorizeHeader.split(" ")[1]
       let decoded=jwt.verify(token,"secret")
-      req.auth= await service.id(decoded.id)
-      if(Date.now() < decoded.exp * 1000) {console.log(true)}
+      if(Date.now() < decoded.exp * 1000) {
+        console.log(true)
+        req.auth= await service.id(decoded.id)
+      }
       else{res.status(400).json({message:"Token expired, you should login"})}
     }
      else{res.status(401).json({message:"you should login"})}
