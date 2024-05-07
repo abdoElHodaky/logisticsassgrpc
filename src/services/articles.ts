@@ -21,7 +21,7 @@ export class ArticleService extends _Data {
 
  async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
      
-    const {userId,...article}=createArticleDto
+    const article=createArticleDto
     let _article=new Article()
    console.log(<Article>{...article}, article)
     _article.title=article.title
