@@ -24,7 +24,7 @@ export class supTicketService extends _Data {
     
     let id=Number(userId)
     let _ticket=<Ticket>{...ticket}
-    let supticket=this.datasource.manager.create(Ticket,_ticket)
+    let supticket=this.datasource.manager.create(Ticket,ticket)
     let user:User;
   //  let ticket:supTicket;
    /* supticket.type=ticket.type
