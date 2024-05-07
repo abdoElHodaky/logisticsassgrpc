@@ -37,7 +37,7 @@ export class ArticleGrpcService  {
            title:_article.title,
            content:_article.content,
            imgurl:_article.imgurl,
-           category:_article.category
+          // category:_article.category
          }
        })
       if(_article instanceof Article){
