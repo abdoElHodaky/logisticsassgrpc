@@ -52,7 +52,7 @@ export class ArticleGrpcService  {
       })}
       else {
         console.log(_article)
-        callback({code:status.UNIMPLEMENTED},null)
+        callback({code:status.UNIMPLEMENTED})
       }
   }
   }
