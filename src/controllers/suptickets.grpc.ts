@@ -1,8 +1,9 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Ticket } from "../protos/dist/";
-import { Res,  Controller , Get } from "@decorators/express";
+import { Res,  Controller , Get , Body } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt"
+import { AuthenticateMiddleware} from "../middlewares/";
 
 const address = "localhost:3030";
 
@@ -15,7 +16,7 @@ export class GrpcSupTicketController {
   
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
-    console.log("89")
+   // console.log("89")
     const req:_Ticket.GetAllTicketReq={  
       userId:"0"
     }
@@ -28,5 +29,19 @@ export class GrpcSupTicketController {
        res.json(resp)
      }
     })
+  }
+  
+  @Post("",[AuthenticateMiddleware])
+  async create(@Req() req:Request, @Res() res:Response, @Body() supticket:{type:string,subject:string,description:string}):Promise<void>{
+    const {auth}=req
+    const supticketreq:_Ticket.CreateTicketReq={  
+      userId:auth.id.toString(),
+      ticket:{
+        type:supticket.type,
+        subject:supticket.subject,
+        description:supticket.description
+      }
+    }
+    res.jsonp(supticketreq)
   }
 }
