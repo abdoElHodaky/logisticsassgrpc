@@ -44,10 +44,11 @@ export class ArticleGrpcService  {
          }
        })
       if(_article instanceof Article){
-        _article=_Article.Article.fromJSON(_article)
-        _article.userId=userId
+        const article=_Article.Article.fromJSON(_article)
+        article.userId=userId
+        console.log(article)
       callback(null,{
-        article:_article
+        article:article
       })}
       else {
         
