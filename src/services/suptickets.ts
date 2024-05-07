@@ -1,6 +1,6 @@
 import { Injectable , Inject } from "@decorators/di";
 import { _Data } from "./datasource";
-import { supTicket as Ticket,User } from "../entity/"
+import { supTicket ,User } from "../entity/"
 //import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
@@ -12,7 +12,7 @@ export class supTicketService extends _Data {
   async all():Promise<supTicket[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(Ticket,{
+    return await this.datasource.manager.find(supTicket,{
       relations:{
         user:true
       }
@@ -23,10 +23,10 @@ export class supTicketService extends _Data {
     
     
     let id=Number(userId)
-    let _ticket=<Ticket>{...ticket}
-    let supticket=this.datasource.manager.create(Ticket,ticket)
+    let _ticket=<supTicket>{...ticket}
+   // let supticket=this.datasource.manager.create(supTicket,ticket)
     let user:User;
-    console.log(_ticket,supticket)
+    console.log(_ticket)
   //  let ticket:supTicket;
    /* supticket.type=ticket.type
     supticket.subject=ticket.subject
