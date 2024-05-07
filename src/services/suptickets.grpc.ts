@@ -38,7 +38,7 @@ export class supTicketGrpcService  {
   ){
        let {userId,ticket}=call.request
        ticket=_Ticket.Ticket.toJSON((ticket!=undefined)?ticket:_Ticket.createBaseTicket())
-       let _ticket=await supTicketGrpcService.service.create(userId,_ticket)
+       let _ticket=await supTicketGrpcService.service.create(userId,ticket)
        if(_ticket instanceof Ticket){
          ticket=_Ticket.Ticket.fromJSON(_ticket)
          ticket.userId=parseInt(userId)
