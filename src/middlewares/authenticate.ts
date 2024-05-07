@@ -16,6 +16,8 @@ export class AuthenticateMiddleware implements Middleware {
       if(Date.now() < decoded.exp * 1000) {console.log(true)}
       else{res.status(401).json({message:"Token expired, you should login"})}
     }
+     else{res.status(401).json({message:"you should login"})}
+ 
    // res.end("")
     next();
   }
