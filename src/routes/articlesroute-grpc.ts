@@ -18,11 +18,14 @@ articlesgrpc.get("/articles",(req,res)=>{
 articlesgrpc.post("/articles",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Article']
         #swagger.description = 'Endpoint to add new article via grpc' 
-        #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Add new article.',
-            schema: { $ref: '#/components/schemas/AddArticle' }
-    }
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: '#/components/schemas/AddArticle' }  }
+                }
+            }
+        } 
        #swagger.security = [{
             "JWTAuth": []
        }]
