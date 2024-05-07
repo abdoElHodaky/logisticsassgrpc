@@ -22,7 +22,7 @@ export class ArticleService extends _Data {
  async create(articlecdto:{userId:number,article:CreateArticleDto}):Promise<Article|void>{
      
     const {userId,article}=articlecdto
-    let _article=<Article>{...article}
+    let _article=this.datasource.manager.create(Article,{...article})
      console.log("DataS",_article)
     /*_article.title=article.title
    _article.imgurl=article.imgurl
