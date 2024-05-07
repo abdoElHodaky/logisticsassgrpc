@@ -20,7 +20,7 @@ export class PaymentController {
   async all(@Req() req:Request, @Res() res:Response):Promise<Payment[]|void>{
     let payments=await this.paymentService.all(req.auth?.id.toString())
     if (payments instanceof Array) return payments
-    else res.jsonp(message:payments?.message)
+    else res.jsonp({message:payments?.message})
   }
 
   @Post("/:paymentId/Pay",[AuthenticateMiddleware])
