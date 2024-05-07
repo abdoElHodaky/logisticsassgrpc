@@ -5,7 +5,7 @@ import { Router } from "express";
 
 export const articlesgrpc=Router()
 
-articlesgrpc.get("/articles",(req,res)=>{
+articlesgrpc.get("/articles/create",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Article']
         #swagger.description = 'Endpoint to get articles via grpc'
         
