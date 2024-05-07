@@ -36,24 +36,13 @@ export class supTicketGrpcService  {
     call: ServerUnaryCall<_Ticket.CreateTicketReq,_Ticket.CreateTicketRes>,
     callback: sendUnaryData<_Ticket.CreateTicketRes>
   ){
-       
-     }}
-
-  
-    
-/*static  async _all (call: ServerUnaryCall<_Article.GetAllReq,_Article.GetAllRes>,
-    callback: sendUnaryData<_Article.GetAllRes>
- ){
-  let articles=await this.artclS.all()
-  let _articles=articles.map(_Article.Article.fromJSON)
-  console.log(_articles)
+       let {userId,ticket:_ticket}=call.request
+       _ticket=_Ticket.Ticket.toJSON((_ticket!=undefined)?_ticket:_Ticket.createBaseTicket())
+       let ticket=await supTicketGrpcService.service.create(userId,_ticket)
+     }
   }
 
-static  async _create(
-    call: ServerUnaryCall<_Article.CreateReq,_Article.CreateRes>,
-    callback: sendUnaryData<_Article.CreateRes>
-  ){}
-    */
- }
+  
+   }
 //console.log(services)
 //console.log(Reflect.getMetadata("servname",ArticleGrpcService.service ))
