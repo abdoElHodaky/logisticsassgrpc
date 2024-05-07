@@ -2,7 +2,8 @@ import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
 import { CreatePaymemtDto } from "../dto/create-payment.dto"
 import { PayTabService } from "./";
-
+import { NotFoundError ,Error ,TypeError } from "common-errors";
+import { isNumeric } from "../helpers";
 //@Injectable()
 export class PaymentService extends _Data {
  // @service("PayTabGate")
@@ -12,10 +13,21 @@ export class PaymentService extends _Data {
      // this.payTabService.start()
   }
 
-  async all():Promise<Payment[]>
+  async all(userId:string):Promise<Payment[]|Error>
   {
-    //console.log(this._source)
-    return await this.datasource.manager.find(Payment)
+   if(isNumeric(userId)==true){
+    try
+  {
+    let payments= await this.datasource.manager.find(Payment,{
+      where:{
+        user_id:parseInt(userId)
+      }
+       })
+      }catch(err:any){
+       return new NotFoundError("Payments")
+      }
+   }
+   else return new TypeError("userId should be number")
   }
 
  async create(createPaymentDto: CreatePaymemtDto):Promise<Payment|void>{
