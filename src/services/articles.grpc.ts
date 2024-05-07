@@ -41,7 +41,7 @@ export class ArticleGrpcService  {
            content:"content",
            imgurl:"imgurl",
           // category:_article.category
-         } as CreateArticleDto
+         }
        })
       if(_article instanceof Article){
       callback(null,{
