@@ -44,7 +44,7 @@ export class ArticleGrpcService  {
          }
        })
       if(_article instanceof Article){
-        _article=_Article.fromJSON(_article)
+        _article=_Article.Article.fromJSON(_article)
         _article.userId=userId
       callback(null,{
         article:_article
