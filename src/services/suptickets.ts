@@ -24,7 +24,7 @@ export class supTicketService extends _Data {
     
     let id=Number(userId)
    // let _ticket=<supTicket>{...ticket}
-    let supticket=this.datasource.manager.create(supTicket,ticket)
+    let supticket=this.datasource.manager.create(supTicket,{...ticket})
     let user:User;
     console.log(ticket)
   //  let ticket:supTicket;
@@ -35,7 +35,7 @@ export class supTicketService extends _Data {
     user.tickets.push(supticket)
     let u=await this.datasource.manager.save(User,user)
     return u.tickets.at(-1)*/
-    return _ticket
+    return ticket
     
   }
 }
