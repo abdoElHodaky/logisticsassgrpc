@@ -19,11 +19,9 @@ export class PaymentService extends _Data {
     try
   {
     let payments= await this.datasource.manager.find(Payment,{
-      where:{
-        user:parseInt(userId)
-      }
-       })
-      }catch(err:any){
+      where: { user: { id: parseInt(userId) } })
+  }
+    catch(err:any){
        return new NotFoundError("Payments")
       }
    }
