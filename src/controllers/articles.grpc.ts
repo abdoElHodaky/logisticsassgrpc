@@ -29,10 +29,10 @@ export class GrpcArticleController {
   
  // @AuthenticateMiddleware
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto):Promise<void>{
+  async create(@Req() req:Request,@Res() res:Response):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
-    console.log(articlecdto,req.body)
+    console.log(req)
      if(user instanceof User){
        let article:_Article.CreateReq={
          userId:user.id,
