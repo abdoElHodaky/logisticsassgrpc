@@ -44,6 +44,7 @@ export class ArticleGrpcService  {
          }
        })
       if(_article instanceof Article){
+        console.log(_article)
       callback(null,{
         article:_Article.createBaseArticle()
       })}
