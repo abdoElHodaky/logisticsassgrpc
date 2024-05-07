@@ -32,12 +32,13 @@ export class ArticleGrpcService  {
     callback: sendUnaryData<_Article.CreateRes>
   ){
        let {userId,article}=call.request
+       const {title,content,imgurl}=article
        let _article=await ArticleGrpcService.service.create({
          userId:userId,
          article:{
-           title:article.title,
-           content:article.content,
-           imgurl:article.imgurl,
+           title:title,
+           content:content,
+           imgurl:imgurl,
           // category:_article.category
          } as CreateArticleDto
        })
