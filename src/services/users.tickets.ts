@@ -14,14 +14,16 @@ export class UserTicketService extends _Data {
     if(isNumeric(userId)==true){
      let id=Number(userId)
     try{
-     let user=await this.datasource.manager.findOneOrFail(User,{where:{
+    /* let user=await this.datasource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
             tickets:true
            }
-            })
-    let tickets=user.tickets
+            })*/
+    let tickets=await this.datasource.manager.find(supTicket,{
+      where:{user:{id:id}}
+    })
     return tickets }
     catch (err:any){
       return new NotFoundError("Tickets")
