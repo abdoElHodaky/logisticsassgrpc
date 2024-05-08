@@ -2,8 +2,9 @@ import { credentials } from "@grpc/grpc-js";
 import {_User } from "../protos/dist/";
 import { Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
+import {Env} from "../env";
 
-const address = "localhost:3030";
+const address = "localhost:"+Env.GRPCPORT
 
 @Controller("/users")
 export class GrpcUserController {
