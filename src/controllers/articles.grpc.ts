@@ -36,7 +36,10 @@ export class GrpcArticleController {
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
-    if(isEmpty(articlecdto)==false){
+     const empty=isEmpty(articlecdto)
+     console.log(empty)
+    try{
+    if(empty==false){
     try{
      if(user instanceof User){
       const _article= _Article.Article.fromJSON(articlecdto)
@@ -64,10 +67,12 @@ export class GrpcArticleController {
      }
     }
     else {
-      const error=new Error("Argument(s) is/are empty or not existed")
-      res.jsonp({message:error?.message})
+      throw new Error("Argument(s) is/are empty or not existed")
+      
     }
-
+    }catch(err:any){
+      res.jsonp({message:err?.message})
+    }
  
   }
   
