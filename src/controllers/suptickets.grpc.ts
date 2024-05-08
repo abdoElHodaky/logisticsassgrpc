@@ -5,7 +5,8 @@ import { Response  } from "express";
 import { Request } from "express-jwt"
 import { AuthenticateMiddleware} from "../middlewares/";
 
-const address = "localhost:3030";
+import {Env} from "../env";
+const address = "localhost:"+Env.GRPCPORT
 
 @Controller("/suptickets")
 export class GrpcSupTicketController {
