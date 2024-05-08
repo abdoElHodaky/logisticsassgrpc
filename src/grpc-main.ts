@@ -5,13 +5,13 @@ import { ReflectionService } from '@grpc/reflection';
 import {Env} from "../env";
 const {GRP_CPORT,GRPCPORT}=Env
 const protoLoader = require('@grpc/proto-loader');
-protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
+protoLoader.load("./src/protos/src/serverreflect.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server)
   
 }).catch(console.log)
-protoLoader.load("./src/protos/src/index.proto").then((pkg:any)=>{
+protoLoader.load("./src/protos/src/servereflect.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
   const reflect=new ReflectionService(pkg)
   reflect.addToServer(server2)
