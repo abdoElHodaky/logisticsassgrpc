@@ -59,8 +59,8 @@ export class GrpcArticleController {
       
      } catch(err:any){
       console.log(err)
-      const error=new Error("Argument(s) is/are empty or not existed",err)
-      res.jsonp({message:error?.message})
+      //const error=new Error("Argument(s) is/are empty or not existed",err)
+      res.jsonp({message:err?.message})
      }
     }
     else {
