@@ -27,7 +27,7 @@ export class UserTicketService extends _Data {
     if(tickets.length!=0) return tickets 
     else throw new NotFoundError("Tickets")
     }
-    catch (err:any){
+    catch (err){
       return err
     }
 
