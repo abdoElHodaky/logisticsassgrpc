@@ -25,7 +25,7 @@ export class User {
     @Column({type: "varchar",nullable:true })
     username: string;
 
-    @Column({type: "varchar", nullable: true,select:true})
+    @Column({type: "varchar", nullable: true,select:false})
     passwordHash: string
 
     @Column(()=>Email)
