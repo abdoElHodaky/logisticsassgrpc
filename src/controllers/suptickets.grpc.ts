@@ -47,7 +47,14 @@ export class GrpcSupTicketController {
         description:supticket.description
       })
     }
-    res.jsonp(supticketreq)
+    this.client.create(supticketreq,(err:any,resp:_Ticket.GetAllTicketRes)=>{
+      if (err) {
+      res.jsonp(err);
+        console.error(err)
+    } else {
+       res.json(resp)
+     }
+    })
     }
     else{ throw new Error("Argument(s) is/are empty or not existed") }
   }catch(err:any){  
