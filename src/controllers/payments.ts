@@ -16,9 +16,10 @@ export class PaymentController {
   private reslt:any
   constructor(){}
   
-  @Get("/",[AuthenticateMiddleware])
+  @Get("",[AuthenticateMiddleware])
   async all(@Req() req:Request, @Res() res:Response):Promise<Payment[]|void>{
-    let payments=await this.paymentService.all(req.auth?.id.toString())
+    const {auth}=req
+    let payments=await this.paymentService.all(auth?.id)
     if (payments instanceof Array) return payments
     else res.jsonp({message:payments?.message})
   }
