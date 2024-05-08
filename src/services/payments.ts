@@ -24,7 +24,7 @@ export class PaymentService extends _Data {
      else throw new NotFoundError("Payments")
   }
     catch(err:any){
-       console.log(err)
+      // console.log(err)
        return new NotFoundError("Payments")
       }
   // }
