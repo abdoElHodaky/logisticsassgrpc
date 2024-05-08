@@ -4,7 +4,8 @@ import { Req , Res , Controller , Get , Body ,Post } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt"
 import { AuthenticateMiddleware} from "../middlewares/";
-
+import { Error } from "common-errors";
+import { isEmpty} from "../helpers";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCPORT
 
@@ -35,6 +36,9 @@ export class GrpcSupTicketController {
   @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request, @Res() res:Response, @Body() supticket:{type:string,subject:string,description:string}):Promise<void>{
     const {auth}=req
+    const empty=isEmpty(supticket)
+    try{
+    if(empty==false){
     const supticketreq:_Ticket.CreateTicketReq={  
       userId:auth?.id.toString(),
       ticket:_Ticket.Ticket.fromJSON({
@@ -44,5 +48,9 @@ export class GrpcSupTicketController {
       })
     }
     res.jsonp(supticketreq)
-  }
+    }
+    else{ throw new Error("Argument(s) is/are empty or not existed") }
+  }catch(err:any){  
+     res.jsonp({message:err?.message})
+   }
 }
