@@ -6,6 +6,7 @@ import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware} from "../middlewares/";
+import {isEmpty} from "../helpers";
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRP_CPORT
@@ -35,7 +36,7 @@ export class GrpcArticleController {
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
-    if(Object.values(articlecdto).some(o=> o==null || o=="")==false){
+    if(isEmpty(articlecdto)==false){
     try{
      if(user instanceof User){
       const _article= _Article.Article.fromJSON(articlecdto)
@@ -63,7 +64,8 @@ export class GrpcArticleController {
      }
     }
     else {
-      throw new Error()
+      throw new Error("Argument(s) is/are empty or not existed")
+    
     }
 
  
