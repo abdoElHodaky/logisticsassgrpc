@@ -4,7 +4,8 @@ import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
-const address = "localhost:50051";
+import {Env} from "./env";
+const address = "localhost:"+Env.GRP_CPORT
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
 export class GrpcAuthController {
