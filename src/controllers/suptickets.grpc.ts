@@ -47,7 +47,7 @@ export class GrpcSupTicketController {
         description:supticket.description
       })
     }
-    this.client.create(supticketreq,(err:any,resp:_Ticket.GetAllTicketRes)=>{
+    this.client.create(supticketreq,(err:any,resp:_Ticket.CreateTicketRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
