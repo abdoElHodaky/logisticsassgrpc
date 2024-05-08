@@ -24,9 +24,11 @@ export class UserTicketService extends _Data {
     let tickets=await this.datasource.manager.find(supTicket,{
       where:{user:{id:id}}
     })
-    return tickets }
+    if(tickets.length!=0) return tickets 
+    else throw new NotFoundError("Tickets")
+    }
     catch (err:any){
-      return new NotFoundError("Tickets")
+      return err
     }
 
     }
