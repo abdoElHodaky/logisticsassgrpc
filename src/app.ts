@@ -9,6 +9,9 @@ import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
 const app=application();
 const port = process.env.PORT||3000
+const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
+const theme = new SwaggerTheme();
+
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
@@ -30,7 +33,10 @@ const servers=require("./grpc-main")
 app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
-app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument,{
+  explorer: true,
+   customCss:theme.getBuffer(SwaggerThemeNameEnum.GRUVBOX)
+}));
 
 const configureApplication =  () => {
   /* server.bindAsync('localhost:50051', ServerCredentials.createInsecure(), () => {
