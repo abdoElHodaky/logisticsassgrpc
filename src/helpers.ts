@@ -6,3 +6,7 @@ export function nationalIdvalid(value:string){
     const pattern=/^([1-9]{1})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})[0-9]{3}([0-9]{1})[0-9]{1}$/
     return (pattern.test(message));
    }
+
+export function isEmpty(obj:any):boolean{
+    return Object.values(obj).some(o=> o==null || o=="")
+}
