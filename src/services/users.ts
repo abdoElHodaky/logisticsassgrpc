@@ -26,7 +26,7 @@ export class UserService extends _Data {
 
 
     if(isNumeric(userId)==true){
-      console.log(userId)
+     // console.log(userId)
       const _id=Number(userId)
     try{
       let user:User=await this.datasource.getRepository(User).findOneOrFail({
