@@ -25,7 +25,7 @@ export class PaymentService extends _Data {
   }
     catch(err:any){
       // console.log(err)
-       return new NotFoundError("Payments")
+       return err
       }
   // }
  //  else return new TypeError("userId should be number")
