@@ -1,2 +1,2 @@
 const enVars=process.env
-export enVars as Env;
+export {enVars as Env};
