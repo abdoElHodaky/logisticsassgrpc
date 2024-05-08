@@ -34,7 +34,7 @@ app.get("/",(req,res)=>{
     res.redirect("endpoints")
 })
 app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument,{
-  explorer: true,
+  explorer: false,
    customCss:theme.getBuffer(SwaggerThemeNameEnum.GRUVBOX)
 }));
 
