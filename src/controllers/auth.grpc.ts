@@ -56,7 +56,7 @@ export class GrpcAuthController {
    }
   catch(err:any){
    // const error=new Error("Login Information not provided or not existed",err)
-    res.jsonp({message:error?.message})
+    res.jsonp({message:err?.message})
   }
 }
  
