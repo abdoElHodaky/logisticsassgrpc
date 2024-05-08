@@ -19,7 +19,9 @@ export class GrpcAuthController {
   @Post("/login")
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
    try{
-    if(isEmpty(loginUserDto)==false){
+     const empty=isEmpty(loginUserDto)
+     console.log(empty)
+    if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
