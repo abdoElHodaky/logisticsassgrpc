@@ -35,7 +35,7 @@ export class GrpcArticleController {
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
-    if(Object.values(articlecdto).every(o=> o==null || o=="")==false){
+    if(Object.values(articlecdto).some(o=> o==null || o=="")==false){
     try{
      if(user instanceof User){
       const _article= _Article.Article.fromJSON(articlecdto)
