@@ -6,7 +6,8 @@ import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware} from "../middlewares/";
-const address = "localhost:50051";
+import {Env} from "./env";
+const address = "localhost:"+Env.GRP_CPORT
 @Controller("/articles")
 export class GrpcArticleController {
   private client =new _Article.ArticleServiceClient(
