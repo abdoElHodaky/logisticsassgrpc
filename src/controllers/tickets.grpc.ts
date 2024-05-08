@@ -3,7 +3,8 @@ import {_Ticket } from "../protos/dist/";
 import { Res,  Controller , Get ,Params } from "@decorators/express";
 import { Response  } from "express";
 
-const address = "localhost:50051";
+import {Env} from "../env";
+const address = "localhost:"+Env.GRP_CPORT
 
 @Controller("/users")
 export class GrpcTicketController {
