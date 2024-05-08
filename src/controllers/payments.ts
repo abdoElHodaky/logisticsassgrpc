@@ -21,7 +21,7 @@ export class PaymentController {
     const {auth}=req
     console.log(auth)
     let payments=await this.paymentService.all(auth?.id)
-    if (payments instanceof Array) return payments
+    if ((payments instanceof Array ) && payments.length!=0 ) return payments
     else res.jsonp({message:payments?.message})
   }
 
