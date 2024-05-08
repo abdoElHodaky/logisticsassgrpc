@@ -18,7 +18,8 @@ export class GrpcAuthController {
   
   @Post("/login")
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
-   if(isEmpty(loginUserDto)==false){
+   try{
+    if(isEmpty(loginUserDto)==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
@@ -44,13 +45,18 @@ export class GrpcAuthController {
     })
     }catch(err:any){
       console.log(err)
-      const error=new Error("Login Information not provided or not existed",err)
-      res.jsonp({message:error?.message})
+      //const error=new Error("Login Information not provided or not existed",err)
+      res.jsonp({message:err?.message})
     }
   } 
   else{
     throw new Error("Login Information not provided or not existed")
    
+  }
+   }
+  catch(err:any){
+   // const error=new Error("Login Information not provided or not existed",err)
+    res.jsonp({message:error?.message})
   }
 }
  
