@@ -46,8 +46,8 @@ export class TicketGrpcService   {
      let {userId,ticket}=call.request
       try{
        const supticket=_Ticket.Ticket.toJSON((ticket!=undefined)?ticket:_Ticket.createBaseTicket())
-       let _ticket=await supTicketGrpcService.service.create(userId,supticket)
-       if(_ticket instanceof Ticket){
+       let _ticket=await TicketGrpcService.service.create(userId,supticket)
+       if(_ticket instanceof supTicket){
         const ticket=_Ticket.Ticket.fromJSON(_ticket)
          ticket.userId=parseInt(userId)
          callback(null,{
