@@ -37,9 +37,9 @@ export class supTicketGrpcService  {
     callback: sendUnaryData<_Ticket.CreateTicketRes>
   ){
        let {userId,ticket}=call.request
-       let supticket=_Ticket.Ticket.toJSON((ticket!=undefined)?ticket:_Ticket.createBaseTicket())
+       const {type,subject,description}=_Ticket.Ticket.toJSON((ticket!=undefined)?ticket:_Ticket.createBaseTicket())
        let _ticket=await supTicketGrpcService.service.create(userId,{
-         ...supticket
+         type:type,subject:subject,description:description
        })
        if(_ticket instanceof Ticket){
         const ticket=_Ticket.Ticket.fromJSON(_ticket)
