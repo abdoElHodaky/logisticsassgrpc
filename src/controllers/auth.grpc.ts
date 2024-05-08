@@ -4,7 +4,7 @@ import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
-import {Env} from "./env";
+import {Env} from "../env";
 const address = "localhost:"+Env.GRP_CPORT
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
