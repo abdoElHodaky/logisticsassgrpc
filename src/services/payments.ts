@@ -13,21 +13,21 @@ export class PaymentService extends _Data {
      // this.payTabService.start()
   }
 
-  async all(userId:string):Promise<Payment[]|Error>
+  async all(userId:number):Promise<Payment[]|Error>
   {
-   if(isNumeric(userId)==true){
+ //  if(isNumeric(userId)==true){
     try
   {
     let payments= await this.datasource.manager.find(Payment,{
-      where: { user: { id: parseInt(userId) } }})
+      where: { user: { id: userId } }})
      return payments
   }
     catch(err:any){
        console.log(err)
        return new NotFoundError("Payments")
       }
-   }
-   else return new TypeError("userId should be number")
+  // }
+ //  else return new TypeError("userId should be number")
   }
 
  async create(createPaymentDto: CreatePaymemtDto):Promise<Payment|void>{
