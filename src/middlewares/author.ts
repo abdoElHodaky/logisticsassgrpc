@@ -9,7 +9,7 @@ export class AuthorMiddleware implements Middleware {
     const service=services.User
     if(req.auth !=undefined){
     let user= await service.id(req?.auth.id)
-    if(user.type!="Author") res.jsonp({message:"Logged in User not Author"})
+    if(user.type!="author") res.jsonp({message:"Logged in User not Author"})
     }
     else {
       res.status(401).json({message:"you should login"})
