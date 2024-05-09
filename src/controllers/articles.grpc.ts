@@ -32,7 +32,7 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("/",[AuthenticateMiddleware,AuthorMiddleware])
+  @Post("",[AuthenticateMiddleware,AuthorMiddleware])
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
