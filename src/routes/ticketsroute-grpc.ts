@@ -28,10 +28,10 @@ ticketsgrpc.post("/users/:userId/tickets",({body},res)=>{
         #swagger.parameters['userId'] = {
             in: 'path',
             description: 'Add new ticket.',
-            schema: { $ref: '#/components/schemas/userSupTicket' }
+            required:true
     }
-        #swagger.parameters['body'] = {
-            in: 'body',
+        #swagger.requestBody = {
+            required:true,
             description: 'Add new ticket.',
             schema: { $ref: '#/components/schemas/userAddTicket' }
     } 
