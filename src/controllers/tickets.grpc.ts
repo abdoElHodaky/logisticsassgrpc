@@ -1,8 +1,8 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Ticket } from "../protos/dist/";
-import { Res,  Controller , Get ,Params } from "@decorators/express";
+import { Res,  Controller , Get ,Params,Post } from "@decorators/express";
 import { Response  } from "express";
-import { AuthenticateMiddleware} from "../middlewares/";
+import { AuthenticateMiddleware,UserEqulityMiddleware  } from "../middlewares/";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRP_CPORT
 
@@ -28,4 +28,37 @@ export class GrpcTicketController {
      }
     })
   }
+  
+  @Post("",[UserEqulityMiddleware])
+  async create(@Req() req:Request, @Res() res:Response, @Body() supticket:{type:string,subject:string,description:string}):Promise<void>{
+    const {auth}=req
+    const empty=isEmpty(supticket)
+    try{
+    if(empty==false){
+    const supticketreq:_Ticket.CreateTicketReq={  
+      userId:auth?.id.toString(),
+      ticket:_Ticket.Ticket.fromJSON({
+        type:supticket.type,
+        subject:supticket.subject,
+        description:supticket.description
+      })
+    }
+    this.client.create(supticketreq,(err:any,resp:_Ticket.CreateTicketRes)=>{
+      if (err) {
+      res.jsonp(err);
+        console.error(err)
+    } else {
+       res.json(resp)
+     }
+    })
+    }
+    else{ throw new Error("Argument(s) is/are empty or not existed") }
+  }catch(err:any){  
+     res.jsonp({message:err?.message})
+   }
+  }
+
+
+
+
 }
