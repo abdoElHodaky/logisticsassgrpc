@@ -9,8 +9,8 @@ export class UserEqulityMiddleware implements Middleware {
     const req= request
    // const service=services.User
     const {auth,params}=req
-    if(auth !=undefined && params.includes("userId")){
-      if (auth?.id!=parseInt(params["userId"]  )){
+    if(params?.userId){
+      if (auth?.id!=parseInt(params?.userId )){
        res.status(403).jsonp({message:"userId should equal your Id"})
       }   
     }
