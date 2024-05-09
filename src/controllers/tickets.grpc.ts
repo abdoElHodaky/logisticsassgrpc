@@ -13,8 +13,8 @@ export class GrpcTicketController {
     credentials.createInsecure()
   )
   
-  @Get("/:id/tickets")
-  async all(@Res() res:Response,@Params("id") userId:string):Promise<void>{
+  @Get("/:userId/tickets")
+  async all(@Res() res:Response,@Params("userId") userId:string):Promise<void>{
     console.log(userId)
     const req:_Ticket.GetAllTicketReq={
       userId:userId
