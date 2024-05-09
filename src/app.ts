@@ -35,7 +35,8 @@ app.get("/",(req,res)=>{
 })
 app.use('/endpoints', swaggerUi.serve, swaggerUi.setup(swaggerDocument,{
   explorer: false,
-   customCss:theme.getBuffer(SwaggerThemeNameEnum.GRUVBOX)
+   customCss:theme.getBuffer(SwaggerThemeNameEnum.GRUVBOX),
+  customSiteTitle:"gRPC Endpoints"
 }));
 
 const configureApplication =  () => {
