@@ -22,10 +22,10 @@ export class User {
     @Column({default:2980865431210,select:true})
     IDcardNumber: number
 
-    @Column({type: "varchar",nullable:true })
+    @Column({type: "varchar",default:"test_279346_"+this.id.toString() })
     username: string;
 
-    @Column({type: "varchar", nullable: true,select:false})
+    @Column({type: "varchar", default: "test_297438",select:true})
     passwordHash: string
 
     @Column(()=>Email)
