@@ -6,7 +6,7 @@ import { AuthenticateMiddleware} from "../middlewares/";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRP_CPORT
 
-@Controller("/users",[AuthenticateMiddleware])
+@Controller("/users",[])
 export class GrpcTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
@@ -15,6 +15,7 @@ export class GrpcTicketController {
   
   @Get("/:id/tickets")
   async all(@Res() res:Response,@Params("id") userId:string):Promise<void>{
+    console.log(userId)
     const req:_Ticket.GetAllTicketReq={
       userId:userId
     }
