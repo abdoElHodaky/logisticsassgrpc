@@ -6,7 +6,7 @@ import { AuthenticateMiddleware} from "../middlewares/";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRP_CPORT
 
-@Controller("/users",[])
+@Controller("/users",[AuthenticateMiddleware])
 export class GrpcTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
