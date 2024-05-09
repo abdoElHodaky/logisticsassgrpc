@@ -11,7 +11,7 @@ suptickeroute.get("/users/:userid/tickets",(req:Request,res:Response)=>{
         #swagger.parameters['userid'] = {
             in: 'path',
             description: 'get tickets.',
-            schema: { $ref: '#/definitions/userSupTicket' }
+            schema: { $ref: '#/components/schemas/userSupTicket' }
     } 
     */
     
@@ -49,7 +49,7 @@ suptickeroute.post("/users/:userid/tickets",(req:Request,res:Response)=>{
         #swagger.parameters['userid'] = {
             in: 'body',
             description: 'add tickets. for specific user',
-            schema: { $ref: '#/definitions/userAddTicket' }
+            schema: { $ref: '#/components/schemas/userAddTicket' }
     } 
     */
     
