@@ -83,7 +83,7 @@ const config = {
                 title:""
             },
             userAddTicket:{
-                $userId:"4",
+               // $userId:"4",
                 $type:"inquiry|complaint",
                 $subject:"greet",
                 $description:"how are you?"
