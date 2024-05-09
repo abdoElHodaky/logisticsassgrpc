@@ -2,7 +2,7 @@
 import { Middleware } from '@decorators/express';
 import {Request,Response,NextFunction  } from "express";
 import { Request as JWTRequest } from "express-jwt";
-import {services} from "../services/enum";
+//import {services} from "../services/enum";
 //var jwt = require('jsonwebtoken');
 export class UserEqulityMiddleware implements Middleware {
   async use(request: JWTRequest, res: Response, next: NextFunction): Promise<void> {
