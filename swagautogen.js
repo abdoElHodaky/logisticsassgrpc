@@ -4,7 +4,7 @@ const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/routes.js','./dist/controllers/*.js','./dist/routes/*.js'];
 const config = {
     info: {
-        title: 'Elearning endpoints docs',
+        title: 'Grpc endpoints docs',
         description: '',
     },
     tags: [
