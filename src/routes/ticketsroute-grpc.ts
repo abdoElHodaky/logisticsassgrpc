@@ -11,7 +11,7 @@ ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
         #swagger.parameters['userId'] = {
             in: 'path',
             description: 'id of specific user.',
-            schema: { $ref: '#/components/schemas/userSupTicket' }
+            
     }
     #swagger.security = [{
             "JWTAuth": []
