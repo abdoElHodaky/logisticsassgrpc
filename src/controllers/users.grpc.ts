@@ -16,8 +16,8 @@ export class GrpcUserController {
   
   @Get("")
   async all(@Req() req:Request,@Res() res:Response ):Promise<void>{
-    const req:_User.GetAllUserReq={}
-    this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
+    const reqalluser:_User.GetAllUserReq={}
+    this.client.all(reqalluser,(err:any,resp:_User.GetAllUserRes)=>{
     let resl:any;
       if (err) {
         resl=err
