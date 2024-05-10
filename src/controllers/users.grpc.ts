@@ -25,8 +25,9 @@ export class GrpcUserController {
         resl=resp
        // console.log(resp)
      }
-      console.log(resl)
-      res.json(resl)
+      console.log(resl?.users)
+      res.setHeader('Content-Type', 'application/json');
+      res.send(resl);
     })
   }
 }
