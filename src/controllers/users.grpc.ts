@@ -1,7 +1,8 @@
 import { credentials } from "@grpc/grpc-js";
 import {_User } from "../protos/dist/";
-import { Res,  Controller , Get } from "@decorators/express";
+import { Req, Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
+import { Request } from "express-jwt";
 import {Env} from "../env";
 
 const address = "localhost:"+Env.GRPCPORT
@@ -14,7 +15,7 @@ export class GrpcUserController {
   )
   
   @Get("")
-  async all(@Res() res:Response ):Promise<void>{
+  async all(@Req() req:Request,@Res() res:Response ):Promise<void>{
     const req:_User.GetAllUserReq={}
     this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
     let resl:any;
