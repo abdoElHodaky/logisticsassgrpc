@@ -2,6 +2,7 @@ import { credentials } from "@grpc/grpc-js";
 import {_Ticket } from "../protos/dist/";
 import { Req, Res,  Controller , Get ,Params,Post , Body} from "@decorators/express";
 import { Response  } from "express";
+import { Request } from "express-jwt";
 import { AuthenticateMiddleware,UserEqulityMiddleware  } from "../middlewares/";
 import { isEmpty } from "../helpers";
 import {Env} from "../env";
