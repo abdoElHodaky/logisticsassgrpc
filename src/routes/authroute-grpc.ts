@@ -30,7 +30,7 @@ authgrpc.post("/auth/register",({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                    schema: { $ref: '#/components/schemas/LoginUser' }
+                    schema: { $ref: '#/components/schemas/CreateUser' }
                     }
                 }
             }
