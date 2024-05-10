@@ -65,7 +65,8 @@ const config = {
                  lastname:"",
                  $IDcardNumber:2980865431210,
                  email:"",
-                 $age:0
+                 $age:0,
+                 type:""
              },
              CreateAuthor:{
                  username:"",
