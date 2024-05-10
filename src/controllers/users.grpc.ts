@@ -17,14 +17,16 @@ export class GrpcUserController {
   async all(@Res() res:Response ):Promise<void>{
     const req:_User.GetAllUserReq={}
     this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
+    const resl:any;
       if (err) {
-    //  res.jsonp(err);
-        console.error(err)
+        resl=err
+      //  console.error(err)
     } else {
-       //res.json(resp)
-        console.log(resp)
-        res.end()
+        resl=resp
+       // console.log(resp)
      }
+      console.log(resl)
+      res.end("done")
     })
   }
 }
