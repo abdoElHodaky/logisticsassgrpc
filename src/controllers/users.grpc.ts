@@ -21,7 +21,8 @@ export class GrpcUserController {
     //  res.jsonp(err);
         console.error(err)
     } else {
-       res.json(resp)
+       //res.json(resp)
+        console.log(resp)
      }
     })
   }
