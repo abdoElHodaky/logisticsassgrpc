@@ -13,7 +13,7 @@ usersgrpc.get("/users",(req,res)=>{
 
     
 
-usersgrpc.post("/users",({body},res)=>{
+//usersgrpc.post("/users",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.User']
         #swagger.description = 'Endpoint to add new User via grpc' 
         #swagger.parameters['body'] = {
@@ -23,7 +23,7 @@ usersgrpc.post("/users",({body},res)=>{
     } */
     
    
-})
+//})
 
 /*articlesroute.post("/articles/create",(req,res)=>{
     
