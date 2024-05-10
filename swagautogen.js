@@ -4,7 +4,7 @@ const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
-        title: 'Elearning endpoints docs',
+        title: 'gRPC endpoints docs',
         description: '',
     },
     tags: [
@@ -65,6 +65,7 @@ const config = {
                  lastname:"",
                  $IDcardNumber:2980865431210,
                  email:"",
+                 password:"",
                  $age:0,
                  type:""
              },
