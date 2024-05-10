@@ -18,7 +18,7 @@ export class GrpcUserController {
     const req:_User.GetAllUserReq={}
     this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
       if (err) {
-      res.jsonp(err);
+    //  res.jsonp(err);
         console.error(err)
     } else {
        res.json(resp)
