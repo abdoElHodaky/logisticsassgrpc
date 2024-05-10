@@ -14,7 +14,7 @@ authorsgrpc.get("/authors",(req,res)=>{
 
     
 
-authorsgrpc.post("/authors",({body},res)=>{
+//authorsgrpc.post("/authors",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Author']
         #swagger.description = 'Endpoint to add new author via grpc' 
         #swagger.requestBody = {
@@ -31,4 +31,4 @@ authorsgrpc.post("/authors",({body},res)=>{
     */
     
    
-})
+//})
