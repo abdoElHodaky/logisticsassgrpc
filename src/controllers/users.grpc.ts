@@ -23,6 +23,7 @@ export class GrpcUserController {
     } else {
        //res.json(resp)
         console.log(resp)
+        res.end()
      }
     })
   }
