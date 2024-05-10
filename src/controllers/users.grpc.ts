@@ -26,7 +26,7 @@ export class GrpcUserController {
        // console.log(resp)
      }
       console.log(resl)
-      res.end("done")
+      res.json(resl)
     })
   }
 }
