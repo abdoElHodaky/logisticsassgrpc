@@ -1,6 +1,6 @@
 syntax="proto3";
 
-//import "google/protobuf/timestamp.proto";
+import "google/protobuf/Any.proto";
 import "address.proto";
 
 enum PaymentStatus{
@@ -20,3 +20,9 @@ message Payment {
  string transR=8;
  int32 userId=9;
 }
+
+message PaymentResult{
+ int32 paymentId=1;
+ google.protobuff.Any result=2;
+}
+
