@@ -3,7 +3,7 @@ import {server,server2} from "./grpc";
 import { loadPackageDefinition, ServerCredentials  }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 import {Env} from "./env";
-const {GRP_CPORT,GRPCPORT}=Env
+const {GRPCSOnePORT,GRPCSTwoPORT}=Env
 const protoLoader = require('@grpc/proto-loader');
 protoLoader.load("./src/protos/src/serverreflect.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
@@ -18,11 +18,11 @@ protoLoader.load("./src/protos/src/servereflect.proto").then((pkg:any)=>{
   
 }).catch(console.log)
 
-server.bindAsync(`0.0.0.0:${GRP_CPORT}`, ServerCredentials.createInsecure(), () => {
+server.bindAsync(`0.0.0.0:${GRPCSOnePORT}`, ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
 
-server2.bindAsync(`0.0.0.0:${GRPCPORT}`, ServerCredentials.createInsecure(), () => {
+server2.bindAsync(`0.0.0.0:${GRPCSTwoPORT}`, ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
 
