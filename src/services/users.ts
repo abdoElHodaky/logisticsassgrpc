@@ -61,11 +61,12 @@ export class UserService extends _Data {
   ],
 });
  users.forEach(e=>{
-   if(isEmpty(e)==true){
+  // if(isEmpty(e)==true){
   e.username= `test_279346__${e.id}`
   e.passwordHash=`test_297438__${e.id}`
   e.firstName='Timber'
-  e.lastName='Saw'}
+  e.lastName='Saw'
+   //}
  })
     
 await this.datasource.manager.save(User,users)
