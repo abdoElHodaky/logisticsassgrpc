@@ -39,7 +39,8 @@ export class GrpcAuthController {
        let token =jwt.sign({
          username:user.username,
          passwordHash:user.passwordHash,
-         type:user.type
+         type:user.type,
+         id:user.id
        }, "secret", { expiresIn: "1h"});
        res.json({accessToken:token})
      }
