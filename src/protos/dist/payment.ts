@@ -7,6 +7,8 @@
 /* eslint-disable */
 import _m0 from "protobufjs/minimal";
 import { Address } from "./address";
+import { Any } from "./google/protobuf/any";
+import { Timestamp } from "./google/protobuf/timestamp";
 
 export const protobufPackage = "";
 
@@ -49,6 +51,20 @@ export function paymentStatusToJSON(object: PaymentStatus): string {
   }
 }
 
+export interface PurshasedItem {
+  id: number;
+  props?: Any | undefined;
+}
+
+export interface Purshase {
+  id: number;
+  items: PurshasedItem[];
+  userId?: number | undefined;
+  paymentId?: number | undefined;
+  createdAt?: Date | undefined;
+  updatedAt?: Date | undefined;
+}
+
 export interface Payment {
   id: number;
   title: string;
@@ -60,6 +76,219 @@ export interface Payment {
   transR: string;
   userId: number;
 }
+
+export interface PaymentResult {
+  paymentId: number;
+  result?: Any | undefined;
+}
+
+function createBasePurshasedItem(): PurshasedItem {
+  return { id: 0, props: undefined };
+}
+
+export const PurshasedItem = {
+  encode(message: PurshasedItem, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== 0) {
+      writer.uint32(8).int32(message.id);
+    }
+    if (message.props !== undefined) {
+      Any.encode(message.props, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): PurshasedItem {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePurshasedItem();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.id = reader.int32();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.props = Any.decode(reader, reader.uint32());
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PurshasedItem {
+    return {
+      id: isSet(object.id) ? globalThis.Number(object.id) : 0,
+      props: isSet(object.props) ? Any.fromJSON(object.props) : undefined,
+    };
+  },
+
+  toJSON(message: PurshasedItem): unknown {
+    const obj: any = {};
+    if (message.id !== 0) {
+      obj.id = Math.round(message.id);
+    }
+    if (message.props !== undefined) {
+      obj.props = Any.toJSON(message.props);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<PurshasedItem>, I>>(base?: I): PurshasedItem {
+    return PurshasedItem.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<PurshasedItem>, I>>(object: I): PurshasedItem {
+    const message = createBasePurshasedItem();
+    message.id = object.id ?? 0;
+    message.props = (object.props !== undefined && object.props !== null) ? Any.fromPartial(object.props) : undefined;
+    return message;
+  },
+};
+
+function createBasePurshase(): Purshase {
+  return { id: 0, items: [], userId: undefined, paymentId: undefined, createdAt: undefined, updatedAt: undefined };
+}
+
+export const Purshase = {
+  encode(message: Purshase, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.id !== 0) {
+      writer.uint32(8).int32(message.id);
+    }
+    for (const v of message.items) {
+      PurshasedItem.encode(v!, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.userId !== undefined) {
+      writer.uint32(24).int32(message.userId);
+    }
+    if (message.paymentId !== undefined) {
+      writer.uint32(32).int32(message.paymentId);
+    }
+    if (message.createdAt !== undefined) {
+      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(42).fork()).ldelim();
+    }
+    if (message.updatedAt !== undefined) {
+      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(50).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): Purshase {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePurshase();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.id = reader.int32();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.items.push(PurshasedItem.decode(reader, reader.uint32()));
+          continue;
+        case 3:
+          if (tag !== 24) {
+            break;
+          }
+
+          message.userId = reader.int32();
+          continue;
+        case 4:
+          if (tag !== 32) {
+            break;
+          }
+
+          message.paymentId = reader.int32();
+          continue;
+        case 5:
+          if (tag !== 42) {
+            break;
+          }
+
+          message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          continue;
+        case 6:
+          if (tag !== 50) {
+            break;
+          }
+
+          message.updatedAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): Purshase {
+    return {
+      id: isSet(object.id) ? globalThis.Number(object.id) : 0,
+      items: globalThis.Array.isArray(object?.items) ? object.items.map((e: any) => PurshasedItem.fromJSON(e)) : [],
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : undefined,
+      paymentId: isSet(object.paymentId) ? globalThis.Number(object.paymentId) : undefined,
+      createdAt: isSet(object.createdAt) ? fromJsonTimestamp(object.createdAt) : undefined,
+      updatedAt: isSet(object.updatedAt) ? fromJsonTimestamp(object.updatedAt) : undefined,
+    };
+  },
+
+  toJSON(message: Purshase): unknown {
+    const obj: any = {};
+    if (message.id !== 0) {
+      obj.id = Math.round(message.id);
+    }
+    if (message.items?.length) {
+      obj.items = message.items.map((e) => PurshasedItem.toJSON(e));
+    }
+    if (message.userId !== undefined) {
+      obj.userId = Math.round(message.userId);
+    }
+    if (message.paymentId !== undefined) {
+      obj.paymentId = Math.round(message.paymentId);
+    }
+    if (message.createdAt !== undefined) {
+      obj.createdAt = message.createdAt.toISOString();
+    }
+    if (message.updatedAt !== undefined) {
+      obj.updatedAt = message.updatedAt.toISOString();
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<Purshase>, I>>(base?: I): Purshase {
+    return Purshase.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<Purshase>, I>>(object: I): Purshase {
+    const message = createBasePurshase();
+    message.id = object.id ?? 0;
+    message.items = object.items?.map((e) => PurshasedItem.fromPartial(e)) || [];
+    message.userId = object.userId ?? undefined;
+    message.paymentId = object.paymentId ?? undefined;
+    message.createdAt = object.createdAt ?? undefined;
+    message.updatedAt = object.updatedAt ?? undefined;
+    return message;
+  },
+};
 
 function createBasePayment(): Payment {
   return { id: 0, title: "", date: "", status: 0, amount: 0, currency: "", address: undefined, transR: "", userId: 0 };
@@ -242,6 +471,82 @@ export const Payment = {
   },
 };
 
+function createBasePaymentResult(): PaymentResult {
+  return { paymentId: 0, result: undefined };
+}
+
+export const PaymentResult = {
+  encode(message: PaymentResult, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.paymentId !== 0) {
+      writer.uint32(8).int32(message.paymentId);
+    }
+    if (message.result !== undefined) {
+      Any.encode(message.result, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): PaymentResult {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBasePaymentResult();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.paymentId = reader.int32();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.result = Any.decode(reader, reader.uint32());
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): PaymentResult {
+    return {
+      paymentId: isSet(object.paymentId) ? globalThis.Number(object.paymentId) : 0,
+      result: isSet(object.result) ? Any.fromJSON(object.result) : undefined,
+    };
+  },
+
+  toJSON(message: PaymentResult): unknown {
+    const obj: any = {};
+    if (message.paymentId !== 0) {
+      obj.paymentId = Math.round(message.paymentId);
+    }
+    if (message.result !== undefined) {
+      obj.result = Any.toJSON(message.result);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<PaymentResult>, I>>(base?: I): PaymentResult {
+    return PaymentResult.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<PaymentResult>, I>>(object: I): PaymentResult {
+    const message = createBasePaymentResult();
+    message.paymentId = object.paymentId ?? 0;
+    message.result = (object.result !== undefined && object.result !== null)
+      ? Any.fromPartial(object.result)
+      : undefined;
+    return message;
+  },
+};
+
 type Builtin = Date | Function | Uint8Array | string | number | boolean | undefined;
 
 export type DeepPartial<T> = T extends Builtin ? T
@@ -253,6 +558,28 @@ export type DeepPartial<T> = T extends Builtin ? T
 type KeysOfUnion<T> = T extends T ? keyof T : never;
 export type Exact<P, I extends P> = P extends Builtin ? P
   : P & { [K in keyof P]: Exact<P[K], I[K]> } & { [K in Exclude<keyof I, KeysOfUnion<P>>]: never };
+
+function toTimestamp(date: Date): Timestamp {
+  const seconds = Math.trunc(date.getTime() / 1_000);
+  const nanos = (date.getTime() % 1_000) * 1_000_000;
+  return { seconds, nanos };
+}
+
+function fromTimestamp(t: Timestamp): Date {
+  let millis = (t.seconds || 0) * 1_000;
+  millis += (t.nanos || 0) / 1_000_000;
+  return new globalThis.Date(millis);
+}
+
+function fromJsonTimestamp(o: any): Date {
+  if (o instanceof globalThis.Date) {
+    return o;
+  } else if (typeof o === "string") {
+    return new globalThis.Date(o);
+  } else {
+    return fromTimestamp(Timestamp.fromJSON(o));
+  }
+}
 
 function isSet(value: any): boolean {
   return value !== null && value !== undefined;
