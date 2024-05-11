@@ -14,6 +14,6 @@ usersgrpc.get("/users",(req,res)=>{
 
 megrpc.get("/me",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User']
-        #swagger.description = 'Endpoint to get profile via grpc' */
+        #swagger.description = 'Endpoint to get profile of authenticated user' */
 
 })
