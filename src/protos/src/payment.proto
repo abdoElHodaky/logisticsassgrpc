@@ -1,6 +1,7 @@
 syntax="proto3";
 
 import "google/protobuf/Any.proto";
+import "google/protobuf/Timestamp.proto";
 import "address.proto";
 
 enum PaymentStatus{
@@ -8,7 +9,19 @@ enum PaymentStatus{
  PAYMENT_PENDING=1;
  PAYMENT_PAID=2;
 }
-
+message PurshasedItem
+{
+ int32 id=1;
+}
+message Purshase
+{
+  int32 id=1;
+  repeated PurshasedItem=2;
+ optional  int32 userId=3;
+ optional int32 paymentId=4;
+ optional google.protobuff.Timestamp created_at=5;
+ optional google.protobuff.Timestamp updated_at=6;
+}
 message Payment {
  int32 id=1;
  string title=2;
