@@ -56,7 +56,7 @@ export class AuthorService  extends _Data {
     if(authord instanceof User){
       //author.type="author"
       dauthor=await this.datasource.manager.create(Author,authord)
-      await this.datasource.save(Author,dauthor)
+     // await this.datasource.save(Author,dauthor)
       return dauthor
     }
     else{
