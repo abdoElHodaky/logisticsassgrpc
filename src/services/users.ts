@@ -5,6 +5,7 @@ import { Article,User,Author } from "../entity/"
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { NotFoundError , Error ,TypeError } from "common-errors";
 import { _Data } from "./datasource";
+import { isEmpty} from "../helpers";
 //@Injectable()
 export class UserService extends _Data {
 
@@ -51,23 +52,20 @@ export class UserService extends _Data {
   where: [
     {
       username: '',
-      passwordHash: '',
-      lastName:"",
-      firstName:""
+      passwordHash: ''
     },
     {
       username: IsNull(),
-      passwordHash:IsNull(),
-      firstName:IsNull(),
-      lastName:IsNull()
+      passwordHash:IsNull()
     },
   ],
 });
  users.forEach(e=>{
+   if(isEmpty(e)==true){
   e.username= `test_279346__${e.id}`
   e.passwordHash=`test_297438__${e.id}`
   e.firstName='Timber'
-  e.lastName='Saw'
+  e.lastName='Saw'}
  })
     
 await this.datasource.manager.save(User,users)
