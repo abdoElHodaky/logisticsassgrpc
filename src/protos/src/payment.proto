@@ -20,8 +20,8 @@ message Purshase
   repeated PurshasedItem items=2;
  optional  int32 userId=3;
  optional int32 paymentId=4;
- optional google.protobuff.Timestamp created_at=5;
- optional google.protobuff.Timestamp updated_at=6;
+ optional google.protobuf.Timestamp created_at=5;
+ optional google.protobuf.Timestamp updated_at=6;
 }
 message Payment {
  int32 id=1;
@@ -37,6 +37,6 @@ message Payment {
 
 message PaymentResult{
  int32 paymentId=1;
- google.protobuff.Any result=2;
+ optional google.protobuf.Any result=2;
 }
 
