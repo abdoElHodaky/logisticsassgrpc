@@ -48,8 +48,8 @@ const configureApplication = async  () => {
 	   console.log(`Example app listening on port ${port}`)
       servers.server
       servers.server2
-     import("./services/enum").then(services=>{
-     await services.User.default()
+     import("./services/enum").then(servs=>{
+     await servs.services.User.default()
      }).catch(console.log)
   });
 }
