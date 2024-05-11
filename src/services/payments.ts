@@ -1,5 +1,6 @@
 import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
+import { PaymentStatus} from "../entity/Payment";
 import { CreatePaymemtDto } from "../dto/create-payment.dto"
 import { PayTabService } from "./";
 import { NotFoundError ,Error ,TypeError } from "common-errors";
@@ -62,7 +63,7 @@ async verify(transR:string,paymentId:string):Promise<any>{
       let payment=await this.datasource.manager.findOneOrFail(Payment,{
         where:{id:parseInt(paymentId)}
       })
-      payment.status="paid"
+      payment.status=PaymentStatus.PAYMENT_PAID
       payment.transR=transR
       await this.datasource.manager.save(Payment,payment)
       return {message:"Payment success , Thanks"}
