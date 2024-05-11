@@ -12,7 +12,7 @@ enum PaymentStatus{
 message PurshasedItem
 {
  int32 id=1;
- optional google.protobuff.Any props=2;
+ optional google.protobuf.Any props=2;
 }
 message Purshase
 {
@@ -37,6 +37,6 @@ message Payment {
 
 message PaymentResult{
  int32 paymentId=1;
-  google.protobuf.Any result=2;
+  optional google.protobuf.Any result=2;
 }
 
