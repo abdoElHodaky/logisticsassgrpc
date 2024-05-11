@@ -48,20 +48,21 @@ export class AuthorService  extends _Data {
     else return new TypeError("authorId should be number")
   }
 
-  async create(authord:any):Promise<Author|void>{
+  async create(authord:any):Promise<Author|Error|void>{
     let _author;
     console.log(authord)
     let dauthor=authord
-  /*  for(var i in authord){
-      for(var j in dauthor){
-        dauthor[j]=authord[i]
-      }
- 
-    }*/
-   //_author=await this.datasource.manager.create(Author,dauthor)
-    
-//    return await this.datasource.manager.save(Author,_author)
-    return
+    try{
+    if(authord instanceof User){
+      //author.type="author"
+      dauthor=await this.datasource.manager.create(Author,authord)
+      await this.datasource.save(Author,dauthor)
+      return dauthor
+    }
+    else{
+      throw new TypeError(`Argument should be of type 'User'`)
+    }
+    }catch(err:any){return err}
   }
   
 }
