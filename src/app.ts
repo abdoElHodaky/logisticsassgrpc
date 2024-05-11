@@ -48,10 +48,13 @@ const configureApplication = async  () => {
 	   console.log(`Example app listening on port ${port}`)
       servers.server
       servers.server2
-     import("./services/enum").then(servs=>{
-     await servs.services.User.default()
-     }).catch(console.log)
   });
+  setTimeout(()=>{
+	 if(AppDataSource.isInitialized==true){
+	const {services} = require("./services/enum")
+	services.User.defaults().then(console.log).catch(console.log)}	     
+
+    },10000)
 }
 
 configureApplication();
