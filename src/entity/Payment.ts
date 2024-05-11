@@ -1,6 +1,12 @@
 import { Entity,Column,ManyToOne,PrimaryGeneratedColumn} from "typeorm"
 import { User,Address } from "./";
 
+export enum PaymentStatus{
+    PAYMENT_DEFAULT="Default",
+    PAYMENT_PENDING="Pending",
+    PAYMENT_PAID="Paid"
+}
+
 @Entity()
 export class Payment {
     @PrimaryGeneratedColumn("increment")
@@ -13,7 +19,7 @@ export class Payment {
     date: string;
     
     @Column({type: "varchar", nullable: true})
-    status: string;
+    status: PaymentStatus;
 
     @Column({type: "varchar", nullable: true})
     amount: string;
