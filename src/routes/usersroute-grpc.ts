@@ -13,7 +13,7 @@ usersgrpc.get("/users",(req,res)=>{
 })
 
 megrpc.get("/me",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Profile']
+    /* 	#swagger.tags = ['GRPC.User']
         #swagger.description = 'Endpoint to get profile via grpc' */
 
 })
