@@ -17,7 +17,7 @@ message PurshasedItem
 message Purshase
 {
   int32 id=1;
-  repeated PurshasedItem=2;
+  repeated PurshasedItem items=2;
  optional  int32 userId=3;
  optional int32 paymentId=4;
  optional google.protobuff.Timestamp created_at=5;
