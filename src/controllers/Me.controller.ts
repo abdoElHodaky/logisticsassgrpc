@@ -13,7 +13,7 @@ export class GrpcMeController {
   )
   
   @Get("",[AuthenticateMiddleware])
-  async all(@Req() req:Request,@Res() res:Response ):Promise<void>{
+  async me(@Req() req:Request,@Res() res:Response ):Promise<void>{
     res.json(req.auth)
   }
 
