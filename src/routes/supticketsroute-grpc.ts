@@ -24,6 +24,9 @@ supticketsroute.post("/suptickets",(req,res)=>{
                 }
             }
         } 
+        #swagger.security = [{
+            "JWTAuth": []
+       }]
     */
     
    /* let supticket:supTicket=<supTicket>{...req.body.ticket}
