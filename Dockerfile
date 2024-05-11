@@ -9,9 +9,9 @@ RUN yarn add swagger-themes express-jwt
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
 RUN yarn install -y
-ENV GRPCPORT 3030
-ENV GRP_CPORT 50051
+ENV GRPCSOnePORT 3030
+ENV GRPCSTwoPORT 50051
 ENV PORT 4000
-EXPOSE ${GRPCPORT} ${GRP_CPORT} ${PORT}
+EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT}
 CMD ["sh","./tsrun.sh"]
 
