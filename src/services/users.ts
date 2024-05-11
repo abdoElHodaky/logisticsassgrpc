@@ -1,4 +1,4 @@
-import {FindOptionsRelationByString} from "typeorm";
+import {FindOptionsRelationByString,IsNull} from "typeorm";
 import { Injectable , Inject } from "@decorators/di";
 import { Article,User,Author } from "../entity/"
 //import { CreateArticleDto } from "../dto/create-article.dto"
@@ -52,10 +52,14 @@ export class UserService extends _Data {
     {
       username: '',
       passwordHash: '',
+      lastName:"",
+      firstName:""
     },
     {
-      username: null,
-      passwordHash:null,
+      username: IsNull(),
+      passwordHash:IsNull(),
+      firstName:IsNull(),
+      lastName:IsNull()
     },
   ],
 });
