@@ -1,8 +1,10 @@
 import { credentials } from "@grpc/grpc-js";
 import {_User } from "../protos/dist/";
-import { Res,  Controller , Get } from "@decorators/express";
+import { Req,Res,  Controller , Get ,Post } from "@decorators/express";
 import { Response  } from "express";
-
+import { Request } from "express-jwt";
+import { AuthenticateMiddleware} from "../middlewares/";
+import { services} from "../services/enum";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSOnePORT
 
@@ -24,5 +26,12 @@ export class GrpcAuthorController {
        res.json(resp)
      }
     })
+  }
+  @Post("",[AuthenticateMiddleware])
+  async create(@Req() req:Request,@Res() res:Response):Promise<void>{
+    let user=req?.auth
+    const authorS=services.Author
+    user=await authorS.create(user)
+    res.jsonp(user)
   }
 }
