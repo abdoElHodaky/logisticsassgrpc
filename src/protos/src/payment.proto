@@ -37,6 +37,6 @@ message Payment {
 
 message PaymentResult{
  int32 paymentId=1;
- optional google.protobuf.Any result=2;
+  google.protobuf.Any result=2;
 }
 
