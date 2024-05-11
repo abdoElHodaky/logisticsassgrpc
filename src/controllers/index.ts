@@ -11,8 +11,9 @@ import {GrpcAuthorController} from "./authors.grpc";
 import {GrpcUserController} from "./users.grpc";
 import {GrpcSupTicketController} from "./suptickets.grpc";
 import {PaymentController} from "./payments";
+import {GrpcMeController} from "./me";
 export const controllers=[GrpcAuthController,GrpcAuthorController,
                           GrpcArticleController,GrpcTicketController,
                           GrpcUserController,GrpcSupTicketController,
-                          PaymentController
+                          PaymentController,GrpcMeController
                          ]
