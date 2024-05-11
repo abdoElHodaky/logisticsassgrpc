@@ -10,7 +10,7 @@ export class AuthService extends _Data {
   
   constructor ( ){ super() }
 
-  async login(loginUserDto:LoginUserDto):Promise<User>{
+  async login(loginUserDto:LoginUserDto):Promise<User|Error>{
     const { username,passwordHash}=loginUserDto
     try{
      let user= await this.datasource.manager.findOneOrFail(User,{where:{
