@@ -70,13 +70,7 @@ const config = {
                  type:""
              },
              CreateAuthor:{
-                 username:"",
-                 firstname:"",
-                 lastname:"",
-                 $IDcardNumber:2980865431210,
-                 email:"",
-                 $age:0,
-                 type:"author"
+                 $type:"author"
              },
             AddArticle:{
                 cateogry:"",
