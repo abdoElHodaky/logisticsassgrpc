@@ -4,6 +4,7 @@ import { Router } from "express";
 //import { AppDataSource } from "../_datasource";
 
 export const usersgrpc=Router()
+export const megrpc=Router()
 
 usersgrpc.get("/users",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User']
@@ -11,21 +12,8 @@ usersgrpc.get("/users",(req,res)=>{
 
 })
 
-    
+megrpc.get("/me",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.Profile']
+        #swagger.description = 'Endpoint to get profile via grpc' */
 
-//usersgrpc.post("/users",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.User']
-        #swagger.description = 'Endpoint to add new User via grpc' 
-        #swagger.parameters['body'] = {
-            in: 'body',
-            description: 'Add new user.',
-            schema: { $ref: '#/components/schemas/CreateAuthor' }
-    } */
-    
-   
-//})
-
-/*articlesroute.post("/articles/create",(req,res)=>{
-    
 })
-*/
