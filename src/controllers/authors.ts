@@ -2,7 +2,7 @@ import { AuthorService} from "../services/";
 import { Article , Author } from "../entity/"
 import { AppDataSource } from "../_datasource";
 import { CreateAuthorDto } from "../dto/"
-import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
+import { Req,Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response} from "express"
 import { Request} from "express-jwt";
 import { isNumeric,nationalIdvalid } from "../helpers";
