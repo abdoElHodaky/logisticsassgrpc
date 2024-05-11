@@ -50,7 +50,7 @@ export class AuthorService  extends _Data {
 
   async create(authord:any):Promise<Author|Error|void>{
     let _author;
-    console.log(authord)
+   // console.log(authord)
     let dauthor=authord
     try{
     if(authord instanceof User){
