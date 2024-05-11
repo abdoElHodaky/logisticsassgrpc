@@ -4,7 +4,7 @@ import { Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
 
 import {Env} from "../env";
-const address = "localhost:"+Env.GRP_CPORT
+const address = "localhost:"+Env.GRPCSOnePORT
 
 @Controller("/authors")
 export class GrpcAuthorController {
