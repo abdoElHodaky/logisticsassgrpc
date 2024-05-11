@@ -47,7 +47,7 @@ export class UserService extends _Data {
     else return new TypeError("userId should be number")
   }
   async defaults():Promise<void>{
-    let users=  await this.datasource.userRepository.find({
+    let users=  await this.datasource.manager.find(User,{
   where: [
     {
       username: '',
@@ -59,7 +59,7 @@ export class UserService extends _Data {
     },
   ],
 });
- users=users.map(e=>{
+ users.forEach(e=>{
   e.username= `test_279346__${e.id}`
   e.passwordHash=`test_297438__${id}`
   e.firstName='Timber'
