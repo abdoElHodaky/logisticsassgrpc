@@ -27,7 +27,7 @@ export class PaymentController {
   }
   
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request,@Body() createpaymentdto:CreatePaymentDto  , @Res() res:Response):Promise<Payment|void>{
+  async create(@Req() req:Request,@Body() createpaymentdto:CreatePaymentDto , @Res() res:Response):Promise<Payment|void>{
     const {auth}=req
    // console.log(auth)
     //let payment=await this.paymentService.create(createpaymentdto)
