@@ -1,14 +1,25 @@
-import { Entity ,Column,PrimaryGeneratedColumn, ManyToOne,OneToOne ,ChildEntity} from "typeorm"
+import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne,OneToOne ,ChildEntity} from "typeorm"
 import { User} from "./";
 import { Payment } from "./";
 
 @Entity()
 //@ChildEntity()
 export class Purshase {
-    
+    @PrimaryGeneratedColumn("increment")
+    id: number;
    
+ 
+    @OneToMany(()=>PurshaseItem, purshase=>item.purshase) items:PurshaseItem[]
+    @ManyToOne(()=>User,user=>user.purchases) user:User;
+    @OneToOne(()=>Payment,purshase=>purchase.payment) payment:Payment
+}
 
-
- //   @ManyToOne(()=>User,purchase=>purchase.user) user:User;
-
+@Entity()
+//@ChildEntity()
+export class PurshaseItem {
+    @PrimaryGeneratedColumn("increment")
+    id: number;
+    
+    @Column("simple-json")
+    props:any
 }
