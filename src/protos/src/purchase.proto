@@ -27,8 +27,14 @@ message GetAllPurshaseRes{
  int32 userId=1;
  repeated Purshase purchases=2;
 }
-
+message CreatePurshaseReq{
+ Purchase purchase=1;
+}
+message CreatePurshaseRes{
+ Purchase purchase=1;
+}
 service PurshaseService {
 
  rpc all(GetAllPurshaseReq) returns (GetAllPurshaseRes);
+ rpc create(CreatePurshaseReq) returns (CreatePurshaseRes);
 }
