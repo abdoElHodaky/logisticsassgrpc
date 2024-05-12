@@ -25,7 +25,7 @@ megrpc.get("/me",(req,res)=>{
 
 })
 
-userspayrpc.get("/users/:userId/tickets",(req,res)=>{
+userspayrpc.get("/users/:userId/payments",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User.Payment]
         #swagger.description = 'Endpoint to get payments via grpc' 
         #swagger.parameters['userId'] = {
