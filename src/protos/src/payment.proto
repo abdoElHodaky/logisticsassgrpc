@@ -39,7 +39,7 @@ message GetAllPayReq{
 }
 message GetAllPayRes{
  int32 userId=1;
- repeated Payment payments=1
+ repeated Payment payments=2;
 }
 
 service PaymentService {
