@@ -9,6 +9,6 @@ export class Purshase {
    
 
 
-    @ManyToOne(()=>User,purchase=>purchase.user) user:User;
+ //   @ManyToOne(()=>User,purchase=>purchase.user) user:User;
 
 }
