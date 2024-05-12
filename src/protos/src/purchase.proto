@@ -20,4 +20,15 @@ message Purshase
  optional google.protobuf.Timestamp updated_at=6;
 }
 
+message GetAllPurshaseReq{
+ int32 userId=1;
+}
+message GetAllPurshaseRes{
+ int32 userId=1;
+ repeated Purshase purchases=2;
+}
 
+service PurshaseService {
+
+ rpc all(GetAllPurshaseReq) returns (GetAllPurshaseRes);
+}
