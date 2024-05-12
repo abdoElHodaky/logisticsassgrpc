@@ -43,6 +43,9 @@ const config = {
         name:"GRPC.User",description:"users endpoints via grpc"
     },{
         name:"GRPC.User.Ticket",description:"users' tickets endpoints via grpc"
+      },
+    {
+        name:"GRPC.User.Payment",description:"users' payments endpoints via grpc"
       }
     ],
     host: '',
