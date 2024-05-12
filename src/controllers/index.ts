@@ -9,7 +9,7 @@ import {GrpcMeController} from "./me";
 import {GrpcUserPaymentController} from "./users-payments.grpc";
 
 export const controllers=[GrpcAuthController,GrpcAuthorController,
-                          GrpcArticleController,GrpcTicketController,
+                          GrpcArticleController,GrpcUserTicketController,
                           GrpcUserController,GrpcSupTicketController,
                           PaymentController,GrpcMeController,
                           GrpcUserPaymentController
