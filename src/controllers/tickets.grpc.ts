@@ -8,14 +8,14 @@ import { isEmpty } from "../helpers";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSOnePORT
 
-@Controller("/users/:userId",[AuthenticateMiddleware])
+@Controller("/users/:userId/tickets",[AuthenticateMiddleware])
 export class GrpcTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
     credentials.createInsecure()
   )
   
-  @Get("/tickets")
+  @Get("")
   async all(@Res() res:Response,@Params("userId") userId:string):Promise<void>{
     console.log(userId)
     const req:_Ticket.GetAllTicketReq={
@@ -31,7 +31,7 @@ export class GrpcTicketController {
     })
   }
   
-  @Post("/tickets",[UserEqulityMiddleware])
+  @Post("",[UserEqulityMiddleware])
   async create(@Req() req:Request, @Res() res:Response, @Body() supticket:{type:string,subject:string,description:string}):Promise<void>{
     const {auth}=req
     const empty=isEmpty(supticket)
