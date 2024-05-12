@@ -8,7 +8,7 @@ import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
 const app=application();
-const port = process.env.PORT||3000
+const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const theme = new SwaggerTheme();
 
