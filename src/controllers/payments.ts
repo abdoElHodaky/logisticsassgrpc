@@ -2,6 +2,7 @@ import { UserService } from "../services/";
 import { Article ,Payment } from "../entity/"
 import { AppDataSource } from "../_datasource";
 import { AuthenticateMiddleware } from "../middlewares/"
+import { CreatePaymentDto} from "../dto/create-payment.dto";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response} from "express"
 import { Request } from "express-jwt";
@@ -23,6 +24,14 @@ export class PaymentController {
     let payments=await this.paymentService.all(auth?.id)
     if ((payments instanceof Array ) && payments.length!=0 ) return payments
     else res.jsonp({message:payments?.message})
+  }
+  
+  @Post("",[AuthenticateMiddleware])
+  async create(@Req() req:Request,@Body() createpaymentdto:CreatePaymentDto  , @Res() res:Response):Promise<Payment|void>{
+    const {auth}=req
+   // console.log(auth)
+    let payment=await this.paymentService.create(createpaymentdto)
+    return payment;
   }
 
   @Post("/:paymentId/Pay",[AuthenticateMiddleware])
