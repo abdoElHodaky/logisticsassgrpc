@@ -12,6 +12,22 @@ usersgrpc.get("/users",(req,res)=>{
 
 })
 
+usersgrpc.get("/users/:userId/payments",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.User.Payment]
+        #swagger.description = 'Endpoint to get payments of specific user' 
+        #swagger.parameters['userId'] = {
+            in: 'path',
+            description: 'id of specific user.',
+            
+    }
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
+
+    */
+})
+
+
 megrpc.get("/me",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User']
         #swagger.description = 'Endpoint to get profile of authenticated user'
