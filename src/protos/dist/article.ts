@@ -51,7 +51,7 @@ export interface GetAllRes {
   error?: Error | undefined;
 }
 
-export function createBaseArticle(): Article {
+function createBaseArticle(): Article {
   return { id: 0, imgurl: "", content: "", title: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 

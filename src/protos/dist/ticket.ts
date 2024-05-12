@@ -52,7 +52,7 @@ export interface GetAllTicketRes {
   error?: Error | undefined;
 }
 
-export function createBaseTicket(): Ticket {
+function createBaseTicket(): Ticket {
   return { id: 0, type: "", subject: "", description: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 
