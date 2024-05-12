@@ -50,12 +50,12 @@ const configureApplication = async  () => {
       servers.server
       servers.server2
   });
-  setTimeout(()=>{
+ /* setTimeout(()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
 	services.User.defaults().then(console.log).catch(console.log)}	     
 
-    },10000)
+    },10000) */
 }
 
 configureApplication();
