@@ -28,10 +28,10 @@ message GetAllPurshaseRes{
  repeated Purshase purchases=2;
 }
 message CreatePurshaseReq{
- Purchase purchase=1;
+ Purshase purchase=1;
 }
 message CreatePurshaseRes{
- Purchase purchase=1;
+ Purshase purchase=1;
 }
 service PurshaseService {
 
