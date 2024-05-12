@@ -41,8 +41,14 @@ message GetAllPayRes{
  int32 userId=1;
  repeated Payment payments=2;
 }
-
+message GetPayResultReq{
+ optional PaymentResult result=1;
+}
+message GetPayResultRes{
+  optional PaymentResult result=1;
+}
 service PaymentService {
 
  rpc all(GetAllPayReq) returns (GetAllPayRes);
+ rpc result(GetPayResultReq) returns (GetPayResultRes);
 }
