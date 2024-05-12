@@ -28,10 +28,10 @@ message PaymentResult{
 }
 
 message CreatePayReq{
-
+ Payment payment=1;
 }
 message CreatePayRes{
-
+Payment payment=1;
 }
 
 message GetAllPayReq{
