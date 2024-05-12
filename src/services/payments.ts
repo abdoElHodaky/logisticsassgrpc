@@ -34,9 +34,9 @@ export class PaymentService extends _Data {
 
  async create(createPaymentDto: CreatePaymemtDto):Promise<Payment|void>{
      
-    const {purshasedItem,userid}=createPaymentDto
+   /* const {purshasedItem,userid}=createPaymentDto
     let payment=await this.datasource.manager.create(Payment,purchasedItem)
-    return payment
+    return payment */
    
  }
 
