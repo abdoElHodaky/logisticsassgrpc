@@ -12,13 +12,13 @@ enum PaymentStatus{
 
 message Payment {
  int32 id=1;
- string title=2;
- string date=3;
+optional string title=2;
+optional string date=3;
  PaymentStatus status=4;
  int32 amount=5;
  string currency=6;
  Address address=7;
- string transR=8;
+ optional string transR=8;
  int32 userId=9;
 }
 
@@ -27,4 +27,22 @@ message PaymentResult{
   optional google.protobuf.Any result=2;
 }
 
+message CreatePayReq{
 
+}
+message CreatePayRes{
+
+}
+
+message GetAllPayReq{
+ int32 userId=1;
+}
+message GetAllPayRes{
+ int32 userId=1;
+ repeated Payment payments=1
+}
+
+service PaymentService {
+
+ rpc all(GetAllPayReq) returns (GetAllPayRes);
+}
