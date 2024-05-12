@@ -1,7 +1,7 @@
 import { _Data } from "./datasource";
 import { Payment,User} from "../entity/"
 import { PaymentStatus} from "../entity/Payment";
-import { CreatePaymemtDto } from "../dto/create-payment.dto"
+import { CreatePaymentDto } from "../dto/create-payment.dto"
 import { PayTabService } from "./";
 import { NotFoundError ,Error ,TypeError } from "common-errors";
 import { isNumeric } from "../helpers";
