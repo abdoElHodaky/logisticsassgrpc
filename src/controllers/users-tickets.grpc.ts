@@ -9,7 +9,7 @@ import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSOnePORT
 
 @Controller("/users/:userId/tickets",[AuthenticateMiddleware])
-export class GrpcTicketController {
+export class GrpcUserTicketController {
   private client =new _Ticket.TicketServiceClient(
     address,
     credentials.createInsecure()
