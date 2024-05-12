@@ -32,7 +32,7 @@ export class PaymentService extends _Data {
  //  else return new TypeError("userId should be number")
   }
 
- async create(createPaymentDto: CreatePaymemtDto):Promise<Payment|void>{
+ async create(createPaymentDto: CreatePaymentDto):Promise<Payment|void>{
      
    /* const {purshasedItem,userid}=createPaymentDto
     let payment=await this.datasource.manager.create(Payment,purchasedItem)
