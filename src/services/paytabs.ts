@@ -1,5 +1,8 @@
 const paytabs =require("paytabs_pt2");
 import { Payment , User} from "../entity/";
+import { Env } from "../env";
+const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=Env
+
 export class PayTabService{
   async values(obj:any){
       let arr=[]
@@ -67,7 +70,6 @@ export class PayTabService{
     return await {transRef:transR,code:res['response_code:'],valid:valid}
   }
  async start(){
-    const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=process.env
     await paytabs.setConfig(
       PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION
     )
