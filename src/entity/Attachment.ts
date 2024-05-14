@@ -1,7 +1,8 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
 import { User } from "./User";
-import { PurshaseItem } from "Purshase";
-type T=PurshaseItem
+import { PurshaseItem } from "./Purshase";
+import { Article } from "./Article";
+type T=PurshaseItem|Article
 
 @TableInheritance({column:{
     type:"varchar",
