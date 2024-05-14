@@ -1,4 +1,4 @@
-import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne,OneToOne ,ChildEntity} from "typeorm"
+import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne ,ChildEntity} from "typeorm"
 import { User} from "./";
 import { Payment } from "./";
 
