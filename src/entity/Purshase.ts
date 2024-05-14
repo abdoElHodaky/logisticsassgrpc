@@ -1,7 +1,7 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne ,ChildEntity} from "typeorm"
 import { User} from "./";
 import { Payment } from "./";
-import { Attachment	} from "./";
+import { Attachment } from "./";
 @Entity()
 //@ChildEntity()
 export class Purshase {
