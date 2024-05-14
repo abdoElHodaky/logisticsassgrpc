@@ -1,12 +1,15 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
 import { User } from "./User";
+import { PurshaseItem } from "Purshase";
+const type T=PurshaseItem
+
 @TableInheritance({column:{
     type:"varchar",
     name:"type"
 }
 })
 @Entity()
-export class Attachment<T extends BaseEntity> {
+export class Attachment {
     @PrimaryGeneratedColumn("increment")
     id:number
     @Column({default:""})
