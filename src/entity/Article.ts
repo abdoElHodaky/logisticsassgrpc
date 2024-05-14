@@ -1,6 +1,6 @@
-import { Entity,Column,ManyToOne,PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity,Column,ManyToOne,OneToMany,PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
 import { Author } from "./User";
-
+import { Attachment } from "./Attachment";
 @Entity()
 export class Article {
     @PrimaryGeneratedColumn("increment")
@@ -19,7 +19,7 @@ export class Article {
     cateogry: string;
 
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
-
+    @OneToMany(()=>Attachment,attachment=>attachment.entity) attachments:Attachment[]
     @CreateDateColumn(/*{type:"timestamp"}*/)
     created_at: Date;
 
