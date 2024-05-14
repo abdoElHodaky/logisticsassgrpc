@@ -3,7 +3,10 @@ import { User } from "./User";
 import { PurshaseItem } from "./Purshase";
 import { Article } from "./Article";
 type T=PurshaseItem|Article
-
+export enum AttachedEnity{
+    ARTICLE=Article,
+    ITEM=PurshaseItem
+}
 @TableInheritance({column:{
     type:"varchar",
     name:"type"
