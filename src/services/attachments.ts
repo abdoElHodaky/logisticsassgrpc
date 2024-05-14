@@ -8,10 +8,10 @@ export class AttachmentService {
     private datasource:DataSource=AppDataSource
   constructor (){}
 
-  async all():Promise<Attachment[]>
+  async all<T>():Promise<Attachment<T>[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(Attachment)
+    return await this.datasource.manager.find(Attachment<T>)
   }
 
 /* async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
