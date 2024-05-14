@@ -23,7 +23,7 @@ export class PurshaseItem {
     @Column("simple-json")
     props:any
     
-    @OneToMany(()=>Attachment, attachment=>attachment.entity) attachments:Attachment[]
+    @OneToMany(()=>Attachment, attachment=>attachment.attachedTo) attachments:Attachment[]
     
     @ManyToOne(()=>Purshase,purshase=>purshase.items) purshase:Purshase;
 }
