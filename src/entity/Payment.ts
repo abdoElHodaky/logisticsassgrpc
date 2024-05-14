@@ -33,6 +33,6 @@ export class Payment {
     @Column({type: "varchar", nullable: true})
     transR: string;
 
-    @OneToOne(()=>Purshase, purchase=>purchase.payment) purchase:Purshase
+    @OneToOne(()=>Purshase, purchase=>purchase.payment) purchase:Purshase;
     @ManyToOne(()=>User,user=>user.payments) user:User;
 }
