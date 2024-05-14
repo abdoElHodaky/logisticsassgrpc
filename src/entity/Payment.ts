@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,OneToOne,PrimaryGeneratedColumn} from "typeorm"
-import { User,Address,Purchase } from "./";
+import { User,Address,Purshase } from "./";
 
 export enum PaymentStatus{
     PAYMENT_DEFAULT="Default",
@@ -33,6 +33,6 @@ export class Payment {
     @Column({type: "varchar", nullable: true})
     transR: string;
 
-    @OneToOne(()=>Purchase, purchase=>purchase.payment) purchase:Purchase
+    @OneToOne(()=>Purchase, purchase=>purchase.payment) purchase:Purshase
     @ManyToOne(()=>User,user=>user.payments) user:User;
 }
