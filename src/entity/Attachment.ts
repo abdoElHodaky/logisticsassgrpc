@@ -6,7 +6,7 @@ import { User } from "./User";
 }
 })
 @Entity()
-export class Attachment<T> {
+export class Attachment<T extends BaseEntity> {
     @PrimaryGeneratedColumn("increment")
     id:number
     @Column({default:""})
