@@ -11,7 +11,7 @@ export class Purshase {
  
     @OneToMany(()=>PurshaseItem, item=>item.purshase) items:PurshaseItem[]
     //@ManyToOne(()=>User,user=>user.purchases) user:User;
-    @OneToOne(()=>Payment,payment=>purchase.payment) payment:Payment
+    @OneToOne(()=>Payment,payment=>payment.purchase) payment:Payment
 }
 
 @Entity()
