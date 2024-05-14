@@ -9,7 +9,7 @@ export class Purshase {
     id: number;
    
  
-    @OneToMany(()=>PurshaseItem, purshase=>item.purshase) items:PurshaseItem[]
+    @OneToMany(()=>PurshaseItem, item=>item.purshase) items:PurshaseItem[]
     //@ManyToOne(()=>User,user=>user.purchases) user:User;
     @OneToOne(()=>Payment,payment=>purchase.payment) payment:Payment
 }
