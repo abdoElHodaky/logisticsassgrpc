@@ -26,5 +26,5 @@ export class Attachment {
     source:string;
 
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User
-    @ManyToOne<T>(entity=>entity.attachments) entity:T
+    @ManyToOne<T>(attachedTo=>attachedTo.attachments) attachedTo
 }
