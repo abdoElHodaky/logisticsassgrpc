@@ -14,10 +14,10 @@ export class AttachmentController {
   constructor( ) {}
 
   @Get("")
-  async all(@Res() res:Response):Promise<Attachment[]|void> {
+  async all(@Res() res:Response):Promise<Attachment<T>[]|void> {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
-    let attachments=await this.attachmentS.all()
+    let attachments=await this.attachmentS.all<T>()
     res.json(attachments)
    }
   }
