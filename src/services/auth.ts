@@ -26,10 +26,9 @@ export class AuthService extends _Data {
 
   }
   
-  async create(user:User):Promise<User> {
+  async create(cdtouser:CreateUserDto):Promise<User|void> {
 
-    let _user;
-    _user=await this.datasource.manager.create(User,user)
+    let _user=await this.datasource.create(User,cdtouser)
     return _user
     
   }
