@@ -22,4 +22,6 @@ export class PurshaseItem {
     
     @Column("simple-json")
     props:any
+
+    @ManyToOne(()=>Purshase,purshase=>purshase.items) purshase:Purshase;
 }
