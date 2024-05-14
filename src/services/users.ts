@@ -47,31 +47,5 @@ export class UserService extends _Data {
     }
     else return new TypeError("userId should be number")
   }
-  async defaults():Promise<void>{
-    let users=  await this.datasource.manager.find(User,{
-  where: [
-    {
-      username: '',
-      passwordHash: ''
-    },
-    {
-      username: IsNull(),
-      passwordHash:IsNull()
-    },
-  ],
-});
- users.forEach(e=>{
-   if((e.firstName==""|| e.firstName==null ) && (e.lastName==""||e.lastName==null)){
-  e.firstName=`Timber_`
-  e.lastName=`Saw__${e.id}`
-   }
-  e.username= `test_279346__${e.id}`
-  e.passwordHash=`test_297438__${e.id}`
- 
- })
-    
-await this.datasource.manager.save(User,users)
-    
-  }
   
 }
