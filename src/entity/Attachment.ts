@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
 import { User } from "./User";
 @TableInheritance({column:{
     type:"varchar",
@@ -19,5 +19,5 @@ export class Attachment {
     source:string;
 
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User
-    @ManyToOne(()=>Entity,entity=>entity.attachments) entity:typeof( Entity)
+    @ManyToOne(()=>Entity,entity=>entity.attachments) entity:BaseEntity
 }
