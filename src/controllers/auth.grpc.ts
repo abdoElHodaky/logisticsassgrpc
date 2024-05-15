@@ -41,7 +41,7 @@ export class GrpcAuthController {
          passwordHash:user.passwordHash,
          type:user.type,
          id:user.id
-       }, "secret", { expiresIn: "1h"});
+       }, Env.JWT_SECRET, { expiresIn: "1h"});
        res.json({accessToken:token})
      }
         else {
