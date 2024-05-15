@@ -29,8 +29,6 @@ export class UserGrpcService  {
      let _users=users.map(_User.User.fromJSON)
      _users.forEach((user:_User.User,inx:number)=>{
        let {id,articles,tickets}=user
-       user.firstname=users[inx].firstName
-       user.lastname=users[inx].lastName
        user.createdAt=users[inx].created_at
       user.updatedAt=users[inx].updated_at
        
