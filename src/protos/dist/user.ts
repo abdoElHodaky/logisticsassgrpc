@@ -329,10 +329,10 @@ export const User = {
       obj.address = Address.toJSON(message.address);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = message.createdAt.toLocaleString();
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt = message.updatedAt.toLocaleString();
     }
     return obj;
   },
