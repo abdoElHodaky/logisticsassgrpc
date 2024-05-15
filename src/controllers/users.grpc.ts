@@ -21,13 +21,9 @@ export class GrpcUserController {
     let resl:any;
       if (err) {
         resl=err
-      //  console.error(err)
     } else {
-        resl=resp
-       // console.log(resp)
+        resl=_User.User.toJSON(resp)
      }
-     // console.log(resl?.users)
-     // res.set('Content-Type', 'application/json');
       res.jsonp(resl)
     })
   }
