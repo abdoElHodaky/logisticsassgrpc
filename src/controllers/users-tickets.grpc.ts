@@ -21,12 +21,12 @@ export class GrpcUserTicketController {
     const req:_Ticket.GetAllTicketReq={
       userId:userId
     }
-    this.client.all(req,(err:any,resp:any)=>{
+    this.client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
     } else {
-       res.json(resp)
+       res.json(_Ticket.GetAllTicketRes.toJSON(resp))
      }
     })
   }
