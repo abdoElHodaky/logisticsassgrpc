@@ -177,10 +177,10 @@ export const Ticket = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = message.createdAt.toLocaleString("en-EG");
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt = message.updatedAt.toLocaleString("en-EG");
     }
     return obj;
   },
