@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
-import { supTicket,Article,Attachment,Address,Verification,Payment ,Purchase} from "./"
+import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} from "./"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
