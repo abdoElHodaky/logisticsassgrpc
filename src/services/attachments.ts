@@ -12,11 +12,7 @@ export class AttachmentService {
   async all(type?:AttachedEnity):Promise<Attachment[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(Attachment,{
-        where:{
-            forType:type
-        }
-    })
+    return await this.datasource.manager.find(Attachment)
   }
 
 /* async create(createArticleDto:CreateArticleDto):Promise<Article|void>{
