@@ -6,6 +6,7 @@ import { Response  } from "express";
 import { LoginUserDto } from "../dto/";
 import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
+import {ValidatedMiddleware} from "../middlewares/";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSOnePORT
 var jwt = require('jsonwebtoken');
@@ -16,7 +17,7 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login")
+  @Post("/login",[ValidatedMiddleware])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
     try{
