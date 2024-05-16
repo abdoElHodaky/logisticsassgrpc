@@ -2,10 +2,10 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , B
 import { User } from "./User";
 import { PurshaseItem } from "./Purshase";
 import { Article } from "./Article";
-type T=PurshaseItem|Article
+export type Attachedtype=BaseEntity &{attachments:Attachment[]}
 export enum AttachedEnity{
-    ARTICLE=Article,
-    ITEM=PurshaseItem
+    ARTICLE="Article",
+    ITEM="PurshaseItem"
 }
 @TableInheritance({column:{
     type:"varchar",
@@ -24,11 +24,11 @@ export class Attachment {
     thumbnail:string;
     @Column({default:""})
     source:string;
-    @Column()
+    /*@Column()
     forType:T
     @Column()
-    forTypeId:number
-    
+    forTypeId:number*/
+    @ManyToOne(()=>AttachedType,attached=>attached.attachments) attached:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
