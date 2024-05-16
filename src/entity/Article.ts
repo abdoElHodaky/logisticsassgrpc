@@ -19,7 +19,7 @@ export class Article {
     cateogry: string;
 
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
-    @OneToMany(()=>Attachment,attachment=>attachment.attachedTo) attachments:Attachment[]
+   
     @CreateDateColumn(/*{type:"timestamp"}*/)
     created_at: Date;
 
