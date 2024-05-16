@@ -25,6 +25,6 @@ export class Attachment {
     @Column({default:""})
     source:string;
 
-    @ManyToOne(()=>User,uploader=>uploader.media) uploader:User
-    @ManyToOne<T>(attachedTo=>attachedTo.attachments) attachedTo
+    @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
+    @ManyToOne<T>(attachedTo=>attachedTo.attachments) attachedTo:T;
 }
