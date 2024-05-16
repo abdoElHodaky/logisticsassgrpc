@@ -1,7 +1,7 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn,AfterLoad  } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
-import { supTicket,Article,Attachment,Address,Verification,Payment } from "./"
+import { supTicket,Article,Attachment,Address,Verification,Payment ,Purchase} from "./"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -44,13 +44,8 @@ export class User {
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
-   
-   /* @AfterLoad()
-    updatalogininfo(){
-        const {username,passwordHash,id}=this
-        if(username==null || username=="") this.username=`test_279346__${id}`
-        if(passwordHash==null || passwordHash=="") this.passwordHash=`test_297438__${id}`
-    } */
+    @OneToMany(()=>Purshase,purchase=>purchase.user) purchase:Purshase[]
+    
    
 }
 
