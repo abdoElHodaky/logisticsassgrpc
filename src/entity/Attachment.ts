@@ -26,5 +26,5 @@ export class Attachment {
     source:string;
 
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
-    @ManyToOne(attachedTo=>attachedTo?.attachments) attachedTo:T;
+    @ManyToOne(attachedTo=>attachedTo?.attachments) attachedTo:PurshaseItem|Article;
 }
