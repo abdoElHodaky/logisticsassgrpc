@@ -24,9 +24,9 @@ export class Attachment {
     thumbnail:string;
     @Column({default:""})
     source:string;
-    /*@Column()
-    forType:T
     @Column()
+    forType:string
+    @Column()/*
     forTypeId:number*/
     @ManyToOne(()=>AttachedType,attached=>attached.attachments) attached:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
