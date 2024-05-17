@@ -1,8 +1,9 @@
-import { BaseEntity} from "typeorm";
-//import { Attachment} from "./Attachment";
+import { Entity} from "typeorm";
+import { Attachment} from "./Attachment";
 
 export class  TypeAttachment  { } 
-export class  AttachedType  {public  attachments:Array<any> } 
+@Entity()
+export class  AttachedType  { attachments:Attachment[]} 
 export enum AttachedEnity{
     ARTICLE="Article",
     ITEM="PurshaseItem"
