@@ -30,7 +30,7 @@ export class Attachment {
     forType:string
    /* @Column()
     forTypeId:number*/
-    @ManyToOne(()=>AttachedType,attached=>attached.attached.attachments) attachedTo:AttachedType;
+    @ManyToOne(()=>AttachedType,attached=>attached.attachments) attachedTo:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
