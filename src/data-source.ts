@@ -12,7 +12,7 @@ export const _AppDataSource = new DataSource({
     },
     synchronize: true,
     logging: false,
-    entities: [ ...entities
+    entities: [ ...(Object.valuse(entities))
                /*User,supTicket,Article,
                Verification,Author,Book,
                Payment,Purshase,PurshaseItem,
