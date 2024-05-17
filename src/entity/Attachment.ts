@@ -19,7 +19,7 @@ export class Attachment {
     @Column({default:""})
     source:string;
     
-    @ManyToOne(()=>Product,product=>product.attachments) attachedProduct:Product;
+    @ManyToOne(()=>Product,product=>product.product_attachments) attachedProduct:Product;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
