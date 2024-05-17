@@ -1,9 +1,12 @@
-import { Entity} from "typeorm";
+import { ChildEntity} from "typeorm";
 import { Attachment} from "./Attachment";
-
-export class  TypeAttachment  { } 
-@Entity()
-export class  AttachedType  { attachments:Attachment[]} 
+import { Product} from "./Product";
+@ChildEntity()
+export class  ProductAttachment extends Attachment {
+    
+    @ManyToOne(()=>Product,attached=>attached.attachments) attached:product;
+   
+} 
 export enum AttachedEnity{
     ARTICLE="Article",
     ITEM="PurshaseItem"
