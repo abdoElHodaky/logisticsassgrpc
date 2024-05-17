@@ -6,6 +6,11 @@ import { User } from "./User";
     name:"type"
 }
 })
+ @TableInheritance({column:{
+    type:"varchar",
+    name:"forType"
+}
+})   
 @Entity()
 export class Attachment {
     @PrimaryGeneratedColumn("increment")
@@ -19,7 +24,6 @@ export class Attachment {
     @Column({default:""})
     source:string;
     
-   // @ManyToOne(()=>AttachedType,attached=>attached.attachments) attached:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
