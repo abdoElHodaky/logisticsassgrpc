@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
 import { User } from "./User";
-import { Product} from "./Product";
+import { AttachedType } from "./Attached";
 @TableInheritance({column:{
     type:"varchar",
     name:"type"
@@ -19,7 +19,7 @@ export class Attachment {
     @Column({default:""})
     source:string;
     
-    @ManyToOne(()=>Product,product=>product.product_attachments) attachedProduct:Product;
+    @ManyToOne(()=>AttachedType,attached=>attached.attachments) attached:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
