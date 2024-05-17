@@ -1,14 +1,6 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
 import { User } from "./User";
-import { AttachedType} from "./Attached";
-/*import { PurshaseItem } from "./Purshase";
-import { Article } from "./Article";
-export type TypeAttachment=BaseEntity &{attachments:Attachment[]}
-export type AttachedType=BaseEntity &{attached:TypeAttachment}
-export enum AttachedEnity{
-    ARTICLE="Article",
-    ITEM="PurshaseItem"
-}*/
+import { Product} from "./Product";
 @TableInheritance({column:{
     type:"varchar",
     name:"type"
@@ -26,11 +18,8 @@ export class Attachment {
     thumbnail:string;
     @Column({default:""})
     source:string;
-    @Column()
-    forType:string
-   /* @Column()
-    forTypeId:number*/
-    @ManyToOne(()=>AttachedType,attached=>attached.attachments) attachedTo:AttachedType;
+    
+    @ManyToOne(()=>Product,product=>product.attachments) attachedProduct:Product;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
