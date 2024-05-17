@@ -2,7 +2,8 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , B
 import { User } from "./User";
 import { PurshaseItem } from "./Purshase";
 import { Article } from "./Article";
-export type Attachedtype=BaseEntity &{attachments:Attachment[]}
+export type TypeAttachment=BaseEntity &{attachments:Attachment[]}
+export type AttachedType=BaseEntity &{attached:BaseEntity}
 export enum AttachedEnity{
     ARTICLE="Article",
     ITEM="PurshaseItem"
@@ -28,7 +29,7 @@ export class Attachment {
     forType:string
     @Column()/*
     forTypeId:number*/
-    @ManyToOne(()=>AttachedType,attached=>attached.attachments) attached:AttachedType;
+    @ManyToOne(()=>TypeAttachment,attached=>attached.attachments) attached:AttachedType;
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
