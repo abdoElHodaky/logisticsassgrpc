@@ -10,6 +10,6 @@ export class Product {
     @Column("simple-json")
     specs:any
     
-    @OneToMany(()=>Attachment,attachment=>attachment.attachedTo) attachments:Attachment[];
+    @OneToMany(()=>Attachment,attachment=>attachment.attachedProduct) product_attachments:Attachment[];
     
 }
