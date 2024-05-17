@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn, OneToMany, ChildEntity} from "typeorm"
 import { User,Attachment} from "./";
-import { AttachedType } from "./Attached";
+import { ProductAttachment } from "./Attached";
 @Entity()
 //@ChildEntity()
 export class Product {
@@ -10,6 +10,6 @@ export class Product {
     @Column("simple-json")
     specs:any
     
-    @OneToMany(()=>Attachment,attachment=>attachment.attached) attachments:Attachment[];
+    @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     
 }
