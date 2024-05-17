@@ -4,7 +4,7 @@ import { Product} from "./Product";
 @ChildEntity()
 export class  ProductAttachment extends Attachment {
     
-    @ManyToOne(()=>Product,attached=>attached.attachments) attached:product;
+    @ManyToOne(()=>Product,attached=>attached.attachments) attached:Product;
    
 } 
 export enum AttachedEnity{
