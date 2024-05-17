@@ -1,8 +1,8 @@
 import { BaseEntity} from "typeorm";
-import { Attachment} from "./Attachment";
+//import { Attachment} from "./Attachment";
 
 export class  TypeAttachment  {
-    public  attachments:Attachment[]
+    public  attachments:Array<any>
                               } 
 export class  AttachedType  {
     public attached:TypeAttachment
