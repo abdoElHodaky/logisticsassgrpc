@@ -3,7 +3,7 @@ import { User } from "./User";
 import { PurshaseItem } from "./Purshase";
 import { Article } from "./Article";
 export type TypeAttachment=BaseEntity &{attachments:Attachment[]}
-export type AttachedType=BaseEntity &{attached:BaseEntity}
+export type AttachedType=BaseEntity &{attached:TypeAttachment}
 export enum AttachedEnity{
     ARTICLE="Article",
     ITEM="PurshaseItem"
