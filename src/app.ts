@@ -21,9 +21,7 @@ app.use(apiv1)
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 	}))*/
 app.use((error:any, req:any, res:any, next:any) => {
-  console.log(error)
-  console.log("Error Handling Middleware called")
-  console.log('Path: ', req.path)
+  res.status(500).jsonp(error)
   next() // (optional) invoking next middleware
 })
 
