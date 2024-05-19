@@ -16,5 +16,5 @@ ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 
 #RUN npx tsc
-CMD ["sh","./tsrun.sh"]
+CMD ["redis-server && sh","./tsrun.sh"]
 
