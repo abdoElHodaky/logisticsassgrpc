@@ -1,7 +1,7 @@
 FROM redis:7.2-alpine
 WORKDIR /app
 COPY . .
-
+CMD ["redis-server "]
 FROM node:16-alpine
 WORKDIR /app
 COPY . .
