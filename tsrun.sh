@@ -1,5 +1,7 @@
 #!/user/bin/bash
 
+sysctl vm.overcommit_memory=1
+
 npm run build
 node swagautogen.js
 
