@@ -10,11 +10,23 @@ export const _AppDataSource = new DataSource({
         type: "redis",
         options: {
             pingInterval: 3000,
-            url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
-           /* socket: {
-              //  host:"rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
-               //redisParser.parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379")
-            }*/
+            url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379",
+           lazyConnect: true,
+		showFriendlyErrorStack: true,
+		retry_strategy: (options) => {
+			const { error, total_retry_time, attempt } = options;
+			if (error?.code === 'ECONNREFUSED' || error?.code === 'NR_CLOSED') {
+				return 5000;
+			}
+			if (total_retry_time > 1000 * 15) {
+				return undefined;
+			}
+			if (attempt > 10) {
+				return undefined;
+			}
+			return Math.min(options.attempt * 1000, 5000); //in ms
+		},
+            socket:{}  
         },
         duration:300000
     },
