@@ -8,7 +8,14 @@ export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     cache: {
-        duration: 300000
+        type: "redis",
+        options: {
+            socket: {
+                host: "localhost",
+                port: 6379
+            }
+        },
+        duration:300000
     },
     synchronize: true,
     logging: false,
