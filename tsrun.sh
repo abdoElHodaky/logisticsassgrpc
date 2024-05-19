@@ -1,7 +1,8 @@
 #!/user/bin/bash
 
 if [[ "$ENABLE_OVERCOMMIT_MEMORY" == 'true' ]]; then
-	echo 1 > /proc/sys/vm/overcommit_memory
+	echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
+        sudo sysctl -p
 fi
 node swagautogen.js
 
