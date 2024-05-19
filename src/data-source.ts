@@ -11,8 +11,7 @@ export const _AppDataSource = new DataSource({
         type: "redis",
         options: {
             socket: {
-                host: "localhost",
-                port: 6379
+                host:"rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
             }
         },
         duration:300000
