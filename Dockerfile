@@ -2,7 +2,7 @@ FROM redis:7.2-alpine
 WORKDIR /app
 COPY . .
 
-From node:16-alpine
+FROM node:16-alpine
 WORKDIR /app
 COPY . .
 
