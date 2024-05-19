@@ -44,7 +44,7 @@ export class User {
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
-    @OneToMany(()=>Purshase,purchase=>purchase.user) purchase:Purshase[]
+    @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
     
    
 }
