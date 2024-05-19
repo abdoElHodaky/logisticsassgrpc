@@ -9,7 +9,6 @@ RUN yarn add swagger-themes express-jwt
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
 RUN yarn install -y
-RUN redis-server
 ENV GRPCSTwoPORT 3030
 ENV GRPCSOnePORT 50051
 ENV PORT 4000
