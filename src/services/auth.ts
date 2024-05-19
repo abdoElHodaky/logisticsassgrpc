@@ -27,13 +27,12 @@ export class AuthService extends _Data {
   }
   
   async create(cdtouser:CreateUserDto):Promise<User|void> {
-    const {email}=cdtouser
-    delete cdtouser.email
+    const {email,...user}=cdtouser
     let _user=await this.datasource.manager.create(User,{
       email:{
         value:email
       },
-      ...cdtouser
+      ...user
     })
     return _user
     
