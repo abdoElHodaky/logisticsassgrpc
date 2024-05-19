@@ -2,7 +2,6 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import * as entities from "./entity/";
-//import { Article,Attachment,User,Author,Book,supTicket,Verification,Payment,Purshase,PurshaseItem ,Product,ProductAttachment  } from "./entity/";
 const redisParser = require('redis-url-parser')
 export const _AppDataSource = new DataSource({
     type: "sqlite",
@@ -22,11 +21,7 @@ export const _AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [ ...(Object.keys(entities))
-               /*User,supTicket,Article,
-               Verification,Author,Book,
-               Payment,Purshase,PurshaseItem,
-               Attachment,Product,ProductAttachment*/
-        
+               
               ],
     migrations: [],
     subscribers: [],
