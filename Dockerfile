@@ -1,7 +1,6 @@
 FROM 7.2-alpine
 WORKDIR /app
 COPY . .
-RUN redis-server --bind 0.0.0.0
 
 FROM node:16-alpine
 WORKDIR /app
