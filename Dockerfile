@@ -1,5 +1,6 @@
 FROM node:16-alpine
 WORKDIR /app
+COPY supervisord.conf /etc/supervisord.conf
 COPY . .
 
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor
