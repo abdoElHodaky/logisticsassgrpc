@@ -8,7 +8,7 @@ export const _AppDataSource = new DataSource({
     database: "database.sqlite",
     cache: {
         type: "ioredis",
-        options: redisconn,
+        //options: redisconn,
         duration:300000
     },
     synchronize: true,
