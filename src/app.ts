@@ -21,8 +21,8 @@ app.use(apiv1)
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 	}))*/
 app.use((error:any, req:any, res:any, next:any) => {
-  res.status(500).jsonp(error)
-  next() // (optional) invoking next middleware
+  res.jsonp(error)
+  next(error) // (optional) invoking next middleware
 })
 
 const swaggerUi = require('swagger-ui-express');
