@@ -31,7 +31,7 @@ export class AuthService extends _Data {
     let _user=await this.datasource.manager.create(User,{
       email:{
         value:email
-      }
+      },
       ...cdtouser
     })
     return _user
