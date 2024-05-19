@@ -21,7 +21,7 @@ app.use(apiv1)
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 	}))*/
 app.use((error:any, req:any, res:any, next:any) => {
-  res.jsonp(error)
+ // res.jsonp(error)
   next(error) // (optional) invoking next middleware
 })
 
