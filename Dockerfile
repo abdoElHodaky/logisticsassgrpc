@@ -1,8 +1,12 @@
-FROM 7.2-alpine
+FROM redis:7.2-alpine
 WORKDIR /app
 COPY . .
 
-RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev nodejs npm yarn
+From node:16-alpine
+WORKDIR /app
+COPY . .
+
+RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev nodejs 
 RUN rm -rf package-lock.json 
 RUN yarn add ts-proto @grpc/grpc-js class-transform class-transformer class-validator paytabs_pt2 @grpc/proto-loader @grpc/reflection
 RUN yarn add swagger-themes express-jwt ioredis redis-url-parser redis-url
