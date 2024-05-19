@@ -1,6 +1,8 @@
 #!/user/bin/bash
 
-sysctl vm.overcommit_memory=1
+if [[ "$ENABLE_OVERCOMMIT_MEMORY" == 'true' ]]; then
+	echo 1 > /proc/sys/vm/overcommit_memory
+fi
 node swagautogen.js
 
 #node ./dist/grpc-reflect.js
