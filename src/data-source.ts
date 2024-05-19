@@ -2,15 +2,13 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import * as entities from "./entity/";
-const redisParser = require('redis-url-parser')
+const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379")
 export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
     cache: {
         type: "ioredis",
-        options: {
-            ...(redisParser.parse("redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"))
-        },
+        options: redisconn,
         duration:300000
     },
     synchronize: true,
