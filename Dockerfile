@@ -8,7 +8,7 @@ RUN yarn add swagger-themes express-jwt redis
 #RUN yarn add common-errors @types/common-errors express-rate-limit
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
-RUN yarn install -y
+RUN yarn install -y && sysctl vm.overcommit_memory=1
 ENV GRPCSTwoPORT 3030
 ENV GRPCSOnePORT 50051
 ENV PORT 4000
