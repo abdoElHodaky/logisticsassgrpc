@@ -3,7 +3,7 @@ import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import * as entities from "./entity/";
 //import { Article,Attachment,User,Author,Book,supTicket,Verification,Payment,Purshase,PurshaseItem ,Product,ProductAttachment  } from "./entity/";
-
+const redisParser = require('redis-url-parser')
 export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "database.sqlite",
@@ -11,7 +11,8 @@ export const _AppDataSource = new DataSource({
         type: "redis",
         options: {
             socket: {
-                host:"rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
+              //  host:"rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
+               ...(redisParser.parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"))
             }
         },
         duration:300000
