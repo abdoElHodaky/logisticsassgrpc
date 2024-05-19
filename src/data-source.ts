@@ -9,7 +9,6 @@ export const _AppDataSource = new DataSource({
     cache: {
         type: "ioredis",
         options: {
-            pingInterval: 3000,
             url:"rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379",
            
            /* socket:{
