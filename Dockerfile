@@ -16,6 +16,4 @@ ENV GRPCSOnePORT 50051
 ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 
-RUN redis-server
-CMD ["sh","./tsrun.sh"]
-
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
