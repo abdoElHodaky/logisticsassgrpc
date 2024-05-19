@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { Author } from "../entity/Author";
-import { Article } from "../entity/Article"
+import { Author } from "../entity/";
+import { Article } from "../entity/"
 import { AppDataSource } from "../_datasource";
 
 export const articlesroute=Router()
