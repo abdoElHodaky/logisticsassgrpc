@@ -1,6 +1,6 @@
 FROM node:16-alpine
 #WORKDIR /app
-COPY supervisord.conf /etc/supervisord.conf
+#COPY supervisord.conf /etc/supervisord.conf
 COPY . .
 
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor
@@ -16,4 +16,4 @@ ENV GRPCSOnePORT 50051
 ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["/usr/bin/supervisord", "-c", "./supervisord.conf"]
