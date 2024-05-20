@@ -16,4 +16,5 @@ ENV GRPCSOnePORT 50051
 ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 
-CMD ["supervisord", "-c", "./supervisord.conf"]
+RUN supervisord -c supervisord.conf
+#CMD ["supervisord", "-c", "./supervisord.conf"]
