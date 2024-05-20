@@ -15,7 +15,7 @@ ENV GRPCSTwoPORT 3030
 ENV GRPCSOnePORT 50051
 ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
-EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 
+EXPOSE ${GRPCSOnePORT} ${GRPCSTwoPORT} ${PORT} 9001
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
