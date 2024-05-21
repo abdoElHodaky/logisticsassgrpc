@@ -8,7 +8,7 @@ import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {ValidatedMiddleware} from "../middlewares/";
 import {Env} from "../env";
-const address = "localhost:"+Env.GRPCSOnePORT
+const address = "localhost:"+(Env.GRPCSOnePORT || Env.GRPCSONEPORT)
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
 export class GrpcAuthController {
