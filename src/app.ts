@@ -1,4 +1,3 @@
-
 import "reflect-metadata";
 import application from "express"
 import { json,urlencoded,Request } from "express";
@@ -21,8 +20,10 @@ app.use(apiv1)
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 	}))*/
 app.use((error:any, req:any, res:any, next:any) => {
- // res.jsonp(error)
-  next(error) // (optional) invoking next middleware
+  console.log(error)
+  console.log("Error Handling Middleware called")
+  console.log('Path: ', req.path)
+  next() // (optional) invoking next middleware
 })
 
 const swaggerUi = require('swagger-ui-express');
