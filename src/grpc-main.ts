@@ -3,7 +3,7 @@ import {server,server2} from "./grpc";
 import { loadPackageDefinition, ServerCredentials  }  from "@grpc/grpc-js";
 import { ReflectionService } from '@grpc/reflection';
 import {Env} from "./env";
-const {GRPCSOnePORT,GRPCSTwoPORT}=Env
+const {GRPCSONEPORT,GRPCSTWOPORT}=Env
 const protoLoader = require('@grpc/proto-loader');
 protoLoader.load("./src/protos/src/serverreflect.proto").then((pkg:any)=>{
   pkg=loadPackageDefinition(pkg)
