@@ -50,7 +50,7 @@ export class AuthorGrpcService  {
      }
     }
      catch(err){
-       callback({ code: status.NOT_FOUND }, {users:[],error:{
+       callback({ code: status.INTERNAL }, {users:[],error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }});
        console.error(err);
