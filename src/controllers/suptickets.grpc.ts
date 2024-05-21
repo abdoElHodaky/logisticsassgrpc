@@ -7,7 +7,7 @@ import { AuthenticateMiddleware} from "../middlewares/";
 import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {Env} from "../env";
-const address = "localhost:"+(Env.GRPCSTwoPORT || Env.GRPCSTWOPORT)
+const address = "localhost:"+ Env.GRPCSTWOPORT
 
 @Controller("/suptickets")
 export class GrpcSupTicketController {
