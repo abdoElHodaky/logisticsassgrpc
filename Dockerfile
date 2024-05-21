@@ -11,8 +11,8 @@ RUN yarn add swagger-themes express-jwt ioredis redis-url-parser redis-url
 #RUN yarn add @types/express @decorators/server  @decorators/di
 #RUN yarn add @types/cors @decorators/express mysql2
 RUN yarn install -y
-ENV GRPCSTwoPORT 3030
-ENV GRPCSOnePORT 50051
+ENV GRPCSTWOPORT 3030
+ENV GRPCSONEPORT 50051
 ENV PORT 4000
 ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSONEPORT} ${GRPCSTWOPORT} ${PORT} 9001
