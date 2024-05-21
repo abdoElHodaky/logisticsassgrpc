@@ -20,11 +20,11 @@ export class GrpcUserController {
     this.client.all(reqalluser,(err:any,resp:_User.GetAllUserRes)=>{
     let resl:any;
       if (err) {
-        resl=err
+        res.jsonp(err)
     } else {
-        resl=_User.GetAllUserRes.toJSON(resp)
+        res.json(resp)
      }
-      res.jsonp(resl)
+      //res.jsonp(resl)
     })
   }
 }
