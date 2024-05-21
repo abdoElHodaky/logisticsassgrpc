@@ -6,7 +6,7 @@ import { Request } from "express-jwt";
 import { AuthenticateMiddleware} from "../middlewares/";
 import { services} from "../services/enum";
 import {Env} from "../env";
-const address = "localhost:"+Env.GRPCSOnePORT
+const address = "localhost:"+(Env.GRPCSOnePORT || Env.GRPCSONEPORT)
 
 @Controller("/authors")
 export class GrpcAuthorController {
