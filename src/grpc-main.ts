@@ -18,11 +18,11 @@ protoLoader.load("./src/protos/src/servereflect.proto").then((pkg:any)=>{
   
 }).catch(console.log)
 
-server.bindAsync(`0.0.0.0:${GRPCSOnePORT}`, ServerCredentials.createInsecure(), () => {
+server.bindAsync(`0.0.0.0:${GRPCSONEPORT}`, ServerCredentials.createInsecure(), () => {
     console.log("Server started")
     server.start(); })
 
-server2.bindAsync(`0.0.0.0:${GRPCSTwoPORT}`, ServerCredentials.createInsecure(), () => {
+server2.bindAsync(`0.0.0.0:${GRPCSTWOPORT}`, ServerCredentials.createInsecure(), () => {
     console.log("Server2 started")
     server2.start(); })
 
