@@ -26,7 +26,7 @@ export class GrpcUserTicketController {
       res.jsonp(err);
         console.error(err)
     } else {
-       res.json(_Ticket.GetAllTicketRes.toJSON(resp))
+       res.json(resp)
      }
     })
   }
