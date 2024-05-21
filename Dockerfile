@@ -18,4 +18,5 @@ ENV ENABLE_OVERCOMMIT_MEMORY true
 EXPOSE ${GRPCSONEPORT} ${GRPCSTWOPORT} ${PORT} 9001
 #COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-CMD ["/usr/bin/supervisord","-c","./supervisord.conf"]
+#CMD ["/usr/bin/supervisord","-c","./supervisord.conf"]
+CMD ["sh","./tsrun.sh"]
