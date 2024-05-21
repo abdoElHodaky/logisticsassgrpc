@@ -9,7 +9,7 @@ import {AuthenticateMiddleware,AuthorMiddleware,ValidatedMiddleware  } from "../
 import {isEmpty} from "../helpers";
 import { Error} from "common-errors";
 import {Env} from "../env";
-const address = "localhost:"+(Env.GRPCSOnePORT || Env.GRPCSONEPORT)
+const address = "localhost:"+Env.GRPCSOnePORT || Env.GRPCSONEPORT
 
 @Controller("/articles")
 export class GrpcArticleController {
