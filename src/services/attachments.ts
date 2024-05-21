@@ -7,7 +7,7 @@ export class AttachmentService {
     private datasource:DataSource=AppDataSource
   constructor (){}
 
-  async all(type?:AttachedEnity):Promise<Attachment[]>
+  async all():Promise<Attachment[]>
   {
     //console.log(this._source)
     return await this.datasource.manager.find(Attachment)
