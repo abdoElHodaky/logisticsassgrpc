@@ -4,8 +4,11 @@ import { InjectionToken } from "@decorators/di"
 import * as entities from "./entity/";
 const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379")
 export const _AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "database.sqlite",
+    type: "mysql",
+    host:"sql.db4free.net",
+    username:"abdo_grpcendp",
+    password:"arh.27934",
+    database:"grpcendpoints",
     cache: {
         type: "ioredis",
         //options: redisconn,
@@ -13,9 +16,7 @@ export const _AppDataSource = new DataSource({
     },
     synchronize: true,
     logging: false,
-    entities: [ ...(Object.keys(entities))
-               
-              ],
+    entities: [ ...(Object.keys(entities))  ],
     migrations: [],
     subscribers: [],
     extra: {
