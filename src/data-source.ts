@@ -6,7 +6,7 @@ const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:
 export const _AppDataSource = new DataSource({
     type: "mysql",
     host:"sql.db4free.net",
-    username:"abdo_grpcendp",
+    username:"abdo_grpcendpoin",
     password:"arh.27934",
     database:"grpcendpoints",
     cache: {
