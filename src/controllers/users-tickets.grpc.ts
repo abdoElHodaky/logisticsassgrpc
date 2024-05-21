@@ -6,7 +6,7 @@ import { Request } from "express-jwt";
 import { AuthenticateMiddleware,UserEqulityMiddleware  } from "../middlewares/";
 import { isEmpty } from "../helpers";
 import {Env} from "../env";
-const address = "localhost:"+Env.GRPCSOnePORT
+const address = "localhost:"+(Env.GRPCSOnePORT || Env.GRPCSONEPORT)
 
 @Controller("/users/:userId/tickets",[AuthenticateMiddleware])
 export class GrpcUserTicketController {
