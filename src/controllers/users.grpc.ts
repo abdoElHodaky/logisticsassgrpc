@@ -5,7 +5,7 @@ import { Response  } from "express";
 import { Request } from "express-jwt";
 import {Env} from "../env";
 
-const address = "localhost:"+Env.GRPCSTwoPORT
+const address = "localhost:"+(Env.GRPCSTwoPORT||Env.GRPCSTWOPORT)
 
 @Controller("/users")
 export class GrpcUserController {
