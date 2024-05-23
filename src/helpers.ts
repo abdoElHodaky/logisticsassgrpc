@@ -12,7 +12,7 @@ export function isEmpty(obj:any):boolean{
     return Object.values(obj).some(o=> o==null || o=="")
 }
 
-export function genVerfCode(){
+export function genVerifyCode(){
     const {randomInt}=require("crypto")
     return randomInt(0, 1000000)toString().padStart(6, "0");
 }
