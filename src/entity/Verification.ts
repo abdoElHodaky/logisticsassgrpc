@@ -8,7 +8,7 @@ export class Verification {
     id:number;
     @Column({nullable:true})
     type:string
-    @Column({select:false,nullable:true})
+    @Column({select:true,nullable:true})
     verify_code:string
     @ManyToOne(()=>User,user=>user.verifications) user:User;
 }
