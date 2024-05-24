@@ -19,7 +19,8 @@ export class UserService extends _Data {
       relations:[
        "articles",
         "tickets"
-      ]
+      ],
+      cache:true
     })
   }
   
@@ -38,7 +39,8 @@ export class UserService extends _Data {
           "tickets",
           "verifications",
           "articles"
-        ]
+        ],
+        cache:true
       })
       return user }
       catch (error:any){
