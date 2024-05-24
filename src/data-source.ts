@@ -22,7 +22,7 @@ export const _AppDataSource = new DataSource({
        // connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
        // idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
-    poolSize:3
+    poolSize:13
 })
 _AppDataSource.initialize()
   .then(async () => {
