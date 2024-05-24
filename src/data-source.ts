@@ -3,9 +3,13 @@ import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
 export const _AppDataSource = new DataSource({
-    type: "sqlite",
-    database: "grpcendpoints.sqlite",
+    type: "mysql",
+    host :"db4free.net",
+    username:"abdo_grpcendpoin",
+    password:"arh.27934",
+    database: "grpcendpoints",
     cache: {
+        type:"ioredis",
         duration: 300000
     },
     synchronize: true,
@@ -14,9 +18,11 @@ export const _AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
     extra: {
-        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-        idleTimeoutMillis: Number.MAX_SAFE_INTEGER
-    }
+       connectTimeout:20000
+       // connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+       // idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+    },
+    poolSize:3
 })
 _AppDataSource.initialize()
   .then(async () => {
