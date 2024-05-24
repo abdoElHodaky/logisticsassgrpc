@@ -1,7 +1,7 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
-import { all } from "./entity/"
+import { all } from "./entity/entities-source"
 export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "grpcendpoints.sqlite",
