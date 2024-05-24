@@ -7,7 +7,8 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "ts-node src/app.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "prepare": "tsc && node swagautogen.js"
+      "prepare": "tsc "
+      "docs":"node swagautogen.js"
    },
    "author": "abdoElHodaky",
    "license": "ISC",
