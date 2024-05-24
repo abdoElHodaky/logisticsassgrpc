@@ -20,8 +20,8 @@ export const _AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
     extra: {
-        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-        idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+       // connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+       // idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     }
 })
 _AppDataSource.initialize()
