@@ -20,7 +20,8 @@ export class AuthorService  extends _Data {
       relations:{
         articles:true,
         tickets:true
-      }
+      },
+      cache:true
     })
   }
   
@@ -38,7 +39,8 @@ export class AuthorService  extends _Data {
         relations:{
           tickets:true,
           verifications:true
-        }
+        },
+       cache:true
       })
       return user
     } catch(err:any){
