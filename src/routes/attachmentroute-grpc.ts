@@ -6,7 +6,7 @@ import { booksroute } from "./bookroutes";
 export const attachmentsroute=Router()
 
 attachmentsroute.get("/attachments",(req,res)=>{
-    /* 	#swagger.tags = ['Attachment']
+    /* 	#swagger.tags = ['Grpc.Attachment']
         #swagger.description = 'Endpoint to get attachments' 
         
     
