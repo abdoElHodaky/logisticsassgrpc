@@ -19,7 +19,7 @@ export class User {
     @Column()
     age: number
 
-    @Column({nullable:false,default:2980,select:true})
+     @Column({nullable:false,default:2980865431210,select:true})
     IDcardNumber: number
 
     @Column({type: "varchar" ,nullable:true})
