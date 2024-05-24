@@ -22,7 +22,7 @@ export class UserTicketService extends _Data {
            }
             })*/
     let tickets=await this.datasource.manager.find(supTicket,{
-      where:{user:{id:id}}
+      where:{user:{id:id}},cache:true
     })
     if(tickets.length!=0) return tickets 
     else throw new NotFoundError("Tickets")
