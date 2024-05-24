@@ -7,7 +7,7 @@ RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf prot
 RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 RUN yarn add ts-proto @grpc/grpc-js class-transform class-transformer class-validator paytabs_pt2 @grpc/proto-loader @grpc/reflection
 RUN yarn add swagger-themes express-jwt ioredis  redis-url node-mailer emailjs express-prettier
-RUN npm install pm2 -g
+RUN npm install pm2 npm-run-all -g
 RUN yarn install -y
 ENV GRPCSTWOPORT 3030
 ENV GRPCSONEPORT 50051
