@@ -44,11 +44,12 @@ export const getDataSource =  (delay = 3000): Promise<DataSource> => {
   });
 };
 
-setInterval(function (){
+var interval=setInterval(function (){
 if(_AppDataSource.isConnected==false)
 {
   _AppDataSource.connect().then(e=>{
-  console.log("connected",e)
+  console.log("connected")
+	  clearInterval(interval)
   }).catch(console.log)
 }
 else{
