@@ -44,7 +44,7 @@ export const getDataSource =  (delay = 3000): Promise<DataSource> => {
   });
 };
 
-var interval=setInterval(function (){
+/*var interval=setInterval(function (){
 if(_AppDataSource.isConnected==false)
 {
   _AppDataSource.connect().then(e=>{
@@ -56,6 +56,6 @@ else{
  console.log(" already connected")
 }
 
-},500000)
+},500000)*/
 
 export const _datasource=new InjectionToken("DataSource")
