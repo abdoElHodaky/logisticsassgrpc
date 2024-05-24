@@ -9,7 +9,7 @@ export const _AppDataSource = new DataSource({
     password:"arh.27934",
     database: "grpcendpoints",
     cache: {
-        type:"ioredis",
+       // type:"ioredis",
         duration: 300000
     },
     synchronize: true,
