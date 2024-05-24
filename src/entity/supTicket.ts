@@ -20,7 +20,7 @@ export class supTicket {
     @CreateDateColumn(/*{type:"timestamp"}*/)
      created_at: Date;
 
-     @UpdateDateColumn(/*{type:"timestamp"}/*)
+     @UpdateDateColumn(/*{type:"timestamp"}*/)
      updated_at: Date;
 
 }
