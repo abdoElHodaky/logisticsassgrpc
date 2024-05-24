@@ -224,11 +224,11 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` tinyint(4) DEFAULT NULL,
+  `id` tinyint(4) ,
   `firstName` varchar(9) DEFAULT NULL,
   `lastName` varchar(9) DEFAULT NULL,
-  `age` tinyint(4) DEFAULT NULL,
-  `IDcardNumber` int(11) DEFAULT NULL,
+  `age` tinyint(4) ,
+  `IDcardNumber` int(14) ,
   `username` varchar(15) DEFAULT NULL,
   `passwordHash` varchar(15) DEFAULT NULL,
   `emailValue` varchar(13) DEFAULT NULL,
