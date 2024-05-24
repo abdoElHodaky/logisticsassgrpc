@@ -22,8 +22,8 @@ export const _AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
     extra: {
-        connectTimeout: Number.MAX_SAFE_INTEGER,
-       acquireTimeout: Number.MAX_SAFE_INTEGER
+        connectTimeout: 20000,
+       acquireTimeout: 20000
     }
 })
 _AppDataSource.initialize()
