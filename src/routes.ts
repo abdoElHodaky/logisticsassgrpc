@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { attachControllers } from '@decorators/express'
 import { controllers } from "./controllers/";
-import { attachmentsroute } from "./routes/attachmentroutes";
+import { attachmentsroute } from "./routes/attachmentroute-grpc";
 import { authorsgrpc } from "./routes/authorsroute-grpc";
 
 export const apiv1=Router();
@@ -15,4 +15,4 @@ attachControllers(apiv1,[...controllers])
 //apiv1.use(authorsgrpc)
 //attachControllers(apiv1,[ArticleController])
 //apiv1.use(articlesroute)
-//apiv1.use(attachmentsroute)
+apiv1.use(attachmentsroute)
