@@ -45,7 +45,7 @@ setInterval(function (){
 if(_AppDataSource.isConnected==false)
 {
   _AppDataSource.connect().then(e=>{
-  console.log("connected",e)
+  console.log("connected")
   }).catch(console.log)
 }
 else{
