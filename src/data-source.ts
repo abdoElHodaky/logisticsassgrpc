@@ -15,7 +15,7 @@ export const _AppDataSource = new DataSource({
         //options: redisconn,
         duration:300000
     },
-    poolSize:5,
+    poolSize:3,
     synchronize: true,
     logging: false,
     entities: [ "entity/index.ts"  ],
