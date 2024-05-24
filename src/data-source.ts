@@ -18,7 +18,7 @@ export const _AppDataSource = new DataSource({
     poolSize:5,
     synchronize: true,
     logging: false,
-    entities: [ ...(Object.keys(entities))  ],
+    entities: [ "entity/index.ts"  ],
     migrations: [],
     subscribers: [],
     extra: {
