@@ -15,14 +15,15 @@ export const _AppDataSource = new DataSource({
         //options: redisconn,
         duration:300000
     },
+    poolSize:5,
     synchronize: true,
     logging: false,
     entities: [ ...(Object.keys(entities))  ],
     migrations: [],
     subscribers: [],
     extra: {
-       // connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-       // idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+       idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     }
 })
 _AppDataSource.initialize()
