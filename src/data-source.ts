@@ -5,12 +5,12 @@ import * as entities from "./entity/";
 const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379")
 console.log(Object.keys(entities))
 export const _AppDataSource = new DataSource({
-    type: "mariadb",
-    host:"sql.db4free.net",
+    type: "sqlite",
+   /* host:"sql.db4free.net",
     port:3306,
     username:"abdo_grpcendpoin",
-    password:"arh.27934",
-    database:"grpcendpoints",
+    password:"arh.27934",*/
+    database:"grpcendpoints.sqlite",
     cache: {
        // type: "ioredis",
         //options: redisconn,
