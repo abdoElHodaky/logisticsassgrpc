@@ -15,7 +15,8 @@ export class supTicketService extends _Data {
     return await this.datasource.manager.find(supTicket,{
       relations:{
         user:true
-      }
+      },
+      cache:true
     })
   }
 
