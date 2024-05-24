@@ -9,3 +9,9 @@ export { Payment } from "./Payment"
 export { Book } from "./Book"
 export { Address } from "./Address";
 export { Product } from "./Product";
+
+export const all=[
+  Article,Attachment,Product,ProductAttachment,
+  Author,User,Purshase,PurshaseItem,Payment,
+  supTicket,Verification
+]
