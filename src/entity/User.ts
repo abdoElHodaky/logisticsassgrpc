@@ -7,7 +7,7 @@ import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} fr
 @TableInheritance({column:{type:"varchar",name:"type"}})
 export class User {
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn("increment")
     id: number
 
     @Column()
