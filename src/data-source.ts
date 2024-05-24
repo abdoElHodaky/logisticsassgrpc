@@ -5,7 +5,8 @@ import * as entities from "./entity/";
 const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379")
 export const _AppDataSource = new DataSource({
     type: "mysql",
-    host:"sql.db4free.net",
+    host:"db4free.net",
+    port:3306,
     username:"abdo_grpcendpoin",
     password:"arh.27934",
     database:"grpcendpoints",
