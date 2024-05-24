@@ -32,7 +32,7 @@ message GetAllAttachRes {
  
 }
 
-service ArticleService {
+service AttachmentService {
   rpc create(CreateReq) returns(
   CreateRes);
   rpc all(GetAllReq) returns (GetAllRes);
