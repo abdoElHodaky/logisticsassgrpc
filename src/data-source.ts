@@ -18,12 +18,12 @@ export const _AppDataSource = new DataSource({
     poolSize:3,
     synchronize: true,
     logging: false,
-    entities: [ "entity/index.ts"  ],
+    entities: [ Object.keys(entities)  ],
     migrations: [],
     subscribers: [],
     extra: {
-        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-       idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+        connectTimeout: Number.MAX_SAFE_INTEGER,
+       acquireTimeout: Number.MAX_SAFE_INTEGER
     }
 })
 _AppDataSource.initialize()
