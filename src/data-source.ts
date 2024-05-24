@@ -6,25 +6,18 @@ const redisconn = require('redis-url').parse("rediss://red-cp4soqocmk4c73eom0p0:
 console.log(Object.keys(entities))
 export const _AppDataSource = new DataSource({
     type: "sqlite",
-   /* host:"sql.db4free.net",
-    port:3306,
-    username:"abdo_grpcendpoin",
-    password:"arh.27934",*/
     database:"grpcendpoints.sqlite",
     cache: {
        // type: "ioredis",
         //options: redisconn,
         duration:300000
     },
-    poolSize:3,
     synchronize: true,
     logging: false,
     entities: [ ...(Object.keys(entities) ) ],
     migrations: [],
     subscribers: [],
     extra: {
-        connectTimeout: 20000,
-       acquireTimeout: 20000
     }
 })
 _AppDataSource.initialize()
