@@ -9,6 +9,7 @@ import { apiv1 } from "./routes";
 const app=application();
 const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
+const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
 
 app.use(urlencoded({extended: true}))
@@ -19,6 +20,11 @@ app.use(apiv1)
 	windowMs: 15 * 60 * 1000, // 15 minutes
 	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 	}))*/
+app.use(
+  expressPrettier(
+    { alwaysOn: true }
+  )
+)
 app.use((error:any, req:any, res:any, next:any) => {
   console.log(error)
   console.log("Error Handling Middleware called")
