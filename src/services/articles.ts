@@ -15,7 +15,8 @@ export class ArticleService extends _Data {
     return await this.datasource.manager.find(Article,{
       relations:{
         author:true
-      }
+      },
+      cache:true
     })
   }
 
