@@ -3,5 +3,5 @@
 npm run build && node swagautogen.js
 
 #node ./dist/grpc-reflect.js
-node ./dist/app.js 
+pm2-runtime start "./dist/app.js" -i 0
 #redis-server
