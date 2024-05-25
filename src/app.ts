@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import redis from "redis";
+import Redis from "ioredis";
 import application from "express"
 import { json,urlencoded,Request } from "express";
 //import { rateLimit } from 'express-rate-limit'
@@ -13,7 +13,7 @@ const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
-let cacheWithRedis = apicache.options({ redisClient: redis.createClient() }).middleware
+let cacheWithRedis = apicache.options({ redisClient: new Redis() }).middleware
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
