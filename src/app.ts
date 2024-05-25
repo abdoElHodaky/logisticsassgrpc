@@ -3,6 +3,7 @@ import application from "express"
 import { json,urlencoded,Request } from "express";
 //import { rateLimit } from 'express-rate-limit'
 import cors from "cors";
+import apicache from 'apicache'
 import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
@@ -11,10 +12,12 @@ const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
+let cacheWithRedis = apicache.options({ redisClient: redis.createClient() }).middleware
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
+
 app.use(apiv1)
 /*app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
