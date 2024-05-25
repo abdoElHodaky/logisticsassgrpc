@@ -6,7 +6,7 @@ export const _AppDataSource = new DataSource({
     type: "sqlite",
     database: "grpcendpoints.sqlite",
     cache: {
-       // type:"ioredis",
+        type:"ioredis",
         duration: 300000
     },
     //metadataTableName:"typeorm-metadata",
