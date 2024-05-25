@@ -18,7 +18,7 @@ let cacheWithRedis = apicache.options({ redisClient: new Redis() }).middleware
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
-app.use(cacheWithRedis("15 minutes"))
+app.use(cacheWithRedis("15 minutes",(req:any,res:any)=>res.statusCode===200)
 app.use(apiv1)
 /*app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
