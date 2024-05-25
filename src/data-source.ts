@@ -12,6 +12,7 @@ export const _AppDataSource = new DataSource({
        // type:"ioredis",
         duration: 300000
     },
+    metadataTableName:"typeorm-metadata",
     synchronize: true,
     logging: false,
     entities: [  ...all  ],
