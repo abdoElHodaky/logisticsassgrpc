@@ -3,16 +3,13 @@ import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
 export const _AppDataSource = new DataSource({
-    type: "mysql",
-    host :"db4free.net",
-    username:"abdo_grpcendpoin",
-    password:"arh.27934",
-    database: "grpcendpoints",
+    type: "sqlite",
+    database: "grpcendpoints.sqlite",
     cache: {
        // type:"ioredis",
         duration: 300000
     },
-    metadataTableName:"typeorm-metadata",
+    //metadataTableName:"typeorm-metadata",
     synchronize: true,
     logging: false,
     entities: [  ...all  ],
