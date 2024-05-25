@@ -15,7 +15,8 @@ let databaseopts={
     },
 }
 export const _AppDataSource = new DataSource({
-    ...databaseopts,
+    type:"sqlite",
+    database:"grpcendpoints.sqlite",
     cache: {
         type:"ioredis",
         duration: 300000
@@ -26,7 +27,11 @@ export const _AppDataSource = new DataSource({
     entities: [  ...all  ],
     migrations: [],
     subscribers: [],
-    
+    extra: {
+       //connectTimeout:20000
+        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+        idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+    },
     poolSize:13
 })
 _AppDataSource.initialize()
