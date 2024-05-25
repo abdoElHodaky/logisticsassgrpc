@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import redis from "redis";
+import * as redis from "redis";
 import application from "express"
 import { json,urlencoded,Request } from "express";
 //import { rateLimit } from 'express-rate-limit'
