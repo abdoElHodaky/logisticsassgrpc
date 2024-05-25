@@ -16,9 +16,9 @@ export const _AppDataSource = new DataSource({
     migrations: [],
     subscribers: [],
     extra: {
-       connectTimeout:20000
-       // connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-       // idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+       //connectTimeout:20000
+       connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+        idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
     poolSize:13
 })
