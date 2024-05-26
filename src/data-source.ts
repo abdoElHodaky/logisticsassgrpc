@@ -2,18 +2,19 @@ import "reflect-metadata"
 import { DataSource } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
-/*let databaseopts={
+import { Env } from "./env";
+let databaseopts={
     type: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"sqlite":Env.DS_TYPE,
      host:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_HOST,
      username:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_USERNAME,
      password: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_PASSWORD,
      database: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"grpcendpoints.sqlite":"grpcendpoints",
      extra: {
-       //connectTimeout:20000
+      // connectTimeout:20000,
         connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
         idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
-}*/  
+}
 export const _AppDataSource = new DataSource({
     type:"sqlite",
     database:"grpcendpoints.sqlite",
