@@ -18,9 +18,9 @@ export class supTicket {
 
     @ManyToOne(()=>User,user=>user.tickets) user:User
     @CreateDateColumn(/*{type:"timestamp"}*/)
-     created_at: Date;
+     createdAt: Date;
 
      @UpdateDateColumn(/*{type:"timestamp"}*/)
-     updated_at: Date;
+     updatedAt: Date;
 
 }
