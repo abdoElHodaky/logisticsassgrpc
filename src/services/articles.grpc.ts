@@ -16,7 +16,7 @@ export class ArticleGrpcService  {
      //console.log(articles)
      let _articles=articles.map(_Article.Article.fromJSON)
      _articles.forEach((a:_Article.Article,inx:number)=>{  
-       let {author,created_at,updated_at}=articles[inx]
+       let {author,createdAt,updatedAt}=articles[inx]
        a.userId=author.id
       // a.createdAt=created_at
       // a.updatedAt=updated_at
