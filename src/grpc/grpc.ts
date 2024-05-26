@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import { Server, ServerCredentials, loadPackageDefinition }  from "@grpc/grpc-js";
-import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
-import { addServiceToServer} from "./grpc-util";
-import { services } from "./services/enum";
+import { _Article,_Ticket,_Auth ,_User} from "../protos/dist/";
+import { addServiceToServer} from "./util";
+import { services } from "../services/enum";
 
 export const server = new Server()
 export const server2 = new Server()
