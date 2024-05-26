@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , BaseEntity } from "typeorm"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , CreateDateColumn, UpdateDateColumn } from "typeorm"
 import { User } from "./User";
 //import { AttachedType } from "./Attached";
 @TableInheritance({column:{
@@ -23,7 +23,10 @@ export class Attachment {
     thumbnail:string;
     @Column({default:""})
     source:string;
-    
+    @CreateDateColumn()
+    createdAt:Date 
+    @UpdateDateColumn()
+    updatedAt:Date
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
