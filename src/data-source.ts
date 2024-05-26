@@ -5,10 +5,10 @@ import { all } from "./entity/entities-source"
 import { Env } from "./env";
 let databaseopts={
     type: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"sqlite":Env.DS_TYPE,
-     host:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_HOST,
-     username:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_USERNAME,
-     password: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":Env.DS_PASSWORD,
-     database: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"grpcendpoints.sqlite":"grpcendpoints",
+     host:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":(Env.DS_HOST!=undefined)?Env.DS_HOST:"",
+     username:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":(Env.DS_USERNAME!=undefined)?Env.DS_USERNAME:"",
+     password: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":(Env.DS_PASSWORD!=undefined)?Env.DS_PASSWORD:"",
+     database: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"grpcendpoints.sqlite":(Env.DS_DATABSE!=undefined)?Enc.DS_DATABASE:"grpcendpoints",
      extra: {
       // connectTimeout:20000,
         connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
