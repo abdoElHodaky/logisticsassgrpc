@@ -32,7 +32,14 @@ export class AuthorGrpcService  {
         author.createdAt=authors[inx].created_at
         author.updatedAt=authors[inx].updated_at
         articles.sort((a,b)=>b.id-a.id)
-        if(articles.length!=0){ articles.forEach(a=>a.userId=id)}
+        if(articles.length!=0){ 
+          articles.forEach((a,inx)=>{
+            a.userId=id
+            a.created_at=articles[inx].created_at
+            a.updated_at=articles[inx].updated_at 
+          })
+          
+        }
         
       })
       const res:_User.GetAllUserRes={
