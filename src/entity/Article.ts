@@ -21,8 +21,8 @@ export class Article {
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
    
     @CreateDateColumn(/*{type:"timestamp"}*/)
-    created_at: Date;
+    createdAt: Date;
 
     @UpdateDateColumn(/*{type:"timestamp"}*/)
-    updated_at: Date;
+    updatedAt: Date;
 }
