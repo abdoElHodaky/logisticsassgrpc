@@ -18,14 +18,14 @@ export class supTicketGrpcService  {
      let _tickets=tickets.map(_Ticket.Ticket.fromJSON)
      //console.log(tickets)
     _tickets.forEach((a:_Ticket.Ticket,inx:number)=>{
-     let {user,created_at,updated_at}=tickets[inx]
+     let {user,createdAt,updatedAt}=tickets[inx]
      if(user!=null) {
       a.userId=user.id
       //console.log(a.createdAt instanceof Date)
      }
     else { a.userId = Math.floor(Math.random()*21) }
-      a.createdAt=created_at
-      a.updatedAt=updated_at
+     // a.createdAt=created_at
+      //a.updatedAt=updated_at
      })
      let res:_Ticket.GetAllTicketRes={tickets:_tickets,error:{
        Message:"",type:"",name:""
