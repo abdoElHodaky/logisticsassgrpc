@@ -3,7 +3,7 @@ FROM node:18-alpine
 COPY . .
 #COPY supervisord.conf /etc/supervisord.conf
 
-RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor
+RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor sudo
 RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 RUN yarn add ts-proto @grpc/grpc-js class-transform class-transformer class-validator paytabs_pt2 @grpc/proto-loader @grpc/reflection
 #RUN yarn add swagger-themes express-jwt  redis  node-mailer emailjs express-prettier @types/apicache apicache
