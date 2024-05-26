@@ -31,8 +31,8 @@ export class UserGrpcService  {
        let {id,articles,tickets}=user
        user.firstname=users[inx].firstName
        user.lastname=users[inx].lastName
-       user.createdAt=users[inx].created_at
-      user.updatedAt=users[inx].updated_at
+      // user.createdAt=users[inx].created_at
+     // user.updatedAt=users[inx].updated_at
        
       if(articles.length!=0){ 
         articles.sort((a,b)=>b.id-a.id)
