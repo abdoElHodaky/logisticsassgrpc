@@ -1,13 +1,31 @@
 import "reflect-metadata";
 import { Server, ServerCredentials, loadPackageDefinition }  from "@grpc/grpc-js";
 import { _Article,_Ticket,_Auth ,_User} from "./protos/dist/";
-//mport  * as protoLoader  from "@grpc/proto-loader";
-//import { ReflectionService } from '@grpc/reflection';
+import { addServiceToServer} from "grpc-util";
 import { services } from "./services/enum";
 
 export const server = new Server()
 export const server2 = new Server()
-server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
+addServiceToServer(server,[
+  _Article.ArticleServiceService,
+  _Ticket.TicketServiceService,
+  _Auth.AuthServiceService,
+  _User.UserServiceService
+],[
+  services.Grpc_Article.SrvImpl,
+  services.Grpc_Ticket.SrvImpl,
+  services.Grpc_Auth.SrvImpl,
+  services.Grpc_Author.SrvImpl
+])
+addServiceToServer(server2,[
+  _User.UserServiceService,
+  _Ticket.TicketServiceService
+],[
+  services.Grpc_User.SrvImpl,
+  services.Grpc_supTicket.SrvImpl
+])
+
+/*server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
 server.addService(_Ticket.TicketServiceService,services.Grpc_Ticket.SrvImpl)
 server.addService(_Auth.AuthServiceService,services.Grpc_Auth.SrvImpl)
 server.addService(_User.UserServiceService,services.Grpc_Author.SrvImpl)
