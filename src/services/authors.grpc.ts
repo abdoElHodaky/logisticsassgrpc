@@ -30,14 +30,14 @@ export class AuthorGrpcService  {
       _authors.forEach((author:_User.User,inx)=>{
         let {id,articles}=author
         let _articles=authors[inx].articles
-        author.createdAt=authors[inx].created_at
-        author.updatedAt=authors[inx].updated_at
+        //author.createdAt=authors[inx].created_at
+       // author.updatedAt=authors[inx].updated_at
         articles.sort((a,b)=>b.id-a.id)
         if(articles.length!=0){ 
           articles.forEach((a,inx)=>{
             a.userId=id
-            a.createdAt=_articles[inx].created_at
-            a.updatedAt=_articles[inx].updated_at 
+           // a.createdAt=_articles[inx].created_at
+          //  a.updatedAt=_articles[inx].updated_at 
           })
           
         }
