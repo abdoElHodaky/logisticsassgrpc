@@ -5,9 +5,11 @@ import {
 
 export function addServiceToServer(
   server:Server,
-  servicesImpls:Array<UntypedServiceImplementation>
+  services:Array<any>,
+  Impls:Array<UntypedServiceImplementation>
 ){
-  for (var impl of servicesImpls){
-    
+  for (var i in Impls){
+    server.addService(services[i],Impls[i])
   }
+  return server
 }
