@@ -15,18 +15,25 @@ import { User } from "./User";
 export class Attachment {
     @PrimaryGeneratedColumn("increment")
     id:number
+    
     @Column({default:""})
     title: string;
+    
     @Column({default:""})
     description:string;
+    
     @Column({default:""})
     thumbnail:string;
+    
     @Column({default:""})
     source:string;
-    @CreateDateColumn()
-    createdAt:Date 
-    @UpdateDateColumn()
+    
+    @CreateDateColumn({type:"date"})
+    createdAt:Date
+    
+    @UpdateDateColumn({type:"date"})
     updatedAt:Date
+    
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
    
 }
