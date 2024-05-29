@@ -16,8 +16,8 @@ export class Affiliate extends User {
     @Colummn()
     referralCode:string
 
-   @Colummn()
-   referedBy:string
+    @Colummn()
+    referedBy:string
 
     @BeforeInstert()
     setCode(){
