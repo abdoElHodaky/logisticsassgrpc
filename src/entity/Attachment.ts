@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, TableInheritance , CreateDateColumn, UpdateDateColumn } from "typeorm"
-import { User } from "./User";
+import { User } from "./";
 //import { AttachedType } from "./Attached";
 @TableInheritance({column:{
     type:"varchar",
