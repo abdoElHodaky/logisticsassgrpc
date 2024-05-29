@@ -1,5 +1,5 @@
 import { _AppDataSource } from "./data-source"
-import { User } from "./entity/User"
+import { User } from "./entity/"
 
 _AppDataSource.initialize().then(async () => {
 
