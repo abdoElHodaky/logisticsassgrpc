@@ -19,7 +19,7 @@ export const _AppDataSource = new DataSource({
     type:"sqlite",
     database:"grpcendpoints.sqlite",
     cache: {
-        type: "redis",
+      //  type: "redis",
         /*options: {
             socket: {
                 host: "localhost",
