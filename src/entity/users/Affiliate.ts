@@ -1,6 +1,9 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { User} from "./"
+import { Entity, PrimaryGeneratedColumn, Column, 
+        OneToMany, TableInheritance ,ChildEntity,CreateDateColumn,
+        UpdateDateColumn ,BeforeInsert } from "typeorm"
+import { User} from "./";
+import { genCode} from "../../helpers";
 
 @ChildEntity()
 export class Affiliate extends User {
@@ -10,4 +13,11 @@ export class Affiliate extends User {
 
     @ManyToOne(()=>User,referedBy=>referedBy.referals) referedBy:User
     */
+    @Colummn()
+    code:string
+
+    @BeforeInstert()
+    setCode(){
+        this.code=genCode()
+    }
 }
