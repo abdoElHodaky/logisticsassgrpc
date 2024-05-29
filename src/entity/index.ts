@@ -1,5 +1,5 @@
 export { Article } from "./Article"
-export { User ,Author,Related } from "./users/"
+export { User ,Author,Affiliate } from "./users/"
 export { Purshase,PurshaseItem } from "./Purshase"
 export { supTicket } from "./supTicket"
 export { Attachment } from "./Attachment"
