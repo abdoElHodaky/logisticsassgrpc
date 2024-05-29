@@ -23,7 +23,7 @@ export class GrpcAuthorController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const {...users}=_User.GetAllUserRes.toJSON(resp)
+        const users=_User.GetAllUserRes.toJSON(resp)
        res.json(users)
      }
     })
