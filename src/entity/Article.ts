@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,OneToMany,PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
-import { Author } from "./User";
+import { Author } from "./users/";
 import { Attachment } from "./Attachment";
 @Entity()
 export class Article {
