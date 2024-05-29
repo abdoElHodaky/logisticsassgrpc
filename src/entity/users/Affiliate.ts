@@ -26,6 +26,6 @@ export class Affiliate extends User {
 
     @BeforeInstert()
     setCode(){
-        this.code=genCode()
+        this.referralCode=genCode()
     }
 }
