@@ -1,6 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { User,Article} from "../"
+import { User} from "./";
+import {Article} from "../"
 
 @ChildEntity()
 export class Author extends User {
