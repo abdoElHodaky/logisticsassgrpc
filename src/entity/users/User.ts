@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
-import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} from "./"
+import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} from "../"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -50,12 +50,3 @@ export class User {
 }
 
 
-@ChildEntity()
-export class Author extends User {
-    
-    @Column({default:"author"})
-    type:string
-
-    @OneToMany(()=>Article,article=>article.author) articles:Article[];
-
-}
