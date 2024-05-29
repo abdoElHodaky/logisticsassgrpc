@@ -14,7 +14,10 @@ export class Affiliate extends User {
     @ManyToOne(()=>User,referedBy=>referedBy.referals) referedBy:User
     */
     @Colummn()
-    code:string
+    referralCode:string
+
+   @Colummn()
+   referedBy:string
 
     @BeforeInstert()
     setCode(){
