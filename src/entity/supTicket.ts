@@ -1,5 +1,5 @@
 import { Entity ,Column,PrimaryGeneratedColumn, ManyToOne, CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { User } from "./User"
+import { User } from "./users/"
 
 @Entity()
 export class supTicket {
