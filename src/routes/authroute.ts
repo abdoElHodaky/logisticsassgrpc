@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { AppDataSource } from "../_datasource";
-import { User } from "../entity/User";
+import { User } from "../entity/";
 export const authroute=Router();
 
 authroute.post("/auth/register",(req,res)=>{
