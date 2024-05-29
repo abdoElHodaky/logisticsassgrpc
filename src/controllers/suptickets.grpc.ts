@@ -28,7 +28,7 @@ export class GrpcSupTicketController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const {...tickets}=_Ticket.GetAllTicketRes.toJSON(resp)
+        const tickets=_Ticket.GetAllTicketRes.toJSON(resp)
        // console.log(tickets)
        res.json(tickets)
      }
