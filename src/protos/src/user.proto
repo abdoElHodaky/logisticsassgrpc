@@ -26,8 +26,10 @@ message Email{
   repeated Ticket tickets=11;
   repeated Payment payments=12;
   Address address=13;
- optional google.protobuf.Timestamp created_at = 14;
- optional google.protobuf.Timestamp updated_at = 15;
+  optional string referedBy=14;
+  optional string referralCode=15;
+  optional google.protobuf.Timestamp created_at = 16;
+  optional google.protobuf.Timestamp updated_at = 17;
  
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
