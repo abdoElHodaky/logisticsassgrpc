@@ -3,11 +3,11 @@ import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,Ch
 import { User} from "./"
 
 @ChildEntity()
-export class Related extends User {
-    
-   /* @Column({default:"author"})
+export class Affiliate extends User {
+    /*
+    @Column({default:"marketer"})
     type:string
 
+    @ManyToOne(()=>User,referedBy=>referedBy.referals) referedBy:User
     */
-
 }
