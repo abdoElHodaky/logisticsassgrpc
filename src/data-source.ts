@@ -1,5 +1,5 @@
 import "reflect-metadata"
-import { DataSource } from "typeorm"
+import { DataSource,DataSourceOptions } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
 import { Env } from "./env";
@@ -40,7 +40,7 @@ export const _AppDataSource = new DataSource({
         idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
     poolSize:13
-})
+} as DataSourceOptions )
 _AppDataSource.initialize()
   .then(async () => {
     console.log("Connection initialized with database...");
