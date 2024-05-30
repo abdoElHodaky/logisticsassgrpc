@@ -23,7 +23,7 @@ export class GrpcUserController {
         res.jsonp(err)
     } else {
         const users=_User.GetAllUserRes.toJSON(resp)
-        res.json(resp)
+        res.json(users)
      }
       //res.jsonp(resl)
     })
