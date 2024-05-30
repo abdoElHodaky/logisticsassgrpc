@@ -11,6 +11,6 @@ export class ValidatedMiddleware implements Middleware {
     console.log(errors)
     if(errors?.length!=0) 
       {res.status(400).jsonp(errors)}
-    else next(req);
+    else next();
   }
 }
