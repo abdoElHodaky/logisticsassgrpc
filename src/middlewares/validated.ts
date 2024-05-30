@@ -7,10 +7,7 @@ export class ValidatedMiddleware implements Middleware {
     const {body}= req
     //console.log(body)
    // if(typeof(req?.body))
-    const errors=await validate(body)
-    console.log(errors)
-    if(errors?.length!=0) 
-      {res.status(400).jsonp(errors)}
-    else next();
+    validate(body).then(console.log).catch(console.log)
+    next()
   }
 }
