@@ -1,6 +1,6 @@
 import {
   Article,Attachment,Product,ProductAttachment,
-  Author,User,Related,Purshase,
+  Author,User,Affiliate,Purshase,
   PurshaseItem,Payment,supTicket,Verification} from "./";
 
 export const all=[
