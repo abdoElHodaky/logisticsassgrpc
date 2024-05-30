@@ -24,7 +24,7 @@ import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
 import { Payment } from "./payment";
 import { Ticket } from "./ticket";
-
+import {dateToReadable} from "../../grpc/util";
 export const protobufPackage = "";
 
 export interface User {
@@ -329,10 +329,10 @@ export const User = {
       obj.address = Address.toJSON(message.address);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toLocaleString("en-EG");
+      obj.createdAt = dateToReadable(message.createdAt)//toLocaleString("en-EG");
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toLocaleString("en-EG");
+      obj.updatedAt = dateToReadable(message.updatedAt)//toLocaleString("en-EG");
     }
     return obj;
   },
