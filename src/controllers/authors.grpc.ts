@@ -24,7 +24,7 @@ export class GrpcAuthorController {
         console.error(err)
     } else {
         const users=_User.GetAllUserRes.toJSON(resp)
-       res.json(users)
+       res.json(resp)
      }
     })
   }
