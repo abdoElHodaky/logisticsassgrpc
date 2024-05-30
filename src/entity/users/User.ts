@@ -5,6 +5,9 @@ import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} fr
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
+@TableInheritance({column:{type:"varchar",name:"referralCode"}})
+@TableInheritance({column:{type:"varchar",name:"referedBy"}})
+
 export class User {
 
     @PrimaryGeneratedColumn("increment")
