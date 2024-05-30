@@ -14,9 +14,10 @@ export function addServiceToServer(
   return server
 }
 
-export dateToReadable(date:Date){
+export function dateToReadable(date:Date){
   var moment = require('moment');
   require('moment/locale/ar');
   let m=moment(date)
   console.log(moment.locale());
+  return m.format("dddd, MMMM Do YYYY, h:mm:ss a")
 }
