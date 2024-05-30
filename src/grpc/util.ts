@@ -13,3 +13,10 @@ export function addServiceToServer(
   }
   return server
 }
+
+export dateToReadable(date:Date){
+  var moment = require('moment');
+  require('moment/locale/eg');
+  let m=moment(date)
+  console.log(moment.locale());
+}
