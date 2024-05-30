@@ -24,7 +24,7 @@ export class Affiliate extends User {
     @Column()
     referedBy:string
 
-    @BeforeInstert()
+    @BeforeInsert()
     setCode(){
         this.referralCode=genCode()
     }
