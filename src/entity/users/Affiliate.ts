@@ -1,6 +1,6 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, 
-        OneToMany, TableInheritance ,ChildEntity,CreateDateColumn,
+        OneToMany,ManyToOne, TableInheritance ,ChildEntity,CreateDateColumn,
         UpdateDateColumn ,BeforeInsert, JoinColumn  } from "typeorm"
 import { User} from "./";
 import { genCode} from "../../helpers";
