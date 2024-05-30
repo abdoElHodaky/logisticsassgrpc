@@ -18,10 +18,10 @@ export class Affiliate extends User {
     ])
     related:User
         
-    @Column()
+    @Column({nullable:false, default:""})
     referralCode:string
 
-    @Column()
+    @Column({nullable:false, default:""})
     referedBy:string
 
     @BeforeInsert()
