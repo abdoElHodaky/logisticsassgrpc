@@ -30,7 +30,7 @@ export class GrpcSupTicketController {
     } else {
         const tickets=_Ticket.GetAllTicketRes.toJSON(resp)
        // console.log(tickets)
-       res.json(resp)
+       res.json(tickets)
      }
     })
   }
