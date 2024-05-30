@@ -8,6 +8,7 @@ import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {ValidatedMiddleware} from "../middlewares/";
 import {Env} from "../env";
+import {validateOrReject} from "class-validator";
 const address = "localhost:"+Env.GRPCSONEPORT
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
@@ -17,12 +18,13 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[ValidatedMiddleware])
+  @Post("/login",[])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
     try{
+     const err= await validateOrReject(loginUserDto)
      const empty=isEmpty(loginUserDto)
-     console.log(empty)
+     console.log(empty,err)
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
