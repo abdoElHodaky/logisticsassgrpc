@@ -18,13 +18,13 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[])
+  @Post("/login",[ ValidatedMiddleware ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
     try{
     // validate(loginUserDto).then(console.log).catch(console.log)
      const empty=isEmpty(loginUserDto)
-    console.log(await loginUserDto._validate())
+    //console.log(await loginUserDto._validate())
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
