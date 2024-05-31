@@ -8,6 +8,7 @@ export class ValidatedLogin implements Middleware {
   async use(req: JWTRequest, res: Response, next: NextFunction): Promise<void> {
     const {body}= req
    try{
+     console.log(typeof(body))
     const errs=await ValidatorDto(LoginUserDto,body)
     if(errs=={}){
       next()
