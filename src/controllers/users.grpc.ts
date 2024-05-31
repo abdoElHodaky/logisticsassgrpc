@@ -23,13 +23,9 @@ export class GrpcUserController {
         res.jsonp(err)
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
-        let users=resl?.users.map((user:object,inx:number)=>{
-          const {createdAt,updatedAt,...rest}=user
-          return  {
-            createdAt:dateToReadable(createdAt),
-            updatedAt:dateToReadable(updatedAt),
-            ...rest
-           }
+        resl?.users.forEach((user:object,inx:number)=>{
+        user.createdAt=dateToReadable(createdAt),
+        user.updatedAt=dateToReadable(updatedAt)
         })
         res.json({
           users,error:resl?.error
