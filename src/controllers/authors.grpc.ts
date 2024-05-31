@@ -6,6 +6,7 @@ import { Request } from "express-jwt";
 import { AuthenticateMiddleware} from "../middlewares/";
 import { services} from "../services/enum";
 import {Env} from "../env";
+import {dateToReadable} from "../grpc/util";
 const address = "localhost:"+ Env.GRPCSONEPORT
 
 @Controller("/authors")
@@ -23,8 +24,16 @@ export class GrpcAuthorController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const users=_User.GetAllUserRes.toJSON(resp)
-       res.json(users)
+        const {users,error}=_User.GetAllUserRes.toJSON(resp)
+        res.json({
+          users:users.map(({createdAt,upatedAt,...user},inx)=>{
+          return  {
+            createdAt:dateToReadable(createdAt),
+            updatedAt:dateToReadable(updatedAt),
+            ...user
+          }
+          }),error
+        })
      }
     })
   }
