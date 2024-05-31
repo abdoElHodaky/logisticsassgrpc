@@ -8,7 +8,7 @@ import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {ValidatedLogin} from "../middlewares/";
 import {Env} from "../env";
-import {validateOrReject,validate} from "class-validator";
+//import {validateOrReject,validate} from "class-validator";
 const address = "localhost:"+Env.GRPCSONEPORT
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
