@@ -24,6 +24,7 @@ export class GrpcAuthController {
     try{
     const empty=isEmpty(loginUserDto)
     const errors=await validatorDto(LoginUserDto,loginUserDto)
+      console.log(errors)
     if(errors=={}){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
@@ -55,8 +56,8 @@ export class GrpcAuthController {
     }catch(err:any){
       console.log(err)
       //const error=new Error("Login Information not provided or not existed",err)
-      res.status(400).jsonp({message:err?.message,Mistmatchs:errors.values()})
-    }
+      res.status(400).json({message:errors.values()})
+      }
   } 
   else{
     throw new Error("Login Information not provided or not existed")
@@ -65,7 +66,7 @@ export class GrpcAuthController {
    }
   catch(err:any){
    // const error=new Error("Login Information not provided or not existed",err)
-    res.status(400).jsonp({message:err?.message,Mistmatchs:errors.values()})
+    res.status(400).json({message:errors.values()})
   }
 }
  
