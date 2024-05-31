@@ -23,7 +23,7 @@ export class GrpcAuthController {
   const secret=Env.JWT_SECRET || "secret"
     try{
     const empty=isEmpty(loginUserDto)
-    const errors=await validatorDto(LoginUserDto,loginUserDto)
+    var errors=await validatorDto(LoginUserDto,loginUserDto)
       console.log(errors)
     if(empty==false){
     const req:_Auth.LoginUserReq={
