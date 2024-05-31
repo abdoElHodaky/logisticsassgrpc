@@ -14,7 +14,7 @@ export function addServiceToServer(
   return server
 }
 
-export function dateToReadable(date:Date){
+export function dateToReadable(date:Date|string){
   var moment = require('moment');
   require('moment/locale/ar');
   let m=moment(date)
