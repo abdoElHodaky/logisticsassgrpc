@@ -25,14 +25,14 @@ export class GrpcAuthorController {
         console.error(err)
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
-        res.json({
-          users:resl?.users.map(({createdAt,updatedAt,...user},inx)=>{
+        let users=resl?.users.map(({createdAt,updatedAt,...user},inx)=>{
           return  {
             createdAt:dateToReadable(createdAt),
             updatedAt:dateToReadable(updatedAt),
             ...user
           }
-          }),resl?.error
+        res.json({
+          users,error:resl?.error
         })
      }
     })
