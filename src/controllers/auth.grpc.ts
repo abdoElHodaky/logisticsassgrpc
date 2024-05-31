@@ -3,10 +3,10 @@ import {_Auth ,_User} from "../protos/dist/";
 import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
-import { LoginUserDto,ValidateDto } from "../dto/";
+import { LoginUserDto,validatorDto } from "../dto/";
 import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
-import {ValidatedMiddleware} from "../middlewares/";
+//import {ValidatedMiddleware} from "../middlewares/";
 import {Env} from "../env";
 import {validateOrReject,validate} from "class-validator";
 const address = "localhost:"+Env.GRPCSONEPORT
@@ -23,7 +23,7 @@ export class GrpcAuthController {
   const secret=Env.JWT_SECRET || "secret"
     try{
     const empty=isEmpty(loginUserDto)
-    
+    await validatorDto(LoginUserDto,loginUserDto)
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
