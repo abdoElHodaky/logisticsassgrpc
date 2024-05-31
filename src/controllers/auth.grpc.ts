@@ -24,7 +24,7 @@ export class GrpcAuthController {
     try{
     // validate(loginUserDto).then(console.log).catch(console.log)
      const empty=isEmpty(loginUserDto)
-    // console.log(empty)
+    console.log(await loginUserDto._validate())
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
