@@ -4,7 +4,7 @@ import { Req, Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt";
 import {Env} from "../env";
-
+import {dateToReadable} from "../grpc/util";
 const address = "localhost:"+Env.GRPCSTWOPORT
 
 @Controller("/users")
@@ -22,8 +22,16 @@ export class GrpcUserController {
       if (err) {
         res.jsonp(err)
     } else {
-        const users=_User.GetAllUserRes.toJSON(resp)
-        res.json(users)
+        const {users,error}=_User.GetAllUserRes.toJSON(resp)
+        res.json({
+          users:users.map(({createdAt,upatedAt,...user},inx)=>{
+          return  {
+            createdAt:dateToReadable(createdAt),
+            updatedAt:dateToReadable(updatedAt),
+            ...user
+          }
+          }),error
+        })
      }
       //res.jsonp(resl)
     })
