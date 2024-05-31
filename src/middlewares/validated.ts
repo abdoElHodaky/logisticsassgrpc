@@ -7,18 +7,14 @@ export class ValidatedLogin implements Middleware {
   
   async use(req: JWTRequest, res: Response, next: NextFunction): Promise<void> {
     const {body}= req
-   try{
-     console.log(typeof(body))
+  
+    // console.log(typeof(body))
     const errs=await ValidatorDto(LoginUserDto,body)
-    if(errs=={}){
-      next()
+     console.log(errs)
+    if (errs!={}){
+      res.status(400).json({messages:Object(errors).values()})
     }
-    else{
-      throw new Error("Login Information not provided or not existed")
-    }
-  }catch(err:any){
-     res.status(400).json({messages:Object(errors).values()})
-   }
+    next()
   }
 
 
