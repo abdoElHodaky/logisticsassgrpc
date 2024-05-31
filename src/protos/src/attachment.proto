@@ -33,7 +33,7 @@ message GetAllAttachRes {
 }
 
 service AttachmentService {
-  rpc create(CreateReq) returns(
-  CreateRes);
-  rpc all(GetAllReq) returns (GetAllRes);
+  rpc create(CreateAttachReq) returns(
+  CreateAttachRes);
+  rpc all(GetAllAttachReq) returns (GetAllAttachRes);
 }
