@@ -22,15 +22,15 @@ export class GrpcUserController {
       if (err) {
         res.jsonp(err)
     } else {
-        const {users,error}=_User.GetAllUserRes.toJSON(resp)
+        const resl=_User.GetAllUserRes.toJSON(resp)
         res.json({
-          users:users.map(({createdAt,updatedAt,...user},inx)=>{
+          users:resl?.users.map(({createdAt,updatedAt,...user},inx)=>{
           return  {
             createdAt:dateToReadable(createdAt),
             updatedAt:dateToReadable(updatedAt),
             ...user
           }
-          }),error
+          }),resl?.error
         })
      }
       //res.jsonp(resl)
