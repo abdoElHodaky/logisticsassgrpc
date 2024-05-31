@@ -17,6 +17,6 @@ export const validatorDto = async <T extends ClassConstructor<any>>(
       )}`
     );
   }*/ console.warn(${errors.map(
-        ({ property,constrains }) =>{property:constrains})
+        ({ property,constrains }) =>{property:{messages:Object.values(constrains).join(",")}})
  }
 }
