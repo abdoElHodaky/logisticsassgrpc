@@ -3,7 +3,7 @@ import {_Auth ,_User} from "../protos/dist/";
 import {User} from "../entity/";
 import { Res,  Controller , Post ,Body } from "@decorators/express";
 import { Response  } from "express";
-import { LoginUserDto } from "../dto/";
+import { LoginUserDto,ValidateDto } from "../dto/";
 import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {ValidatedMiddleware} from "../middlewares/";
@@ -18,13 +18,12 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[ ValidatedMiddleware ])
+  @Post("/login",[  ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
     try{
-    // validate(loginUserDto).then(console.log).catch(console.log)
-     const empty=isEmpty(loginUserDto)
-    //console.log(await loginUserDto._validate())
+    const empty=isEmpty(loginUserDto)
+    
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
