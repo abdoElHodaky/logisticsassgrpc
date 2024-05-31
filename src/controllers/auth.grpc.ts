@@ -18,7 +18,7 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[ValidatedLogin  ])
+  @Post("/login",[  ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
     try{
