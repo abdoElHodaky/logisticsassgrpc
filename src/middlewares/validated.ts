@@ -1,7 +1,7 @@
 import { Middleware } from '@decorators/express';
 import {Request,Response,NextFunction  } from "express";
 import { Request as JWTRequest } from "express-jwt";
-import { LoginUserDto,ValidatorDto} from "../dto/";
+import { LoginUserDto,validatorDto} from "../dto/";
 import { Error } from "common-errors";
 export class ValidatedLogin implements Middleware {
   
@@ -9,7 +9,7 @@ export class ValidatedLogin implements Middleware {
     const {body}= req
   
     // console.log(typeof(body))
-    const errs=await ValidatorDto(LoginUserDto,body)
+    const errs=await validatorDto(LoginUserDto,body)
      console.log(errs)
     if (errs!={}){
       res.status(400).json({messages:Object(errs).values()})
