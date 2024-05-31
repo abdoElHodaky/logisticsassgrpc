@@ -56,7 +56,8 @@ export class GrpcAuthController {
     }catch(err:any){
       console.log(err)
       //const error=new Error("Login Information not provided or not existed",err)
-      res.status(400).json({message:Object(errors).values()})
+     // res.status(400).json({message:Object(errors).values()})
+      res.status(400).jsonp({message:err?.message})
       }
   } 
   else{
@@ -66,7 +67,8 @@ export class GrpcAuthController {
    }
   catch(err:any){
    // const error=new Error("Login Information not provided or not existed",err)
-    res.status(400).json({message:Object(errors).values()})
+   // res.status(400).json({message:Object(errors).values()})
+    res.status(400).jsonp({message:err?.message})
   }
    
     
