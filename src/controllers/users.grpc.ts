@@ -28,7 +28,8 @@ export class GrpcUserController {
             createdAt:dateToReadable(createdAt),
             updatedAt:dateToReadable(updatedAt),
             ...user
-          }
+           }
+        })
         res.json({
           users,error:resl?.error
         })
