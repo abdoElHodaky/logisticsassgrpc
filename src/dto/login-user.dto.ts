@@ -1,13 +1,10 @@
-import { IsNotEmpty,validate,ValidationError} from "class-validator";
-export class LoginUserDto {
+import { IsNotEmpty} from "class-validator";
+import {Dto} from "./Dto";
+export class LoginUserDto  extends Dto{
   @IsNotEmpty()
   readonly username:string
  // readonly email:string
   @IsNotEmpty()
   readonly passwordHash:string
-
-async  _validate():Promise<Array<any>>{
-   return  await validate(this)
- }
 
 }
