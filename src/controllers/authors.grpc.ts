@@ -30,12 +30,15 @@ export class GrpcAuthorController {
             createdAt:dateToReadable(createdAt),
             updatedAt:dateToReadable(updatedAt),
             ...user
-          }
+           }
+        })
         res.json({
           users,error:resl?.error
         })
      }
+      //res.jsonp(resl)
     })
+  
   }
   @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
