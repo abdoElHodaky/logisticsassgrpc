@@ -68,11 +68,12 @@ export class GrpcAuthController {
    // const error=new Error("Login Information not provided or not existed",err)
     res.status(400).json({message:Object(errors).values()})
   }*/
-   const req:_Auth.LoginUserReq={
+   
+    try{
+      const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
     }
-    try{
     this.client.login(req,(err:any,resp:_Auth.LoginUserRes)=>{
       if (err) {
       res.jsonp(err);
