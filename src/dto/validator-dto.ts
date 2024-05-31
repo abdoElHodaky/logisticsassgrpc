@@ -17,4 +17,5 @@ export const validatorDto = async <T extends ClassConstructor<any>>(
       )}`
     );
   }*/ console.warn(errors)
+ }
 }
