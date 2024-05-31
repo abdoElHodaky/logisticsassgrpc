@@ -25,7 +25,7 @@ export class GrpcAuthorController {
         console.error(err)
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
-        let users=resl?.users.map(user:object,inx:number)=>{
+        let users=resl?.users.map((user:object,inx:number)=>{
           const {createdAt,updatedAt,...rest}=user
           return  {
             createdAt:dateToReadable(createdAt),
