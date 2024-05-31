@@ -23,8 +23,8 @@ export class GrpcAuthController {
   const secret=Env.JWT_SECRET || "secret"
     try{
     const empty=isEmpty(loginUserDto)
-    await validatorDto(LoginUserDto,loginUserDto)
-    if(empty==false){
+    const errors=await validatorDto(LoginUserDto,loginUserDto)
+    if(errors=={}){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
@@ -55,7 +55,7 @@ export class GrpcAuthController {
     }catch(err:any){
       console.log(err)
       //const error=new Error("Login Information not provided or not existed",err)
-      res.jsonp({message:err?.message})
+      res.jsonp({message:err?.message,Mistmatchs:errors.values()})
     }
   } 
   else{
