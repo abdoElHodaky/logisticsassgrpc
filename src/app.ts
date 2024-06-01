@@ -6,6 +6,7 @@ import { json,urlencoded,Request } from "express";
 import cors from "cors";
 import apicache from 'apicache'
 import { AppDataSource } from "./_datasource";
+import { Author} from "./entity/";
 import { apiv1 } from "./routes";
 //import { ServerCredentials } from "@grpc/grpc-js";
 const app=application();
@@ -64,8 +65,8 @@ const configureApplication = async  () => {
  setTimeout(()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
-        const entity= require("./entity")
-	console.log(entity.Author, getRepository(entity.Author) )
+        //const entity= require("./entity")
+	console.log(Author, AppDataSource.getRepository(Author) )
         
 	//services.Author.all().then(console.log).catch(console.log)}	     
 
