@@ -50,7 +50,7 @@ export class User {
     @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
     @OneToMany(()=>Affiliate,affiliates=>affiliates.related)
     @JoinColumn([
-    { name: "referedBy", referencedColumnName: "referralCode" },
+    { name: "referralCode", referencedColumnName: "referedBy" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
     affiliates:Affiliate[]
