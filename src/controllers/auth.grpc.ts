@@ -18,7 +18,7 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[  ])
+  @Post("/login",[ ValidatedLogin ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
   let errors:ValidationError[]=[]
