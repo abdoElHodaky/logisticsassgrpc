@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, 
         OneToMany,ManyToOne, TableInheritance ,ChildEntity,CreateDateColumn,
-        UpdateDateColumn ,BeforeInsert, JoinColumn  } from "typeorm"
+        UpdateDateColumn ,BeforeInsert, JoinColumn ,JoinTable } from "typeorm"
 import { User} from "./";
 import { genCode} from "../../helpers";
 
@@ -12,10 +12,10 @@ export class Affiliate extends User {
     type:string
 
     @ManyToOne(()=>User,user=>user.affiliates)
-  /*  @JoinColumn([
+    @JoinColumn([
     { name: "referedBy", referencedColumnName: "referralCode" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])*/
+    ])
     related:User
         
     @Column({default:"456",type:"varchar"})
