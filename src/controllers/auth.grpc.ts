@@ -24,10 +24,10 @@ export class GrpcAuthController {
   let errs={}
     try{
     const empty=isEmpty(loginUserDto)
-     errs=await validatorDto(LoginUserDto,loginUserDto)
+     //errs=await validatorDto(LoginUserDto,loginUserDto)
     
      console.log(empty)
-      console.log(errs)
+      console.log(loginUserDto)
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
