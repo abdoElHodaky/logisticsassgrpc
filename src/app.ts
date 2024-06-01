@@ -66,7 +66,7 @@ const configureApplication = async  () => {
 	const {services} = require("./services/enum")
         const {Author}= require("./entity")
 	console.log(Author)
-        AppDataSource.manger.find(Author).then(console.log).catch(console.error)
+        AppDataSource.manger.find(Author).then(console.log).catch(console.log)
 	//services.Author.all().then(console.log).catch(console.log)}	     
 
     },10000) 
