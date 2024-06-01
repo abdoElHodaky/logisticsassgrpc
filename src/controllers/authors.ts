@@ -14,11 +14,11 @@ export class AuthorController {
   constructor( ){}
   
   @Get("")
-  async all():Promise<Author[]>{
+  async all():Promise<Author[]|Error>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
 
-    let resd:Author[]=await this.authorS.all()
+    let resd=await this.authorS.all()
       //await AppDataSource.getRepository(Author).find()
     return resd
   }
