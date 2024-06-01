@@ -36,7 +36,9 @@ export class ValidatedCreatedUser implements Middleware {
      console.log(errors)
     if (errors!=[]){
       res.status(400).jsonp({
-        FiledsMessages:errors.map({constrains}=>Object.values).join(" ,")
+        messages:errors.map(e=>{
+        return Object.values(e.constrains)
+      })
       })
     }
     next()
