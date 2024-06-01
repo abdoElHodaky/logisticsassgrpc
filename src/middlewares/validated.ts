@@ -3,6 +3,7 @@ import {Request,Response,NextFunction  } from "express";
 import { Request as JWTRequest } from "express-jwt";
 import { LoginUserDto,validatorDto, CreateUserDto } from "../dto/";
 import { Error } from "common-errors";
+import {ValidationError} from "class-validator";
 export class ValidatedLogin implements Middleware {
   
   async use(req: JWTRequest, res: Response, next: NextFunction): Promise<void> {
