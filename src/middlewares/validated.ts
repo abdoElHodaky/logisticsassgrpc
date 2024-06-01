@@ -9,10 +9,12 @@ export class ValidatedLogin implements Middleware {
     const {body}= req
   
     // console.log(typeof(body))
-    const errs=await validatorDto(LoginUserDto,body)
-     console.log(errs)
-    if (errs!={}){
-      res.status(400).json({messages:Object(errs).values()})
+    const errors=await validatorDto(LoginUserDto,body)
+     console.log(errors)
+    if (errors!=[]){
+      res.status(400).jsonp({
+        FiledsMessages:errors.map({constrains}=>Object.values).join(" ,")
+      })
     }
     next()
   }
