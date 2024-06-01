@@ -12,9 +12,9 @@ export class ValidatedLogin implements Middleware {
     const errors=await validatorDto(LoginUserDto,body)
      console.log(errors)
     if (errors!=[]){
-      res.status(400).jsonp({
+      res.status(400).json({
         messages:errors.map(e=>{
-        return Object.values(e.constrains)
+        return Object.values(e?.constrains)
       })
       })
     }
@@ -35,9 +35,9 @@ export class ValidatedCreatedUser implements Middleware {
     const errors=await validatorDto(CreateUserDto,body)
      console.log(errors)
     if (errors!=[]){
-      res.status(400).jsonp({
+      res.status(400).json({
         messages:errors.map(e=>{
-        return Object.values(e.constrains)
+        return Object.values(e?.constrains)
       })
       })
     }
