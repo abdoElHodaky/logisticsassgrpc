@@ -13,7 +13,9 @@ const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
-let cacheWithRedis = apicache.options({ redisClient: redis.createClient() }).middleware
+let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
+	url:"redis://red-cp4soqocmk4c73eom0p0:6379"
+}) }).middleware
 
 app.use(urlencoded({extended: true}))
 app.use(cors())
