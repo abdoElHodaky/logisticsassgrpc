@@ -1,6 +1,6 @@
 import { ClassConstructor, plainToClass } from "class-transformer";
 import { validate,ValidationError } from "class-validator";
-
+const errs:ValidationError[]=[]
 export const validatorDto = async <T extends ClassConstructor<any>>(
   dto: T,
   obj: object
@@ -16,6 +16,6 @@ export const validatorDto = async <T extends ClassConstructor<any>>(
     return errors
    //console.warn( errors.map(({ property ,constrains}) =>{messages:Object.values(constrains)}))
  }
-  else return []
+  else return errs
   
 }
