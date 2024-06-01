@@ -26,10 +26,10 @@ export class GrpcAuthorController {
     } else {
       
         const resl=_User.GetAllUserRes.toJSON(resp)
-        resl?.users?.forEach((user:object,inx:number)=>{
+        /*resl?.users.forEach((user:object,inx:number)=>{
         user["createdAt"]=dateToReadable(user["createdAt"])
         user["updatedAt"]=dateToReadable(user["updatedAt"])
-        })
+        })*/
         console.log(resl)
         res.json(resl)
      }
