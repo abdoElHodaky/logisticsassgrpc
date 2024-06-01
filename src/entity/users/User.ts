@@ -1,5 +1,5 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, JoinColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase,Affiliate} from "../"
 
@@ -49,10 +49,10 @@ export class User {
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
     @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
     @OneToMany(()=>Affiliate,affiliates=>affiliates.related)
-    /*@JoinColumn([
-    { name: "referralCode", referencedColumnName: "referedBy" },
+    @JoinColumn([
+    { name: "referedBy", referencedColumnName: "referralCode" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])*/
+    ])
     affiliates:Affiliate[]
    
 }
