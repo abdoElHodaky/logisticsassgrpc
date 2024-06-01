@@ -21,12 +21,13 @@ export const _AppDataSource = new DataSource({
     database:"grpcendpoints.sqlite",
     cache: {
         type: "redis",
-        /*options: {
-            socket: {
+        options: {
+            url:"redis://red-cp4soqocmk4c73eom0p0:6379"
+           /* socket: {
                 host: "localhost",
                 port: 6379
-            }
-        },*/
+            }*/
+        },
         duration: 300000
     },
     //metadataTableName:"typeorm-metadata",
