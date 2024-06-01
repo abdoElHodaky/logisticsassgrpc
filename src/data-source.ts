@@ -20,7 +20,7 @@ export const _AppDataSource = new DataSource({
     },
     //metadataTableName:"typeorm-metadata",
     synchronize: true,
-    logging: false,
+    logging: "all",
     entities: [  ...all  ],
     migrations: [],
     subscribers: [],
