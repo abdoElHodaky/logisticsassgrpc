@@ -32,6 +32,7 @@ export const _AppDataSource = new DataSource({
     }
     
 })
+
 _AppDataSource.initialize()
   .then(async () => {
     console.log("Connection initialized with database...");
