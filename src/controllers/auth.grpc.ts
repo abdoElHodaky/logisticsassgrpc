@@ -8,7 +8,7 @@ import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {ValidatedLogin} from "../middlewares/";
 import {Env} from "../env";
-//import {validateOrReject,validate} from "class-validator";
+import {ValidationError} from "class-validator";
 const address = "localhost:"+Env.GRPCSONEPORT
 var jwt = require('jsonwebtoken');
 @Controller("/auth")
@@ -21,7 +21,7 @@ export class GrpcAuthController {
   @Post("/login",[  ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
-  let errors=[]
+  let errors:ValidationError[]=[]
     try{
     const empty=isEmpty(loginUserDto)
    errors= await validatorDto(LoginUserDto,loginUserDto)
