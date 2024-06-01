@@ -61,7 +61,7 @@ export class GrpcAuthController {
       //const error=new Error("Login Information not provided or not existed",err)
        res.status(400).json({
         Mainmessage:err?.message,
-        MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,")
+        MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,"))
       })
       }
   } 
@@ -74,7 +74,7 @@ export class GrpcAuthController {
     console.log(errors)
      res.status(400).json({
       Mainmessage:err?.message,
-      MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,")
+      MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,"))
       })
   }
    
