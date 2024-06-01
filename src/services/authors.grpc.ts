@@ -44,7 +44,7 @@ export class AuthorGrpcService  {
          callback(null,res)
      }
      else{
-      callback({ code: status.NOT_FOUND }, {users:[],error:{
+      callback(null, {users:[],error:{
             Message:"No Records matching request",type:"NotFoundError",name:""
           }});
      }
