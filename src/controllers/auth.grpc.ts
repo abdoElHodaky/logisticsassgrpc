@@ -21,11 +21,13 @@ export class GrpcAuthController {
   @Post("/login",[  ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
+  let errs={}
     try{
     const empty=isEmpty(loginUserDto)
-    var errors=await validatorDto(LoginUserDto,loginUserDto)
+     errs=await validatorDto(LoginUserDto,loginUserDto)
+    
      console.log(empty)
-      console.log(errors)
+      console.log(errs)
     if(empty==false){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
