@@ -48,12 +48,12 @@ export class User {
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
     @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
-    @OneToMany(()=>Affiliate)
+    @OneToMany(()=>Affiliate,affiliates=>affiliates.related)
     @JoinColumn([
     { name: "referedBy", referencedColumnName: "referralCode" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
-    affiliate:Affiliate[]
+    affiliates:Affiliate[]
    
 }
 
