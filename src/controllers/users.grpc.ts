@@ -24,7 +24,7 @@ export class GrpcUserController {
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
         resl?.users.forEach((user:object,inx:number)=>{
-        user["createdAt"]=dateToReadable(user["createdAt"]),
+        user["createdAt"]=dateToReadable(user["createdAt"])
         user["updatedAt"]=dateToReadable(user["updatedAt"])
         })
         res.json({
