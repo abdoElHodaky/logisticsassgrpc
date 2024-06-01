@@ -14,31 +14,23 @@ export class AuthorGrpcService  {
     callback: sendUnaryData<_User.GetAllUserRes>
  ){
      let base:_User.User=_User.createBaseUser()
-    /* let res:_User.GetAllUserRes={
-       users:[],
-       error:{
-       Message:"",type:"",name:""
-      }
-     }*/
+   
      try{
      let authors=await AuthorGrpcService.service.all()
        //console.log(authors.map(JSON.stringify))
     if(authors instanceof Array){ 
      
      let _authors=authors.map(_User.User.fromJSON)
-     // console.log(_authors)
-      _authors.forEach((author:_User.User,inx)=>{
+      console.log(_authors)
+      _authors.forEach((author:_User.User,inx:number)=>{
         let {id,articles}=author
         let _articles=authors[inx].articles
-        //author.createdAt=authors[inx].created_at
-       // author.updatedAt=authors[inx].updated_at
+        
         articles.sort((a,b)=>b.id-a.id)
         if(articles.length!=0){ 
           articles.forEach((a,inx)=>{
             a.userId=id
-           // a.createdAt=_articles[inx].created_at
-          //  a.updatedAt=_articles[inx].updated_at 
-          })
+         })
           
         }
         
