@@ -61,7 +61,7 @@ const configureApplication = async  () => {
       servers.server
       servers.server2
   });
- seInterval(()=>{
+ setInterval(()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
 	console.log(services.Author)
