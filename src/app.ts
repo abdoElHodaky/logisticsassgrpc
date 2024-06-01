@@ -64,9 +64,10 @@ const configureApplication = async  () => {
  setTimeout(()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
-        const author= require("./entity")
-	console.log(author)
-	services.Author.all().then(console.log).catch(console.log)}	     
+        const {Author}= require("./entity")
+	console.log(Author)
+        AppDataSource.manger.find(Author).then(console.log).catch(console.error)
+	//services.Author.all().then(console.log).catch(console.log)}	     
 
     },10000) 
 }
