@@ -58,7 +58,7 @@ export class GrpcAuthController {
     })
     }catch(err:any){
       console.log(errors)
-      errors.forEach(e:any=>{
+      errors.forEach((e:ValidationError)=>{
         console.log(e.constrains)
       })
       //const error=new Error("Login Information not provided or not existed",err)
@@ -72,7 +72,7 @@ export class GrpcAuthController {
    }
   catch(err:any){
     console.log(errors)
-      errors.forEach(e:any=>{
+      errors.forEach((e:ValidationError)=>{
         console.log(e.constrains)
       })
       res.status(400).json(errors)
