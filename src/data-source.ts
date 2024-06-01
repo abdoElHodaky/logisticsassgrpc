@@ -40,8 +40,8 @@ export const _AppDataSource = new DataSource({
         connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
         idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
-    //poolSize:13
-} as  DataSourceOptions)
+    poolSize:13
+})
 _AppDataSource.initialize()
   .then(async () => {
     console.log("Connection initialized with database...");
