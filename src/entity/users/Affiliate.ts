@@ -12,10 +12,10 @@ export class Affiliate extends User {
     type:string
 
     @ManyToOne(()=>User,user=>user.affiliates)
-    @JoinColumn([
+  /*  @JoinColumn([
     { name: "referedBy", referencedColumnName: "referralCode" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
+    ])*/
     related:User
         
     @Column({default:"456",type:"varchar"})
