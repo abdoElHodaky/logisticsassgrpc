@@ -3,7 +3,6 @@ import { DataSource,DataSourceOptions } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
 import { Env } from "./env";
-import * as redisParser from "redis-url";
 let databaseopts={
     type: (Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"sqlite":Env.DS_TYPE,
      host:(Env.DS_TYPE=="sqlite" || Env.DS_TYPE==undefined)?"":(Env.DS_HOST!=undefined)?Env.DS_HOST:"",
