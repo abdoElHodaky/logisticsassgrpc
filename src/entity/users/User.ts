@@ -5,8 +5,8 @@ import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase,Aff
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
-@TableInheritance({column:{type:"varchar",name:"referralCode"}})
-@TableInheritance({column:{type:"varchar",name:"referedBy"}})
+//@TableInheritance({column:{type:"varchar",name:"referralCode"}})
+//@TableInheritance({column:{type:"varchar",name:"referedBy"}})
 
 export class User {
 
@@ -49,10 +49,10 @@ export class User {
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
     @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
     @OneToMany(()=>Affiliate,affiliates=>affiliates.related)
-    @JoinColumn([
+    /*@JoinColumn([
     { name: "referralCode", referencedColumnName: "referedBy" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
+    ])*/
     affiliates:Affiliate[]
    
 }
