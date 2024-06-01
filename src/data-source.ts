@@ -21,6 +21,7 @@ export const _AppDataSource = new DataSource({
     //metadataTableName:"typeorm-metadata",
     synchronize: true,
     logging: "all",
+    logger:"advanced-console",
     entities: [  ...all  ],
     migrations: [],
     subscribers: [],
