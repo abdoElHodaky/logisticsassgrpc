@@ -18,7 +18,7 @@ export class GrpcAuthController {
     credentials.createInsecure()
   )
   
-  @Post("/login",[  ])
+  @Post("/login",[ ValidatedLogin ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
   let errors:ValidationError[]=[]
@@ -59,10 +59,7 @@ export class GrpcAuthController {
     }catch(err:any){
       console.log(errors)
       //const error=new Error("Login Information not provided or not existed",err)
-       res.status(400).json({
-        Mainmessage:err?.message,
-        MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,"))
-      })
+       res.status(400).json(errors)
       }
   } 
   else{
@@ -72,10 +69,7 @@ export class GrpcAuthController {
    }
   catch(err:any){
     console.log(errors)
-     res.status(400).json({
-      Mainmessage:err?.message,
-      MismatchFiledsMessages:errors.map({constrains}=>Object.values).join(" ,"))
-      })
+     res.status(400).json(errors)
   }
    
     
