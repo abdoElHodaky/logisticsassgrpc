@@ -32,11 +32,11 @@ export class GrpcAuthorController {
     })
   
   }
-  @Post("",[AuthenticateMiddleware])
+/*  @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request,@Res() res:Response):Promise<void>{
     let user=req?.auth
     const authorS=services.Author
     user=await authorS.create(user)
     res.jsonp(user)
   }
-}
+} */
