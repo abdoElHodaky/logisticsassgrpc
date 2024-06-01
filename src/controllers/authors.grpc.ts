@@ -21,13 +21,13 @@ export class GrpcAuthorController {
     const req:_User.GetAllUserReq={}
     this.client.all(req,(err:any,resp:_User.GetAllUserRes)=>{
       if (err) {
-      res.jsonp(err);
+    //  res.jsonp(err);
         console.error(err)
     } else {
       
         const resl=_User.GetAllUserRes.toJSON(resp)
         console.log(resl)
-        res.json(resl)
+        //res.json(resl)
      }
       //res.jsonp(resl)
     })
