@@ -26,8 +26,12 @@ export class GrpcUserTicketController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const tickets=_Ticket.GetAllTicketRes.toJSON(resp)
-       res.json(tickets)
+        const resl=_Ticket.GetAllTicketRes.toJSON(resp)
+        resl?.tickets.forEach((ticket:object,inx:number)=>{
+        ticket["createdAt"]=dateToReadable(ticket["createdAt"])
+        ticket["updatedAt"]=dateToReadable(ticket["updatedAt"])
+        })
+        res.json(resl)
      }
     })
   }
