@@ -58,7 +58,9 @@ export class GrpcAuthController {
     })
     }catch(err:any){
       console.log(errors)
-      console.log(errors.map({constrains}=>Object.values(constrains)))
+      console.log(errors.map(e=>{
+        return Object.values(e.constrains)
+      }))
       //const error=new Error("Login Information not provided or not existed",err)
        res.status(400).json(errors)
       }
@@ -70,9 +72,10 @@ export class GrpcAuthController {
    }
   catch(err:any){
     console.log(errors)
-      console.log(errors.map({constrains}=>Object.values(constrains)))
-      //const error=new Error("Login Information not provided or not existed",err)
-       res.status(400).json(errors)
+      console.log(errors.map(e=>{
+        return Object.values(e.constrains)
+      }))
+      res.status(400).json(errors)
   }
    
     
