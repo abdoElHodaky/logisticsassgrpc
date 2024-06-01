@@ -32,7 +32,7 @@ export class GrpcAuthorController {
         })
         res.json({
           users,error:resl?.error
-        }))
+        })
      }
       //res.jsonp(resl)
     })
