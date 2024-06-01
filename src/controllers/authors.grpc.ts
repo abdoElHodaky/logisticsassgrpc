@@ -30,6 +30,7 @@ export class GrpcAuthorController {
         user["createdAt"]=dateToReadable(user["createdAt"])
         user["updatedAt"]=dateToReadable(user["updatedAt"])
         })
+        console.log(resl)
         res.json(resl)
      }
       //res.jsonp(resl)
