@@ -24,8 +24,15 @@ export class GrpcAuthorController {
       res.jsonp(err);
         console.error(err)
     } else {
+      
         const resl=_User.GetAllUserRes.toJSON(resp)
-        res.json(resl)
+        resl?.users.forEach((user:object,inx:number)=>{
+        user["createdAt"]=dateToReadable(user["createdAt"])
+        user["updatedAt"]=dateToReadable(user["updatedAt"])
+        })
+        res.json({
+          users,error:resl?.error
+        }))
      }
       //res.jsonp(resl)
     })
