@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
-import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase} from "../"
+import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase,Affiliate} from "../"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -48,7 +48,12 @@ export class User {
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
     @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
     @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
-    
+    @OneToMany(()=>Affiliate)
+    @JoinColumn([
+    { name: "referedBy", referencedColumnName: "referralCode" },
+    //{ name: "locale_id", referencedColumnName: "locale_id" }
+    ])
+    affiliate:Affiliate[]
    
 }
 
