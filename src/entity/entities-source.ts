@@ -6,5 +6,5 @@ import {
 export const all=[
   Article,Attachment,Product,ProductAttachment,
   Author,User,Purshase,PurshaseItem,Payment,
-  supTicket,Verification
+  supTicket,Verification,Affiliate
 ]
