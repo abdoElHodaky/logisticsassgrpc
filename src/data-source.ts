@@ -6,7 +6,7 @@ import { Env } from "./env";
 let databaseopts={
 
 export const _AppDataSource = new DataSource({
-    type:"sqlite",
+    type:"better-sqlite3",
     database:"grpcendpoints.sqlite",
     cache: {
         type: "redis",
