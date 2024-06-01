@@ -13,7 +13,8 @@ export const validatorDto = async <T extends ClassConstructor<any>>(
   const errors = await validate(objInstance);
   // errors is an array of validation errors
   if (errors.length > 0) {
-   console.warn( errors.map(({ property ,constrains}) =>{messages:Object.values(constrains)}))
+    console.log(errors)
+   //console.warn( errors.map(({ property ,constrains}) =>{messages:Object.values(constrains)}))
  }
   
 }
