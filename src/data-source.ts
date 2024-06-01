@@ -3,7 +3,6 @@ import { DataSource,DataSourceOptions } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
 import { Env } from "./env";
-let databaseopts={
 
 export const _AppDataSource = new DataSource({
     type:"better-sqlite3",
