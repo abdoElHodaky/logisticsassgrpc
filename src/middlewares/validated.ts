@@ -13,7 +13,7 @@ export class ValidatedLogin implements Middleware {
      console.log(errors)
     if (errors!=[]){
       res.status(400).jsonp({
-        FiledsMessages:errors.map({constrains}=>Object.values).join(" ,")
+        Messages:errors.map({constrains}=>Object.values(constrains).join(" ,"))
       })
     }
     next()
