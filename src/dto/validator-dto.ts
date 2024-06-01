@@ -8,7 +8,7 @@ export const validatorDto = async <T extends ClassConstructor<any>>(
   //console.log(obj)
   
   const objInstance = plainToClass(dto, obj);
-  
+  console.log(objInstance)
   // validating and check the errors, throw the errors if exist
   const errors = await validate(objInstance);
   // errors is an array of validation errors
