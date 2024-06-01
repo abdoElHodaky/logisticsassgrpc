@@ -61,10 +61,11 @@ const configureApplication = async  () => {
       servers.server
       servers.server2
   });
- setTimeout(()=>{
+ seInterval(()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
-	services.Author.all().then(console.log).catch(console.log)}	     
+	console.log(services.Author)
+	//services.Author.all().then(console.log).catch(console.log)}	     
 
     },10000) 
 }
