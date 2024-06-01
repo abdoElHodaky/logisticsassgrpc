@@ -62,11 +62,11 @@ const configureApplication = async  () => {
       servers.server
       servers.server2
   });
- setTimeout(()=>{
+ setTimeout(async ()=>{
 	 if(AppDataSource.isInitialized==true){
 	const {services} = require("./services/enum")
         //const entity= require("./entity")
-	console.log(Author, AppDataSource.getRepository(Author) )
+	console.log(Author, await AppDataSource.getRepository(Author).find() )
 	      }
 	//services.Author.all().then(console.log).catch(console.log)}	     
 
