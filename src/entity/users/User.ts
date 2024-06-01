@@ -52,4 +52,14 @@ export class User {
    
 }
 
+@ChildEntity()
+export class Author extends User {
+    
+    @Column({default:"author"})
+    type:string
+
+    @OneToMany(()=>Article,article=>article.author) articles:Article[];
+
+}
+
 
