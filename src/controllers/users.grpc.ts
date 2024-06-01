@@ -27,9 +27,7 @@ export class GrpcUserController {
         user["createdAt"]=dateToReadable(user["createdAt"])
         user["updatedAt"]=dateToReadable(user["updatedAt"])
         })
-        res.json({
-          users,error:resl?.error
-        })
+        res.json(resl)
      }
       //res.jsonp(resl)
     })
