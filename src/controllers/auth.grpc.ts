@@ -21,14 +21,14 @@ export class GrpcAuthController {
   @Post("/login",[  ])
   async login(@Res() res:Response, @Body() loginUserDto:LoginUserDto ):Promise<void>{
   const secret=Env.JWT_SECRET || "secret"
-  let errs={}
+  let errors=[]
     try{
     const empty=isEmpty(loginUserDto)
-    await validatorDto(LoginUserDto,loginUserDto)
+   errors= await validatorDto(LoginUserDto,loginUserDto)
     
      console.log(empty)
       //console.log(loginUserDto)
-    if(empty==false){
+    if(errors.length>0){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
@@ -57,9 +57,9 @@ export class GrpcAuthController {
       }
     })
     }catch(err:any){
-      console.log(err)
+      console.log(errors)
       //const error=new Error("Login Information not provided or not existed",err)
-     // res.status(400).json({message:Object(errors).values()})
+     // res.status(400).json({message:errors.map({})})
       res.status(400).jsonp({message:err?.message})
       }
   } 
@@ -69,7 +69,7 @@ export class GrpcAuthController {
   }
    }
   catch(err:any){
-    console.log(err)
+    console.log(errors)
    // const error=new Error("Login Information not provided or not existed",err)
    // res.status(400).json({message:Object(errors).values()})
     res.status(400).jsonp({message:err?.message})
