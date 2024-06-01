@@ -1,5 +1,5 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, JoinColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase,Affiliate} from "../"
 
