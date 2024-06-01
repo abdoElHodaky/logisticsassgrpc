@@ -22,7 +22,7 @@ export const _AppDataSource = new DataSource({
     cache: {
         type: "redis",
         options: {
-           // url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
+            url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
            /* socket: {
                 host: "localhost",
                 port: 6379
