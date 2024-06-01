@@ -28,7 +28,7 @@ export class GrpcAuthController {
     
      console.log(empty)
       //console.log(loginUserDto)
-    if(errors.length>0){
+    if(errors.length==0){
     const req:_Auth.LoginUserReq={
       username:loginUserDto.username,
       passwordHash:loginUserDto.passwordHash
