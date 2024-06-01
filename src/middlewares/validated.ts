@@ -1,7 +1,7 @@
 import { Middleware } from '@decorators/express';
 import {Request,Response,NextFunction  } from "express";
 import { Request as JWTRequest } from "express-jwt";
-import { LoginUserDto,validatorDto, CreateArticleDto } from "../dto/";
+import { LoginUserDto,validatorDto, CreateUserDto } from "../dto/";
 import { Error } from "common-errors";
 export class ValidatedLogin implements Middleware {
   
@@ -24,13 +24,13 @@ export class ValidatedLogin implements Middleware {
 }
 
 
-export class ValidatedCreatedArticle implements Middleware {
+export class ValidatedCreatedUser implements Middleware {
   
   async use(req: JWTRequest, res: Response, next: NextFunction): Promise<void> {
     const {body}= req
   
     // console.log(typeof(body))
-    const errors=await validatorDto(CreateArticleDto,body)
+    const errors=await validatorDto(CreateUserDto,body)
      console.log(errors)
     if (errors!=[]){
       res.status(400).jsonp({
