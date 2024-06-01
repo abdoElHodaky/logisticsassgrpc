@@ -18,6 +18,6 @@ export function dateToReadable(date:Date|string){
   var moment = require('moment');
   require('moment/locale/ar');
   let m=moment(date)
-  console.log(moment.locale());
+  //console.log(moment.locale());
   return m.format("dddd, MMMM Do YYYY, h:mm:ss a")
 }
