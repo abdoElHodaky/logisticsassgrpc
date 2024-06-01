@@ -11,7 +11,7 @@ export class Affiliate extends User {
     @Column({default:"marketer"})
     type:string
 
-    @ManyToOne(()=>User)
+    @ManyToOne(()=>User,user=>user.affiliates)
     @JoinColumn([
     { name: "referedBy", referencedColumnName: "referralCode" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
