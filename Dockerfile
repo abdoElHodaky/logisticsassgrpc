@@ -8,7 +8,7 @@ RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 #RUN yarn add ts-proto @grpc/grpc-js class-transform class-transformer class-validator paytabs_pt2 @grpc/proto-loader @grpc/reflection
 #RUN yarn add moment moment-timezone  
 #RUN yarn add swagger-themes express-jwt  redis  node-mailer emailjs express-prettier @types/apicache apicache
-RUN  npm install pm2 npm-run-all -g
+RUN  yarn add better-sqlite3  && npm install pm2 npm-run-all -g
 RUN yarn install -y
 ENV GRPCSTWOPORT 3030
 ENV GRPCSONEPORT 50051
