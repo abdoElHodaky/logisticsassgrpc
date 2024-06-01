@@ -23,11 +23,10 @@ export class AuthorService  extends _Data {
         },
        cache:true
       })
-      if(users.length!=0) return users
-      else throw new Error("NotFound")
+      return users
     } catch(err:any){
      console.log(err)
-      return new  NotFoundError("author",err)
+      return new  NotFoundError("Author",err)
     }
     
   }
