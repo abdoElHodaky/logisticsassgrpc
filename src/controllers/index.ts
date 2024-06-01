@@ -7,8 +7,8 @@ import {GrpcSupTicketController} from "./suptickets.grpc";
 import {PaymentController} from "./payments";
 import {GrpcMeController} from "./me";
 import {GrpcUserPaymentController} from "./users-payments.grpc";
-import {AuthorController} from "./authors";
-export const controllers=[GrpcAuthController,AuthorController,
+//import {AuthorController} from "./authors";
+export const controllers=[GrpcAuthController,GrpcAuthorController,
                           GrpcArticleController,GrpcUserTicketController,
                           GrpcUserController,GrpcSupTicketController,
                           PaymentController,GrpcMeController,
