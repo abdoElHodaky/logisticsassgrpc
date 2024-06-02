@@ -15,6 +15,7 @@ const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
 let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
+	url:process.env.REDIS
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
 }) }).middleware
 
