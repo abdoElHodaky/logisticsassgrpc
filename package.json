@@ -9,7 +9,7 @@
       "typeorm": "typeorm-ts-node-commonjs",
       "build": "tsc ",
       "swaggergen": "node swagautogen.js",
-      "redis": "redis-server"
+      "redis": "redis-server --bind 0.0.0.0"
    },
    "author": "abdoElHodaky",
    "license": "ISC",
