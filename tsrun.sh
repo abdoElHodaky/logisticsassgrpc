@@ -6,8 +6,8 @@ if [[ "$ENABLE_OVERCOMMIT_MEMORY" == 'true' ]]; then
 	sudo sysctl vm.overcommit_memory=1
 	echo "__"
 fi
-npm-run-all build swaggergen 
+npm-run-all build swaggergen start
 
 #node ./dist/grpc-reflect.js
-npm-run-all --parallel start
+#npm-run-all --parallel start
 #node dist/app.js
