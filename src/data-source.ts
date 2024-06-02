@@ -10,7 +10,8 @@ export const _AppDataSource = new DataSource({
     cache: {
         type: "redis",
         options: {
-            url:"rediss://red-cpdq71f109ks73elqfu0:DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK@frankfurt-redis.render.com:6379",
+            url:process.env.REDIS
+            //url:"rediss://red-cpdq71f109ks73elqfu0:DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK@frankfurt-redis.render.com:6379",
           /* socket:  {  host: "localhost",
                 port: 6379
             }*/
