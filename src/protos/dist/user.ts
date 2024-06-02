@@ -361,10 +361,10 @@ export const User = {
       obj.referralCode = message.referralCode;
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = dateToReadable(message.createdAt.toISOString());
+      obj.createdAt = dateToReadable(message.createdAt);
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = dateToReadable(message.updatedAt.toISOString());
+      obj.updatedAt = dateToReadable(message.updatedAt);
     }
     return obj;
   },
