@@ -17,7 +17,7 @@ export class ValidatedLogin implements Middleware {
      console.log(errors)
     if (errors!=[]){
       res.status(400).json({
-        messages:errors.map((e:object)=>{
+        messages:errors.map((e:any)=>{
       // const {constraints}=e
         return (e?.constraints!={})? Object.values(e?.constraints):[]
         }).join(",")
@@ -41,7 +41,7 @@ export class ValidatedCreatedUser implements Middleware {
      console.log(errors)
     if (errors!=[]){
      res.status(400).json({
-        messages:errors.map((e:object)=>{
+        messages:errors.map((e:any)=>{
       // const {constraints}=e
         return (e?.constraints!={})? Object.values(e?.constraints):[]
         }).join(",")
