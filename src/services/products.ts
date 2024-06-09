@@ -13,7 +13,7 @@ export class ProductService extends _Data {
     //console.log(this._source)
     return await this.datasource.manager.find(Product,{
       relations:{
-        user:true
+        supplier:true
       },
       cache:true
     })
