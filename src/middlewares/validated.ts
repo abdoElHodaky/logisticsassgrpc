@@ -20,7 +20,7 @@ export class ValidatedLogin implements Middleware {
         messages:errors.map((e:any)=>{
       // const {constraints}=e
         return (e?.constraints!={})? Object.values(e?.constraints):[]
-        }).join(",")
+        }).join(" , ")
       })
     }
     next()
@@ -44,7 +44,7 @@ export class ValidatedCreatedUser implements Middleware {
         messages:errors.map((e:any)=>{
       // const {constraints}=e
         return (e?.constraints!={})? Object.values(e?.constraints):[]
-        }).join(",")
+        }).join(" , ")
       })
     }
     next()
