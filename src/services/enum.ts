@@ -12,6 +12,7 @@ import {UserGrpcService} from "./users.grpc";
 import {supTicketGrpcService} from "./suptickets.grpc";
 import {supTicketService} from "./suptickets";
 import {PaymentService} from "./payments";
+import {ProductService} from "./products";
 
 
 export let services:any={
@@ -23,6 +24,7 @@ export let services:any={
   Ticket:new UserTicketService(),
   supTicket:new supTicketService(),
   Payment:new PaymentService(),
+  Product:new ProductService(),
   Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
