@@ -18,8 +18,8 @@ export class ValidatedLogin implements Middleware {
     if (errors!=[]){
       res.status(400).json({
         messages:errors.map((e:object)=>{
-       const {constraints}=e
-        return (constraints!={})? Object.values(constraints):[]
+      // const {constraints}=e
+        return (e?.constraints!={})? Object.values(e?.constraints):[]
         }).join(",")
       })
     }
@@ -40,10 +40,12 @@ export class ValidatedCreatedUser implements Middleware {
     const errors=await validatorDto(CreateUserDto,body)
      console.log(errors)
     if (errors!=[]){
-    /*  res.status(400).json({
-        messages:errors.map((e:ValidationError)=>Object.values(e["constraints"]))
-       // return Object.values(e.constraints))//.join(" , ")
-      })*/
+     res.status(400).json({
+        messages:errors.map((e:object)=>{
+      // const {constraints}=e
+        return (e?.constraints!={})? Object.values(e?.constraints):[]
+        }).join(",")
+      })
     }
     next()
   }
