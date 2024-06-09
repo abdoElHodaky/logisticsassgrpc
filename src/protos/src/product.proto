@@ -11,5 +11,29 @@ message Product {
  optional int32 userId=5;
  optional google.protobuf.Timestamp created_at=6;
  optional google.protobuf.Timestamp updated_at=7;
+}
+
+message CreateProductReq {
+  int32 userId=1;
+  Product product=2;
+}
+
+message CreateProductRes {
+ // int32 userId=1;
+  Product product=2;
+}
+
+message GetAllProductsReq {
+ //optional int32 entityId=1;
+}
+
+message GetAllProductsRes {
+ repeated Product products=1;
  
+}
+
+service ProductService {
+  rpc create(CreateProductReq) returns(
+  CreateProductRes);
+  rpc all(GetAllProductsReq) returns (GetAllProductsRes);
 }
