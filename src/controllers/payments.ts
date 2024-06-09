@@ -49,7 +49,7 @@ export class PaymentController {
     let reslt=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(reslt.transR,reslt.paymentId)
     this.reslt=rp
-    res.json({})
+    res.json({message:"ok"})
    /* res.redirect(url.format({
        pathname:req.baseUrl+"/result",
        query: {
@@ -64,7 +64,7 @@ export class PaymentController {
     let reslt=await this.paymentService.payCallback(req.body)
     let rp=await this.paymentService.verify(reslt.transR,reslt.paymentId)
     this.reslt=rp
-    res.json({})
+    res.json({message:"ok"})
     /*res.redirect(url.format({
        pathname:req.baseUrl+"/result",
        query: {
