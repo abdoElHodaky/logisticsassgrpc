@@ -13,7 +13,7 @@ export class ValidatedLogin implements Middleware {
   
     // console.log(typeof(body))
     let errors=await validatorDto(LoginUserDto,body)
-    errors=errors.map(instanceToPlain)
+    errors=errors.map(e=>instanceToPlain(ValidationError,e))
      console.log(errors)
     if (errors!=[]){
       res.status(400).json({
