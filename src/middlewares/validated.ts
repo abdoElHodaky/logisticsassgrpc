@@ -15,9 +15,9 @@ export class ValidatedLogin implements Middleware {
     if (errors!=[]){
       res.status(400).json({
         messages:errors.map((e:ValidationError)=>{
-       //   Object.values(e["constraints"])
-        return Object.values(e.constraints)
-        }).join(" , ")
+       const {constraints}=e
+        return Object.values(constraints)
+        }).join(",")
       })
     }
     next()
