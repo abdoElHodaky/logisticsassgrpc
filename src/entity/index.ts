@@ -8,6 +8,6 @@ export { Verification } from "./Verification"
 export { Payment } from "./Payment"
 export { Book } from "./Book"
 export { Address } from "./Address";
-export { Product } from "./Product";
+export { Product , subProduct  } from "./Product";
 
 
