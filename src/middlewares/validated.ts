@@ -4,7 +4,7 @@ import { Request as JWTRequest } from "express-jwt";
 import { LoginUserDto,validatorDto, CreateUserDto } from "../dto/";
 import { Error } from "common-errors";
 import {ValidationError} from "class-validator";
-import { instanceToPlain } from 'class-transformer';
+//import { instanceToPlain } from 'class-transformer';
 
 export class ValidatedLogin implements Middleware {
   
@@ -13,7 +13,7 @@ export class ValidatedLogin implements Middleware {
   
     // console.log(typeof(body))
     let errors=await validatorDto(LoginUserDto,body)
-    errors=errors.map(e=>instanceToPlain(ValidationError,e))
+    //errors=errors.map(e=>instanceToPlain(ValidationError,e))
      console.log(errors)
     if (errors!=[]){
       res.status(400).json({
