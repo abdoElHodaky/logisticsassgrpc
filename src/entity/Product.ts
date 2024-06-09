@@ -1,5 +1,5 @@
-import { Entity ,Column,PrimaryGeneratedColumn, OneToMany, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { User,Attachment} from "./";
+import { Entity ,Column,PrimaryGeneratedColumn, OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Supplier,Attachment} from "./";
 import { ProductAttachment } from "./Attached";
 @Entity()
 //@ChildEntity()
@@ -17,5 +17,6 @@ export class Product {
     updatedAt:Date
     
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
-    
+    @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
+   
 }
