@@ -9,6 +9,7 @@ message PurshasedItem
 {
  int32 id=1;
  optional google.protobuf.Any props=2;
+ optional int32 productId=3;
 }
 message Purshase
 {
