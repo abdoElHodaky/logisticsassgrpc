@@ -1,5 +1,5 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { Supplier,Attachment,PurchasedItem} from "./";
+import { Supplier,Attachment} from "./";
 import { ProductAttachment } from "./Attached";
 @Entity()
 //@ChildEntity()
