@@ -2,6 +2,7 @@ import {
   Server,
   type UntypedServiceImplementation,
 } from "@grpc/grpc-js";
+import { ClassConstructor, plainToClass ,classToPlain } from "class-transformer";
 
 export function addServiceToServer(
   server:Server,
@@ -20,4 +21,12 @@ export function dateToReadable(date:Date|string){
   let m=moment(date)
   //console.log(moment.locale());
   return m.format("dddd, MMMM Do YYYY, h:mm:ss a")
+}
+
+export function transformDate<T extends ClassConstructor<any>>(entity:T,fieldsnames:string[]):object{
+  let _obj=classToPlain(T,obj)
+  fieldsnames.forEach(e=>{
+    _obj[e]=dateToReadable(obj[e])
+  })
+  return _obj
 }
