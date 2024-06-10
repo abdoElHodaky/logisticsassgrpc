@@ -26,7 +26,7 @@ export function dateToReadable(date:Date|string){
 export function transformDate<T extends ClassConstructor<any>>(entity:T,fieldsnames:string[]):object{
   let _obj=classToPlain(entity,obj)
   fieldsnames.forEach(e=>{
-    _obj[e]=dateToReadable(obj[e])
+    _obj[e]=dateToReadable(_obj[e])
   })
   return _obj
 }
