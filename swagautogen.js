@@ -83,7 +83,7 @@ const config = {
             },
             userAddTicket:{
                // $userId:"4",
-                $type:"inquiry|complaint",
+                $type:{schema:{@enum:["inquiry","complaint"]}},
                 $subject:"greet",
                 $description:"how are you?"
             },
