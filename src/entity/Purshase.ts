@@ -1,7 +1,7 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne ,ChildEntity} from "typeorm"
-import { User} from "./";
-import { Payment } from "./";
-import { Attachment } from "./";
+//import { User} from "./";
+//import { Payment } from "./";
+import { Attachment,User,Payment,Product } from "./";
 @Entity()
 //@ChildEntity()
 export class Purshase {
@@ -23,7 +23,7 @@ export class PurshaseItem {
     @Column("simple-json")
     props:any
     
-  //  @OneToMany(()=>Attachment, attachment=>attachment.attachedTo) attachments:Attachment[]
+   @OneToOne(()=>Product, product=>product.purshased) product:Product
     
     @ManyToOne(()=>Purshase,purshase=>purshase.items) purshase:Purshase;
 }
