@@ -19,7 +19,7 @@ export class Product {
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
     @OneToMany(()=>subProduct,subproduct=>subproduct.parent) subs:subProduct[];
-    @OneToOne(()=>PurshaseItem,purshased=>purshased.product) purshased:PurshaseItem
+   // @OneToOne(()=>PurshaseItem,purshased=>purshased.product) purshased:PurshaseItem
    
 }
 
