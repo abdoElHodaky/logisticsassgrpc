@@ -1,4 +1,6 @@
-import { Entity ,Column,PrimaryGeneratedColumn,OneToMany ,OneToOne,ManyToOne ,ChildEntity} from "typeorm"
+import { Entity ,Column,PrimaryGeneratedColumn
+        ,OneToMany ,OneToOne,ManyToOne ,JoinColumn
+        ,ChildEntity} from "typeorm"
 //import { User} from "./";
 //import { Payment } from "./";
 import { Attachment,User,Payment,Product } from "./";
@@ -23,7 +25,9 @@ export class PurshaseItem {
     @Column("simple-json")
     props:any
     
-   @OneToOne(()=>Product, product=>product.purshased) product:Product
+   @OneToOne(()=>Product) 
+   @JoinColumn()
+   product:Product
     
     @ManyToOne(()=>Purshase,purshase=>purshase.items) purshase:Purshase;
 }
