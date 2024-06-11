@@ -17,7 +17,7 @@ export class GrpcProductController {
   constructor(){}
   
   @Get("",[])
-  async all(@Req() req:Request, @Res() res:Response):Promise<Payment[]|void>{
+  async all(@Req() req:Request, @Res() res:Response):Promise<Product[]|void>{
     const {auth}=req
     console.log(auth)
     let products=await this.service.all()
