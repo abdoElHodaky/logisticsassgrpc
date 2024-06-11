@@ -70,7 +70,7 @@ const config = {
                  email:"",
                  password:"",
                  $age:0,
-                 type:{schema:{type:"string",'@enum':["user","author","supplier","affiliate"]}}
+                 type:{type:"string",'@enum':["user","author","supplier","affiliate"]}
              },
              CreateAuthor:{
                  $type:"author"
@@ -82,7 +82,7 @@ const config = {
                 title:""
             },
             userAddTicket:{
-                type:{schema:{type:"string",'@enum':["inquiry","complaint"]}},
+                type:{type:"string",'@enum':["inquiry","complaint"]},
                 $subject:"greet",
                 $description:"how are you?"
             },
