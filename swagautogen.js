@@ -70,7 +70,7 @@ const config = {
                  email:"",
                  password:"",
                  $age:0,
-                 type:""
+                 type:{'@enum':["user","author","supplier","affiliate"]}
              },
              CreateAuthor:{
                  $type:"author"
