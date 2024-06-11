@@ -1,4 +1,3 @@
-
 import { Product } from "../entity/"
 import { AppDataSource } from "../_datasource";
 import { AuthenticateMiddleware } from "../middlewares/"
@@ -27,7 +26,7 @@ export class GrpcProductController {
   }
   
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/ , @Res() res:Response):Promise<Product|void>{
+  async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/  @Res() res:Response):Promise<Product|void>{
     const {auth}=req
    // console.log(auth)
     //let payment=await this.paymentService.create(createpaymentdto)
