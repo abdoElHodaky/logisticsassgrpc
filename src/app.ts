@@ -2,7 +2,8 @@ import "reflect-metadata";
 import * as redis from "redis";
 import application from "express"
 import { json,urlencoded,Request } from "express";
-//import { rateLimit } from 'express-rate-limit'
+import { slowDown } from 'express-slow-down'
+import { RedisStore } from 'rate-limit-redis'
 import cors from "cors";
 import apicache from 'apicache'
 import { AppDataSource } from "./_datasource";
@@ -18,7 +19,18 @@ let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
 	url:process.env.REDIS
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
 }) }).middleware
-
+const limiter = slowDown({
+	windowMs: 15 * 60 * 1000, // 15 minutes
+	delayAfter: 5, // Allow 5 requests per 15 minutes.
+	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
+	store:new RedisStore({
+		sendCommand: (command: string, ...args: (string | number | Buffer)[]):Promise<any> => redis.createClient({
+	url:process.env.REDIS
+	}).sendCommand(command,args)
+		
+	  }
+	)
+})
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
