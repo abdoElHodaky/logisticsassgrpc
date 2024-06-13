@@ -39,3 +39,35 @@ userspayrpc.get("/users/:userId/payments",(req,res)=>{
 
     */
 })
+
+userspayrpc.get("/users/:userId/orgzs",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.User.Organization']
+        #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
+        #swagger.parameters['userId'] = {
+            in: 'path',
+            description: 'id of specific user.',
+            
+    }
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
+
+    */
+})userspayrpc.post("/users/:userId/orgzs",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.User.Payment']
+        #swagger.description = 'Endpoint to get payments via grpc' 
+        #swagger.parameters['userId'] = {
+            in: 'path',
+            description: 'id of specific user.',
+            
+    }
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
+
+    */
+})
+
+
+
+
