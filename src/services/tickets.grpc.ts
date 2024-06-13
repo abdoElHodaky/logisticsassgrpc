@@ -1,6 +1,6 @@
 import { sendUnaryData, ServerUnaryCall, status,UntypedHandleCall } from "@grpc/grpc-js";
-import { supTicket }from "../entity/"
-import  {_Ticket} from "../protos/dist/";
+import { supTicket }from "../../entity/"
+import  {_Ticket} from "../../protos/dist/";
 import  {UserTicketService} from "./";
 
 //@service("Ticket")
