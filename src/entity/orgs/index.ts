@@ -1,1 +1,1 @@
-export { Org } from "./Org";
+export { Orgz } from "./Org";
