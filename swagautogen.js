@@ -102,7 +102,10 @@ const config = {
                }
            },
           CreateOrgz:{
-              
+              $type:"",
+              $title:"",
+              $description:"",
+              $specs:[{$name:"",$value:""}]
           }
     }}
 };
