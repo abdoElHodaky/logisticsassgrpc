@@ -13,9 +13,9 @@ export class ProductService extends _Data {
 
   async all(userId?:number):Promise<Product[]|Error>
   {
-    
+  
     const products= await this.datasource.manager.find(Product,{
-      where:{user:{id:userId}},
+      //where:{user:{id:userId}},
       relations:{
         supplier:true
       },
