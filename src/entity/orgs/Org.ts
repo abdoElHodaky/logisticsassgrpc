@@ -36,17 +36,7 @@ export class Orgz {
     @UpdateDateColumn({type:"date"})
     updatedAt: Date;
 
-    @ManyToOne(()=>Owner,owner=>owner.orgz) owner?:Owner
-   /* @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
-    @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
-    @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
-    @OneToMany(()=>Payment,payment=>payment.user) payments:Payment[]
-    @OneToMany(()=>Purshase,purchase=>purchase.user) purchases:Purshase[]
-    @OneToMany(()=>Affiliate,affiliates=>affiliates.related)
-    @JoinColumn([
-    { name: "referedBy", referencedColumnName: "referralCode" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
-    affiliates:Affiliate[]*/
+    @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
+   
    
 }
