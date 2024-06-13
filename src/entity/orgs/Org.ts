@@ -1,5 +1,7 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, JoinColumn,
+        JoinTable ,Column, OneToMany, ManyToOne,
+        TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 //import { Email } from "./Email"
 import { Owner,User,Address} from "../"
 
