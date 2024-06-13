@@ -9,10 +9,11 @@ message Product {
  int32 id=1;
  google.protobuf.Any specs=2;
  repeated Product subs=3;
- repeated Attachment attachments=4;
- optional int32 userId=5;
- optional google.protobuf.Timestamp created_at=6;
- optional google.protobuf.Timestamp updated_at=7;
+ optional Product parent=4;
+ repeated Attachment attachments=5;
+ optional int32 userId=6;
+ optional google.protobuf.Timestamp created_at=7;
+ optional google.protobuf.Timestamp updated_at=8;
 }
 
 message CreateProductReq {
