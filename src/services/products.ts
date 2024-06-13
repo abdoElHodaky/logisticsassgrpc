@@ -15,7 +15,7 @@ export class ProductService extends _Data {
   {
   
     const products= await this.datasource.manager.find(Product,{
-      //where:{user:{id:userId}},
+      where:(userId!=undefined)?{user:{id:userId}}:{},
       relations:{
         supplier:true
       },
