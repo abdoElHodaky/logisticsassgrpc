@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 //import { Email } from "./Email"
-import { User,Address} from "../"
+import { Owner,User,Address} from "../"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -33,7 +33,8 @@ export class Orgz {
 
     @UpdateDateColumn({type:"date"})
     updatedAt: Date;
-    
+
+    @ManyToOne(()=>Owner,owner=>owner.orgz) owner?:Owner
    /* @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
     @OneToMany(()=>Verification,verification=>verification.user) verifications:Verification[];
     @OneToMany(()=>Attachment,media=>media.uploader) media:Attachment[]
