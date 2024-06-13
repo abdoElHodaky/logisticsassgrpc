@@ -46,6 +46,9 @@ const config = {
       },
     {
         name:"GRPC.User.Payment",description:"users' payments endpoints via grpc"
+      },
+      {
+        name:"GRPC.User.Organization",description:"owners' orgzs endpoints via grpc"
       }
     ],
     host: '',
@@ -70,7 +73,7 @@ const config = {
                  email:"",
                  password:"",
                  $age:0,
-                 type:{type:"string",'@enum':["user","author","supplier","affiliate"]}
+                 type:{type:"string",'@enum':["user","author","supplier","affiliate","owner"]}
              },
              CreateAuthor:{
                  $type:"author"
@@ -97,7 +100,10 @@ const config = {
                    source:"",
                    thumbnail:""
                }
-           }
+           },
+          CreateOrgz:{
+              
+          }
     }}
 };
 
