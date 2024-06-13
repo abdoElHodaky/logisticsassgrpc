@@ -6,6 +6,7 @@ import { Router } from "express";
 export const usersgrpc=Router()
 export const megrpc=Router()
 export const userspayrpc=Router()
+export const usersorgzsrpc=Router()
 
 usersgrpc.get("/users",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User']
@@ -40,7 +41,7 @@ userspayrpc.get("/users/:userId/payments",(req,res)=>{
     */
 })
 
-userspayrpc.get("/users/:userId/orgzs",(req,res)=>{
+usersorgzsrpc.get("/users/:userId/orgzs",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User.Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
         #swagger.parameters['userId'] = {
@@ -53,8 +54,10 @@ userspayrpc.get("/users/:userId/orgzs",(req,res)=>{
        }]
 
     */
-})userspayrpc.post("/users/:userId/orgzs",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Payment']
+})
+
+usersorgzsrpc.post("/users/:userId/orgzs",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.User.Organization']
         #swagger.description = 'Endpoint to get payments via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
