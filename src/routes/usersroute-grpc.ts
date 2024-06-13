@@ -64,7 +64,15 @@ usersorgzsrpc.post("/users/:userId/orgzs",(req,res)=>{
             description: 'id of specific user.',
             
     }
-    #swagger.security = [{
+       #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                   schema: { $ref: '#/components/schemas/CreateOrgz' }   }
+                }
+            }
+        } 
+      #swagger.security = [{
             "JWTAuth": []
        }]
 
