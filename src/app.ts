@@ -35,12 +35,8 @@ app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
 app.use(cacheWithRedis("15 minutes",(req:any,res:any)=> res.statusCode===200))
-app.use(limiter())
+app.use(limiter)
 app.use(apiv1)
-/*app.use(rateLimit({
-	windowMs: 15 * 60 * 1000, // 15 minutes
-	limit: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
-	}))*/
 app.use(
   expressPrettier(
     { alwaysOn: true }
