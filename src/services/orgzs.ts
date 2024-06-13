@@ -28,7 +28,7 @@ async create(userId:string,orgz:{type:string,title:string,description:string}):P
    let user= await services.User.id(userId) 
    if(user instanceof User) user = user as Owner
 
-   const _orgz=await this.datasource.manger.create(Orgz,{
+   const _orgz=await this.datasource.manager.create(Orgz,{
       ...orgz
     })
    
