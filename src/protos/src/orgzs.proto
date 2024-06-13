@@ -1,0 +1,40 @@
+syntax="proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+//import "attachment.proto";
+import "error.proto";
+
+message Orgz {
+ int32 id=1;
+ google.protobuf.Any specs=2;
+ optional int32 OwnerId=3;
+ optional google.protobuf.Timestamp created_at=4;
+ optional google.protobuf.Timestamp updated_at=5;
+}
+
+message CreateOrgzReq {
+  int32 userId=1;
+  Orgz orgz=2;
+}
+
+message CreateOrgzRes {
+  optional  int32 userId=1;
+  Product product=2;
+}
+
+message GetAllOrgzsReq {
+ optional int32 ownerId=1;
+}
+
+message GetAllOrgzsRes {
+ repeated Product products=1;
+ optional Error error=2;
+ 
+}
+
+service OrgzService {
+  rpc create(GetAllOrgzsReq) returns(
+  GetAllOrgzsRes);
+  rpc all(GetAllOrgzsReq) returns (GetAllOrgzsRes);
+}
