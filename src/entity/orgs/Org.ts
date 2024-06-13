@@ -8,7 +8,7 @@ import { User,Address} from "../"
 //@TableInheritance({column:{type:"varchar",name:"referralCode"}})
 //@TableInheritance({column:{type:"varchar",name:"referedBy"}})
 
-export class Org {
+export class Orgz {
 
     @PrimaryGeneratedColumn("increment")
     id: number
