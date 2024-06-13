@@ -1,7 +1,7 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { User} from "./";
-import {Org} from "../"
+import {Orgz} from "../"
 
 @ChildEntity()
 export class Owner extends User {
