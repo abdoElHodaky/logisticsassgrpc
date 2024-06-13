@@ -22,12 +22,12 @@ message CreateProductReq {
 }
 
 message CreateProductRes {
- // int32 userId=1;
+  optional  int32 userId=1;
   Product product=2;
 }
 
 message GetAllProductsReq {
- //optional int32 entityId=1;
+ optional int32 userId=1;
 }
 
 message GetAllProductsRes {
