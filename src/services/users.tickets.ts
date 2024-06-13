@@ -1,9 +1,9 @@
 import {_Data} from "./datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 
-import { supTicket ,User } from "../entity/";
+import { supTicket ,User } from "../../entity/";
 import { Error , NotFoundError } from "common-errors";
-import { isNumeric } from "../helpers";
+import { isNumeric } from "../../helpers";
 export class UserTicketService extends _Data {
 
   constructor(){super()}
