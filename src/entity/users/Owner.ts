@@ -9,6 +9,6 @@ export class Owner extends User {
     @Column({default:"Owner"})
     type:string
 
-    @OneToMany(()=>Orgz,orgz=>orgz.owner) orgz?: Orgz[];
+    @OneToMany(()=>Orgz,orgz=>orgz.owner) orgzs?: Orgz[];
 
 }
