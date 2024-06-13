@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Orgz ,Owner } from "../entity/"
+import { Orgz ,Owner,User } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { services} from "./enum";
@@ -25,7 +25,9 @@ export class OrgzService extends _Data {
   }
 
 async create(userId:string,orgz:{type:string,title:string,description:string}):Promise<Orgz|void>{
-   const user= await services.User.id(userId)
+   let user= await services.User.id(userId) 
+   if(user instanceof User) user = user as Owner
+
    const _orgz=await this.datasource.manger.create(Orgz,{
       ...orgz
     })
