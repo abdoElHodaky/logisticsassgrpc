@@ -30,7 +30,7 @@ async create(userId:string,orgz:{type:string,title:string,description:string}):P
       ...orgz
     })
    
-   _org.owner=user
+   _orgz.owner=user
    return _orgz
     
     
