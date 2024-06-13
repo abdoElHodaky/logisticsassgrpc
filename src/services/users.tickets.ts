@@ -1,7 +1,6 @@
 import {_Data} from "./datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
-import { Response ,Request} from "express"
+
 import { supTicket ,User } from "../entity/";
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
