@@ -1,5 +1,8 @@
 import { _Data } from "./datasource";
 import { Product ,User } from "../entity/"
+import { Error , NotFoundError } from "common-errors";
+import { isNumeric } from "../helpers";
+
 //import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
@@ -8,15 +11,17 @@ export class ProductService extends _Data {
       super()
   }
 
-  async all():Promise<Product[]>
+  async all(userId?:number):Promise<Product[]|Error>
   {
-    //console.log(this._source)
-    return await this.datasource.manager.find(Product,{
+    
+    const products= await this.datasource.manager.find(Product,{
+      where:{user:{id:userId}},
       relations:{
         supplier:true
       },
       cache:true
     })
+    return (products.length!=0)? products : new NotFoundError("Products")
   }
 
 // async create(userId:string,ticket:{type:string,subject:string,description:string}):Promise<supTicket|void>{
