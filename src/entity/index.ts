@@ -1,6 +1,6 @@
 export { Article } from "./Article"
 export { User ,Author,Affiliate,Supplier } from "./users/"
-export { Org } from "./orgs/";
+export { Orgz } from "./orgs/";
 export { Purshase,PurshaseItem } from "./Purshase"
 export { supTicket } from "./supTicket"
 export { Attachment } from "./Attachment"
