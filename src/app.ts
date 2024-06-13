@@ -20,7 +20,7 @@ let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
 }) }).middleware
 const limiter = slowDown({
-	windowMs: 15 * 60 * 1000, // 15 minutes
+	windowMs: 5 * 60 * 1000, // 15 minutes
 	delayAfter: 5, // Allow 5 requests per 15 minutes.
 	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
 	store:new RedisStore({
@@ -35,6 +35,7 @@ app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
 app.use(cacheWithRedis("15 minutes",(req:any,res:any)=> res.statusCode===200))
+app.use(limiter())
 app.use(apiv1)
 /*app.use(rateLimit({
 	windowMs: 15 * 60 * 1000, // 15 minutes
