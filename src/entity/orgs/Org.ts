@@ -18,6 +18,12 @@ export class Org {
 
     @Column()
     description: string
+
+    @Column()
+    email: string
+
+    @Column()
+    phone: string
     
     @Column(()=>Address)
     address:Address
