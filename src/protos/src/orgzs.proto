@@ -20,7 +20,7 @@ message CreateOrgzReq {
 
 message CreateOrgzRes {
   optional  int32 userId=1;
-  Product product=2;
+  Orgz orgz=2;
 }
 
 message GetAllOrgzsReq {
