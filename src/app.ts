@@ -9,25 +9,24 @@ import apicache from 'apicache'
 import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
-//import { ServerCredentials } from "@grpc/grpc-js";
+const redisClient = redis.createClient({ url:process.env.REDIS,legacyMode: true });
+
+await redisClient.connect().catch(console.error);
 const app=application();
 const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
-let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
+let cacheWithRedis = apicache.options({ redisClient:/* redis.createClient({
 	url:process.env.REDIS,legacyMode: true
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
-}) }).middleware
+})*/ redisClient }).middleware
 const limiter = slowDown({
 	windowMs: 5 * 60 * 1000, // 15 minutes
 	delayAfter: 5, // Allow 5 requests per 15 minutes.
 	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
 	store:new RedisStore({
-		sendCommand: ( ...args: any[]):Promise<any> => redis.createClient({
-	url:process.env.REDIS,
-	legacyMode: true
-	}).sendCommand(args)
+		sendCommand: ( ...args: any[]):Promise<any> => redisClient.sendCommand(args)
 		
 	  }
 	)
