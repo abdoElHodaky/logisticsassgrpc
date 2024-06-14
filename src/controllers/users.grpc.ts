@@ -24,7 +24,7 @@ export class GrpcUserController {
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
         
-        res.json(transformDate(resl))
+        res.json(resl)
      }
       //res.jsonp(resl)
     })
