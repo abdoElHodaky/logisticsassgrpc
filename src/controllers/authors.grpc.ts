@@ -6,7 +6,7 @@ import { Request } from "express-jwt";
 import { AuthenticateMiddleware} from "../middlewares/";
 import { services} from "../services/enum";
 import {Env} from "../env";
-import {dateToReadable} from "../grpc/util";
+import {transformDate} from "../grpc/util";
 const address = "localhost:"+ Env.GRPCSONEPORT
 
 @Controller("/authors")
@@ -27,7 +27,7 @@ export class GrpcAuthorController {
       
         const resl=_User.GetAllUserRes.toJSON(resp)
         //console.log(resl)
-        res.json(resl)
+        res.json(transformDate(resl))
      }
       //res.jsonp(resl)
     })
