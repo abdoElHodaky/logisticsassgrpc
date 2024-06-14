@@ -28,7 +28,7 @@ export class GrpcArticleController {
         console.error(err)
     } else {
         let {articles,...rest}=_Article.GetAllRes.toJSON(resp)
-        articles=articles.map(transformDate)
+        articles=articles?.map(transformDate)
        // console.log(articles)
        res.json({articles,rest})
      }
