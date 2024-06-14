@@ -6,7 +6,7 @@ import { Request } from "express-jwt";
 import { AuthenticateMiddleware,UserEqulityMiddleware  } from "../middlewares/";
 import { isEmpty } from "../helpers";
 import {Env} from "../env";
-import {dateToReadable} from "../grpc/util";
+import {transformDate} from "../grpc/util";
 const address = "localhost:"+ Env.GRPCSONEPORT
 
 @Controller("/users/:userId/tickets",[AuthenticateMiddleware])
@@ -29,7 +29,7 @@ export class GrpcUserTicketController {
     } else {
         const resl=_Ticket.GetAllTicketRes.toJSON(resp)
         
-        res.json(resl)
+        res.json(transformDatw(resl))
      }
     })
   }
