@@ -23,7 +23,7 @@ export function dateToReadable(date:Date|string){
   return m.format("dddd, MMMM Do YYYY, h:mm:ss a")
 }
 
-export function transformDate/*<T extends ClassConstructor<any>>*/(entity:object){
+export function transformDate/*<T extends ClassConstructor<any>>*/(entity:any){
  // let _obj=classToPlain(entity)
   let _obj=entity;
   for(var i of _obj){
