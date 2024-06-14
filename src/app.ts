@@ -23,7 +23,7 @@ const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
-l/*et cacheWithRedis = apicache.options({ redisClient:/* redis.createClient({
+/*let cacheWithRedis = apicache.options({ redisClient:/* redis.createClient({
 	url:process.env.REDIS,legacyMode: true
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
 })redisClient }).middleware */
