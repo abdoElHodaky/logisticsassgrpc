@@ -8,13 +8,13 @@ export const _AppDataSource = new DataSource({
     type:"better-sqlite3",
     database:"grpcendpoints.sqlite",
     cache: {
-        type: "redis",
+        type:"ioredis",
         options: {
-            url:process.env.REDIS,
-            //url:"rediss://red-cpdq71f109ks73elqfu0:DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK@frankfurt-redis.render.com:6379",
-            
-            pingInterval: 10000
+       //...(require("redis-url").parse(process.env.REDIS))
+         host:"red-cpdq71f109ks73elqfu0",
+	     port:6379
         },
+        
         duration: 300000
     },
     //metadataTableName:"typeorm-metadata",
