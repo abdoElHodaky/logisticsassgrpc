@@ -10,11 +10,12 @@ export const _AppDataSource = new DataSource({
     cache: {
         type: "redis",
         options: {
-            url:process.env.REDIS
+            url:process.env.REDIS,
             //url:"rediss://red-cpdq71f109ks73elqfu0:DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK@frankfurt-redis.render.com:6379",
-          /* socket:  {  host: "localhost",
-                port: 6379
-            }*/
+            socket: {
+             reconnectStrategy: retries => Math.min(retries * 50, 500),
+            },
+            pingInterval: 10000
         },
         duration: 300000
     },
