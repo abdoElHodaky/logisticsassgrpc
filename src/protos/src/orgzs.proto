@@ -28,7 +28,7 @@ message GetAllOrgzsReq {
 }
 
 message GetAllOrgzsRes {
- repeated Orgzs orgzs=1;
+ repeated Orgz orgzs=1;
  optional Error error=2;
  
 }
