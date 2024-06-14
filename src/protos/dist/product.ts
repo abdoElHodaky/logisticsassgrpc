@@ -55,7 +55,7 @@ export interface GetAllProductsRes {
   error?: Error | undefined;
 }
 
-function createBaseProduct(): Product {
+export function createBaseProduct(): Product {
   return {
     id: 0,
     specs: undefined,
