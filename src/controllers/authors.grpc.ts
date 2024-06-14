@@ -27,7 +27,7 @@ export class GrpcAuthorController {
       
         const resl=_User.GetAllUserRes.toJSON(resp)
         //console.log(resl)
-        res.json(transformDate(resl))
+        res.json(resl)
      }
       //res.jsonp(resl)
     })
