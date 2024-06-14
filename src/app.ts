@@ -10,10 +10,7 @@ import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
 const redisClient = redis.createClient({
-	url:process.env.REDIS,legacyMode: true,
-	socket: {
-       reconnectStrategy: (retries:any) => Math.min(retries * 50, 500),
-       },
+	url:process.env.REDIS,
        pingInterval: 10000
 });
 
