@@ -28,7 +28,7 @@ message GetAllOrgzsReq {
 }
 
 message GetAllOrgzsRes {
- repeated Product products=1;
+ repeated Orgzs orgzs=1;
  optional Error error=2;
  
 }
