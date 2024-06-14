@@ -2,7 +2,7 @@ import {
   Server,
   type UntypedServiceImplementation,
 } from "@grpc/grpc-js";
-import { ClassConstructor, plainToClass ,classToPlain } from "class-transformer";
+//import { ClassConstructor, plainToClass ,classToPlain } from "class-transformer";
 
 export function addServiceToServer(
   server:Server,
@@ -24,7 +24,8 @@ export function dateToReadable(date:Date|string){
 }
 
 export function transformDate/*<T extends ClassConstructor<any>>*/(entity:object,fieldsnames:string[]):object{
-  let _obj=classToPlain(entity)
+ // let _obj=classToPlain(entity)
+  let _obj=entity;
   fieldsnames.forEach(e=>{
     _obj[e]=dateToReadable(_obj[e])
   })
