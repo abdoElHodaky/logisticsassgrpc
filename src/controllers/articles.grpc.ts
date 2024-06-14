@@ -7,6 +7,7 @@ import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware  } from "../middlewares/";
 import {isEmpty} from "../helpers";
+import {transformDate} from "../grpc/util";
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
@@ -26,9 +27,10 @@ export class GrpcArticleController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const articles=_Article.GetAllRes.toJSON(resp)
+        const resl=_Article.GetAllRes.toJSON(resp)
+        resl.articles=resl.articles.map(transformDate)
        // console.log(articles)
-       res.json(articles)
+       res.json(resl)
      }
     })
   }
