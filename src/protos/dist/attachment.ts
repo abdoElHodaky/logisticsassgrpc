@@ -49,7 +49,7 @@ export interface GetAllAttachRes {
   attachments: Attachment[];
 }
 
-export function createBaseAttachment(): Attachment {
+function createBaseAttachment(): Attachment {
   return { id: 0, type: "", title: "", userId: 0, forType: "", createdAt: undefined, updatedAt: undefined };
 }
 

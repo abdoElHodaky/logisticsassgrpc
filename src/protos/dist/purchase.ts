@@ -26,6 +26,7 @@ export const protobufPackage = "";
 export interface PurshasedItem {
   id: number;
   props?: Any | undefined;
+  productId?: number | undefined;
 }
 
 export interface Purshase {
@@ -54,8 +55,8 @@ export interface CreatePurshaseRes {
   purchase: Purshase | undefined;
 }
 
-export function createBasePurshasedItem(): PurshasedItem {
-  return { id: 0, props: undefined };
+function createBasePurshasedItem(): PurshasedItem {
+  return { id: 0, props: undefined, productId: undefined };
 }
 
 export const PurshasedItem = {
@@ -65,6 +66,9 @@ export const PurshasedItem = {
     }
     if (message.props !== undefined) {
       Any.encode(message.props, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.productId !== undefined) {
+      writer.uint32(24).int32(message.productId);
     }
     return writer;
   },
@@ -90,6 +94,13 @@ export const PurshasedItem = {
 
           message.props = Any.decode(reader, reader.uint32());
           continue;
+        case 3:
+          if (tag !== 24) {
+            break;
+          }
+
+          message.productId = reader.int32();
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -103,6 +114,7 @@ export const PurshasedItem = {
     return {
       id: isSet(object.id) ? globalThis.Number(object.id) : 0,
       props: isSet(object.props) ? Any.fromJSON(object.props) : undefined,
+      productId: isSet(object.productId) ? globalThis.Number(object.productId) : undefined,
     };
   },
 
@@ -114,6 +126,9 @@ export const PurshasedItem = {
     if (message.props !== undefined) {
       obj.props = Any.toJSON(message.props);
     }
+    if (message.productId !== undefined) {
+      obj.productId = Math.round(message.productId);
+    }
     return obj;
   },
 
@@ -124,6 +139,7 @@ export const PurshasedItem = {
     const message = createBasePurshasedItem();
     message.id = object.id ?? 0;
     message.props = (object.props !== undefined && object.props !== null) ? Any.fromPartial(object.props) : undefined;
+    message.productId = object.productId ?? undefined;
     return message;
   },
 };

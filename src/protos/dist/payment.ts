@@ -104,7 +104,7 @@ export interface GetPayResultRes {
   result?: PaymentResult | undefined;
 }
 
-export function createBasePayment(): Payment {
+function createBasePayment(): Payment {
   return {
     id: 0,
     title: undefined,
