@@ -28,7 +28,7 @@ export function transformDate/*<T extends ClassConstructor<any>>*/(entity:any){
   let _obj=entity;
   for(var i of _obj){
     if(i instanceof Array){
-      i=i.map((e:object)=>{
+      i=i.map((e:any)=>{
         const {createdAt,updatedAt}=e
         return {
           ...e,
