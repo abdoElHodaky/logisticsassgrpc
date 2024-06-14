@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import * as redis from "redis";
+import RedisClient from 'ioredis';
 import application from "express"
 import { json,urlencoded,Request } from "express";
 import { slowDown } from 'express-slow-down'
@@ -9,7 +9,7 @@ import cors from "cors";
 import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
-const redisClient = redis.createClient({
+const redisClient = new RedisClient({
 	url:process.env.REDIS,
        pingInterval: 10000
 });
@@ -29,8 +29,7 @@ const limiter = slowDown({
 	delayAfter: 5, // Allow 5 requests per 15 minutes.
 	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
 	store:new RedisStore({
-		sendCommand: ( ...args: any[]):Promise<any> => redisClient.sendCommand(args)
-		
+		sendCommand: (command: string, ...args: (string | number | Buffer)[]):Promise<any> => redisClient.call(command,args)
 	  }
 	)
 })
