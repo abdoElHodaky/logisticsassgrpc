@@ -31,7 +31,7 @@ export class GrpcSupTicketController {
     } else {
         const resl=_Ticket.GetAllTicketRes.toJSON(resp)
         
-        res.json(transformDate(resl))
+        res.json(resl)
      }
     })
   }
