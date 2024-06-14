@@ -29,7 +29,7 @@ export class GrpcArticleController {
     } else {
         const resl=_Article.GetAllRes.toJSON(resp)
        // console.log(resl?.articles.map(transformDate))
-        res.json(transformDate(resl))
+        res.json(resl)
      }
     })
   }
