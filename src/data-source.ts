@@ -13,7 +13,7 @@ export const _AppDataSource = new DataSource({
             url:process.env.REDIS,
             //url:"rediss://red-cpdq71f109ks73elqfu0:DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK@frankfurt-redis.render.com:6379",
             socket: {
-             reconnectStrategy: retries => Math.min(retries * 50, 500),
+             reconnectStrategy: (retries:any) => Math.min(retries * 50, 500),
             },
             pingInterval: 10000
         },
