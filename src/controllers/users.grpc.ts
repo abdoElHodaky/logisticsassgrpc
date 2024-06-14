@@ -4,7 +4,7 @@ import { Req, Res,  Controller , Get } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt";
 import {Env} from "../env";
-import {dateToReadable} from "../grpc/util";
+import {transformDate} from "../grpc/util";
 const address = "localhost:"+Env.GRPCSTWOPORT
 
 @Controller("/users")
@@ -24,7 +24,7 @@ export class GrpcUserController {
     } else {
         const resl=_User.GetAllUserRes.toJSON(resp)
         
-        res.json(resl)
+        res.json(transformDate(resl))
      }
       //res.jsonp(resl)
     })
