@@ -4,3 +4,4 @@ export * as _Ticket from "./ticket";
 export * as _Article from "./article";
 export * as _Payment from "./payment";
 export * as _Purshase from "./purchase";
+export * as _Orgz from "./Orgz";
