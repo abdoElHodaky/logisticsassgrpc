@@ -7,7 +7,7 @@ import { AuthenticateMiddleware} from "../middlewares/";
 import { Error } from "common-errors";
 import { isEmpty} from "../helpers";
 import {Env} from "../env";
-import {dateToReadable} from "../grpc/util";
+import {transformDate} from "../grpc/util";
 const address = "localhost:"+ Env.GRPCSTWOPORT
 
 @Controller("/suptickets")
@@ -31,7 +31,7 @@ export class GrpcSupTicketController {
     } else {
         const resl=_Ticket.GetAllTicketRes.toJSON(resp)
         
-        res.json(resl)
+        res.json(transformDate(resl))
      }
     })
   }
