@@ -30,7 +30,7 @@ export class GrpcArticleController {
         const resl=_Article.GetAllRes.toJSON(resp)
         const articles=resl?.articles?.map(transformDate)
        // console.log(articles)
-       res.json({articles,resl?.error})
+       res.json({articles:articles,error:resl?.error})
      }
     })
   }
