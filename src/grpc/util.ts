@@ -23,12 +23,20 @@ export function dateToReadable(date:Date|string){
   return m.format("dddd, MMMM Do YYYY, h:mm:ss a")
 }
 
-export function transformDate/*<T extends ClassConstructor<any>>*/(entity:object,
-fieldsnames:string[]=["createdAt","updatedAt"]){
+export function transformDate/*<T extends ClassConstructor<any>>*/(entity:object){
  // let _obj=classToPlain(entity)
   let _obj=entity;
-  fieldsnames.forEach((e:string,inx:number)=>{
-    _obj[e]=dateToReadable(_obj[e])
-  })
+  for(var i of _obj){
+    if(i instanceof Array){
+      i=i.map(e:object =>{
+        const {createdAt,updatedAt}=e
+        return {
+          ...e,
+          createdAt:dateToReadable(createdAt),
+          updatedAt:dateToReadable(updatedAt)
+        }
+      })
+    }
+  }
   return _obj
 }
