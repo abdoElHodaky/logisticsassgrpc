@@ -27,10 +27,10 @@ export class GrpcArticleController {
       res.jsonp(err);
         console.error(err)
     } else {
-        const resl=_Article.GetAllRes.toJSON(resp)
-        resl.articles=resl.articles.map(transformDate)
+        let {articles,...rest}=_Article.GetAllRes.toJSON(resp)
+        articles=articles.map(transformDate)
        // console.log(articles)
-       res.json(resl)
+       res.json({articles,rest})
      }
     })
   }
