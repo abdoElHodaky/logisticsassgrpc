@@ -11,7 +11,7 @@ import { AppDataSource } from "./_datasource";
 import { apiv1 } from "./routes";
 const redisClient = redis.createClient({ url:process.env.REDIS,legacyMode: true });
 
-await redisClient.connect().catch(console.error);
+redisClient.connect().then(console.log).catch(console.error);
 const app=application();
 const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
