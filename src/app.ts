@@ -9,7 +9,13 @@ import apicache from 'apicache'
 import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
-const redisClient = redis.createClient({ url:process.env.REDIS,legacyMode: true });
+const redisClient = redis.createClient({
+	url:process.env.REDIS,legacyMode: true,
+	socket: {
+       reconnectStrategy: retries => Math.min(retries * 50, 500),
+       },
+       pingInterval: 10000
+});
 
 redisClient.connect().then(console.log).catch(console.error);
 const app=application();
