@@ -32,12 +32,12 @@ export const _AppDataSource = new DataSource({
     statementCacheSize:200
     
 })
-
+if (_AppDataSource.isInitialized==false){
 _AppDataSource.initialize()
   .then(async () => {
     console.log("Connection initialized with database...");
   })
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error));}
 
 export const getDataSource =  (delay = 3000): Promise<DataSource> => {
   if (_AppDataSource.isInitialized) return Promise.resolve(_AppDataSource);
