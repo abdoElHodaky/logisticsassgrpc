@@ -16,7 +16,7 @@ const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
 let cacheWithRedis = apicache.options({ redisClient: redis.createClient({
-	url:process.env.REDIS
+	url:process.env.REDIS,legacyMode: true
 	//url:"redis://red-cp4soqocmk4c73eom0p0:kLoGjFxqLJRRHFQs1QUaImdvOtnNdF19@oregon-redis.render.com:6379"
 }) }).middleware
 const limiter = slowDown({
@@ -25,7 +25,8 @@ const limiter = slowDown({
 	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
 	store:new RedisStore({
 		sendCommand: ( ...args: any[]):Promise<any> => redis.createClient({
-	url:process.env.REDIS
+	url:process.env.REDIS,
+	legacyMode: true
 	}).sendCommand(args)
 		
 	  }
