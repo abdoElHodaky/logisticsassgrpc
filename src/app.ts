@@ -12,7 +12,7 @@ import { apiv1 } from "./routes";
 const redisClient = redis.createClient({
 	url:process.env.REDIS,legacyMode: true,
 	socket: {
-       reconnectStrategy: retries => Math.min(retries * 50, 500),
+       reconnectStrategy: retries:any => Math.min(retries * 50, 500),
        },
        pingInterval: 10000
 });
