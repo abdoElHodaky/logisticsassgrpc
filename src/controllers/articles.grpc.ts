@@ -1,13 +1,13 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Article } from "../protos/dist/";
-import {CreateArticleDto} from "../dto/create-article.dto";
+import {CreateArticleDto,validatorDto} from "../dto/";
 import { User} from "../entity/";
 import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
-import {AuthenticateMiddleware,AuthorMiddleware  } from "../middlewares/";
+import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreateArticle  } from "../middlewares/";
 import {isEmpty} from "../helpers";
-import {transformDate} from "../grpc/util";
+//import {transformDate} from "../grpc/util";
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
@@ -35,14 +35,15 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("",[AuthenticateMiddleware,AuthorMiddleware  ])
+  @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreateArticle  ])
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
      const empty=isEmpty(articlecdto)
+     const errors=await validatorDto(CreateArticleDto,createarticledto)
      console.log(empty)
     try{
-    if(empty==false){
+    if(errors.length==0){
     try{
      if(user instanceof User){
       const _article= _Article.Article.fromJSON(articlecdto)
@@ -66,7 +67,7 @@ export class GrpcArticleController {
      } catch(err:any){
       console.log(err)
       //const error=new Error("Argument(s) is/are empty or not existed",err)
-      res.jsonp({message:err?.message})
+      res.status(400).jsonp({message:err?.message})
      }
     }
     else {
@@ -74,7 +75,7 @@ export class GrpcArticleController {
       
     }
     }catch(err:any){
-      res.jsonp({message:err?.message})
+      res.status(400).jsonp({message:err?.message})
     }
  
   }
