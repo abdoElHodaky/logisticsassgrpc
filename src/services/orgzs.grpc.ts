@@ -41,7 +41,7 @@ export class orgzGrpcService  {
        let _orgz=await orgzGrpcService.service.create(userId,orgz)
        if(_orgz instanceof Orgz){
         const orgz=_Orgz.Orgz.fromJSON(_orgz)
-         orgz.owner=userId
+         orgz.owner=parseInt(userId)
          callback(null,{
            orgz:orgz
          })
