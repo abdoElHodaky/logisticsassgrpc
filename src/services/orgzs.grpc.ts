@@ -36,7 +36,7 @@ export class orgzGrpcService  {
  ){
      let orgzs=await orgzGrpcService.service.all()
      //console.log(tickets)
-     let _orgzs=tickets.map(_Orgz.Orgz.fromJSON)
+     let _orgzs=orgzs.map(_Orgz.Orgz.fromJSON)
      //console.log(tickets)
     _orgzs.forEach((a:_Orgz.Orgz,inx:number)=>{
      let {user,createdAt,updatedAt}=orgzs[inx]
