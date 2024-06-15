@@ -24,7 +24,7 @@ export class OrgzService extends _Data {
     return (orgzs.length!=0)? orgzs : new NotFoundError("Products")
   }
 
-async create(userId:string,orgz:{type:string,title:string,description:string}):Promise<Orgz|void>{
+async create(userId:number,orgz:{type:string,title:string,description:string}):Promise<Orgz|void>{
    let user= await services.User.id(userId) 
    if(user instanceof User) user = user as Owner
 
