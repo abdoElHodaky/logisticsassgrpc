@@ -34,7 +34,7 @@ message GetAllOrgzsRes {
 }
 
 service OrgzService {
-  rpc create(GetAllOrgzsReq) returns(
+  rpc create(CreateOrgzReq) returns(
   GetAllOrgzsRes);
   rpc all(GetAllOrgzsReq) returns (GetAllOrgzsRes);
 }
