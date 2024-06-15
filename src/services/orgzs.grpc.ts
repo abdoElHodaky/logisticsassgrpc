@@ -11,26 +11,6 @@ export class orgzGrpcService  {
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Orgz.OrgzServiceServer = {
    
-     async create (
-    call: ServerUnaryCall<_Orgz.CreateOrgzReq,_Orgz.CreateOrgzRes>,
-    callback: sendUnaryData<_Orgz.CreateOrgzRes>
-  ){
-       let {userId,orgz}=call.request
-       const supticket=_Orgz.Orgz.toJSON((orgz!=undefined)?orgz:_Orgz.createBaseOrgz())
-       let _orgz=await orgzGrpcService.service.create(userId,orgz)
-       if(_orgz instanceof Orgz){
-        const orgz=_Orgz.Orgz.fromJSON(_orgz)
-         orgz.OwnerId=userId
-         callback(null,{
-           orgz:orgz
-         })
-       }
-      else{
-        callback(null,{
-           orgz:_Orgz.createBaseOrgz()
-         })
-      }
-     },
     async all (call: ServerUnaryCall<_Orgz.GetAllOrgzsReq,_Orgz.GetAllOrgzsRes>,
     callback: sendUnaryData<_Orgz.GetAllOrgzsRes>
  ){
@@ -52,7 +32,27 @@ export class orgzGrpcService  {
        Message:"",type:"",name:""
      }}
      callback(null,res)
+      },
+    async create (
+    call: ServerUnaryCall<_Orgz.CreateOrgzReq,_Orgz.CreateOrgzRes>,
+    callback: sendUnaryData<_Orgz.CreateOrgzRes>
+  ){
+       let {userId,orgz}=call.request
+       const supticket=_Orgz.Orgz.toJSON((orgz!=undefined)?orgz:_Orgz.createBaseOrgz())
+       let _orgz=await orgzGrpcService.service.create(userId,orgz)
+       if(_orgz instanceof Orgz){
+        const orgz=_Orgz.Orgz.fromJSON(_orgz)
+         orgz.OwnerId=userId
+         callback(null,{
+           orgz:orgz
+         })
+       }
+      else{
+        callback(null,{
+           orgz:_Orgz.createBaseOrgz()
+         })
       }
+     }
   }
 
   
