@@ -8,9 +8,10 @@ import {PaymentController} from "./payments";
 import {GrpcMeController} from "./me";
 import {GrpcUserPaymentController} from "./users-payments.grpc";
 import {GrpcProductController} from "./products.grpc";
+import {GrpcOrgzController} from "./orgzs.grpc";
 export const controllers=[GrpcAuthController,GrpcAuthorController,
                           GrpcArticleController,GrpcUserTicketController,
                           GrpcUserController,GrpcSupTicketController,
-                          PaymentController,GrpcMeController,
+                          PaymentController,GrpcMeController,GrpcOrgzController,
                           GrpcUserPaymentController,GrpcProductController
                          ]
