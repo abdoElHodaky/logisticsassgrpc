@@ -12,4 +12,5 @@ export {supTicketService} from "./suptickets";
 export {supTicketGrpcService} from "./suptickets.grpc";
 export {PayTabService} from "./paytabs";
 export {OrgzService} from "./orgzs";
+export {orgzGrpcService} from "./orgzs.grpc";
 export { ProductService} from "./products";
