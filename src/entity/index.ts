@@ -4,7 +4,7 @@ export { Orgz } from "./orgs/";
 export { Purshase,PurshaseItem } from "./Purshase"
 export { supTicket } from "./supTicket"
 export { Attachment } from "./Attachment"
-export { ProductAttachment} from "./Attached";
+export { ProductAttachment,OrgzAttachment} from "./Attached";
 export { Verification } from "./Verification"
 export { Payment } from "./Payment"
 export { Book } from "./Book"
