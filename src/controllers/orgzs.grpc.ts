@@ -11,7 +11,7 @@ import {Env} from "../env";
 import {services} from "../services/enum";
 const address = "localhost:"+ Env.GRPCSTWOPORT
 @Controller('/products')
-export class GrpcProductController {
+export class GrpcOrgzController {
   private client =new _Orgz.OrgzServiceClient(
     address,
     credentials.createInsecure()
