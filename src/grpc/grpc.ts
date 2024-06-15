@@ -1,6 +1,9 @@
 import "reflect-metadata";
 import { Server, ServerCredentials, loadPackageDefinition }  from "@grpc/grpc-js";
-import { _Article,_Ticket,_Auth ,_User,_Payment,_Purshase} from "../protos/dist/";
+import { _Article,_Ticket,_Auth 
+        ,_User,_Payment,_Purshase,
+        _Orgz
+       } from "../protos/dist/";
 import { addServiceToServer} from "./util";
 import { services } from "../services/enum";
 
@@ -19,11 +22,13 @@ addServiceToServer(server,[
 ])
 addServiceToServer(server2,[
   _User.UserServiceService,
-  _Ticket.TicketServiceService
+  _Ticket.TicketServiceService,
+  _Orgz.OrgzServiceService
   
 ],[
   services.Grpc_User.SrvImpl,
-  services.Grpc_supTicket.SrvImpl
+  services.Grpc_supTicket.SrvImpl,
+  services.Grpc_Orgz.SrvImpl
 ])
 
 /*server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
