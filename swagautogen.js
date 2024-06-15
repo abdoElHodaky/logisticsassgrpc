@@ -49,6 +49,9 @@ const config = {
       },
       {
         name:"GRPC.User.Organization",description:"owners' orgzs endpoints via grpc"
+      },
+      {
+        name:"GRPC.Organization",description:"organizations endpoints via grpc"
       }
     ],
     host: '',
