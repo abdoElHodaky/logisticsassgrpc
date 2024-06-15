@@ -1,7 +1,5 @@
 import { Router } from "express";
 
-
-
 export const orgzsrpc=Router()
 
 orgzsrpc.get("/orgzs",(req,res)=>{
@@ -12,9 +10,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
             description: 'id of specific user.',
             
     }
-    #swagger.security = [{
-            "JWTAuth": []
-       }]
+    
 
     */
 })
