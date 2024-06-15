@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, JoinColumn,
         JoinTable ,Column, OneToMany, ManyToOne,
         TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 //import { Email } from "./Email"
-import { Owner,User,Address} from "../"
+import { Owner,User,Address,OrgzAttachment} from "../"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
