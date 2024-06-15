@@ -1,18 +1,20 @@
 import {AuthService} from "./auth";
 import {AttachmentService} from "./attachments";
 import {UserService,AuthorService} from "./users/";
-//import {ArticleService} from "./articles";
+import {ArticleService} from "./articles";
 import {UserTicketService} from "./users.tickets";
-import {ArticleGrpcService,ArticleService} from "./";
+import {ArticleGrpcService} from "./articles.grpc";
 import {TicketGrpcService} from "./tickets.grpc";
 import {AuthGrpcService} from "./auth.grpc";
 import {AuthorGrpcService} from "./authors.grpc";
 import {UserGrpcService} from "./users.grpc";
-import {supTicketGrpcService, supTicketService } from "./";
-//import {supTicketService} from "./suptickets";
+import {supTicketGrpcService } from "./suptickets.grpc";
+import {supTicketService} from "./suptickets";
 import {PaymentService} from "./payments";
 import {ProductService} from "./products";
-import {OrgzService,orgzGrpcService} from "./";
+import {OrgzService} from "./orgzs";
+import {orgzGrpcService} from "./orgzs.grpc";
+
 
 export let services:any={
   Auth:new AuthService(),
