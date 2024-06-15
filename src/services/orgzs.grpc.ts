@@ -19,9 +19,9 @@ export class orgzGrpcService  {
      let _orgzs=orgzs.map(_Orgz.Orgz.fromJSON)
      //console.log(tickets)
     _orgzs.forEach((a:_Orgz.Orgz,inx:number)=>{
-     let {user,createdAt,updatedAt}=orgzs[inx]
-     if(user!=null) {
-      a.OwnerId=user.id
+     let {owner,createdAt,updatedAt}=orgzs[inx]
+     if(owner!=null) {
+      a.OwnerId=owner.id
       //console.log(a.createdAt instanceof Date)
      }
    // else { a.userId = Math.floor(Math.random()*21) }
