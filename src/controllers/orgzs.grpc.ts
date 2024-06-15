@@ -40,7 +40,7 @@ export class GrpcOrgzController {
   }
   
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/  @Res() res:Response):Promise<Product|void>{
+  async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/  @Res() res:Response):Promise<void>{
     const {auth}=req
    // console.log(auth)
     //let payment=await this.paymentService.create(createpaymentdto)
