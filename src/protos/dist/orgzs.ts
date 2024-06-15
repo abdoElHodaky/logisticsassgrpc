@@ -455,10 +455,10 @@ export const OrgzServiceService = {
     path: "/OrgzService/create",
     requestStream: false,
     responseStream: false,
-    requestSerialize: (value: GetAllOrgzsReq) => Buffer.from(GetAllOrgzsReq.encode(value).finish()),
-    requestDeserialize: (value: Buffer) => GetAllOrgzsReq.decode(value),
-    responseSerialize: (value: GetAllOrgzsRes) => Buffer.from(GetAllOrgzsRes.encode(value).finish()),
-    responseDeserialize: (value: Buffer) => GetAllOrgzsRes.decode(value),
+    requestSerialize: (value: CreateOrgzReq) => Buffer.from(CreateOrgzReq.encode(value).finish()),
+    requestDeserialize: (value: Buffer) => CreateOrgzReq.decode(value),
+    responseSerialize: (value: CreateOrgzRes) => Buffer.from(CreateOrgzRes.encode(value).finish()),
+    responseDeserialize: (value: Buffer) => CreateOrgzRes.decode(value),
   },
   all: {
     path: "/OrgzService/all",
@@ -472,25 +472,25 @@ export const OrgzServiceService = {
 } as const;
 
 export interface OrgzServiceServer extends UntypedServiceImplementation {
-  create: handleUnaryCall<GetAllOrgzsReq, GetAllOrgzsRes>;
+  create: handleUnaryCall<CreateOrgzReq, CreateOrgzRes>;
   all: handleUnaryCall<GetAllOrgzsReq, GetAllOrgzsRes>;
 }
 
 export interface OrgzServiceClient extends Client {
   create(
-    request: GetAllOrgzsReq,
-    callback: (error: ServiceError | null, response: GetAllOrgzsRes) => void,
+    request: CreateOrgzReq,
+    callback: (error: ServiceError | null, response: CreateOrgzRes) => void,
   ): ClientUnaryCall;
   create(
-    request: GetAllOrgzsReq,
+    request: CreateOrgzReq,
     metadata: Metadata,
-    callback: (error: ServiceError | null, response: GetAllOrgzsRes) => void,
+    callback: (error: ServiceError | null, response: CreateOrgzRes) => void,
   ): ClientUnaryCall;
   create(
-    request: GetAllOrgzsReq,
+    request: CreateOrgzReq,
     metadata: Metadata,
     options: Partial<CallOptions>,
-    callback: (error: ServiceError | null, response: GetAllOrgzsRes) => void,
+    callback: (error: ServiceError | null, response: CreateOrgzRes) => void,
   ): ClientUnaryCall;
   all(
     request: GetAllOrgzsReq,
