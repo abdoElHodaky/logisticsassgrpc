@@ -2,7 +2,7 @@ import { ChildEntity,ManyToOne,Column} from "typeorm";
 import { Attachment,Product,Orgz} from "./";
 @ChildEntity()
 export class  ProductAttachment extends Attachment {
-    @Column({default:Product.name})
+    @Column({default:"Product"})
     forType:string
     @ManyToOne(()=>Product,attached=>attached.attachments) attached:Product;
    
@@ -10,7 +10,7 @@ export class  ProductAttachment extends Attachment {
 
 @ChildEntity()
 export class  OrgzAttachment extends Attachment {
-    @Column({default:Orgz.name})
+    @Column({default:"Orgz"})
     forType:string
     @ManyToOne(()=>Orgz,attached=>attached.attachments) attached?:Orgz;
    
