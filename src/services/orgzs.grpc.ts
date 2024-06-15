@@ -1,13 +1,13 @@
 import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
 import  {_Orgz} from "../protos/dist/";
-import { services }from "./enum";
+import {OrgzService} from "./";
 import { Orgz } from "../entity/";
 //console.log(services)
 export class orgzGrpcService  {
   
 // @Service("Ticket")
-  static service:any=services.Orgz
+  static service:any=new OrgzService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Orgz.OrgzServiceServer = {
    
