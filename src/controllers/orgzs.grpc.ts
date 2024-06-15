@@ -10,7 +10,7 @@ import { Error , NotFoundError } from "common-errors";
 import {Env} from "../env";
 import {services} from "../services/enum";
 const address = "localhost:"+ Env.GRPCSTWOPORT
-@Controller('/products')
+@Controller('/orgzs')
 export class GrpcOrgzController {
   private client =new _Orgz.OrgzServiceClient(
     address,
