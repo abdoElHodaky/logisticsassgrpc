@@ -27,7 +27,7 @@ export class GrpcProductController {
       
     }
     console.log(req)
-    this.client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
+    this.client.all(req,(err:any,resp:_Orgz.GetAllOrgzRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
