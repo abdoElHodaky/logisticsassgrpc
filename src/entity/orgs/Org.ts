@@ -37,6 +37,6 @@ export class Orgz {
     updatedAt: Date;
 
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
-   
+    @OneToMany(()=>OrgzAttachment,attachment=>attachment.attached) attachments?:OrgzAttachment
    
 }
