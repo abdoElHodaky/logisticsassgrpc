@@ -1,18 +1,18 @@
 import {AuthService} from "./auth";
 import {AttachmentService} from "./attachments";
 import {UserService,AuthorService} from "./users/";
-import {ArticleService} from "./articles";
+//import {ArticleService} from "./articles";
 import {UserTicketService} from "./users.tickets";
-import {ArticleGrpcService} from "./articles.grpc";
+import {ArticleGrpcService,ArticleService} from "./";
 import {TicketGrpcService} from "./tickets.grpc";
 import {AuthGrpcService} from "./auth.grpc";
 import {AuthorGrpcService} from "./authors.grpc";
 import {UserGrpcService} from "./users.grpc";
-import {supTicketGrpcService} from "./suptickets.grpc";
-import {supTicketService} from "./suptickets";
+import {supTicketGrpcService, supTicketService } from "./";
+//import {supTicketService} from "./suptickets";
 import {PaymentService} from "./payments";
 import {ProductService} from "./products";
-
+import {OrgzService,orgzGrpcService} from "./";
 
 export let services:any={
   Auth:new AuthService(),
@@ -24,12 +24,14 @@ export let services:any={
   supTicket:new supTicketService(),
   Payment:new PaymentService(),
   Product:new ProductService(),
+  Orgz:new OrgzService(),
   Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
   Grpc_Author:new AuthorGrpcService(),
   Grpc_User:new UserGrpcService(),
-  Grpc_supTicket:new supTicketGrpcService()
+  Grpc_supTicket:new supTicketGrpcService(),
+  Grpc_Orgz:new orgzGrpcService()
   
 }
 
