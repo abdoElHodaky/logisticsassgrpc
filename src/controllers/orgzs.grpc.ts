@@ -23,16 +23,16 @@ export class GrpcProductController {
   @Get("",[])
   async all(@Res() res:Response ):Promise<void>{
    // console.log("89")
-    const req:_Orgz.GetAllOrgzReq={  
+    const req:_Orgz.GetAllOrgzsReq={  
       
     }
     console.log(req)
-    this.client.all(req,(err:any,resp:_Orgz.GetAllOrgzRes)=>{
+    this.client.all(req,(err:any,resp:_Orgz.GetAllOrgzsRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
     } else {
-        const resl=_Orgz.GetAllOrgzRes.toJSON(resp)
+        const resl=_Orgz.GetAllOrgzsRes.toJSON(resp)
         
         res.json(resl)
      }
