@@ -5,7 +5,7 @@ import { User} from "../entity/";
 import { Res,  Controller , Get ,Post,Req , Body} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
-import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreateArticle  } from "../middlewares/";
+import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 import {isEmpty} from "../helpers";
 //import {transformDate} from "../grpc/util";
 import { Error} from "common-errors";
@@ -35,7 +35,7 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreateArticle  ])
+  @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
   async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
      let user=req.auth
      let articlecdto=createarticledto
