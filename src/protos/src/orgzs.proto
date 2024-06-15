@@ -8,18 +8,18 @@ import "error.proto";
 message Orgz {
  int32 id=1;
  google.protobuf.Any specs=2;
- optional int32 OwnerId=3;
+ optional int32 ownerId=3;
  optional google.protobuf.Timestamp created_at=4;
  optional google.protobuf.Timestamp updated_at=5;
 }
 
 message CreateOrgzReq {
-  int32 userId=1;
+  int32 ownerId=1;
   Orgz orgz=2;
 }
 
 message CreateOrgzRes {
-  optional  int32 userId=1;
+  optional  int32 ownerId=1;
   Orgz orgz=2;
 }
 
@@ -35,6 +35,6 @@ message GetAllOrgzsRes {
 
 service OrgzService {
   rpc create(CreateOrgzReq) returns(
-  GetAllOrgzsRes);
+  CreateOrgzRes);
   rpc all(GetAllOrgzsReq) returns (GetAllOrgzsRes);
 }
