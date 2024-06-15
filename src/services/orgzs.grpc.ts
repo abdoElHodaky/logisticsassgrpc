@@ -27,7 +27,7 @@ export class orgzGrpcService  {
        }
       else{
         callback(null,{
-           ticket:_Orgz.createBaseOrgz()
+           orgz:_Orgz.createBaseOrgz()
          })
       }
      },
