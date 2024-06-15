@@ -12,6 +12,6 @@ export class  ProductAttachment extends Attachment {
 export class  OrgzAttachment extends Attachment {
     @Column({default:Orgz.name})
     forType:string
-    @ManyToOne(()=>Orgz,attached=>attached.attachments) attached:Orgz;
+    @ManyToOne(()=>Orgz,attached=>attached.attachments) attached?:Orgz;
    
 } 
