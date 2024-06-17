@@ -5,6 +5,6 @@ import { Product } from "./Product";
 @ChildEntity()
 export class ChildProduct extends Product {
 
-  @ManyToOne(()=>Product,(parent:Product)=>parent.subs) parent:Product;
+  @ManyToOne(()=>Product,parent=>parent.subs) parent:Product;
    
 }
