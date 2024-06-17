@@ -6,7 +6,7 @@ import {Product} from "./Product";
 export class SubscribedProduct extends Product {
         
     @ManyToOne(()=>Subscription,subscrip=>subscrip.products) 
-    @JoinColumn({name:"id", referencedColumnName:"subscribedPId" })
+   // @JoinColumn({name:"id", referencedColumnName:"subscribedPId" })
     subscrip?:Subscription;
    
 }
