@@ -14,7 +14,7 @@ export class Subscriber extends User {
    subscriberId:number */
  
    @OneToMany(()=>Subscription,subscrip=>subscrip.user)
-   @JoinColumn({name:"id", referencedColumnName:"subscriberId" })
+   //@JoinColumn({name:"id", referencedColumnName:"subscriberId" })
    subscrips:Subscription[];
 
 }
