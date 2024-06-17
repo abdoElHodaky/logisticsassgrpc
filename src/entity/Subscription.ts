@@ -19,7 +19,7 @@ export class Subscription {
     user:Subscriber;
     
     @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
-    //@JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
+    @JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
    // @JoinTable()
     products:SubscribedProduct[];
    
