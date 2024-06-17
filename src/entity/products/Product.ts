@@ -20,15 +20,20 @@ export class Product {
     
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
-    @OneToMany(()=>ChildProduct,sub=>sub.related) 
-    @JoinColumn([
+    @OneToMany(()=>Product,sub=>sub.related) 
+  /*  @JoinColumn([
     { name: "id", referencedColumnName: "relatedId" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
-    subproducts?:ChildProduct[];
+    ])*/
+    subproducts?:Product[];
+    @ManyToOne(()=>Product,related=>related.subproducts)
+    @JoinColumn([
+    { name: "relatedId", referencedColumnName: "id" },
+    {} ])
+    related?:Product
 }
 
-@ChildEntity()
+/*@ChildEntity()
 export class ChildProduct extends Product {
 
     @ManyToOne(()=>Product,related=>related.subproducts)
@@ -37,3 +42,4 @@ export class ChildProduct extends Product {
     {} ])
     related?:Product
 }
+*/
