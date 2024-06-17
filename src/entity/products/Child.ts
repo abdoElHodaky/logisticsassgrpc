@@ -5,7 +5,7 @@ import { Product } from "./Product";
 @ChildEntity()
 export class ChildProduct extends Product {
 
-    @ManyToOne(()=>Product,related=>related.products)
+    @ManyToOne(()=>Product,related=>related.subproducts)
     @JoinColumn([
     { name: "relatedId", referencedColumnName: "id" },
     {} ])
