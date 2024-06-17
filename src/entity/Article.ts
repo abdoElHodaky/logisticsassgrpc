@@ -1,6 +1,7 @@
 import { Entity,Column,ManyToOne,OneToMany,PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
 import { Author } from "./users/";
-import { Attachment } from "./Attachment";
+//import { Attachment } from "./Attachment";
+
 @Entity()
 export class Article {
     @PrimaryGeneratedColumn("increment")
