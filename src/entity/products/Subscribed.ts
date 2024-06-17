@@ -5,9 +5,9 @@ import {Product} from "./Product";
 @ChildEntity()
 export class SubscribedProduct extends Product {
         
-    @ManyToMany(()=>Subscription,subscrip=>subscrip.products) 
-   // @JoinColumn({name:"id", referencedColumnName:"subscribedPId" })
-    @JoinTable()
+    @ManyToOne(()=>Subscription,subscrip=>subscrip.products) 
+    @JoinColumn({name:"id", referencedColumnName:"subscribedPId" })
+   // @JoinTable()
     subscrip:Subscription;
    
 }
