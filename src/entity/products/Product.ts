@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Supplier,Attachment,PurshaseItem} from "../";
-import { ProductAttachment } from "../Attached";
+import { ProductAttachment } from "../attachments/";
 @Entity()
 //@ChildEntity()
 export class Product {
