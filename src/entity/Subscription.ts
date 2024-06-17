@@ -11,6 +11,9 @@ export class Subscription {
     @Column({type: "varchar", nullable: true})
     title: string;
 
+    @Column("Int")
+    subscriberId: number;
+
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
     @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
     user?:Subscriber;
