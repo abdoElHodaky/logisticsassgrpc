@@ -23,15 +23,11 @@ export class Product {
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
     @OneToMany(()=>Product,sub=>sub.related) 
-  /*  @JoinColumn([
-    { name: "id", referencedColumnName: "relatedId" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])*/
     subproducts?:Product[];
     @ManyToOne(()=>Product,related=>related.subproducts)
-    @JoinColumn([
+  /*  @JoinColumn([
     { name: "relatedId", referencedColumnName: "id" },
-    {} ])
+    {} ])*/
     related?:Product
 }
 
