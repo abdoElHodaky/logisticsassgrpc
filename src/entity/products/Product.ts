@@ -1,4 +1,5 @@
-import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,
+        OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Supplier,Attachment,PurshaseItem} from "../";
 import { ProductAttachment } from "../attachments/";
 import { ChildProduct} from "./Child";
@@ -24,5 +25,5 @@ export class Product {
     { name: "id", referencedColumnName: "relatedId" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
-    subs:ChildProduct[];
+    subproducts:ChildProduct[];
 }
