@@ -16,12 +16,12 @@ export class Subscription {
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
     @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
-    user?:Subscriber;
+    user:Subscriber;
     
     @ManyToMany(()=>SubscribedProduct,product=>product.subscrip)
     //@JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
     @JoinTable()
-    products?:SubscribedProduct[];
+    products:SubscribedProduct[];
    
     @CreateDateColumn({type:"date"})
     createdAt: Date;
