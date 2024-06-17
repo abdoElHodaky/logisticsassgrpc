@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column,
  OneToMany, TableInheritance ,
         ChildEntity  } from "typeorm"
 import { Subscription } from "../Subscription";
-
+import {User} from "./User";
 @ChildEntity()
 export class Subscribe extends User {
     
