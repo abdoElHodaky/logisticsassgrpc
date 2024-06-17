@@ -9,6 +9,5 @@ export const all=[
   Article,Attachment,Product,ProductAttachment,
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
-  Owner,Orgz,OrgzAttachment,SubscribedProduct,Subscriber,
-  Subscription,ChildProduct
+  Owner,Orgz,OrgzAttachment,ChildProduct
 ]
