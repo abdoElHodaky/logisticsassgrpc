@@ -1,6 +1,6 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column,
- ManyToMany,JoinTable, TableInheritance ,
+ OneToMany, TableInheritance ,
         ChildEntity  } from "typeorm"
 import { Subscription } from "./";
 
