@@ -1,3 +1,3 @@
-export {Product} from "./Product";
+export {Product,ChildProduct} from "./Product";
 export { SubscribedProduct} from "./Subscribed";
-export { ChildProduct} from "./Child";
+//export { ChildProduct} from "./Child";
