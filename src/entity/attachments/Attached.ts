@@ -1,6 +1,6 @@
 import { ChildEntity,ManyToOne,Column} from "typeorm";
 import { Attachment} from "./Attachment";
-import { Product,Orgz} from "./";
+import { Product,Orgz} from "../";
 @ChildEntity()
 export class  ProductAttachment extends Attachment {
     @Column({default:"Product"})
