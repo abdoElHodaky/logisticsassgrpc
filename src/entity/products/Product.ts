@@ -19,7 +19,10 @@ export class Product {
     
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
-    @OneToMany(()=>ChildProduct,sub=>sub.parent) subs:ChildProduct[];
-    // @OneToOne(()=>PurshaseItem,purshased=>purshased.product) purshased:PurshaseItem
-   
+    @OneToMany(()=>ChildProduct,sub=>sub.related) 
+    @JoinColumn([
+    { name: "id", referencedColumnName: "relatedId" },
+    //{ name: "locale_id", referencedColumnName: "locale_id" }
+    ])
+    subs:ChildProduct[];
 }
