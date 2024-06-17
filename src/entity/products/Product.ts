@@ -25,7 +25,7 @@ export class Product {
     { name: "id", referencedColumnName: "relatedId" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
-    subproducts:ChildProduct[];
+    subproducts?:ChildProduct[];
 }
 
 @ChildEntity()
@@ -35,5 +35,5 @@ export class ChildProduct extends Product {
     @JoinColumn([
     { name: "relatedId", referencedColumnName: "id" },
     {} ])
-    related:Product
+    related?:Product
 }
