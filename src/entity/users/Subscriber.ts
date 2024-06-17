@@ -8,8 +8,8 @@ import {Orgz} from "../"
 @ChildEntity()
 export class Subscribe extends User {
     
-    @Column({default:"Used"})
-    type:string
+   @Column({default:"User"})
+   type:string
 
    @ManyToMany(()=>SubscribedProduct)
    @JoinTable()
