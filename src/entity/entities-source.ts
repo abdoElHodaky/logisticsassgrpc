@@ -4,7 +4,7 @@ import {
   PurshaseItem,Payment,supTicket,Verification,OrgzAttachment,
   Subscription
   } from "./";
-console.log(Subscription,SubscribedProduct,Subscriber)
+
 export const all=[
   Article,Attachment,Product,ProductAttachment,
   Author,User,Purshase,PurshaseItem,Payment,
