@@ -39,7 +39,7 @@ export class orgzGrpcService  {
   ){
        let {ownerId,orgz}=call.request
        const supticket=_Orgz.Orgz.toJSON((orgz!=undefined)?orgz:_Orgz.createBaseOrgz())
-       let _orgz=await orgzGrpcService.service.create(userId,orgz)
+       let _orgz=await orgzGrpcService.service.create(ownerId,orgz)
        if(_orgz instanceof Orgz){
         const orgz=_Orgz.Orgz.fromJSON(_orgz)
          orgz.ownerId=userId
