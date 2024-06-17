@@ -10,8 +10,8 @@ export class Subscriber extends User {
    @Column({default:"User"})
    type:string
 
-   @Column("int")
-   subscriberId:number
+ /*  @Column("int")
+   subscriberId:number */
  
    @OneToMany(()=>Subscription,subscrip=>subscrip.user)
    @JoinColumn({name:"id", referencedColumnName:"subscriberId" })
