@@ -9,7 +9,7 @@ export const all=[
   Article,Attachment,Product,ProductAttachment,
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
-  Owner,Orgz,OrgzAttachment,
-  Subscription,SubscribedProduct,Subscriber
+  Owner,Orgz,OrgzAttachment,SubscribedProduct,
+  Subscription,Subscriber
   
 ]
