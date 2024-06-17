@@ -9,14 +9,15 @@ export class Subscription {
     @Column({type: "varchar", nullable: true})
     title: string;
 
-    
-
-    @ManyToOne(()=>Subscriber,user=>user.subscrips) user:Subscribe;
-    @OneToMany(()=>SubscribedProduct,product=>product.subscrip) products:SubscribedProduct[];
+    @ManyToOne(()=>Subscriber,user=>user.subscrips) user?:Subscribe;
+    @OneToMany(()=>SubscribedProduct,product=>product.subscrip) products?:SubscribedProduct[];
    
     @CreateDateColumn({type:"date"})
     createdAt: Date;
 
     @UpdateDateColumn({type:"date"})
     updatedAt: Date;
+
+    @Column({type:"date"})
+    renewalAt: Date;
 }
