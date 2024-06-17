@@ -3,7 +3,7 @@ import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryC
 import  {_Orgz} from "../protos/dist/";
 import {OrgzService} from "./";
 import { Orgz } from "../entity/";
-//console.log(services)
+
 export class orgzGrpcService  {
   
 // @Service("Ticket")
@@ -21,7 +21,7 @@ export class orgzGrpcService  {
     _orgzs.forEach((a:_Orgz.Orgz,inx:number)=>{
      let {owner,createdAt,updatedAt}=orgzs[inx]
      if(owner!=null) {
-      a.OwnerId=owner.id
+      a.ownerId=owner.id
       //console.log(a.createdAt instanceof Date)
      }
    // else { a.userId = Math.floor(Math.random()*21) }
@@ -37,12 +37,12 @@ export class orgzGrpcService  {
     call: ServerUnaryCall<_Orgz.CreateOrgzReq,_Orgz.CreateOrgzRes>,
     callback: sendUnaryData<_Orgz.CreateOrgzRes>
   ){
-       let {userId,orgz}=call.request
+       let {ownerId,orgz}=call.request
        const supticket=_Orgz.Orgz.toJSON((orgz!=undefined)?orgz:_Orgz.createBaseOrgz())
        let _orgz=await orgzGrpcService.service.create(userId,orgz)
        if(_orgz instanceof Orgz){
         const orgz=_Orgz.Orgz.fromJSON(_orgz)
-         orgz.OwnerId=userId
+         orgz.ownerId=userId
          callback(null,{
            orgz:orgz
          })
