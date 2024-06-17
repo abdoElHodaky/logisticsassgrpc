@@ -1,7 +1,7 @@
 #!/user/bin/bash
 
 
-npx ts-node src/app.ts
+npm-run-all build start
 
 #node ./dist/grpc-reflect.js
 #npm-run-all --parallel start
