@@ -1,7 +1,7 @@
 #!/user/bin/bash
 
 
-npm-run-all build swaggergen 
+npm-run-all build --parallel debug 
 npx ts-node src/app.ts
 
 #node ./dist/grpc-reflect.js
