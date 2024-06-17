@@ -9,7 +9,7 @@ export class Subscription {
     @Column({type: "varchar", nullable: true})
     title: string;
 
-    @ManyToOne(()=>Subscriber,user=>user.subscrips) user?:Subscribe;
+    @ManyToOne(()=>Subscriber,user=>user.subscrips) user?:Subscriber;
     @OneToMany(()=>SubscribedProduct,product=>product.subscrip) products?:SubscribedProduct[];
    
     @CreateDateColumn({type:"date"})
