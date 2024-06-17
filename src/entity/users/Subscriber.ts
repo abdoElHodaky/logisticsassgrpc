@@ -13,8 +13,8 @@ export class Subscriber extends User {
  /*  @Column("int")
    subscriberId:number */
  
-   @OneToMany(()=>Subscription,subscrip=>subscrip.user)
+  /* @OneToMany(()=>Subscription,subscrip=>subscrip.user)
    @JoinColumn({name:"id", referencedColumnName:"subscriberId" })
-   subscrips:Subscription[];
+   subscrips:Subscription[];*/
 
 }
