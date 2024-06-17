@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { Attachment } from "../entity/Attachment";
+import { Attachment } from "../entity/";
 import { AppDataSource } from "../_datasource";
 import { booksroute } from "./bookroutes";
 
