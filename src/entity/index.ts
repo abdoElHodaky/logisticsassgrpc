@@ -10,5 +10,6 @@ export { Payment } from "./Payment"
 export { Book } from "./Book"
 export { Address } from "./Address";
 export * from "./products/";
+export { Subscription} from "./Subscription";
 
 
