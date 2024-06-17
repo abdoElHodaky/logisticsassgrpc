@@ -24,8 +24,8 @@ export class Product {
    
 }
 
-/*@ChildEntity()
-export class subProduct extends Product {
-    @ManyToOne(()=>Product,product=>product.subs) parent:Product;
+@ChildEntity()
+export class SubscribedProduct extends Product {
+   // @ManyToOne(()=>Product,product=>product.subs) parent:Product;
    
-}*/
+}
