@@ -10,6 +10,6 @@ export class Subscriber extends User {
    @Column({default:"User"})
    type:string
 
-   @OneToMany(()=>Subscription,subscrip=>subscrip.user) subscrips ?: Subscription[];
+   @OneToMany(()=>Subscription,subscrip=>subscrip.user) subscrips : Subscription[];
 
 }
