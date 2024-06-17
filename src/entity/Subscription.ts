@@ -14,13 +14,13 @@ export class Subscription {
     @Column({type:"Int",default:0})
     subscriberId: number;
 
-   /* @ManyToOne(()=>Subscriber,user=>user.subscrips)
+    @ManyToOne(()=>Subscriber,user=>user.subscrips)
     @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
-    user:Subscriber;*/
+    user:Subscriber;
     
-    @ManyToMany(()=>SubscribedProduct,product=>product.subscrip)
+    @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
     //@JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
-    @JoinTable()
+   // @JoinTable()
     products:SubscribedProduct[];
    
     @CreateDateColumn({type:"date"})
