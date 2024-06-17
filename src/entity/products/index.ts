@@ -1,2 +1,2 @@
 export {Product} from "./Product";
-export {Subscribed as SubscribedProduct} from "./Subscribed";
+export { SubscribedProduct} from "./Subscribed";
