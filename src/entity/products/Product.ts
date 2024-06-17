@@ -18,6 +18,8 @@ export class Product {
     @UpdateDateColumn({type:"date"})
     updatedAt:Date
     
+    @Column("int")
+    relatedId:number
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
     @OneToMany(()=>Product,sub=>sub.related) 
