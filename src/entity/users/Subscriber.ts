@@ -11,6 +11,8 @@ export class Subscribe extends User {
     @Column({default:"Used"})
     type:string
 
-   // @OneToMany(()=>Orgz,orgz=>orgz.owner) orgzs?: Orgz[];
+   @ManyToMany(()=>SubscribedProduct)
+   @JoinTable()
+   products ?: SubscribedProduct[];
 
 }
