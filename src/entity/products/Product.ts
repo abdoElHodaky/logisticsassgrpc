@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { Supplier,Attachment,PurshaseItem} from "./";
-import { ProductAttachment } from "./Attached";
+import { Supplier,Attachment,PurshaseItem} from "../";
+import { ProductAttachment } from "../Attached";
 @Entity()
 //@ChildEntity()
 export class Product {
@@ -21,11 +21,5 @@ export class Product {
     @OneToMany(()=>Product,sub=>sub.parent) subs?:Product[];
     @ManyToOne(()=>Product,parent=>parent.subs) parent?:Product;
    // @OneToOne(()=>PurshaseItem,purshased=>purshased.product) purshased:PurshaseItem
-   
-}
-
-@ChildEntity()
-export class SubscribedProduct extends Product {
-   // @ManyToOne(()=>Product,product=>product.subs) parent:Product;
    
 }
