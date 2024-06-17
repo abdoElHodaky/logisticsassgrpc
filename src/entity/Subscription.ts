@@ -1,4 +1,4 @@
-import { Entity,Column,ManyToOne,OneToMany,JoinColumn,
+import { Entity,Column,ManyToOne,OneToMany,JoinColumn,JoinTable,
         PrimaryGeneratedColumn, CreateDateColumn,
         UpdateDateColumn } from "typeorm"
 import { Subscriber } from "./users/";
@@ -12,11 +12,13 @@ export class Subscription {
     title: string;
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
-    @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
+   // @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
+    @JoinTable()
     user?:Subscriber;
     
     @OneToMany(()=>SubscribedProduct,product=>product.subscrip)
-    @JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
+    //@JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
+    @JoinTable()
     products?:SubscribedProduct[];
    
     @CreateDateColumn({type:"date"})
