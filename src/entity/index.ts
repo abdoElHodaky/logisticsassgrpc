@@ -1,7 +1,7 @@
 export { Article } from "./Article"
 export * from "./users/"
 export { Orgz } from "./orgs/";
-export {Purshase , PurshasedItem } from "./Purshase"
+export * from "./Purshase"
 export { supTicket } from "./supTicket"
 export { Attachment } from "./Attachment"
 export * from "./Attached";
