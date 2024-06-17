@@ -52,7 +52,7 @@ export interface GetAllOrgzsRes {
   error?: Error | undefined;
 }
 
-function createBaseOrgz(): Orgz {
+export function createBaseOrgz(): Orgz {
   return { id: 0, specs: undefined, ownerId: undefined, createdAt: undefined, updatedAt: undefined };
 }
 
