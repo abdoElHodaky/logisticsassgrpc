@@ -1,6 +1,6 @@
 import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, Column,
- OneToMany, TableInheritance ,
+ OneToMany, TableInheritance ,JoinColumn,
         ChildEntity  } from "typeorm"
 import { Subscription } from "../Subscription";
 import {User} from "./User";
@@ -10,6 +10,8 @@ export class Subscriber extends User {
    @Column({default:"User"})
    type:string
 
-   @OneToMany(()=>Subscription,subscrip=>subscrip.user) subscrips?:Subscription[];
+   @OneToMany(()=>Subscription,subscrip=>subscrip.user)
+   @JoinColumn({name:"id", referencedColumnName:"subscriberId" })
+   subscrips?:Subscription[];
 
 }
