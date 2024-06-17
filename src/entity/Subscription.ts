@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,OneToMany,JoinColumn,JoinTable,
-        PrimaryGeneratedColumn, CreateDateColumn,
+        PrimaryGeneratedColumn, CreateDateColumn,ManyToMany,
         UpdateDateColumn } from "typeorm"
 import { Subscriber } from "./users/";
 import { SubscribedProduct } from "./products/";
@@ -12,11 +12,10 @@ export class Subscription {
     title: string;
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
-   // @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
-    @JoinTable()
+    @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
     user?:Subscriber;
     
-    @OneToMany(()=>SubscribedProduct,product=>product.subscrip)
+    @ManyToMany(()=>SubscribedProduct,product=>product.subscrip)
     //@JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
     @JoinTable()
     products?:SubscribedProduct[];
