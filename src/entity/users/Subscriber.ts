@@ -5,7 +5,7 @@ import { Entity, PrimaryGeneratedColumn, Column,
 import { Subscription } from "../Subscription";
 import {User} from "./User";
 @ChildEntity()
-export class Subscribe extends User {
+export class Subscriber extends User {
     
    @Column({default:"User"})
    type:string
