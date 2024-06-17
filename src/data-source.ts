@@ -10,9 +10,11 @@ export const _AppDataSource = new DataSource({
     cache: {
         type:"ioredis",
         options: {
-       ...(require("redis-url").parse(process.env.REDIS))
-       //  host:"red-cpdq71f109ks73elqfu0",
-	 //    port:6379
+       //...(require("redis-url").parse(process.env.REDIS))
+        host:"frankfurt-redis.render.com",
+	username:"red-cpdq71f109ks73elqfu0",
+	password:"DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK",
+	port:6379
         },
         
         duration: 300000
