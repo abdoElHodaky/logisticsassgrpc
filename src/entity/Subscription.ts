@@ -11,7 +11,7 @@ export class Subscription {
     @Column({type: "varchar", nullable: true})
     title: string;
 
-    @Column("Int")
+    @Column({type:"Int",default:0})
     subscriberId: number;
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
