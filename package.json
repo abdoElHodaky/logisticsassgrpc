@@ -10,7 +10,7 @@
       "build": "tsc ",
       "swaggergen": "node swagautogen.js",
       "redis": "redis-server --bind 0.0.0.0",
-      "debug":"ts-node-dev src/app.ts --respawn --debug --deps"
+      "debug":"ts-node-dev --respawn --debug --deps  src/app.ts "
    },
    "author": "abdoElHodaky",
    "license": "ISC",
