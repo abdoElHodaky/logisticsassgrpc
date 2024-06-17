@@ -1,7 +1,7 @@
 #!/user/bin/bash
 
 
-npm-run-all  debug 
+npm run  debug 
 #npx ts-node src/app.ts
 
 #node ./dist/grpc-reflect.js
