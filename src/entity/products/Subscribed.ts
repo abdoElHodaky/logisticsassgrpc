@@ -8,6 +8,6 @@ export class SubscribedProduct extends Product {
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products) 
    // @JoinColumn({name:"id", referencedColumnName:"subscribedPId" })
     @JoinTable()
-    subscrip?:Subscription;
+    subscrip:Subscription;
    
 }
