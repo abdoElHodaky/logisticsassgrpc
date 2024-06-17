@@ -14,6 +14,9 @@ export class Subscription {
     @Column({ type: "int" })
     subscriberId: number;
 
+    @Column({ type: "int" })
+    subscriberedPId: number;
+
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
     @JoinColumn({name:"subscriberId", referencedColumnName:"id" })
     user:Subscriber;
