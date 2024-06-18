@@ -21,7 +21,7 @@ export class Subscription {
     //@JoinColumn({name:"userId", referencedColumnName:"id" })
     user:Subscriber;
    
-    @ManyToMany(()=>Product,product=>product.subscrip)
+    @ManyToMany(()=>Product,product=>product.subscriptions)
    // @JoinColumn({name:"SProductId", referencedColumnName:"id" })
     @JoinTable()
     products:Product[]; 
