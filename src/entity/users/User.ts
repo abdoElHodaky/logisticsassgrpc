@@ -2,7 +2,7 @@ import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,Address,Verification,Payment ,Purshase,Affiliate} from "../"
-
+import { Password} from "./Password";
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
 //@TableInheritance({column:{type:"varchar",name:"referralCode"}})
@@ -54,6 +54,7 @@ export class User {
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
     affiliates:Affiliate[]
+    @OneToMany(()=>Password,password.user) passwords:Password[]
    
 }
 
