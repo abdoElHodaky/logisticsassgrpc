@@ -3,6 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column,
         OneToMany,ManyToOne, TableInheritance ,ChildEntity,CreateDateColumn,
         UpdateDateColumn ,BeforeInsert, JoinColumn ,JoinTable } from "typeorm"
 import { User} from "./";
+import { AffiliateProduct} from "../products/";
 import { genCode} from "../../helpers";
 
 @ChildEntity()
@@ -10,6 +11,9 @@ export class Affiliate extends User {
     
     @Column({default:"marketer"})
     type:string
+
+    @OneToMany(()=>AffiliateProduct,affilateprod=>affiliateprod.affiliate)
+    products:AffiliateProduct[]
 
     @ManyToOne(()=>User,user=>user.affiliates)
     @JoinColumn([
