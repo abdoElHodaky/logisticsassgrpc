@@ -12,7 +12,7 @@ export class Affiliate extends User {
     @Column({default:"marketer"})
     type:string
 
-    @OneToMany(()=>AffiliateProduct,affilateprod=>affiliateprod.affiliate)
+    @OneToMany(()=>AffiliateProduct, product=>product.affiliate)
     products:AffiliateProduct[]
 
     @ManyToOne(()=>User,user=>user.affiliates)
