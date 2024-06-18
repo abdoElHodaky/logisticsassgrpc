@@ -4,7 +4,7 @@ import { User } from "./users/";
 export enum VerfyType {
     EMAIL="email",
     PHONE="phone",
-    PRODUCT_TYPE,
+    PRODUCT_TYPE_ENTITY,
 }
 @Entity()
 export class Verification {
