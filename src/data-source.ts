@@ -8,7 +8,7 @@ export const _AppDataSource = new DataSource({
     type:"better-sqlite3",
     database:"grpcendpoints.sqlite",
     cache: {
-        type:"ioredis",
+      /*  type:"ioredis",
         options: {
        //...(require("redis-url").parse(process.env.REDIS))
         host:"frankfurt-redis.render.com",
@@ -16,7 +16,7 @@ export const _AppDataSource = new DataSource({
 	password:"DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK",
 	port:6379
         }, 
-        
+        */
         duration: 300000
     },
     //metadataTableName:"typeorm-metadata",
