@@ -10,6 +10,6 @@ export const all=[
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
   Owner,Orgz,OrgzAttachment, Subscriber ,
-  Subscription,//SubscribedProduct
+  Subscription,SubscribedProduct
   
 ]
