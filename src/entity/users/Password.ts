@@ -14,10 +14,10 @@ export class Password {
   createdAt:Date
 
   @ManyToOne(()=>User,user.passwords) user:User
-
+/*
   @AfterInsert()
   changepass(){
     this.user?.passwordHash=this.passphase
   }
-
+*/
 }
