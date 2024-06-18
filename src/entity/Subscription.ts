@@ -21,10 +21,10 @@ export class Subscription {
     //@JoinColumn({name:"userId", referencedColumnName:"id" })
     user:Subscriber;
    
-   // @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
-   // @JoinColumn({name:"SProductId", referencedColumnName:"id" })
+    @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
+    @JoinColumn({name:"SProductId", referencedColumnName:"id" })
    // @JoinTable()
-   // products:SubscribedProduct[]; 
+    products:SubscribedProduct[]; 
    
     @CreateDateColumn({type:"date"})
     createdAt: Date;
