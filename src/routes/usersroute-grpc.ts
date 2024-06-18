@@ -26,6 +26,27 @@ megrpc.get("/me",(req,res)=>{
 
 })
 
+megrpc.post("/me/changePassword",(req,res)=>{
+    /* 	#swagger.tags = ['GRPC.User']
+        #swagger.description = 'Endpoint to change password of authenticated user'
+        #swagger.security = [{
+            "JWTAuth": []
+       }]
+       #swagger.requestBody={
+          required: true,
+            content: {
+                "application/json": {
+                   schema: { 
+                     $passphase:"test_56"
+                   }
+                }
+            }
+       }
+    
+    */
+
+})
+
 userspayrpc.get("/users/:userId/payments",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.User.Payment']
         #swagger.description = 'Endpoint to get payments via grpc' 
