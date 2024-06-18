@@ -13,10 +13,10 @@ export class Product {
     @Column("simple-json")
     specs:any
 
-   @Column("int")
-   price:number
+    @Column("int")
+    price:number
         
-   @CreateDateColumn({type:"date"})
+    @CreateDateColumn({type:"date"})
     createdAt:Date
     
     @UpdateDateColumn({type:"date"})
