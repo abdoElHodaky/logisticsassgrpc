@@ -3,7 +3,7 @@ import { Column, Entity, ManyToOne,OneToMany, PrimaryGeneratedColumn } from "typ
 import { User } from "../users/";
 import { VerifyCode} from "./VerifyCode";
 
-export enum VerfyType {
+export enum VerifyType {
     EMAIL="email",
     PHONE="phone",
     PRODUCT_TYPE_ENTITY,
@@ -14,7 +14,7 @@ export class Verification {
     id:number;
     
     @Column({nullable:true})
-    type:VerfyType;
+    type:VerifyType;
     
     @OneToMany(()=>VerifyCode,code=>code.verification) verify_codes:VerifyCode[];
     
