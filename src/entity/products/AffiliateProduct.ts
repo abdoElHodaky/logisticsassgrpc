@@ -3,9 +3,10 @@ import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, JoinColumn,
 import {Affiliate} from "../users/";
 import {Product} from "./Product";
 @ChildEntity()
-export class AffiliateProduct extends Product {
+export class AffiliateProduct {
         
-        @ManyToOne(()=>Affiliate,affiliate=>affiliate.products)
-        affiliate:Affiliate
+        @ManyToOne(()=>Affiliate,affiliate=>affiliate.products) affiliate:Affiliate
+
+        @ManyToOne(()=>Product, product.affiliated) product: Product
 }
 
