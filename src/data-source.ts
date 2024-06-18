@@ -2,6 +2,7 @@ import "reflect-metadata"
 import { DataSource,DataSourceOptions } from "typeorm"
 import { InjectionToken } from "@decorators/di"
 import { all } from "./entity/entities-source"
+import {PasswordSubscriber} from "./subscribers/";
 import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
@@ -25,7 +26,7 @@ export const _AppDataSource = new DataSource({
     logger:"advanced-console",
     entities: [  ...all  ],
     migrations: [],
-    subscribers: [],
+    subscribers: [ PasswordSubscriber ],
     extra: {
        //connectTimeout:20000
         connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
