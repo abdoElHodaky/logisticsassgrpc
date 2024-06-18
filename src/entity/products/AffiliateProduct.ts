@@ -7,6 +7,6 @@ export class AffiliateProduct {
         
         @ManyToOne(()=>Affiliate,affiliate=>affiliate.products) affiliate:Affiliate
 
-        @ManyToOne(()=>Product, product.affiliated) product: Product
+        @ManyToOne(()=>Product, product=>product.affiliated) product: Product
 }
 
