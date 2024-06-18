@@ -4,6 +4,9 @@ import {Affiliate} from "../users/";
 import {Product} from "./Product";
 @Entity()
 export class AffiliateProduct {
+
+        @PrimaryGeneratedColumn("increment")
+        id: number 
         
         @ManyToOne(()=>Affiliate,affiliate=>affiliate.products) affiliate:Affiliate
 
