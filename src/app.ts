@@ -9,21 +9,21 @@ import cors from "cors";
 import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
-const redisClient = new RedisClient({
+/*const redisClient = new RedisClient({
 	//host:"red-cpdq71f109ks73elqfu0",
 	//port:6379
 	host:"frankfurt-redis.render.com",
 	username:"red-cpdq71f109ks73elqfu0",
 	password:"DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK",
 	port:6379
-});
+});*/
 
 const app=application();
 const port = process.env.PORT||4000
 const { SwaggerTheme, SwaggerThemeNameEnum } = require('swagger-themes');
 const expressPrettier = require('express-prettier')
 const theme = new SwaggerTheme();
-const limiter = slowDown({
+/*const limiter = slowDown({
 	windowMs: 5 * 60 * 1000, // 15 minutes
 	delayAfter: 5, // Allow 5 requests per 15 minutes.
 	delayMs: (hits) => hits * 100, // Add 100 ms of delay to every request after the 5th one.
@@ -31,14 +31,14 @@ const limiter = slowDown({
 		sendCommand: (command: string, ...args: (string | number | Buffer)[]):Promise<any> => redisClient.call(command,args)
 	  }
 	)
-})
+})*/
 app.enable('trust proxy')
 app.set('trust proxy', 2)
 app.use(urlencoded({extended: true}))
 app.use(cors())
 app.use(json())
 //app.use(cacheWithRedis("15 minutes",(req:any,res:any)=> res.statusCode===200))
-app.use(limiter)
+//app.use(limiter)
 app.use(apiv1)
 app.use(
   expressPrettier(
