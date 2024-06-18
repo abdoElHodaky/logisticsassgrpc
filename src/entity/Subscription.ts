@@ -11,16 +11,20 @@ export class Subscription {
     @Column({type: "varchar", nullable: true})
     title: string;
 
-    
+    @Column("int")
+    userId:number
+
+    @Column("int")
+    SProductId:number
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
-    //@JoinColumn({name:"subscriberId", referencedColumnName:"id" })
+    @JoinColumn({name:"userId", referencedColumnName:"id" })
     user:Subscriber;
-   /* 
+   
     @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
-   // @JoinColumn({name:"subscriberedPId", referencedColumnName:"id" })
+    @JoinColumn({name:"SProductId", referencedColumnName:"id" })
    // @JoinTable()
-    products:SubscribedProduct[]; */
+    products:SubscribedProduct[]; 
    
     @CreateDateColumn({type:"date"})
     createdAt: Date;
