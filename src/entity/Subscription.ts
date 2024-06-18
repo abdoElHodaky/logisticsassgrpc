@@ -2,7 +2,7 @@ import { Entity,Column,ManyToOne,OneToMany,JoinColumn,JoinTable,
         PrimaryGeneratedColumn, CreateDateColumn,ManyToMany,
         UpdateDateColumn } from "typeorm"
 import { Subscriber } from "./users/";
-import { SubscribedProduct } from "./products/";
+import { Product } from "./products/";
 @Entity()
 export class Subscription {
     @PrimaryGeneratedColumn("increment")
@@ -21,10 +21,10 @@ export class Subscription {
     //@JoinColumn({name:"userId", referencedColumnName:"id" })
     user:Subscriber;
    
-    @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
+    @ManyToMany(()=>Product,product=>product.subscrip)
    // @JoinColumn({name:"SProductId", referencedColumnName:"id" })
-   // @JoinTable()
-    products:SubscribedProduct[]; 
+    @JoinTable()
+    products:Product[]; 
    
     @CreateDateColumn({type:"date"})
     createdAt: Date;
