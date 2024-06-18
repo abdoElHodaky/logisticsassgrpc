@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,OneToMany,
-        PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+        PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn,AfterInsert } from "typeorm"
 import { User} from "./User";
 @Entity()
 export class Password {
@@ -14,4 +14,10 @@ export class Password {
   createdAt:Date
 
   @ManyToOne(()=>User,user.passwords) user:User
+
+  @AfterInsert()
+  changepass(){
+    this.user?.passwordHash=this.passphase
+  }
+
 }
