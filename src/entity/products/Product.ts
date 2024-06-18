@@ -18,17 +18,11 @@ export class Product {
     @UpdateDateColumn({type:"date"})
     updatedAt:Date
     
-    @Column("int")
-    relatedId:number
+    
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
-    @OneToMany(()=>Product,sub=>sub.related) 
-    subproducts?:Product[];
-    @ManyToOne(()=>Product,related=>related.subproducts)
-  /*  @JoinColumn([
-    { name: "relatedId", referencedColumnName: "id" },
-    {} ])*/
-    related?:Product
+    @OneToMany(()=>Product,sub=>sub.related) subproducts?:Product[];
+    @ManyToOne(()=>Product,related=>related.subproducts) related?:Product
 }
 
 /*@ChildEntity()
