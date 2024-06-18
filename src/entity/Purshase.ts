@@ -1,4 +1,4 @@
-import { Entity ,Column,PrimaryGeneratedColumn
+import { Entity ,Column,PrimaryGeneratedColumn,AfterLoad,
         ,OneToMany ,OneToOne,ManyToOne ,JoinColumn
         ,ChildEntity} from "typeorm"
 //import { User} from "./";
@@ -9,11 +9,23 @@ import { Attachment,User,Payment,Product } from "./";
 export class Purshase {
     @PrimaryGeneratedColumn("increment")
     id: number;
-   
-    
+        
+    @Column("int")
+    subTotal:number
+        
     @OneToMany(()=>PurshaseItem, item=>item.purshase) items:PurshaseItem[]
     @ManyToOne(()=>User,user=>user.purchases) user:User;
     @OneToOne(()=>Payment,payment=>payment.purchase) payment:Payment
+
+    @AfterLoad()
+    setSubTotal(){
+        if(this.items.length!=0){
+          this.items.reduce((sum,item)=>{
+           this.subTotal+=item?.product.price
+           return sum
+          })
+        }
+    }
 }
 
 @Entity()
