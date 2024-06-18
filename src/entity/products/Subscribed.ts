@@ -9,7 +9,7 @@ export class SubscribedProduct extends Product {
     SProductId:number
 
     @OneToMany(()=>Subscription,subscrip=>subscrip.products) 
-    @JoinColumn({name:"id", referencedColumnName:"SProductId" })
+    //@JoinColumn({name:"id", referencedColumnName:"SProductId" })
    
     subscrip:Subscription; 
 
