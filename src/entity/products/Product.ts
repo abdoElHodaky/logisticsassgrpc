@@ -3,6 +3,7 @@ import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,Jo
 import { Supplier,Attachment,PurshaseItem} from "../";
 import { ProductAttachment } from "../attachments/";
 import { Subscription} from "../Subscription";
+import {AffiliateProduct} from "./"
 @Entity()
 //@ChildEntity()
 export class Product {
@@ -18,7 +19,7 @@ export class Product {
     @UpdateDateColumn({type:"date"})
     updatedAt:Date
     
-    
+    @OneToMany(()=>AffiliateProduct,affproduct=>affproduct.product) affiliated?: AffiliateProduct[];
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
     @OneToMany(()=>Product,sub=>sub.related) subproducts?:Product[];
