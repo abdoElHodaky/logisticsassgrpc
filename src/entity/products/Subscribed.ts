@@ -2,7 +2,7 @@ import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, JoinColumn,
         ManyToMany,JoinTable,ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
 import {Subscription} from "../Subscription";
 import {Product} from "./Product";
-@ChildEntity()
+/*@ChildEntity()
 export class SubscribedProduct extends Product {
         
     @Column("int")
@@ -16,3 +16,4 @@ export class SubscribedProduct extends Product {
         
    
 }
+*/
