@@ -25,7 +25,7 @@ export class Product {
     @ManyToOne(()=>Product,related=>related.subproducts) related?:Product
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products)
     @JoinTable()
-    subscriptions:Subscription[]
+    subscriptions?:Subscription[]
 }
 
 /*@ChildEntity()
