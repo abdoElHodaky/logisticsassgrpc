@@ -5,5 +5,7 @@ import {Product} from "./Product";
 @ChildEntity()
 export class AffiliateProduct extends Product {
         
+        @ManyToOne(()=>Affiliate,affiliate=>affiliate.products)
+        affiliate:Affiliate
 }
 
