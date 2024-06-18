@@ -3,15 +3,19 @@ import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 import { User } from "./users/";
 export enum VerfyType {
     EMAIL="email",
-    PHONE="phone"
+    PHONE="phone",
+    PRODUCT_TYPE,
 }
 @Entity()
 export class Verification {
     @PrimaryGeneratedColumn("increment")
     id:number;
+    
     @Column({nullable:true})
-    type:VerfyType
+    type:VerfyType;
+    
     @Column({select:true,nullable:true})
-    verify_code:string
+    verify_code:string;
+    
     @ManyToOne(()=>User,user=>user.verifications) user:User;
 }
