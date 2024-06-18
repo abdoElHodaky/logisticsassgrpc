@@ -24,7 +24,7 @@ __decorate([
     __metadata("design:type", String)
 ], Affiliate.prototype, "type", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => products_1.AffiliateProduct, affilateprod => affiliateprod.affiliate),
+    (0, typeorm_1.OneToMany)(() => products_1.AffiliateProduct, product => product.affiliate),
     __metadata("design:type", Array)
 ], Affiliate.prototype, "products", void 0);
 __decorate([
