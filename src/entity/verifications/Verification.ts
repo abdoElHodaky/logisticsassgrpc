@@ -1,6 +1,6 @@
 import { userInfo } from "os";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
-import { User } from "./users/";
+import { User } from "../users/";
 export enum VerfyType {
     EMAIL="email",
     PHONE="phone",
