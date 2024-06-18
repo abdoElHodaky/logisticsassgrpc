@@ -12,17 +12,17 @@ export class Subscription {
     title: string;
 
     @Column("int")
-    userId:number
+    SuserId:number
 
     @Column("int")
     SProductId:number
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
-    @JoinColumn({name:"userId", referencedColumnName:"id" })
+    //@JoinColumn({name:"userId", referencedColumnName:"id" })
     user:Subscriber;
    
     @ManyToOne(()=>SubscribedProduct,product=>product.subscrip)
-    @JoinColumn({name:"SProductId", referencedColumnName:"id" })
+   // @JoinColumn({name:"SProductId", referencedColumnName:"id" })
    // @JoinTable()
     products:SubscribedProduct[]; 
    
