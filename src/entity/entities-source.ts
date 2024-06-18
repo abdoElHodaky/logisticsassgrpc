@@ -1,5 +1,5 @@
 import {
-  Article,Attachment,Product,SubscribedProduct,ProductAttachment,
+  Article,Attachment,Product,ProductAttachment,
   Author,User,Affiliate,Purshase,Supplier,Owner,Orgz,Subscriber,
   PurshaseItem,Payment,supTicket,Verification,OrgzAttachment,
   Subscription
@@ -10,6 +10,6 @@ export const all=[
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
   Owner,Orgz,OrgzAttachment, Subscriber
-  ,SubscribedProduct,Subscription
+  ,Subscription
   
 ]
