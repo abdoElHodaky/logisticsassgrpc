@@ -1,5 +1,6 @@
 export { Article } from "./Article"
-export { Owner , Subscriber,Supplier,User,Affiliate,Author} from "./users/"
+export { Owner , Subscriber,Supplier,Password
+        ,User,Affiliate,Author} from "./users/"
 export { Orgz } from "./orgs/";
 export { Purshase , PurshaseItem } from "./Purshase"
 export { supTicket } from "./supTicket"
