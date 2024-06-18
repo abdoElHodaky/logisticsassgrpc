@@ -1,6 +1,8 @@
 import { userInfo } from "os";
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, ManyToOne,OneToMany, PrimaryGeneratedColumn } from "typeorm"
 import { User } from "../users/";
+import { VerifyCode} from "./VerifyCode";
+
 export enum VerfyType {
     EMAIL="email",
     PHONE="phone",
@@ -14,8 +16,7 @@ export class Verification {
     @Column({nullable:true})
     type:VerfyType;
     
-    @Column({select:true,nullable:true})
-    verify_code:string;
+    @OneToMany(()=>VerifyCode,code=>code.verification) verify_codes:VerifyCode[];
     
     @ManyToOne(()=>User,user=>user.verifications) user:User;
 }
