@@ -9,4 +9,7 @@ export class Password {
 
   @Column({type:"varchar"})
   passphase:string;
+
+ @CreateDateColumn({type:"date"})
+ createdAt:Date
 }
