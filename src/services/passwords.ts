@@ -26,8 +26,11 @@ export class PasswordService extends _Data {
     let _password=this.datasource.manager.create(Password,{
        passphase:passphase
     })
-     _password.user=this.userS.id(`${userId}`)
-     await this.datasource.manager.save(Password,_password)
+    let user=this.userS.id(`${userId}`)
+    if(user instanceof User)  {
+      _password.user=user
+      await this.datasource.manager.save(Password,_password)
+    }
      console.log("DataS ",_password)
     
     return _password
