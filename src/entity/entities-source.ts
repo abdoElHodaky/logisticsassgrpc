@@ -2,7 +2,7 @@ import {
   Article,Attachment,Product,ProductAttachment,
   Author,User,Affiliate,Purshase,Supplier,Owner,Orgz,Subscriber,
   PurshaseItem,Payment,supTicket,Verification,OrgzAttachment,
-  Subscription,AffiliateProduct
+  Subscription,AffiliateProduct,VerifyCode
   } from "./";
 
 export const all=[
@@ -10,6 +10,6 @@ export const all=[
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
   Owner,Orgz,OrgzAttachment, Subscriber
-  ,Subscription,AffiliateProduct
+  ,Subscription,AffiliateProduct,VerifyCode
   
 ]
