@@ -1,4 +1,4 @@
-import { Entity ,Column,PrimaryGeneratedColumn,AfterLoad,
+import { Entity ,Column,PrimaryGeneratedColumn,AfterLoad
         ,OneToMany ,OneToOne,ManyToOne ,JoinColumn
         ,ChildEntity} from "typeorm";
 //import { User} from "./";
