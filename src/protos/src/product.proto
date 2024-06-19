@@ -63,6 +63,6 @@ service ProductService {
   rpc create(CreateProductReq) returns(
   CreateProductRes);
   rpc all(GetAllProductsReq) returns (GetAllProductsRes);
-  rpc allsubscribers (GetAllProductsSubscribersReq) returns (GetAllProductsSubscribersRes)
-  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes)
+  rpc allsubscribers (GetAllProductsSubscribersReq) returns (GetAllProductsSubscribersRes);
+  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
 }
