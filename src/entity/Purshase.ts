@@ -17,7 +17,7 @@ export class Purshase {
     @ManyToOne(()=>User,user=>user.purchases) user:User;
     @OneToOne(()=>Payment,payment=>payment.purchase) payment:Payment
 
-    @AfterLoad()
+   /* @AfterLoad()
     setSubTotal(){
         if(this.items.length!=0){
           this.items.reduce((sum,item)=>{
@@ -25,7 +25,7 @@ export class Purshase {
            return sum
           })
         }
-    }
+    } */
 }
 
 @Entity()
