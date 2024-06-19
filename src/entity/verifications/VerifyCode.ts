@@ -1,5 +1,5 @@
 import { Column, Entity, ManyToOne,
-        PrimaryGeneratedColumn } from "typeorm"
+        PrimaryGeneratedColumn,BeforeInsert } from "typeorm"
 
 import { genCode} from "../../helpers";
 
