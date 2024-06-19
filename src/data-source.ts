@@ -1,8 +1,8 @@
 import "reflect-metadata"
 import { DataSource,DataSourceOptions } from "typeorm"
 import { InjectionToken } from "@decorators/di"
-import { all as entities } from "./entity/entities-source"
-import { all as subscribers } from "./subscribers/subscribers";
+import { entities } from "./entity/entities-source"
+import { subscribers } from "./subscribers/subscribers";
 import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
