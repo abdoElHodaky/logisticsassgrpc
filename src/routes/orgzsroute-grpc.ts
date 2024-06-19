@@ -6,7 +6,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
         #swagger.parameters['userId'] = {
-            in: 'path',
+            in: 'path',required:false,
             description: 'id of specific user.',
             
     }
