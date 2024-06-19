@@ -20,6 +20,7 @@ import {
 import _m0 from "protobufjs/minimal";
 import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
+import { dateToReadable} from "../../grpc/util";
 
 export const protobufPackage = "";
 
@@ -52,7 +53,7 @@ export interface GetAllTicketRes {
   error?: Error | undefined;
 }
 
-function createBaseTicket(): Ticket {
+export function createBaseTicket(): Ticket {
   return { id: 0, type: "", subject: "", description: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 
@@ -177,10 +178,10 @@ export const Ticket = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = dateToReadable( message.createdAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt = dateToReadable(message.updatedAt.toISOString());
     }
     return obj;
   },
