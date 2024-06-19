@@ -54,7 +54,7 @@ export class User {
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
     affiliates:Affiliate[]
-    @OneToMany(()=>Password,password.user) passwords:Password[]
+    @OneToMany(()=>Password,password=>password.user) passwords:Password[]
    
 }
 
