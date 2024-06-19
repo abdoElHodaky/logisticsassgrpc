@@ -6,7 +6,7 @@ import { VerifyCode} from "./VerifyCode";
 export enum VerifyType {
     EMAIL="email",
     PHONE="phone",
-    PRODUCT_TYPE_ENTITY,
+    PRODUCT_TYPE_ENTITY="Product",
 }
 @Entity()
 export class Verification {
