@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Password,User,Author } from "../entity/"
+import { Password,User } from "../entity/"
 import { UserService } from "./users/"
 
 //@Injectable()
@@ -20,7 +20,7 @@ export class PasswordService extends _Data {
     })
   }
 
- async create(passwordto:{userId:number,passphase:string}):Promise<Article|void>{
+ async create(passwordto:{userId:number,passphase:string}):Promise<Password|void>{
      
    // const {userId,article}=articlecdto
     let _password=this.datasource.manager.create(Password,{
