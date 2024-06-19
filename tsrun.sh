@@ -1,6 +1,5 @@
 #!/user/bin/bash
 
-
 npm-run-all build swaggen start
 #node dist/data-source.js
 
