@@ -1,4 +1,4 @@
-import { EntitySubscriberInterface, InsertEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface, InsertEvent } from "typeorm"
 import { Password,User } from "../entity/";
 @EventSubscriber()
 export class PasswordSubscriber implements EntitySubscriberInterface<Password> {
