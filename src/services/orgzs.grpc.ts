@@ -24,20 +24,16 @@ export class orgzGrpcService  {
       a.ownerId=owner.id
       //console.log(a.createdAt instanceof Date)
      }
-   // else { a.userId = Math.floor(Math.random()*21) }
-     // a.createdAt=created_at
-      //a.updatedAt=updated_at
      })
+       
        let res:_Orgz.GetAllOrgzsRes={orgzs:_orgzs,error:{
-       Message:"",type:"",name:""
-     }}
+       Message:"",type:"",name:""}}
         callback(null,res)
      }
      else{
        callback(null,{
            orgzs:[],
-           error:{ Message:"No Records Matched",
-           type:"NoTError",name:"Error" }
+           error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
          })
      }
      
