@@ -3,6 +3,7 @@ syntax="proto3";
 import "google/protobuf/any.proto";
 import "google/protobuf/timestamp.proto";
 import "attachment.proto";
+import "user.proto";
 import "error.proto";
 
 message Product {
@@ -15,15 +16,37 @@ message Product {
  optional google.protobuf.Timestamp created_at=7;
  optional google.protobuf.Timestamp updated_at=8;
 }
-
+message SubscribedProduct{
+  Product product=1;
+  repeated User subscribers=2;
+}
 message CreateProductReq {
   int32 userId=1;
   Product product=2;
 }
 
+message SubscribeProductRes {
+  optional  int32 userId=1;
+  SubscribedProduct product=2;
+}
+message SubscribeProductReq {
+  int32 userId=1;
+  int32 productId=2;
+}
+
 message CreateProductRes {
   optional  int32 userId=1;
   Product product=2;
+}
+
+message GetAllProductsSubscribersReq {
+ optional int32 productId=1;
+}
+
+message GetAllProductsSubscribersRes {
+ repeated SubscribedProduct products=1;
+ optional Error error=2;
+ 
 }
 
 message GetAllProductsReq {
@@ -40,4 +63,6 @@ service ProductService {
   rpc create(CreateProductReq) returns(
   CreateProductRes);
   rpc all(GetAllProductsReq) returns (GetAllProductsRes);
+  rpc allsubscribers (GetAllProductsSubscribersReq) returns (GetAllProductsSubscribersRes)
+  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes)
 }
