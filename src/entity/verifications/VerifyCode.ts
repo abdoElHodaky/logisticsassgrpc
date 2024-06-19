@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne,
         PrimaryGeneratedColumn,BeforeInsert } from "typeorm"
-
+import { Verification} from "./Verification";
 import { genCode} from "../../helpers";
 
 @Entity()
