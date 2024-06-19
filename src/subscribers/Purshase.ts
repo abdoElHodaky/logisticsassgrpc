@@ -1,4 +1,4 @@
-import { EntitySubscriberInterface, LoadEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface, InsertEvent } from "typeorm"
 import { Purshase,User } from "../entity/";
 @EventSubscriber()
 export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
