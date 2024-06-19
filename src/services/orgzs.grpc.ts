@@ -36,7 +36,7 @@ export class orgzGrpcService  {
      else{
        callback(null,{
            orgzs:[],
-           error:{ Message:`${orgzs?.message}`,
+           error:{ Message:"No Records Matched",
            type:"NoTError",name:"Error" }
          })
      }
