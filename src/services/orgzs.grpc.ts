@@ -15,7 +15,7 @@ export class orgzGrpcService  {
     callback: sendUnaryData<_Orgz.GetAllOrgzsRes>
  ){
      let orgzs=await orgzGrpcService.service.all()
-     //console.log(tickets)
+     if(orgzs instanceof Array){
      let _orgzs=orgzs?.map(_Orgz.Orgz.fromJSON)
      //console.log(tickets)
     _orgzs.forEach((a:_Orgz.Orgz,inx:number)=>{
@@ -28,10 +28,19 @@ export class orgzGrpcService  {
      // a.createdAt=created_at
       //a.updatedAt=updated_at
      })
-     let res:_Orgz.GetAllOrgzsRes={orgzs:_orgzs,error:{
+       let res:_Orgz.GetAllOrgzsRes={orgzs:_orgzs,error:{
        Message:"",type:"",name:""
      }}
-     callback(null,res)
+        callback(null,res)
+     }
+     else{
+       callback(null,{
+           orgzs:[],
+           error:{
+           Message:`${orgzs?.message}`,type:"NoTError",name:"Error"
+         })
+     }
+     
       },
     async create (
     call: ServerUnaryCall<_Orgz.CreateOrgzReq,_Orgz.CreateOrgzRes>,
