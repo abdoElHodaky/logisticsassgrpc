@@ -36,8 +36,8 @@ export class orgzGrpcService  {
      else{
        callback(null,{
            orgzs:[],
-           error:{
-           Message:`${orgzs?.message}`,type:"NoTError",name:"Error"
+           error:{ Message:`${orgzs?.message}`,
+           type:"NoTError",name:"Error" }
          })
      }
      
