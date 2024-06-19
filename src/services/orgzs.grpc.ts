@@ -14,7 +14,7 @@ export class orgzGrpcService  {
     async all (call: ServerUnaryCall<_Orgz.GetAllOrgzsReq,_Orgz.GetAllOrgzsRes>,
     callback: sendUnaryData<_Orgz.GetAllOrgzsRes>
  ){
-     let orgzs=await orgzGrpcService.service.all()
+     let orgzs=await orgzGrpcService.service.all(call.request?.ownerId)
      if(orgzs instanceof Array){
      let _orgzs=orgzs?.map(_Orgz.Orgz.fromJSON)
      //console.log(tickets)
