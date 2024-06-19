@@ -37,7 +37,7 @@ megrpc.post("/me/changePassword",(req,res)=>{
             content: {
                 "application/json": {
                    schema: { 
-                     $passphase:"test_56"
+                     passphase:"test_56"
                    }
                 }
             }
