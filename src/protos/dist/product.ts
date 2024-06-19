@@ -22,7 +22,8 @@ import { Attachment } from "./attachment";
 import { Error } from "./error";
 import { Any } from "./google/protobuf/any";
 import { Timestamp } from "./google/protobuf/timestamp";
-import { dateToReadable} from "../../grpc/util";
+import { User } from "./user";
+
 export const protobufPackage = "";
 
 export interface Product {
@@ -36,14 +37,38 @@ export interface Product {
   updatedAt?: Date | undefined;
 }
 
+export interface SubscribedProduct {
+  product: Product | undefined;
+  subscribers: User[];
+}
+
 export interface CreateProductReq {
   userId: number;
   product: Product | undefined;
 }
 
+export interface SubscribeProductRes {
+  userId?: number | undefined;
+  product: SubscribedProduct | undefined;
+}
+
+export interface SubscribeProductReq {
+  userId: number;
+  productId: number;
+}
+
 export interface CreateProductRes {
   userId?: number | undefined;
   product: Product | undefined;
+}
+
+export interface GetAllProductsSubscribersReq {
+  productId?: number | undefined;
+}
+
+export interface GetAllProductsSubscribersRes {
+  products: SubscribedProduct[];
+  error?: Error | undefined;
 }
 
 export interface GetAllProductsReq {
@@ -55,7 +80,7 @@ export interface GetAllProductsRes {
   error?: Error | undefined;
 }
 
-export function createBaseProduct(): Product {
+function createBaseProduct(): Product {
   return {
     id: 0,
     specs: undefined,
@@ -205,10 +230,10 @@ export const Product = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt =dateToReadable( message.createdAt.toISOString())
+      obj.createdAt = message.createdAt.toISOString();
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
+      obj.updatedAt = message.updatedAt.toISOString();
     }
     return obj;
   },
@@ -228,6 +253,84 @@ export const Product = {
     message.userId = object.userId ?? undefined;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;
+    return message;
+  },
+};
+
+function createBaseSubscribedProduct(): SubscribedProduct {
+  return { product: undefined, subscribers: [] };
+}
+
+export const SubscribedProduct = {
+  encode(message: SubscribedProduct, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.product !== undefined) {
+      Product.encode(message.product, writer.uint32(10).fork()).ldelim();
+    }
+    for (const v of message.subscribers) {
+      User.encode(v!, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): SubscribedProduct {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSubscribedProduct();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.product = Product.decode(reader, reader.uint32());
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.subscribers.push(User.decode(reader, reader.uint32()));
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SubscribedProduct {
+    return {
+      product: isSet(object.product) ? Product.fromJSON(object.product) : undefined,
+      subscribers: globalThis.Array.isArray(object?.subscribers)
+        ? object.subscribers.map((e: any) => User.fromJSON(e))
+        : [],
+    };
+  },
+
+  toJSON(message: SubscribedProduct): unknown {
+    const obj: any = {};
+    if (message.product !== undefined) {
+      obj.product = Product.toJSON(message.product);
+    }
+    if (message.subscribers?.length) {
+      obj.subscribers = message.subscribers.map((e) => User.toJSON(e));
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<SubscribedProduct>, I>>(base?: I): SubscribedProduct {
+    return SubscribedProduct.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<SubscribedProduct>, I>>(object: I): SubscribedProduct {
+    const message = createBaseSubscribedProduct();
+    message.product = (object.product !== undefined && object.product !== null)
+      ? Product.fromPartial(object.product)
+      : undefined;
+    message.subscribers = object.subscribers?.map((e) => User.fromPartial(e)) || [];
     return message;
   },
 };
@@ -308,6 +411,156 @@ export const CreateProductReq = {
   },
 };
 
+function createBaseSubscribeProductRes(): SubscribeProductRes {
+  return { userId: undefined, product: undefined };
+}
+
+export const SubscribeProductRes = {
+  encode(message: SubscribeProductRes, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.userId !== undefined) {
+      writer.uint32(8).int32(message.userId);
+    }
+    if (message.product !== undefined) {
+      SubscribedProduct.encode(message.product, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): SubscribeProductRes {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSubscribeProductRes();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.userId = reader.int32();
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.product = SubscribedProduct.decode(reader, reader.uint32());
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SubscribeProductRes {
+    return {
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : undefined,
+      product: isSet(object.product) ? SubscribedProduct.fromJSON(object.product) : undefined,
+    };
+  },
+
+  toJSON(message: SubscribeProductRes): unknown {
+    const obj: any = {};
+    if (message.userId !== undefined) {
+      obj.userId = Math.round(message.userId);
+    }
+    if (message.product !== undefined) {
+      obj.product = SubscribedProduct.toJSON(message.product);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<SubscribeProductRes>, I>>(base?: I): SubscribeProductRes {
+    return SubscribeProductRes.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<SubscribeProductRes>, I>>(object: I): SubscribeProductRes {
+    const message = createBaseSubscribeProductRes();
+    message.userId = object.userId ?? undefined;
+    message.product = (object.product !== undefined && object.product !== null)
+      ? SubscribedProduct.fromPartial(object.product)
+      : undefined;
+    return message;
+  },
+};
+
+function createBaseSubscribeProductReq(): SubscribeProductReq {
+  return { userId: 0, productId: 0 };
+}
+
+export const SubscribeProductReq = {
+  encode(message: SubscribeProductReq, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.userId !== 0) {
+      writer.uint32(8).int32(message.userId);
+    }
+    if (message.productId !== 0) {
+      writer.uint32(16).int32(message.productId);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): SubscribeProductReq {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseSubscribeProductReq();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.userId = reader.int32();
+          continue;
+        case 2:
+          if (tag !== 16) {
+            break;
+          }
+
+          message.productId = reader.int32();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): SubscribeProductReq {
+    return {
+      userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
+      productId: isSet(object.productId) ? globalThis.Number(object.productId) : 0,
+    };
+  },
+
+  toJSON(message: SubscribeProductReq): unknown {
+    const obj: any = {};
+    if (message.userId !== 0) {
+      obj.userId = Math.round(message.userId);
+    }
+    if (message.productId !== 0) {
+      obj.productId = Math.round(message.productId);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<SubscribeProductReq>, I>>(base?: I): SubscribeProductReq {
+    return SubscribeProductReq.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<SubscribeProductReq>, I>>(object: I): SubscribeProductReq {
+    const message = createBaseSubscribeProductReq();
+    message.userId = object.userId ?? 0;
+    message.productId = object.productId ?? 0;
+    return message;
+  },
+};
+
 function createBaseCreateProductRes(): CreateProductRes {
   return { userId: undefined, product: undefined };
 }
@@ -380,6 +633,139 @@ export const CreateProductRes = {
     message.product = (object.product !== undefined && object.product !== null)
       ? Product.fromPartial(object.product)
       : undefined;
+    return message;
+  },
+};
+
+function createBaseGetAllProductsSubscribersReq(): GetAllProductsSubscribersReq {
+  return { productId: undefined };
+}
+
+export const GetAllProductsSubscribersReq = {
+  encode(message: GetAllProductsSubscribersReq, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    if (message.productId !== undefined) {
+      writer.uint32(8).int32(message.productId);
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): GetAllProductsSubscribersReq {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGetAllProductsSubscribersReq();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 8) {
+            break;
+          }
+
+          message.productId = reader.int32();
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetAllProductsSubscribersReq {
+    return { productId: isSet(object.productId) ? globalThis.Number(object.productId) : undefined };
+  },
+
+  toJSON(message: GetAllProductsSubscribersReq): unknown {
+    const obj: any = {};
+    if (message.productId !== undefined) {
+      obj.productId = Math.round(message.productId);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<GetAllProductsSubscribersReq>, I>>(base?: I): GetAllProductsSubscribersReq {
+    return GetAllProductsSubscribersReq.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<GetAllProductsSubscribersReq>, I>>(object: I): GetAllProductsSubscribersReq {
+    const message = createBaseGetAllProductsSubscribersReq();
+    message.productId = object.productId ?? undefined;
+    return message;
+  },
+};
+
+function createBaseGetAllProductsSubscribersRes(): GetAllProductsSubscribersRes {
+  return { products: [], error: undefined };
+}
+
+export const GetAllProductsSubscribersRes = {
+  encode(message: GetAllProductsSubscribersRes, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
+    for (const v of message.products) {
+      SubscribedProduct.encode(v!, writer.uint32(10).fork()).ldelim();
+    }
+    if (message.error !== undefined) {
+      Error.encode(message.error, writer.uint32(18).fork()).ldelim();
+    }
+    return writer;
+  },
+
+  decode(input: _m0.Reader | Uint8Array, length?: number): GetAllProductsSubscribersRes {
+    const reader = input instanceof _m0.Reader ? input : _m0.Reader.create(input);
+    let end = length === undefined ? reader.len : reader.pos + length;
+    const message = createBaseGetAllProductsSubscribersRes();
+    while (reader.pos < end) {
+      const tag = reader.uint32();
+      switch (tag >>> 3) {
+        case 1:
+          if (tag !== 10) {
+            break;
+          }
+
+          message.products.push(SubscribedProduct.decode(reader, reader.uint32()));
+          continue;
+        case 2:
+          if (tag !== 18) {
+            break;
+          }
+
+          message.error = Error.decode(reader, reader.uint32());
+          continue;
+      }
+      if ((tag & 7) === 4 || tag === 0) {
+        break;
+      }
+      reader.skipType(tag & 7);
+    }
+    return message;
+  },
+
+  fromJSON(object: any): GetAllProductsSubscribersRes {
+    return {
+      products: globalThis.Array.isArray(object?.products)
+        ? object.products.map((e: any) => SubscribedProduct.fromJSON(e))
+        : [],
+      error: isSet(object.error) ? Error.fromJSON(object.error) : undefined,
+    };
+  },
+
+  toJSON(message: GetAllProductsSubscribersRes): unknown {
+    const obj: any = {};
+    if (message.products?.length) {
+      obj.products = message.products.map((e) => SubscribedProduct.toJSON(e));
+    }
+    if (message.error !== undefined) {
+      obj.error = Error.toJSON(message.error);
+    }
+    return obj;
+  },
+
+  create<I extends Exact<DeepPartial<GetAllProductsSubscribersRes>, I>>(base?: I): GetAllProductsSubscribersRes {
+    return GetAllProductsSubscribersRes.fromPartial(base ?? ({} as any));
+  },
+  fromPartial<I extends Exact<DeepPartial<GetAllProductsSubscribersRes>, I>>(object: I): GetAllProductsSubscribersRes {
+    const message = createBaseGetAllProductsSubscribersRes();
+    message.products = object.products?.map((e) => SubscribedProduct.fromPartial(e)) || [];
+    message.error = (object.error !== undefined && object.error !== null) ? Error.fromPartial(object.error) : undefined;
     return message;
   },
 };
@@ -535,11 +921,33 @@ export const ProductServiceService = {
     responseSerialize: (value: GetAllProductsRes) => Buffer.from(GetAllProductsRes.encode(value).finish()),
     responseDeserialize: (value: Buffer) => GetAllProductsRes.decode(value),
   },
+  allsubscribers: {
+    path: "/ProductService/allsubscribers",
+    requestStream: false,
+    responseStream: false,
+    requestSerialize: (value: GetAllProductsSubscribersReq) =>
+      Buffer.from(GetAllProductsSubscribersReq.encode(value).finish()),
+    requestDeserialize: (value: Buffer) => GetAllProductsSubscribersReq.decode(value),
+    responseSerialize: (value: GetAllProductsSubscribersRes) =>
+      Buffer.from(GetAllProductsSubscribersRes.encode(value).finish()),
+    responseDeserialize: (value: Buffer) => GetAllProductsSubscribersRes.decode(value),
+  },
+  subscribe: {
+    path: "/ProductService/subscribe",
+    requestStream: false,
+    responseStream: false,
+    requestSerialize: (value: SubscribeProductReq) => Buffer.from(SubscribeProductReq.encode(value).finish()),
+    requestDeserialize: (value: Buffer) => SubscribeProductReq.decode(value),
+    responseSerialize: (value: SubscribeProductRes) => Buffer.from(SubscribeProductRes.encode(value).finish()),
+    responseDeserialize: (value: Buffer) => SubscribeProductRes.decode(value),
+  },
 } as const;
 
 export interface ProductServiceServer extends UntypedServiceImplementation {
   create: handleUnaryCall<CreateProductReq, CreateProductRes>;
   all: handleUnaryCall<GetAllProductsReq, GetAllProductsRes>;
+  allsubscribers: handleUnaryCall<GetAllProductsSubscribersReq, GetAllProductsSubscribersRes>;
+  subscribe: handleUnaryCall<SubscribeProductReq, SubscribeProductRes>;
 }
 
 export interface ProductServiceClient extends Client {
@@ -572,6 +980,36 @@ export interface ProductServiceClient extends Client {
     metadata: Metadata,
     options: Partial<CallOptions>,
     callback: (error: ServiceError | null, response: GetAllProductsRes) => void,
+  ): ClientUnaryCall;
+  allsubscribers(
+    request: GetAllProductsSubscribersReq,
+    callback: (error: ServiceError | null, response: GetAllProductsSubscribersRes) => void,
+  ): ClientUnaryCall;
+  allsubscribers(
+    request: GetAllProductsSubscribersReq,
+    metadata: Metadata,
+    callback: (error: ServiceError | null, response: GetAllProductsSubscribersRes) => void,
+  ): ClientUnaryCall;
+  allsubscribers(
+    request: GetAllProductsSubscribersReq,
+    metadata: Metadata,
+    options: Partial<CallOptions>,
+    callback: (error: ServiceError | null, response: GetAllProductsSubscribersRes) => void,
+  ): ClientUnaryCall;
+  subscribe(
+    request: SubscribeProductReq,
+    callback: (error: ServiceError | null, response: SubscribeProductRes) => void,
+  ): ClientUnaryCall;
+  subscribe(
+    request: SubscribeProductReq,
+    metadata: Metadata,
+    callback: (error: ServiceError | null, response: SubscribeProductRes) => void,
+  ): ClientUnaryCall;
+  subscribe(
+    request: SubscribeProductReq,
+    metadata: Metadata,
+    options: Partial<CallOptions>,
+    callback: (error: ServiceError | null, response: SubscribeProductRes) => void,
   ): ClientUnaryCall;
 }
 

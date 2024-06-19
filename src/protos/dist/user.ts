@@ -24,7 +24,7 @@ import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
 import { Payment } from "./payment";
 import { Ticket } from "./ticket";
-import { dateToReadable} from "../../grpc/util";
+
 export const protobufPackage = "";
 
 export interface User {
@@ -78,7 +78,7 @@ export interface GetAllUserRes {
   error?: Error | undefined;
 }
 
-export function createBaseUser(): User {
+function createBaseUser(): User {
   return {
     id: 0,
     type: undefined,
@@ -361,10 +361,10 @@ export const User = {
       obj.referralCode = message.referralCode;
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt =dateToReadable( message.createdAt.toISOString())
+      obj.createdAt = message.createdAt.toISOString();
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
+      obj.updatedAt = message.updatedAt.toISOString();
     }
     return obj;
   },

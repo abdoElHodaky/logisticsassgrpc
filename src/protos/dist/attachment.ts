@@ -19,7 +19,7 @@ import {
 } from "@grpc/grpc-js";
 import _m0 from "protobufjs/minimal";
 import { Timestamp } from "./google/protobuf/timestamp";
-import { dateToReadable} from "../../grpc/util";
+
 export const protobufPackage = "";
 
 export interface Attachment {
@@ -49,7 +49,7 @@ export interface GetAllAttachRes {
   attachments: Attachment[];
 }
 
-export function createBaseAttachment(): Attachment {
+function createBaseAttachment(): Attachment {
   return { id: 0, type: "", title: "", userId: 0, forType: "", createdAt: undefined, updatedAt: undefined };
 }
 
@@ -174,10 +174,10 @@ export const Attachment = {
       obj.forType = message.forType;
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt =dateToReadable( message.createdAt.toISOString())
+      obj.createdAt = message.createdAt.toISOString();
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
+      obj.updatedAt = message.updatedAt.toISOString();
     }
     return obj;
   },
