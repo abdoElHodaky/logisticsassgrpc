@@ -22,7 +22,7 @@ export class PasswordService extends _Data {
 
  async create(passwordto:{userId:number,passphase:string}):Promise<Password|void>{
      
-   // const {userId,article}=articlecdto
+   const {userId,passphase}=passwordto
     let _password=this.datasource.manager.create(Password,{
        passphase:passphase
     })
