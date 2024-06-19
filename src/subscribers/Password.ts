@@ -14,7 +14,7 @@ export class PasswordSubscriber implements EntitySubscriberInterface<Password> {
      */
   async  aferInsert(event: InsertEvent<Password>) {
         const {entity,manager} =event
-        entity.user?.passwordHash=entity.passphase
+        entity.user.passwordHash=entity.passphase
         await manager.save(User,entity)
     }
 }
