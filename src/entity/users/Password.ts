@@ -13,7 +13,7 @@ export class Password {
   @CreateDateColumn({type:"date"})
   createdAt:Date
 
-  @ManyToOne(()=>User,user.passwords) user:User
+  @ManyToOne(()=>User,user=>user.passwords) user:User
 /*
   @AfterInsert()
   changepass(){
