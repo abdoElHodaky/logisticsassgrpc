@@ -20,6 +20,7 @@ import {
 import _m0 from "protobufjs/minimal";
 import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
+import { dateToReadable} from "../../grpc/util";
 
 export const protobufPackage = "";
 
@@ -51,7 +52,7 @@ export interface GetAllRes {
   error?: Error | undefined;
 }
 
-function createBaseArticle(): Article {
+export function createBaseArticle(): Article {
   return { id: 0, imgurl: "", content: "", title: "", userId: 0, createdAt: undefined, updatedAt: undefined };
 }
 
@@ -176,10 +177,10 @@ export const Article = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = dateToReadable( message.createdAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt = dateToReadable(message.updatedAt.toISOString());
     }
     return obj;
   },
