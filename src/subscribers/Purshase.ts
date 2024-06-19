@@ -1,4 +1,4 @@
-import {EventSubscriber ,EntitySubscriberInterface, InsertEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface, LoadEvent } from "typeorm"
 import { Purshase,User } from "../entity/";
 @EventSubscriber()
 export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
@@ -15,7 +15,7 @@ export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
   async  aferLoad(event: LoadEvent<Purshase>) {
         const {entity,manager} =event
         if(entity.items.length!=0){
-          entity.items.reduce((sum,item)=>{
+          entity.items.reduce((sum:any,item:any)=>{
            entity.subTotal+=item?.product.price
            return sum
           })
