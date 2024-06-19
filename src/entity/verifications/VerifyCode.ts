@@ -5,6 +5,9 @@ import { genCode} from "../../helpers";
 
 @Entity()
 export class VerifyCode{
+   @PrimaryGeneratedColumn("increment")
+   id: number 
+        
    @Column({type:"varchar"})
    code:string
   
