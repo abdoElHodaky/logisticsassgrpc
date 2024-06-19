@@ -5,7 +5,7 @@ import {
   Subscription,AffiliateProduct,VerifyCode,Password
   } from "./";
 
-export const all=[
+export const entities:any=[
   Article,Attachment,Product,ProductAttachment,
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
