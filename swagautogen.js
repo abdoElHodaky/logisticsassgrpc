@@ -111,7 +111,7 @@ const config = {
               $specs:[{$name:"",$value:""}]
           },
           chnagePassword:{
-              $passphase;"test_65"
+              $passphase:"test_65"
           }
     }}
 };
