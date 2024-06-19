@@ -10,7 +10,7 @@ RUN  yarn add chalk express-slow-down redis-url rate-limit-redis ioredis  && npm
 #RUN yarn add ts-node-dev --dev
 RUN yarn install -y
 ENV GRPCSTWOPORT 3030
-ENV GRPCSONEPORT 50051
+ENV GRPCSONEPORT 5051
 ENV PORT 3000
 ENV NODE_ENV production
 ENV ENABLE_OVERCOMMIT_MEMORY true
