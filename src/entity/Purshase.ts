@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn,AfterLoad,
         ,OneToMany ,OneToOne,ManyToOne ,JoinColumn
-        ,ChildEntity} from "typeorm"
+        ,ChildEntity} from "typeorm";
 //import { User} from "./";
 //import { Payment } from "./";
 import { Attachment,User,Payment,Product } from "./";
@@ -11,11 +11,11 @@ export class Purshase {
     id: number;
         
     @Column("int")
-    subTotal:number
+    subTotal:number;
         
-    @OneToMany(()=>PurshaseItem, item=>item.purshase) items:PurshaseItem[]
+    @OneToMany(()=>PurshaseItem, item=>item.purshase) items:PurshaseItem[];
     @ManyToOne(()=>User,user=>user.purchases) user:User;
-    @OneToOne(()=>Payment,payment=>payment.purchase) payment:Payment
+    @OneToOne(()=>Payment,payment=>payment.purchase) payment:Payment;
 
    /* @AfterLoad()
     setSubTotal(){
@@ -35,11 +35,11 @@ export class PurshaseItem {
     id: number;
     
     @Column("simple-json")
-    props:any
+    props:any;
     
    @OneToOne(()=>Product) 
    @JoinColumn()
-   product:Product
+   product:Product;
     
     @ManyToOne(()=>Purshase,purshase=>purshase.items) purshase:Purshase;
 }
