@@ -40,7 +40,7 @@ export class ProductGrpcService  {
       },
     async create (
     call: ServerUnaryCall<_Product.CreateProductReq,_Product.CreateProductRes>,
-    callback: sendUnaryData<_Product.CreateProductReq>
+    callback: sendUnaryData<_Product.CreateProductRes>
   ){
        let {userId,product}=call.request
        callback(null,{
