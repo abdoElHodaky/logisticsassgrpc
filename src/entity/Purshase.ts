@@ -35,7 +35,7 @@ export class PurshaseItem {
     id: number;
     
     @Column("simple-json")
-    props:any;
+    props?:any;
     
    @OneToOne(()=>Product) 
    @JoinColumn()
