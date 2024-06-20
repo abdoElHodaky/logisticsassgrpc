@@ -11,7 +11,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
             content: {
                 "application/json": {
                    schema: { 
-                      $ownerId:1
+                      {$ownerId:1}
                    }
                 }
             }
