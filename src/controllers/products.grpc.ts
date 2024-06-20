@@ -1,6 +1,6 @@
 import { credentials } from "@grpc/grpc-js";
 import { _Product } from "../protos/dist/"
-import { AppDataSource } from "../_datasource";
+//import { Product } from "../entity/";
 import { AuthenticateMiddleware } from "../middlewares/"
 import { CreateProductDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
@@ -16,7 +16,7 @@ const address = "localhost:"+Env.GRPCSONEPORT
 @Controller('/products')
 export class GrpcProductController {
   
-  private client =new Product.ProductServiceClient(
+  private client =new _Product.ProductServiceClient(
     address,
     credentials.createInsecure()
   )
