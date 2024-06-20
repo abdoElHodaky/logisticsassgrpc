@@ -34,7 +34,24 @@ productsgrpc.post("/products",({body},res)=>{
    
 })
 
-/*articlesroute.post("/articles/create",(req,res)=>{
+productsgrpc.post("/products/subscribe",({body},res)=>{
+    /* 	#swagger.tags = ['GRPC.Product']
+        #swagger.description = 'Endpoint to add new article via grpc' 
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    type:"object",
+                    schema:{
+                      $productId:1
+                    }
+                }
+            }
+        } 
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
     
+   
 })
-*/
