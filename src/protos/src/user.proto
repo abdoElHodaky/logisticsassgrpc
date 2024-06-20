@@ -6,6 +6,7 @@ import "ticket.proto";
 import "error.proto";
 import "address.proto";
 import "payment.proto";
+import "subscription.proto";
 //option experimental_allow_proto3_optional=true;
 
 message User {
@@ -25,11 +26,12 @@ message Email{
   repeated Article articles =10;
   repeated Ticket tickets=11;
   repeated Payment payments=12;
-  Address address=13;
-  optional string referedBy=14;
-  optional string referralCode=15;
-  optional google.protobuf.Timestamp created_at = 16;
-  optional google.protobuf.Timestamp updated_at = 17;
+  repeated Subscription subscriptions=13;
+  Address address=14;
+  optional string referedBy=15;
+  optional string referralCode=16;
+  optional google.protobuf.Timestamp created_at = 17;
+  optional google.protobuf.Timestamp updated_at = 18;
  
  //optional repeated int32 articleIds=10
  //optional repeated int32 ticketIds=10
