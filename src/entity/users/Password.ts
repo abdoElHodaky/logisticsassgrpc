@@ -10,7 +10,7 @@ export class Password {
   @Column({type:"varchar"})
   passphase:string;
 
-  @CreateDateColumn({type:"date"})
+  @CreateDateColumn()
   createdAt:Date
 
   @ManyToOne(()=>User,user=>user.passwords) user:User
