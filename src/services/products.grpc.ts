@@ -43,7 +43,9 @@ export class ProductGrpcService  {
     callback: sendUnaryData<_Product.CreateProductReq>
   ){
        let {userId,product}=call.request
-      console.log(call.request)
+       callback(null,{
+           product:product
+         })
       /* const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
        let _product=await ProductGrpcService.service.create(userId,supticket)
        if(_product instanceof Product){
