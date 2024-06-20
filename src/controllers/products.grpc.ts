@@ -2,7 +2,7 @@ import { credentials } from "@grpc/grpc-js";
 import { _Product } from "../protos/dist/"
 import { AppDataSource } from "../_datasource";
 import { AuthenticateMiddleware } from "../middlewares/"
-//import { CreatePaymentDto} from "../dto/create-payment.dto";
+import { CreateProductDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response} from "express"
 import { Request } from "express-jwt";
@@ -39,11 +39,21 @@ export class GrpcProductController {
   }
   
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/  @Res() res:Response):Promise<Product|void>{
+  async create(@Req() req:Request,@Body() dto:CreateProductDto,  @Res() res:Response):Promise<void>{
     const {auth}=req
-   // console.log(auth)
-    //let payment=await this.paymentService.create(createpaymentdto)
-   // return payment;
+   const productreq:_Product.CreateProductsReq=_Product.CreateProductReq.fromJSON(dto)
+     
+    this.client.create(productreq,(err:any,resp:_Product.CreateProductRes)=>{
+      if (err) {
+      res.jsonp(err);
+        console.error(err)
+    } else {
+        const resl=_Product.GetAllProductsRes.toJSON(resp)
+       // console.log(resl?.articles.map(transformDate))
+        res.json(resl)
+     }
+  })
+    
   }
 
   
