@@ -41,9 +41,8 @@ productsgrpc.post("/products/subscribe",({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                    schema:{
-                     { $productId:1 }
-                    }
+                     $productId:1 
+                    
                 }
             }
         } 
