@@ -10,9 +10,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
             description: 'id of specific user.',
             content: {
                 "application/json": {
-                   schema:{
-                      $ownerId:1
-                   }
+                   schema: { $ref: '#/components/schemas/ownerOrgz' }   }
                 }
             }
     }
