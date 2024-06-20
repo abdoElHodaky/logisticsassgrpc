@@ -2,8 +2,7 @@ import { _Data } from "./datasource";
 import { Product ,User } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
-
-//import { CreateArticleDto } from "../dto/create-article.dto"
+import { CreateProductDto } from "../dto/"
 
 //@Injectable()
 export class ProductService extends _Data {
@@ -24,7 +23,7 @@ export class ProductService extends _Data {
     return (products.length!=0)? products : new NotFoundError("Products")
   }
 
-// async create(userId:string,ticket:{type:string,subject:string,description:string}):Promise<supTicket|void>{
+async create(dto:CreateProductDto ):Promise<Product|void>{
     
     
     
