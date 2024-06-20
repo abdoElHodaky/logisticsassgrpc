@@ -13,19 +13,23 @@ export class ArticleGrpcService  {
     callback: sendUnaryData<_Article.GetAllRes>
  ){
      let articles=await ArticleGrpcService.service.all()
-     //console.log(articles)
+     if(articles instanceof Array){
      let _articles=articles.map(_Article.Article.fromJSON)
      _articles.forEach((a:_Article.Article,inx:number)=>{  
        let {author,createdAt,updatedAt}=articles[inx]
        a.userId=author.id
-      // a.createdAt=created_at
-      // a.updatedAt=updated_at
-       //console.log(created_at?.toLocaleString("en-eg", {timeZone: "Africa/cairo"}))
-     })
+       })
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
      }}
      callback(null,res)
+     }
+     else{
+       let res:_Article.GetAllRes={articles:[],error:{
+       Message:"No Records Matched",type:"NotFound",name:""
+     }}
+     callback(null,res)
+     }
       }
     , async create (
     call: ServerUnaryCall<_Article.CreateReq,_Article.CreateRes>,
