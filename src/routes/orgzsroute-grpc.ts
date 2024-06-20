@@ -5,7 +5,7 @@ export const orgzsrpc=Router()
 orgzsrpc.get("/orgzs",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
-        #swagger.requestBody = {
+        #swagger.parameters["ownerId"] = {
             required:false,
             description: 'id of specific user.',
             content: {
