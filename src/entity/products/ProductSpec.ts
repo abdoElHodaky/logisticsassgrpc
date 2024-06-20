@@ -1,13 +1,19 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, 
         ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn,JoinColumn  } from "typeorm"
-import { Product } from "./Product";
+//import { Product } from "./Product";
 
-@ChildEntity()
-export class ChildProduct extends Product {
+@Entity()
+export class ProductSpec {
 
-    @ManyToOne(()=>Product,related=>related.subproducts)
+ /*   @ManyToOne(()=>Product,related=>related.subproducts)
     @JoinColumn([
     { name: "relatedId", referencedColumnName: "id" },
     {} ])
-    related:Product
+    related:Product */
+@Column("varchar")
+name:string
+
+@Column("simple-json")
+value:any
+        
 }
