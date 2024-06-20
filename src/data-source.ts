@@ -7,7 +7,7 @@ import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
     type:"mariadb",
-    hostname:"db4free.net",
+    host:"db4free.net",
     username:"abdo_grpcendpoin",
     password:"arh.27934",
     database:"grpcendpoints",
