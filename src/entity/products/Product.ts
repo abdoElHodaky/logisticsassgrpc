@@ -16,10 +16,10 @@ export class Product {
     @Column("int")
     price:number
         
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt:Date
     
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt:Date
     
     @OneToMany(()=>AffiliateProduct,affproduct=>affproduct.product) affiliated?: AffiliateProduct[];
