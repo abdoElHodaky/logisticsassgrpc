@@ -45,7 +45,7 @@ export class ProductGrpcService  {
        let {userId,product}=call.request
        const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
        let _product=await ProductGrpcService.service.create(userId,supticket)
-       if(_product instanceof Orgz){
+       if(_product instanceof Product){
         const product=_Product.Product.fromJSON(_product)
          product.userId=userId
          callback(null,{
