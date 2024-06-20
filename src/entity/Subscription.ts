@@ -26,10 +26,10 @@ export class Subscription {
     @JoinTable()
     products:Product[]; 
    
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt: Date;
 
     @Column({type:"date"})
