@@ -32,10 +32,10 @@ export const _AppDataSource = new DataSource({
     subscribers: [ ...subscribers ],
     extra: {
        //connectTimeout:20000
-        connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
-        idleTimeoutMillis: Number.MAX_SAFE_INTEGER
+        //connectionTimeoutMillis: Number.MAX_SAFE_INTEGER,
+        //idleTimeoutMillis: Number.MAX_SAFE_INTEGER
     },
-    statementCacheSize:200
+    //statementCacheSize:200
     
 })
 if (_AppDataSource.isInitialized==false){
