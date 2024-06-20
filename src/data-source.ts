@@ -6,8 +6,11 @@ import { subscribers } from "./subscribers/subscribers";
 import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
-    type:"better-sqlite3",
-    database:"grpcendpoints.sqlite",
+    type:"mariadb",
+    hostname:"db4free.net",
+    username:"abdo_grpcendpoin",
+    password:"arh.27934",
+    database:"grpcendpoints",
     cache: {
       /*  type:"ioredis",
         options: {
