@@ -41,14 +41,14 @@ export class GrpcProductController {
   @Post("",[AuthenticateMiddleware])
   async create(@Req() req:Request,@Body() dto:CreateProductDto,  @Res() res:Response):Promise<void>{
     const {auth}=req
-   const productreq:_Product.CreateProductsReq=_Product.CreateProductReq.fromJSON(dto)
+   const productreq:_Product.CreateProductReq=_Product.CreateProductReq.fromJSON(dto)
      
     this.client.create(productreq,(err:any,resp:_Product.CreateProductRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
     } else {
-        const resl=_Product.GetAllProductsRes.toJSON(resp)
+        const resl=_Product.CreateProductRes.toJSON(resp)
        // console.log(resl?.articles.map(transformDate))
         res.json(resl)
      }
