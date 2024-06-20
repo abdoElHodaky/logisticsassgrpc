@@ -1,18 +1,18 @@
 import { Injectable , Inject } from "@decorators/di";
 import { _Data } from "./datasource";
 import { Article,User,Author } from "../entity/"
-import { CreateArticleDto } from "../dto/create-article.dto"
-
+import { CreateArticleDto } from "../dto/"
+import { Error,NotFoundError} from "common-errors";
 //@Injectable()
 export class ArticleService extends _Data {
   constructor (){
       super()
   }
 
-  async all():Promise<Article[]>
+  async all():Promise<Article[]|Error>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(Article,{
+    let articles= await this.datasource.manager.find(Article,{
       relations:{
         author:true
       },
