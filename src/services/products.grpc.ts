@@ -48,7 +48,7 @@ export class ProductGrpcService  {
        let _product=await ProductGrpcService.service.create(_Product.CreateProductReq.toJSON(call.request))
        if(_product instanceof Product){
         const product=_Product.Product.fromJSON(_product)
-         product.userId=userId
+         product.userId=call.request?.userId
          callback(null,{
            product:product
          })
