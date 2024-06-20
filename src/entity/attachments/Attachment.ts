@@ -28,10 +28,10 @@ export class Attachment {
     @Column({default:""})
     source:string;
     
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt:Date
     
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt:Date
     
     @ManyToOne(()=>User,uploader=>uploader.media) uploader:User;
