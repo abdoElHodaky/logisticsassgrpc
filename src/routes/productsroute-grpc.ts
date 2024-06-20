@@ -22,7 +22,7 @@ productsgrpc.post("/products",({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                    schema: { $ref: '#/components/schemas/AddArticle' }  }
+                    schema: { $ref: '#/components/schemas/CreateProduct' }  }
                 }
             }
         } 
@@ -41,8 +41,7 @@ productsgrpc.post("/products/subscribe",({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                  schema:{  $productId:1 }
-                    
+                  schema: { $ref: '#/components/schemas/subscribeProduct' }  }
                 }
             }
         } 
