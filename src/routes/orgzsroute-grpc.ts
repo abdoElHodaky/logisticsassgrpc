@@ -5,10 +5,16 @@ export const orgzsrpc=Router()
 orgzsrpc.get("/orgzs",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
-        #swagger.parameters['userId'] = {
-            in: 'path',required:false,
+        #swagger.requestBody = {
+            required:false,
             description: 'id of specific user.',
-            
+            content: {
+                "application/json": {
+                   schema: { 
+                      $ownerId:1
+                   }
+                }
+            }
     }
     
 
@@ -18,11 +24,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
 orgzsrpc.post("/orgzs",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Organization']
         #swagger.description = 'Endpoint to get payments via grpc' 
-        #swagger.parameters['userId'] = {
-            in: 'path',
-            description: 'id of specific user.',
-            
-    }
+        
        #swagger.requestBody = {
             required: true,
             content: {
