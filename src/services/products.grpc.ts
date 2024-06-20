@@ -42,12 +42,10 @@ export class ProductGrpcService  {
     call: ServerUnaryCall<_Product.CreateProductReq,_Product.CreateProductRes>,
     callback: sendUnaryData<_Product.CreateProductRes>
   ){
-       let {userId,product}=call.request
-       callback(null,{
-           product:product
-         })
-      /* const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
-       let _product=await ProductGrpcService.service.create(userId,supticket)
+     //  let {userId,product}=call.request
+       
+      // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
+       let _product=await ProductGrpcService.service.create(_Product.CreateProductReq.toJSON(call.request))
        if(_product instanceof Product){
         const product=_Product.Product.fromJSON(_product)
          product.userId=userId
@@ -59,7 +57,7 @@ export class ProductGrpcService  {
         callback(null,{
            product:_Product.createBaseProduct()
          })
-      } */
+      } 
      },
     async subscribe(
       call: ServerUnaryCall<_Product.SubscribeProductReq,_Product.SubscribeProductRes>,
