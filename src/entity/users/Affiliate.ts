@@ -1,5 +1,5 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, Column, 
+import { Entity, PrimaryGeneratedColumn, Column, Index,
         OneToMany,ManyToOne, TableInheritance ,ChildEntity,CreateDateColumn,
         UpdateDateColumn ,BeforeInsert, JoinColumn ,JoinTable } from "typeorm"
 import { User} from "./";
@@ -22,9 +22,11 @@ export class Affiliate extends User {
     ])
     related:User
         
+    @Index()
     @Column({default:"456",type:"varchar"})
     referralCode:string
-
+    
+    @Index()
     @Column({default:"456", type:"varchar"})
     referedBy:string
 
