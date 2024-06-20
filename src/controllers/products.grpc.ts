@@ -1,4 +1,5 @@
-import { Product } from "../entity/"
+import { credentials } from "@grpc/grpc-js";
+import { _Product } from "../protos/dist/"
 import { AppDataSource } from "../_datasource";
 import { AuthenticateMiddleware } from "../middlewares/"
 //import { CreatePaymentDto} from "../dto/create-payment.dto";
@@ -8,11 +9,17 @@ import { Request } from "express-jwt";
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 import {services} from "../services/enum";
+import {Env} from "../env";
+const address = "localhost:"+Env.GRPCSONEPORT
+
 
 @Controller('/products')
 export class GrpcProductController {
   
-  private service=services.Product
+  private client =new Product.ProductServiceClient(
+    address,
+    credentials.createInsecure()
+  )
   
   constructor(){}
   
