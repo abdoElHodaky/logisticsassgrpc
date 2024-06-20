@@ -15,3 +15,4 @@ export {OrgzService} from "./orgzs";
 export {orgzGrpcService} from "./orgzs.grpc";
 export {PasswordService} from "./passwords";
 export { ProductService} from "./products";
+export { ProductGrpcService} from "./products.grpc";
