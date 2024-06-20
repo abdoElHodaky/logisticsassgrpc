@@ -54,7 +54,7 @@ export class ProductGrpcService  {
        }
       else{
         callback(null,{
-           orgz:_Orgz.createBaseOrgz()
+           product:_Product.createBaseProduct()
          })
       }
      },
