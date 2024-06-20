@@ -37,10 +37,10 @@ export class User {
     @Column(()=>Address)
     address:Address
     
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt: Date;
     
     @OneToMany(()=>supTicket,ticket=>ticket.user) tickets:supTicket[]
