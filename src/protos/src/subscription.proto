@@ -9,8 +9,16 @@ message Subscription {
  int32 userId=3;
  optional google.protobuf.Timestamp created_at = 4;
  optional google.protobuf.Timestamp renewal_at = 5;
+ optional google.protobuf.Timestamp updated_at = 6;
+ 
+
+}
+
+message CreateSubscriptionReq{
+  
+}
 
 
-
-
+message CreateSubscriptionRes{
+  
 }
