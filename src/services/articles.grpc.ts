@@ -18,7 +18,7 @@ export class ArticleGrpcService  {
      _articles.forEach((a:_Article.Article,inx:number)=>{  
        let {author,createdAt,updatedAt}=articles[inx]
        a.userId=author.id
-       })
+       });
      let res:_Article.GetAllRes={articles:_articles,error:{
        Message:"",type:"",name:""
      }}
