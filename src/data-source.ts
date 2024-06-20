@@ -6,7 +6,7 @@ import { subscribers } from "./subscribers/subscribers";
 import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
-    type:"mariadb",
+    type:"mysql",
     host:"db4free.net",
     username:"abdo_grpcendpoin",
     password:"arh.27934",
