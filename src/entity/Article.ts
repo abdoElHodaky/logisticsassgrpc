@@ -21,9 +21,9 @@ export class Article {
 
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
    
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt: Date;
 }
