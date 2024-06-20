@@ -30,10 +30,10 @@ export class Orgz {
     @Column(()=>Address)
     address:Address
     
-    @CreateDateColumn({type:"date"})
+    @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn({type:"date"})
+    @UpdateDateColumn()
     updatedAt: Date;
 
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
