@@ -3,8 +3,10 @@ import { _Data } from "./datasource";
 import { Article,User,Author } from "../entity/"
 import { CreateArticleDto } from "../dto/"
 import { Error,NotFoundError} from "common-errors";
+import { UserService} from "./users";
 //@Injectable()
 export class ArticleService extends _Data {
+  private userS:any=new UserService()
   constructor (){
       super()
   }
@@ -25,7 +27,11 @@ export class ArticleService extends _Data {
      
     const {userId,article}=articlecdto
     let _article=this.datasource.manager.create(Article,{...article})
-     console.log("DataS ",_article)
+    let author=await this.userS.id(userId)
+    _article.author=author
+    author.articles.push(_article)
+    
+    console.log("DataS ",_article)
     /*_article.title=article.title
    _article.imgurl=article.imgurl
    _article.content=article.content*/
