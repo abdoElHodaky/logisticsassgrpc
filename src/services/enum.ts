@@ -14,7 +14,7 @@ import {PaymentService} from "./payments";
 import {ProductService} from "./products";
 import {OrgzService} from "./orgzs";
 import {orgzGrpcService} from "./orgzs.grpc";
-
+import {ProductGrpcService} from "./products.grpc";
 
 export let services:any={
   Auth:new AuthService(),
@@ -33,8 +33,8 @@ export let services:any={
   Grpc_Author:new AuthorGrpcService(),
   Grpc_User:new UserGrpcService(),
   Grpc_supTicket:new supTicketGrpcService(),
-  Grpc_Orgz:new orgzGrpcService()
-  
+  Grpc_Orgz:new orgzGrpcService(),
+  Grpc_Product:new ProductGrpcService()
 }
 
 
