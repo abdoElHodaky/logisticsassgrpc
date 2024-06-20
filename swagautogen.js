@@ -105,10 +105,13 @@ const config = {
                }
            },
           CreateOrgz:{
-              $type:"",
-              $title:"",
-              $description:"",
-              $specs:[{$name:"",$value:""}]
+              $userId:0,
+              {
+                $type:"",
+                $title:"",
+                $description:"",
+                $specs:[{$name:"",$value:""}]
+             }
           },
           chnagePassword:{
               $passphase:"test_65"
