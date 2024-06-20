@@ -18,7 +18,7 @@ export class ArticleService extends _Data {
       },
       cache:true
     })
-    return (articles?.length!=0)articles:new NotFoundError("Article")
+    return (articles?.length!=0) articles:(new NotFoundError("Article"));
   }
 
  async create(articlecdto:{userId:number,article:CreateArticleDto}):Promise<Article|void>{
