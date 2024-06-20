@@ -24,12 +24,18 @@ export class GrpcProductController {
   constructor(){}
   
   @Get("",[])
-  async all(@Req() req:Request, @Res() res:Response):Promise<Product[]|void>{
-    const {auth}=req
-    console.log(auth)
-    let products=await this.service.all()
-    if ((products instanceof Array ) && products.length!=0 ) return products
-    else res.jsonp({message:products?.message})
+  async all( @Res() res:Response):Promise<void>{
+    const req:_Product.GetAllProductsReq={}
+    this.client.all(req,(err:any,resp:_Product.GetAllProductsRes)=>{
+      if (err) {
+      res.jsonp(err);
+        console.error(err)
+    } else {
+        const resl=_Product.GetAllProductsRes.toJSON(resp)
+       // console.log(resl?.articles.map(transformDate))
+        res.json(resl)
+     }
+  })
   }
   
   @Post("",[AuthenticateMiddleware])
