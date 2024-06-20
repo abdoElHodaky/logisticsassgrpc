@@ -104,9 +104,12 @@ const config = {
                    thumbnail:""
                }
            },
+            ownerOrgz:{
+                $owerId:1
+            },
           CreateOrgz:{
               $userId:0,
-              {
+              $orgz:{
                 $type:"",
                 $title:"",
                 $description:"",
@@ -115,7 +118,19 @@ const config = {
           },
           chnagePassword:{
               $passphase:"test_65"
-          }
+          },
+         CreateProduct:{
+             $userId:1,
+             $product:{
+                 $title:"",
+                 $price:20,
+                 $specs:[{$name:"",$value:""}]
+             }
+             
+         },
+         subscribeProduct:{
+             $productId:1,
+         }
     }}
 };
 
