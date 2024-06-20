@@ -26,7 +26,7 @@ export class ProductGrpcService  {
      }
      })
        
-       let res:_Orgz.GetAllProductsRes={products:_products,error:{
+       let res:_Product.GetAllProductsRes={products:_products,error:{
        Message:"",type:"",name:""}}
         callback(null,res)
      }
@@ -42,7 +42,7 @@ export class ProductGrpcService  {
     call: ServerUnaryCall<_Product.CreateProductReq,_Product.CreateProductRes>,
     callback: sendUnaryData<_Product.CreateProductReq>
   ){
-       let {userId,product}=call.request
+     /*  let {userId,product}=call.request
        const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
        let _product=await ProductGrpcService.service.create(userId,supticket)
        if(_product instanceof Product){
@@ -56,7 +56,7 @@ export class ProductGrpcService  {
         callback(null,{
            product:_Product.createBaseProduct()
          })
-      }
+      } */
      },
     async subscribe(
       call: ServerUnaryCall<_Product.SubscribeProductReq,_Product.SubscribeProductRes>,
