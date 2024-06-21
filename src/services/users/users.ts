@@ -13,12 +13,13 @@ export class UserService extends _Data {
     super()
   }
 
-  async all():Promise<User[]>{
+  async all(relation?:string|string[]):Promise<User[]>{
     //console.log(this.datasource)
     return await this.datasource.manager.find(User,{
       relations:[
        "articles",
         "tickets"
+        "subscriptions"
       ],
       cache:true
     })
