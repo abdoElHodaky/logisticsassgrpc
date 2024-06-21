@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Purshase ,User } from "../entity/"
+import { Purshase ,User,PurchaseItem } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreatePurshaseDto } from "../dto/"
@@ -27,10 +27,10 @@ export class PurshaseService extends _Data {
     return (purchases.length!=0)? purchases : new NotFoundError("Purshase")
   }
   
-async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
+/*async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const purchase=await this.datasource.manager.create(Purshase,dto)
    return purchases
- }
+ } */
 
   
 }
