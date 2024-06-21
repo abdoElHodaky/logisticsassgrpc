@@ -38,7 +38,7 @@ export class Orgz {
 
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
     @OneToMany(()=>OrgzAttachment,attachment=>attachment.attached) attachments?:OrgzAttachment
-    @OneToMany(()=>Branch,branch=>branch.related) 
+    @OneToMany(()=>Branch,branches=>branches.related) 
     branches:Branch[]
 }
 
