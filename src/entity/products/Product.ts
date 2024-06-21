@@ -27,10 +27,12 @@ export class Product {
     @OneToMany(()=>ProductAttachment,attachment=>attachment.attached) attachments:Attachment[];
     @ManyToOne(()=>Supplier,supplier=>supplier.products) supplier:Supplier;
     @OneToMany(()=>Product,sub=>sub.related) subproducts?:Product[];
+    @OneToMany(()=>ProductSpec,spec=>spec.product) specs?:ProductSpec[];
     @ManyToOne(()=>Product,related=>related.subproducts) related?:Product
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products)
     @JoinTable()
     subscriptions?:Subscription[]
+   
 }
 
 /*@ChildEntity()
