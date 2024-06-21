@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Purshase ,User,PurchaseItem } from "../entity/"
+import { Purshase ,User,PurshaseItem } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreatePurshaseDto } from "../dto/"
