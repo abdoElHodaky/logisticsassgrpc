@@ -38,12 +38,12 @@ export class Orgz {
 
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
     @OneToMany(()=>OrgzAttachment,attachment=>attachment.attached) attachments?:OrgzAttachment
-    @OneToMany(()=>Branch) 
+    @OneToMany(()=>Branch,branch=>branch.related) 
     branches:Branch[]
 }
 
 
-@ChildEntity()
+/*@ChildEntity()
 export class subOrgz extends Orgz{
 
  @Column({default:"branch"})
@@ -56,3 +56,4 @@ export class subOrgz extends Orgz{
  parent:Orgz
     
 }
+*/
