@@ -8,7 +8,12 @@ import { Orgz} from "./Org"
 @ChildEntity()
 export class subOrgz extends Orgz{
 
-  @ManyToOne(()=>Orgz,orgz=>orgz.subs) parent:Orgz
+ 
+ @ManyToOne(()=>Orgz,orgz=>orgz.subs) 
+ @JoinColumn({ name: "relatedId", referencedColumnName: "id" },
+    //{ name: "locale_id", referencedColumnName: "locale_id" }
+    ])
+ parent:Orgz
     
 }
 
