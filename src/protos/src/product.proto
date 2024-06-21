@@ -22,6 +22,11 @@ message CreateProductReq {
   Product product=2;
 }
 
+message SubscribeProductReq {
+  int32 userId=1;
+  int32 productId=2;
+}
+
 message SubscribeProductRes {
   optional int32 userId=1;
   Subscription subscription=2;
@@ -58,5 +63,5 @@ service ProductService {
   CreateProductRes);
   rpc all(GetAllProductsReq) returns (GetAllProductsRes);
   rpc all_subscriptions (GetAllProductsSubscriptionsReq) returns (GetAllProductsSubscriptionsRes);
- // rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
+  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
 }
