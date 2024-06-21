@@ -1,15 +1,15 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne, OneToMany, 
         ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn,JoinColumn  } from "typeorm"
-//import { Product } from "./Product";
+import { Product } from "./Product";
 
 @Entity()
 export class ProductSpec {
 
- /*   @ManyToOne(()=>Product,related=>related.subproducts)
-    @JoinColumn([
-    { name: "relatedId", referencedColumnName: "id" },
-    {} ])
-    related:Product */
+@PrimaryGeneratedColumn("increment")
+id:number
+
+@ManyToOne(()=>Product,product=>product.specs)
+ 
 @Column("varchar")
 name:string
 
