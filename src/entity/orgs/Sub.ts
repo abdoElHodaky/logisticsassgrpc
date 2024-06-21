@@ -8,7 +8,7 @@ import { Orgz} from "./Org"
 @ChildEntity()
 export class subOrgz extends Orgz{
 
-  @ManyToOne(()=>Orgz,orgz=>orgz.subs) parent?:Orgz
+  @ManyToOne(()=>Orgz,orgz=>orgz.subs) parent:Orgz
     
 }
 
