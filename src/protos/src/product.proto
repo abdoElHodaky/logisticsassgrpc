@@ -36,7 +36,7 @@ message GetAllProductsSubscriptionsReq {
  repeated int32 productId=1;
 }
 
-message GetAllProductsSubscriptionRes {
+message GetAllProductsSubscriptionsRes {
  repeated int32 productsIds=1;
  repeated Subscription subscriptions=2;
  optional Error error=3;
@@ -58,5 +58,5 @@ service ProductService {
   CreateProductRes);
   rpc all(GetAllProductsReq) returns (GetAllProductsRes);
   rpc all_subscriptions (GetAllProductsSubscriptionsReq) returns (GetAllProductsSubscriptionsRes);
-  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
+ // rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
 }
