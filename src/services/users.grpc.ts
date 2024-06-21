@@ -38,7 +38,7 @@ export class UserGrpcService  {
         articles.sort((a,b)=>b.id-a.id)
         articles.forEach(a=>a.userId=id)}
       if(tickets.length!=0) {tickets.forEach(a=>a.userId=id)}
-       
+      if(user?.subscriptions.length!=0) {user?.subscriptions.forEach(a=>a.userId=id)}
        
     
      })
