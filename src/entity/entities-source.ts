@@ -2,7 +2,7 @@ import {
   Article,Attachment,Product,ProductAttachment,
   Author,User,Affiliate,Purshase,Supplier,Owner,Orgz,Subscriber,
   PurshaseItem,Payment,supTicket,Verification,OrgzAttachment,
-  Subscription,AffiliateProduct,VerifyCode,Password
+  Subscription,AffiliateProduct,VerifyCode,Password,subOrgz
   } from "./";
 
 export const entities:any=[
@@ -10,6 +10,6 @@ export const entities:any=[
   Author,User,Purshase,PurshaseItem,Payment,
   supTicket,Verification,Affiliate,Supplier,
   Owner,Orgz,OrgzAttachment, Subscriber,Password
-  ,Subscription,AffiliateProduct,VerifyCode
+  ,Subscription,AffiliateProduct,VerifyCode,subOrgz
   
 ]
