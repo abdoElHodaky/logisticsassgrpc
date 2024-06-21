@@ -2,7 +2,8 @@ import { Middleware } from '@decorators/express';
 import {Request,Response,NextFunction  } from "express";
 import { Request as JWTRequest } from "express-jwt";
 import { LoginUserDto,validatorDto,
-        CreateUserDto,CreateArticleDto } from "../dto/";
+        CreateProductDto,CreateUserDto,
+        CreateArticleDto } from "../dto/";
 import { Error } from "common-errors";
 import {ValidationError} from "class-validator";
 //import { instanceToPlain } from 'class-transformer';
