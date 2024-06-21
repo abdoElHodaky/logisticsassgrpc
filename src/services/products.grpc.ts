@@ -65,9 +65,9 @@ export class ProductGrpcService  {
     {
       
     },
-    async allsubscribers(
-      call: ServerUnaryCall<_Product.GetAllProductsSubscribersReq,_Product.GetAllProductsSubscribersRes>,
-      callback: sendUnaryData<_Product.GetAllProductsSubscribersRes>)
+    async allSubscriptions(
+      call: ServerUnaryCall<_Product.GetAllProductsSubscriptionsReq,_Product.GetAllProductsSubscriptionsRes>,
+      callback: sendUnaryData<_Product.GetAllProductsSubscriptionsRes>)
     {
       
     }
