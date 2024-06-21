@@ -11,8 +11,8 @@ export class Branch extends Orgz{
  @Column({default:"branch"})
  type:string
         
- @ManyToOne(()=>Orgz) 
- parent:Orgz
+ @ManyToOne(()=>Orgz,related=>related.branches) 
+ related:Orgz
     
 }
 
