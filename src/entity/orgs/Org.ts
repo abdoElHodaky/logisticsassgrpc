@@ -39,7 +39,7 @@ export class Orgz {
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
     @OneToMany(()=>OrgzAttachment,attachment=>attachment.attached) attachments?:OrgzAttachment
     @OneToMany(()=>subOrgz,suborgz=>suborgz.parent) 
-    @JoinColumn({ name: "id", referencedColumnName: "relatedId" },
+    @JoinColumn([{ name: "id", referencedColumnName: "relatedId" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
     subs:subOrgz[]
