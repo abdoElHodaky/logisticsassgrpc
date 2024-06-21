@@ -3,18 +3,15 @@ import { Entity, PrimaryGeneratedColumn, JoinColumn,
         JoinTable ,Column, OneToMany, ManyToOne,
         TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
 //import { Email } from "./Email"
-import { Orgz} from "../"
+import { Orgz} from "./Org"
 
 @ChildEntity()
-export class subOrgz extends Orgz{
+export class Branch extends Orgz{
 
  @Column({default:"branch"})
  type:string
         
- @ManyToOne(()=>Orgz,orgz=>orgz.subs) 
- @JoinColumn([{ name: "relatedId", referencedColumnName: "id" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
+ @ManyToOne(()=>Orgz,orgz=>orgz.branches) 
  parent:Orgz
     
 }
