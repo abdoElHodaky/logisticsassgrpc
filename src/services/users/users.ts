@@ -14,10 +14,11 @@ export class UserService extends _Data {
   }
 
   async all(relation?:string[]):Promise<User[]>{
-    //console.log(this.datasource)
+    const _relation=(relation!=undefined)?(...relation ): ...(this.relation)
+   
     return await this.datasource.manager.find(User,{
       relations:[
-       (relation!=undefined)?(...relation ): (...(this.relation))
+        ..._relation
       ],
       cache:true
     })
@@ -25,7 +26,7 @@ export class UserService extends _Data {
   
   async id(userId:string,relation?:string[]):Promise<User|Error|void> {
 
-
+   const _relation=(relation!=undefined)?(...relation ): ...(this.relation)
     if(isNumeric(userId)==true){
      // console.log(userId)
       const _id=Number(userId)
@@ -35,8 +36,8 @@ export class UserService extends _Data {
           id:_id
         },
         relations:[
-        (relation!=undefined)?(...relation ): (...(this.relation))
-        ],
+          ..._relation
+          ],
         cache:true
       })
       return user }
