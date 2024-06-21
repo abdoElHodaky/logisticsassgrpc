@@ -2,7 +2,7 @@ import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, JoinColumn,
         JoinTable ,Column, OneToMany, ManyToOne,
         TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
-//import { subOrgz } from "./Sub"
+import { Branch } from "./Branch"
 import { Owner,User,Address,OrgzAttachment} from "../"
 
 @Entity()
@@ -38,11 +38,8 @@ export class Orgz {
 
     @ManyToOne(()=>Owner,owner=>owner.orgzs) owner?:Owner
     @OneToMany(()=>OrgzAttachment,attachment=>attachment.attached) attachments?:OrgzAttachment
-    @OneToMany(()=>subOrgz,suborgz=>suborgz.parent) 
-    @JoinColumn([{ name: "id", referencedColumnName: "relatedId" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
-    ])
-    subs:subOrgz[]
+    @OneToMany(()=>Branch) 
+    branches:Branch[]
 }
 
 
