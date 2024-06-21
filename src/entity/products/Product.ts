@@ -4,14 +4,15 @@ import { Supplier,Attachment,PurshaseItem} from "../";
 import { ProductAttachment } from "../attachments/";
 import { Subscription} from "../Subscription";
 import {AffiliateProduct} from "./"
+import {ProductSpec} from "./ProductSpec";
 @Entity()
 //@ChildEntity()
 export class Product {
     @PrimaryGeneratedColumn("increment")
     id:number 
 
-    @Column("simple-json")
-    specs:any
+    @Column(()=>ProductSpec)
+    specs:ProductSpec[]
 
     @Column("int")
     price:number
