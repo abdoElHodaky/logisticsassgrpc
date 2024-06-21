@@ -1,9 +1,9 @@
 export class CreatePurshaseDto {
    userId:string
-   items:Array<any>
+   itemsIds:Array<number>
 }
 
 export class CreateSubscriptionDto {
   userId:string
-  items:Array<any>
+  itemsIds:Array<number>
 }
