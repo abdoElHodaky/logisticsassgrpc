@@ -1,7 +1,7 @@
 import { credentials } from "@grpc/grpc-js";
 import { _Product } from "../protos/dist/"
-//import { Product } from "../entity/";
-import { AuthenticateMiddleware } from "../middlewares/"
+import { validatorDto } from "../dto/";
+import { AuthenticateMiddleware,ValidatedCreatedProduct } from "../middlewares/"
 import { CreateProductDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response} from "express"
@@ -38,9 +38,11 @@ export class GrpcProductController {
   })
   }
   
-  @Post("",[AuthenticateMiddleware])
+  @Post("",[AuthenticateMiddleware,ValidatedCreatedProduct])
   async create(@Req() req:Request,@Body() dto:CreateProductDto,  @Res() res:Response):Promise<void>{
     const {auth}=req
+    
+
    const productreq:_Product.CreateProductReq=_Product.CreateProductReq.fromJSON(dto)
      
     this.client.create(productreq,(err:any,resp:_Product.CreateProductRes)=>{
