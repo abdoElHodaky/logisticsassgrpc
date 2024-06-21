@@ -1,2 +1,2 @@
-export { Orgz } from "./Org";
-export { subOrgz} from "./Sub";
+export { Orgz,subOrgz } from "./Org";
+//export { subOrgz} from "./Sub";
