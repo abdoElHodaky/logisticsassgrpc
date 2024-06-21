@@ -15,12 +15,7 @@ export class UserGrpcService  {
     callback: sendUnaryData<_User.GetAllUserRes>
  ){
      let base:_User.User=_User.createBaseUser()
-    /* let res:_User.GetAllUserRes={
-       users:[],
-       error:{
-       Message:"",type:"",name:""
-      }
-     }*/
+    
      try{
      let users=await UserGrpcService.service.all()
      //  console.log(users)
@@ -31,14 +26,13 @@ export class UserGrpcService  {
        let {id,articles,tickets}=user
        user.firstname=users[inx].firstName
        user.lastname=users[inx].lastName
-      // user.createdAt=users[inx].created_at
-     // user.updatedAt=users[inx].updated_at
+      
        
       if(articles.length!=0){ 
         articles.sort((a,b)=>b.id-a.id)
         articles.forEach(a=>a.userId=id)}
       if(tickets.length!=0) {tickets.forEach(a=>a.userId=id)}
-      if(user?.subscriptions.length!=0) {user?.subscriptions.forEach(a=>a.userId=id)}
+      //if(user?.subscriptions.length!=0) {user?.subscriptions.forEach(a=>a.userId=id)}
        
     
      })
