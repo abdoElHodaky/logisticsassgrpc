@@ -10,7 +10,7 @@ export class subOrgz extends Orgz{
 
  
  @ManyToOne(()=>Orgz,orgz=>orgz.subs) 
- @JoinColumn({ name: "relatedId", referencedColumnName: "id" },
+ @JoinColumn([{ name: "relatedId", referencedColumnName: "id" },
     //{ name: "locale_id", referencedColumnName: "locale_id" }
     ])
  parent:Orgz
