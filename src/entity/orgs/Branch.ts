@@ -11,7 +11,7 @@ export class Branch extends Orgz{
  @Column({default:"branch"})
  type:string
         
- @ManyToOne(()=>Orgz,orgz=>orgz.branches) 
+ @ManyToOne(()=>Orgz) 
  parent:Orgz
     
 }
