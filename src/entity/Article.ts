@@ -13,7 +13,7 @@ export class Article {
     @Column({type: "varchar"})
     imgurl: string;
     
-    @Column({type: "text", nullable: true})
+    @Column({type: "longtext", nullable: true})
     content: string;
 
     @Column({type: "varchar", nullable: true})
