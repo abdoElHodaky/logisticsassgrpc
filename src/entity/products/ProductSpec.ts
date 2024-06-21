@@ -8,7 +8,7 @@ export class ProductSpec {
 @PrimaryGeneratedColumn("increment")
 id:number
 
-@ManyToOne(()=>Product,product=>product.specs)
+@ManyToOne(()=>Product,product=>product.specs) product?:Product
  
 @Column("varchar")
 name:string
