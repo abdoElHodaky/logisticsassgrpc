@@ -73,8 +73,28 @@ export class ValidatedCreatedArticle implements Middleware {
     }
     next()
   }
-
+ 
 
   
+}
+
+export class ValidatedCreatedProduct implements Middleware {
+        
+   async use(req: JWTRequest, res: Response, next: NextFunction): Promise<void> {
+     const {body}= req
+  
+    // console.log(typeof(body))
+    const errors=await validatorDto(CreateProductDto,body)
+     console.log(errors)
+    if (errors!=[]){
+     res.status(400).json({
+        messages:errors.map((e:any)=>{
+      // const {constraints}=e
+        return (e?.constraints!={})? Object.values(e?.constraints):[]
+        }).join(" , ")
+      })
+    }
+    next()
+  }
 }
 
