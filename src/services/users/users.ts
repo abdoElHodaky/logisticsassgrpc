@@ -17,7 +17,7 @@ export class UserService extends _Data {
     //console.log(this.datasource)
     return await this.datasource.manager.find(User,{
       relations:[
-       (relation!=undefined)? ...relation : ...( this.relation)
+       ((relation!=undefined)?(...relation ):( ...this.relation))
       ],
       cache:true
     })
@@ -35,7 +35,7 @@ export class UserService extends _Data {
           id:_id
         },
         relations:[
-         (relation!=undefined)? ...relation : ...( this.relation)
+         ( (relation!=undefined)?(...relation ):( ...this.relation))
         ],
         cache:true
       })
