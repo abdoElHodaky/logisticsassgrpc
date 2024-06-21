@@ -11,9 +11,6 @@ export class Product {
     @PrimaryGeneratedColumn("increment")
     id:number 
 
-    @Column(()=>ProductSpec)
-    specs:ProductSpec[]
-
     @Column("int")
     price:number
         
