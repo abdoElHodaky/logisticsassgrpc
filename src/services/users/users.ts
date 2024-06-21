@@ -8,24 +8,25 @@ import { _Data } from "../datasource";
 import { isEmpty} from "../../helpers";
 //@Injectable()
 export class UserService extends _Data {
-
+  private readonly relation:string[]=[ "articles", "tickets","subscriptions", "verifications"  ]
   constructor ( ){
     super()
   }
 
-  async all(relation?:string|string[]):Promise<User[]>{
+  async all(relation?:string[]):Promise<User[]>{
     //console.log(this.datasource)
     return await this.datasource.manager.find(User,{
       relations:[
        "articles",
         "tickets"
         "subscriptions"
+        
       ],
       cache:true
     })
   }
   
-  async id(userId:string):Promise<User|Error|void> {
+  async id(userId:string,relation?:string[]):Promise<User|Error|void> {
 
 
     if(isNumeric(userId)==true){
