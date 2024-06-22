@@ -7,6 +7,7 @@ import { ProductService,UserService } from "./";
 //@Injectable()
 export class PurshaseService extends _Data {
   private productS=new ProductService();
+  private userS=new UserService();
   constructor (){
       super()
   }
@@ -33,7 +34,7 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const {userId,itemsIds}=dto
    const items= itemsIds.map(id=>{
      const item=new PurshaseItem()
-     item.product=await this.ProductService.id(dto?.items[id])
+     item.product=await this.ProductService.id(id)
      return item
    })
    purchase.items.push(...items)
