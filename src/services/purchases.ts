@@ -1,11 +1,12 @@
 import { _Data } from "./datasource";
-import { Purshase ,User,PurshaseItem } from "../entity/"
+import { Purshase ,PurshaseItem } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreatePurshaseDto } from "../dto/"
-
+import { ProductService,UserService } from "./";
 //@Injectable()
 export class PurshaseService extends _Data {
+  private productS=new ProductService();
   constructor (){
       super()
   }
@@ -27,10 +28,16 @@ export class PurshaseService extends _Data {
     return (purchases.length!=0)? purchases : new NotFoundError("Purshase")
   }
   
-/*async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
-   const purchase=await this.datasource.manager.create(Purshase,dto)
-   return purchases
- } */
+async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
+   const purchase=await this.datasource.manager.create(Purshase,{})
+   for(var i in dto?.items){
+     const item=new PurshaseItem()
+     item.product=await this.ProductService.id(dto?.items[id])
+     await this.datasource.manager.save(PurshaseItem,item)
+     purchase.items.push(item)
+   }
+   return purchase
+ } 
 
   
 }
