@@ -20,6 +20,7 @@ import {
 import _m0 from "protobufjs/minimal";
 import { Address } from "./address";
 import { Any } from "./google/protobuf/any";
+import { dateToReadable} from "../../grpc/util";
 
 export const protobufPackage = "";
 
@@ -104,7 +105,7 @@ export interface GetPayResultRes {
   result?: PaymentResult | undefined;
 }
 
-function createBasePayment(): Payment {
+export function createBasePayment(): Payment {
   return {
     id: 0,
     title: undefined,
