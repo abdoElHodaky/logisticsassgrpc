@@ -2,8 +2,8 @@ import { type } from "os"
 import { Entity, PrimaryGeneratedColumn, JoinColumn,
         JoinTable ,Column, OneToMany, ManyToOne,
         TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { Branch } from "./Branch"
-import { Owner,User,Address,OrgzAttachment} from "../"
+//import { Branch } from "../"
+import { Owner,User,Address,OrgzAttachment,Branch} from "../"
 
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
