@@ -21,6 +21,7 @@ import _m0 from "protobufjs/minimal";
 import { Error } from "./error";
 import { Any } from "./google/protobuf/any";
 import { Timestamp } from "./google/protobuf/timestamp";
+import { dateToReadable} from "../../grpc/util";
 
 export const protobufPackage = "";
 
@@ -173,11 +174,11 @@ export const Orgz = {
     if (message.branches?.length) {
       obj.branches = message.branches.map((e) => Orgz.toJSON(e));
     }
-    if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+     if (message.createdAt !== undefined) {
+      obj.createdAt = dateToReadable( message.createdAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
     }
     return obj;
   },
