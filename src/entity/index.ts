@@ -9,7 +9,7 @@ export { Verification,VerifyCode  } from "./verifications/"
 export { Payment } from "./Payment"
 export { Book } from "./Book"
 export { Address } from "./Address";
-export { Product,AffiliateProduct} from "./products/";
+export { Product,AffiliateProduct,ProductSpec} from "./products/";
 export { Subscription } from "./Subscription";
 
 
