@@ -128,7 +128,11 @@ const config = {
              }
              
          },
-         subscribeProduct:{
+        CreatePurshase:{
+            $userId:"1",
+            $itemsIds:[1,2,3]
+        }
+       ,subscribeProduct:{
              $productId:1,
          }
     }}
