@@ -27,7 +27,7 @@ export class PurshaseController {
   }
   
   @Post("",[AuthenticateMiddleware,ValidatedCreatePurshase ])
-  async create(@Req() req:Request,@Body() createpaymentdto:CreatePurshaseDto , @Res() res:Response):Promise<Payment|void>{
+  async create(@Req() req:Request,@Body() createpaymentdto:CreatePurshaseDto , @Res() res:Response):Promise<void>{
     const {auth}=req
    // console.log(auth)
     //let payment=await this.paymentService.create(createpaymentdto)
