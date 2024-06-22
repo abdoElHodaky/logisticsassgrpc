@@ -4,7 +4,7 @@ const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
-        title: 'gRPC endpoints docs',
+        title: 'Supply chain/Logistics gRPC endpoints docs',
         description: '',
     },
     tags: [
@@ -52,7 +52,10 @@ const config = {
       },
       {
         name:"GRPC.Organization",description:"organizations endpoints via grpc"
-      }
+      },
+      {
+        name:"GRPC.Purshase",description:"purshases' orgzs endpoints via grpc"
+      },
     ],
     host: '',
     schemes: [],
