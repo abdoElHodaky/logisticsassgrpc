@@ -11,7 +11,7 @@ import { Error , NotFoundError } from "common-errors";
 import {services} from "../services/enum";
 
 @Controller('/purshases')
-export class PaymentController {
+export class PurshaseController {
   
  private service=services.Purchase
   
