@@ -1,13 +1,12 @@
 import { _Data } from "./datasource";
-import { Purshase ,PurshaseItem } from "../entity/"
+import { Purshase ,PurshaseItem ,User,Product} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreatePurshaseDto } from "../dto/"
-import { ProductService,UserService } from "./";
+
 //@Injectable()
 export class PurshaseService extends _Data {
-  private productS=new ProductService();
-  private userS=new UserService();
+  
   constructor (){
       super()
   }
@@ -34,11 +33,11 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const {userId,itemsIds}=dto
    const items= itemsIds.map(async (id:number)=>{
      const item=new PurshaseItem()
-     item.product=await this.ProductService.id(id)
+     item.product=await this.datasource.manager.find(Product,{id:id})
      return item
    })
    purchase.items.push(...items)
-   purchase.user=await this.userS.id(userId)
+   purchase.user=await this.datasource.manager.find(User,{id:parseInt(userId)})
    return await this.datasource.manager.save(Purshase,purchase)
  } 
 
