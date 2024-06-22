@@ -3,5 +3,6 @@ export {AuthorMiddleware} from "./author";
 export {UserEqulityMiddleware} from "./userequality";
 export { ValidatedLogin,
         ValidatedCreatedArticle,
-        ValidatedCreatedProduct
+        ValidatedCreatedProduct,
+        ValidatedCreatePurshase
 }   from "./validated";
