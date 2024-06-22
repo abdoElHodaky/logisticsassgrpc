@@ -26,7 +26,7 @@ export class PurshaseController {
     else res.jsonp({message:payments?.message})
   }
   
-  @Post("",[AuthenticateMiddleware])
+  @Post("",[AuthenticateMiddleware,ValidatedCreatePurshase ])
   async create(@Req() req:Request,@Body() createpaymentdto:CreatePurshaseDto , @Res() res:Response):Promise<Payment|void>{
     const {auth}=req
    // console.log(auth)
