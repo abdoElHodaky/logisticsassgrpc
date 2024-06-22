@@ -1,3 +1,7 @@
+import { Router } from "express";
+
+
+export const purshasesgrpc=Router()
 
 purshasesgrpc.get("/purchases",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Purshase']
@@ -7,7 +11,7 @@ purshasesgrpc.get("/purchases",(req,res)=>{
 
 })
 
-purchasesgrpc.post("/purchases",({body},res)=>{
+purshasesgrpc.post("/purchases",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Purshase']
         #swagger.description = 'Endpoint to create in purshase via grpc' 
         #swagger.requestBody = {
