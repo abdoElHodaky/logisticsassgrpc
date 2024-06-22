@@ -33,15 +33,17 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const {userId,itemsIds}=dto
    const items= itemsIds.map(async (id:number)=>{
      const item=new PurshaseItem()
-     item.product=await this.datasource.manager.findOneOrFail(Product,{
+     let product:Product=await this.datasource.manager.findOneOrFail(Product,{
        where:{id:id}
      })
+     item.product=product
      return item
    })
    purchase.items.push(...items)
-   purchase.user=await this.datasource.manager.findOneOrFail(User,{
+   let user=await this.datasource.manager.findOneOrFail(User,{
      where:{id:parseInt(userId)}
    })
+   purchase.user=user
    return await this.datasource.manager.save(Purshase,purchase)
  } 
 
