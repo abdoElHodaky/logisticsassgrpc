@@ -57,7 +57,12 @@ export class orgzGrpcService  {
            orgz:_Orgz.createBaseOrgz()
          })
       }
-     }
+     },
+    async branchCreate(
+      call: ServerUnaryCall<_Orgz.CreateSubOrgzReq,_Orgz.CreateSubOrgzRes>,
+      callback: sendUnaryData<_Orgz.CreateSubOrgzRes>
+    )
+    {}
   }
 
   
