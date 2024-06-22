@@ -1,5 +1,8 @@
+import { IsNotEmpty,IsArray} from "class-validator";
 export class CreatePurshaseDto {
+   @IsNotEmpty()
    userId:string
+   @IsArray()
    itemsIds:Array<number>
 }
 
