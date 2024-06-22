@@ -1,5 +1,5 @@
 import {
-  Article,Attachment,Product,ProductAttachment,ProductSoec,
+  Article,Attachment,Product,ProductAttachment,ProductSpec,
   Author,User,Affiliate,Purshase,Supplier,Owner,Orgz,Branch
   ,Subscriber,PurshaseItem,Payment,supTicket,Verification,
   OrgzAttachment, Subscription,AffiliateProduct,VerifyCode,Password
