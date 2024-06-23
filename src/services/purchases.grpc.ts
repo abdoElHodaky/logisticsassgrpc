@@ -35,7 +35,7 @@ export class PurshaseGrpcService  {
      else{
        callback(null,{
            purchases:[],
-           error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
+          // error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
          })
      }
      
