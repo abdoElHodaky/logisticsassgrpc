@@ -12,7 +12,7 @@ export class PasswordService extends _Data {
   async all():Promise<Password[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(Password,{
+    return await this.em.find(Password,{
       relations:{
         user:true
       },
@@ -29,7 +29,7 @@ export class PasswordService extends _Data {
     let user=this.userS.id(`${userId}`)
     if(user instanceof User)  {
       _password.user=user
-      await this.datasource.manager.save(Password,_password)
+      await this.em.save(Password,_password)
     }
      console.log("DataS ",_password)
     
