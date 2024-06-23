@@ -1,1 +1,68 @@
+import "reflect-metadata";
+import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
+import  {_Purshase} from "../protos/dist/";
+import {PurahaseService} from "./";
+import { Purshase,PurshaseItem } from "../entity/";
 
+export class PurshaseGrpcService  {
+  
+// @Service("Ticket")
+  static service:any=new PurahaseService()
+  //public [name: string]:UntypedHandleCall;
+  public SrvImpl: _Purshase.PurshaseServiceServer = {
+   
+    async all (call: ServerUnaryCall<_Purshase.GetAllPurshaseReq,_Purshase.GetAllPurshaseRes>,
+    callback: sendUnaryData<_Purshase.GetAllPurshaseRes>
+ ){
+     let purchases=await PurshaseGrpcService.service.all(call.request?.userId)
+     if(purchases instanceof Array){
+     let _purchases=purchases.map(_Purshase.Purshase.fromJSON)
+     //console.log(tickets)
+    _purchases.forEach((a:_Purshase.Purshase,inx:number)=>{
+     let {user,createdAt,updatedAt}=purchases[inx]
+     if(user!=null) {
+      a.userId=user.id
+      //console.log(a.createdAt instanceof Date)
+     }
+     })
+       
+       let res:_Purshase.GetAllPurshaseRes={userId:call.request?.userId,
+      purshases:_products,error:{
+       Message:"",type:"",name:""}}
+        callback(null,res)
+     }
+     else{
+       callback(null,{
+           purchases:[],
+           error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
+         })
+     }
+     
+      },
+    async create (
+    call: ServerUnaryCall<_Purshase.CreatePurshaseReq,_Purshase.CreatePurshaseRes>,
+    callback: sendUnaryData<_Purshase.CreatePurshaseRes>
+  ){
+     //  let {userId,product}=call.request
+       
+      // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
+       let _product=await PurshaseGrpcService.service.create(_Product.CreateProductReq.toJSON(call.request))
+       if(_product instanceof Purshase){
+        const product=_Product.Product.fromJSON(_product)
+         product.userId=call.request?.userId
+         callback(null,{
+           product:product
+         })
+       }
+      else{
+        callback(null,{
+           product:_Product.createBaseProduct()
+         })
+      } 
+     }
+  }
+
+  
+   }
+//console.log(services)
+//console.log(Reflect.getMetadata("servname",ArticleGrpcService.service ))
