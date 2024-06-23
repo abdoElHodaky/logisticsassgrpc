@@ -45,7 +45,7 @@ export class PurshaseGrpcService  {
     call: ServerUnaryCall<_Purshase.CreatePurshaseReq,_Purshase.CreatePurshaseRes>,
     callback: sendUnaryData<_Purshase.CreatePurshaseRes>
   ){
-    const dto= plainToClass(CreatePurshaseDto,_Purshase.CreatePurshaseReq.toJSON(call.request?.purchase))
+    const dto= plainToClass(CreatePurshaseDto,_Purshase.CreatePurshaseReq.toJSON(call.request))
       let _purshase=await PurshaseGrpcService.service.create(dto)
        if(_purshase instanceof Purshase){
         const purshase=_Purshase.Purshase.fromJSON(_purshase)
