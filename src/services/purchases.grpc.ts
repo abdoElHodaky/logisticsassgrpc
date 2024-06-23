@@ -27,14 +27,16 @@ export class PurshaseGrpcService  {
      }
      })
        
-       let res:_Purshase.GetAllPurshaseRes={userId:call.request?.userId,
-      purchases:_purchases,
+       let res:_Purshase.GetAllPurshaseRes={
+        userId:call.request?.userId,
+        purchases:_purchases,
         //error:{ Message:"",type:"",name:""}
       }
         callback(null,res)
      }
      else{
        callback(null,{
+           userId:call.request?.userId,
            purchases:[],
           // error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
          })
