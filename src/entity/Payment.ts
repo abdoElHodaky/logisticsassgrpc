@@ -21,8 +21,8 @@ export class Payment {
     @Column({type: "varchar", nullable: false,default:PaymentStatus.PAYMENT_DEFAULT})
     status: PaymentStatus;
 
-    @Column({type: "varchar", nullable: true})
-    amount: string;
+    @Column({type: "int"})
+    amount: number;
 
     @Column({type: "varchar", nullable: true})
     currency: string;
