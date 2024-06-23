@@ -17,3 +17,4 @@ export {PasswordService} from "./passwords";
 export { ProductService} from "./products";
 export { ProductGrpcService} from "./products.grpc";
 export { PurshaseGrpcService} from "./purchases.grpc";
+export { PurshaseService} from "./purchases";
