@@ -32,16 +32,16 @@ export class PaymentService extends _Data {
  //  else return new TypeError("userId should be number")
   }
 
- async create(createPaymentDto: CreatePaymentDto):Promise<Payment|void>{
-     
-   /* const {purshasedItem,userid}=createPaymentDto
-    let payment=await this.datasource.manager.create(Payment,purchasedItem)
-    return payment */
+ async create(createDto: CreatePaymentDto):Promise<Payment|void>{
+     const {purshaseId}=createDto
+     const purchase=await this.em.find(Purshase,{
+      where:{id:purshaseId}
+   })
    
  }
 
 async pay(paymentId:string,urls:{callback:string,return:string}){
-  let payment = await  this.datasource.manager.findOneOrFail(Payment,{
+  let payment = await  this.em.findOneOrFail(Payment,{
         where:{id:parseInt(paymentId)}
       })
   return await this.payTabService.createPage(payment,urls)
@@ -56,7 +56,7 @@ async verify(transR:string,paymentId:string):Promise<any>{
     let res= await this.payTabService.payVerify(transR)
     let { valid,code }=res
     if (valid===true){
-      let payment=await this.datasource.manager.findOneOrFail(Payment,{
+      let payment=await this.em.findOneOrFail(Payment,{
         where:{id:parseInt(paymentId)}
       })
       payment.status=PaymentStatus.PAYMENT_PAID
