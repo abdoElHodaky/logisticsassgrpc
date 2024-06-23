@@ -1,4 +1,4 @@
-import {EventSubscriber ,EntitySubscriberInterface, UpdateEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface, UpdateEvent,InsertEvent } from "typeorm"
 import { Payment,User } from "../entity/";
 @EventSubscriber()
 export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
@@ -18,4 +18,10 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
            entity.amount= entity.purchase.subTotal *1.14
          }
     }
+ async afterInsert(event:InsertEvent<Payment>){
+     const {entity,manager} =event
+     entity.user?.payments.push(entity)
+     await manager.save(User,entity.user)
+
+ }
 }
