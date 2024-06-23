@@ -24,10 +24,10 @@ export class PurshaseController {
   
   @Get("",[])
   async all(@Req() req:Request, @Res() res:Response):Promise<void>{
-    const allrequest:_Purshase.GetAllPurshasesReq={
+    const allrequest:_Purshase.GetAllPurshaseReq={
       userId:0
     }
-    this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshasesRes)=>{
+    this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshaseRes)=>{
         if (err) res.jsonp(err)
         else res.json(_Purshase.GetAllPurshasesRes.toJSON(resp))
     })
