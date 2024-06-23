@@ -40,7 +40,7 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
      item.purshase=purshase
      return await item
    })*/
-   itemsIds.reduce((acc:any,id:any)=>{
+   itemsIds.forEach(async (id:number,inx:number)=>{
      const item=new PurshaseItem()
      let product:Product=await this.datasource.manager.findOneOrFail(Product,{
        where:{id:id}
