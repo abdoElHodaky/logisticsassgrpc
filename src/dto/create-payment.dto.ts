@@ -1,4 +1,4 @@
 export class CreatePaymentDto {
-   readonly userId:string
-   readonly purshasesdId:string[]
+   readonly userId:number
+   readonly purshasesId:number
 }
