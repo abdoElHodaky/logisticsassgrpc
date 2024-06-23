@@ -1,3 +1,3 @@
-import { PasswordSubscriber,PurshaseSubscriber} from "./";
+import { PasswordSubscriber,PurshaseSubscriber,PaymentSubscriber} from "./";
 
-export const subscribers:any =[PasswordSubscriber, PurshaseSubscriber ]
+export const subscribers:any =[PasswordSubscriber, PurshaseSubscriber, PaymentSubscriber ]
