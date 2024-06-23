@@ -10,7 +10,7 @@ import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 import {services} from "../services/enum";
 
-@Controller('/purchases')
+@Controller('/purshases')
 export class PurshaseController {
   
  private service=services.Purchase
