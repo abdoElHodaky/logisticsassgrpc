@@ -144,7 +144,7 @@ export const PurshasedItem = {
   },
 };
 
-function createBasePurshase(): Purshase {
+export function createBasePurshase(): Purshase {
   return { id: 0, items: [], userId: undefined, paymentId: undefined, createdAt: undefined, updatedAt: undefined };
 }
 
