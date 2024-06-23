@@ -25,12 +25,15 @@ addServiceToServer(server,[
 addServiceToServer(server2,[
   _User.UserServiceService,
   _Ticket.TicketServiceService,
-  _Orgz.OrgzServiceService
+  _Orgz.OrgzServiceService,
+ _Purshase.PurshaseServiceService
   
 ],[
   services.Grpc_User.SrvImpl,
   services.Grpc_supTicket.SrvImpl,
-  services.Grpc_Orgz.SrvImpl
+  services.Grpc_Orgz.SrvImpl,
+  services.Grpc_Purshase.SrvImpl
+
 ])
 
 /*server.addService(_Article.ArticleServiceService,services.Grpc_Article.SrvImpl)
