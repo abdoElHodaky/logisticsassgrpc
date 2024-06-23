@@ -1,6 +1,5 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Purshase } from "../protos/dist/";
-
 import { AuthenticateMiddleware, ValidatedCreatePurshase  } from "../middlewares/"
 import { CreatePurshaseDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
@@ -15,7 +14,7 @@ const address = "localhost:"+ Env.GRPCSTWOPORT
 @Controller('/purshases')
 export class PurshaseController {
   
- private client =new _Orgz.OrgzServiceClient(
+ private client =new _Purshase.PurshaseServiceClient(
     address,
     credentials.createInsecure()
   )
