@@ -15,6 +15,8 @@ import {ProductService} from "./products";
 import {OrgzService} from "./orgzs";
 import {orgzGrpcService} from "./orgzs.grpc";
 import {ProductGrpcService} from "./products.grpc";
+import {PurshaseGrpcService} from "./purchases.grpc";
+import {PurshaseService} from "./purchases";
 
 export let services:any={
   Auth:new AuthService(),
@@ -27,6 +29,7 @@ export let services:any={
   Payment:new PaymentService(),
   Product:new ProductService(),
   Orgz:new OrgzService(),
+  Purshase:new PurshaseService(),
   Grpc_Ticket:new TicketGrpcService(),
   Grpc_Article:new ArticleGrpcService(),
   Grpc_Auth:new AuthGrpcService(),
@@ -34,7 +37,8 @@ export let services:any={
   Grpc_User:new UserGrpcService(),
   Grpc_supTicket:new supTicketGrpcService(),
   Grpc_Orgz:new orgzGrpcService(),
-  Grpc_Product:new ProductGrpcService()
+  Grpc_Product:new ProductGrpcService(),
+  Grpc_Purshase:new PurshaseGrpcService()
 }
 
 
