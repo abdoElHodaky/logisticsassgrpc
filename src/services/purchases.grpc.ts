@@ -28,8 +28,9 @@ export class PurshaseGrpcService  {
      })
        
        let res:_Purshase.GetAllPurshaseRes={userId:call.request?.userId,
-      purshases:_purchases,error:{
-       Message:"",type:"",name:""}}
+      purshases:_purchases,
+        //error:{ Message:"",type:"",name:""}
+      }
         callback(null,res)
      }
      else{
