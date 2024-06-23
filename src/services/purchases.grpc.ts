@@ -3,7 +3,8 @@ import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryC
 import  {_Purshase} from "../protos/dist/";
 import {PurahaseService} from "./";
 import { Purshase,PurshaseItem } from "../entity/";
-
+import {plainToClass} from "class-transformer";
+import {CreatePurshaseDto} from "../dto/";
 export class PurshaseGrpcService  {
   
 // @Service("Ticket")
@@ -43,10 +44,8 @@ export class PurshaseGrpcService  {
     call: ServerUnaryCall<_Purshase.CreatePurshaseReq,_Purshase.CreatePurshaseRes>,
     callback: sendUnaryData<_Purshase.CreatePurshaseRes>
   ){
-     //  let {userId,product}=call.request
-       
-      // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
-       let _purshase=await PurshaseGrpcService.service.create(_Purshase.CreatePurshaseReq.toJSON(call.request))
+    const dto= plainToClass(CreatePurshaseDto,_Purshase.CreatePurshaseReq.toJSON(call.request?.purshase))
+      let _purshase=await PurshaseGrpcService.service.create(dto)
        if(_purchase instanceof Purshase){
         const purshase=_Purshase.Purshase.fromJSON(_purshase)
          purshase.userId=call.request?.userId
