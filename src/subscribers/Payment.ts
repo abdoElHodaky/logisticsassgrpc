@@ -1,4 +1,4 @@
-import {EventSubscriber ,EntitySubscriberInterface, InsertEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface, UpdateEvent } from "typeorm"
 import { Payment,User } from "../entity/";
 @EventSubscriber()
 export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
@@ -12,10 +12,10 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
     /**
      * Called before post insertion.
      */
-  async  aferInsert(event: InsertEvent<Payment>) {
+  async  beforeUpdate(event: UpdateEvent<Payment>) {
         const {entity,manager} =event
-        entity.user.passwordHash=entity.passphase
-        entity.user.passwords.push(entity)
-        await manager.save(User,entity)
+        if(entity.amount==0 || entity.amount==undefined){
+           entity.amount= entity.purchase.subTotal *1.14
+         }
     }
 }
