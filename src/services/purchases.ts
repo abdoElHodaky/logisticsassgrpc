@@ -31,7 +31,7 @@ export class PurshaseService extends _Data {
 async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const purshase=new Purshase()
    const {userId,itemsIds}=dto
-   const items= await itemsIds.map(async (id:number):Promise<any> =>{
+   const items= await itemsIds.map(async (id:number) =>{
      const item=new PurshaseItem()
      let product:Product=await this.datasource.manager.findOneOrFail(Product,{
        where:{id:id}
