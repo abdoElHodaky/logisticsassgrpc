@@ -1,6 +1,6 @@
-import { UserService } from "../services/";
-import { Purshase  } from "../entity/"
-import { AppDataSource } from "../_datasource";
+import { credentials } from "@grpc/grpc-js";
+import {_Purshase } from "../protos/dist/";
+
 import { AuthenticateMiddleware, ValidatedCreatePurshase  } from "../middlewares/"
 import { CreatePurshaseDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
@@ -8,12 +8,18 @@ import { Response} from "express"
 import { Request } from "express-jwt";
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
+import {Env} from "../env";
 import {services} from "../services/enum";
+const address = "localhost:"+ Env.GRPCSTWOPORT
 
 @Controller('/purshases')
 export class PurshaseController {
   
- private service=services.Purchase
+ private client =new _Orgz.OrgzServiceClient(
+    address,
+    credentials.createInsecure()
+  )
+  private service=services.Orgz
   
   constructor(){}
   
