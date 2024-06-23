@@ -18,7 +18,7 @@ export class Payment {
     @Column(/*{type:'timestamptz'}*/)
     date: string;
     
-    @Column({type: "varchar", nullable: false,default:PaymentStatus.PAYMENT_DEFAULT})
+    @Column({type: "varchar", nullable: true})
     status: PaymentStatus;
 
     @Column({type: "int"})
