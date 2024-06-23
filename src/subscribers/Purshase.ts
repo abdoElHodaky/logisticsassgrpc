@@ -18,7 +18,7 @@ export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
         //if(entity.items.length!=0 && entity.subTotal==0){
           entity.items.reduce((acc:any,item:any)=>{
            entity.subTotal+=item?.product.price
-           //return sum
+           return acc
           })
           await manager.save(Purshase,entity)
        // }
