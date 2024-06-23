@@ -29,7 +29,7 @@ export class PayTabService{
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
     "AR",_urls,(result:any)=>{
-       this.result=  (result!=undefined)? result:{}
+       this.result= result
      })
      return this.result?.redirect_url
      
