@@ -29,7 +29,7 @@ export class PurshaseController {
     }
     this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshaseRes)=>{
         if (err) res.jsonp(err)
-        else res.json(_Purshase.GetAllPurshasesRes.toJSON(resp))
+        else res.json(_Purshase.GetAllPurshaseRes.toJSON(resp))
     })
     
   }
