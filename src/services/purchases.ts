@@ -14,7 +14,7 @@ export class PurshaseService extends _Data {
   async all(purshaseId?:number,userId?:number):Promise<Purshase[]|Error>
   {
   
-    const purchases= await this.datasource.manager.find(Purshase,{
+    const purchases= await this.em.find(Purshase,{
       where:[
         (userId!=undefined)?{user:{id:userId}}:{},
         (purshaseId!=undefined)?{id:purshaseId}:{},
@@ -42,7 +42,7 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    })*/
    itemsIds.forEach(async (id:number,inx:number)=>{
      const item=new PurshaseItem()
-     let product:Product=await this.datasource.manager.findOneOrFail(Product,{
+     let product:Product=await this.em.findOneOrFail(Product,{
        where:{id:id}
      })
      item.product=product
@@ -51,11 +51,11 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
      
   })
   
-   let user=await this.datasource.manager.findOneOrFail(User,{
+   let user=await this.em.findOneOrFail(User,{
      where:{id:parseInt(userId)}
    })
    purshase.user=user
-   return await this.datasource.manager.save(Purshase,purshase)
+   return await this.em.save(Purshase,purshase)
  } 
 
   
