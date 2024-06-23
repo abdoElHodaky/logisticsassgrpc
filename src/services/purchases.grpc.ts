@@ -46,7 +46,7 @@ export class PurshaseGrpcService  {
   ){
     const dto= plainToClass(CreatePurshaseDto,_Purshase.CreatePurshaseReq.toJSON(call.request?.purchase))
       let _purshase=await PurshaseGrpcService.service.create(dto)
-       if(_purchase instanceof Purshase){
+       if(_purshase instanceof Purshase){
         const purshase=_Purshase.Purshase.fromJSON(_purshase)
         // purshase.userId=call.request?.userId
          callback(null,{
