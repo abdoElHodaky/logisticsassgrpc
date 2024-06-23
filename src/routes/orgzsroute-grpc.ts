@@ -8,11 +8,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
         #swagger.parameters["ownerId"] = {
             required:false,
             description: 'id of specific user.',
-            content: {
-                "application/json": {
-                   schema: { $ref: '#/components/schemas/ownerOrgz' }   }
-                }
-            }
+            
     }
     
 
