@@ -37,6 +37,10 @@ export class PaymentService extends _Data {
      const purchase=await this.em.find(Purshase,{
       where:{id:purshaseId}
    })
+    const payment = new Payment()
+    payment.purchase=purchase
+    payment.status=PaymentStatus.PAYMENT_PENDING
+    return await this.em.save(Payment,payment)
    
  }
 
@@ -61,7 +65,7 @@ async verify(transR:string,paymentId:string):Promise<any>{
       })
       payment.status=PaymentStatus.PAYMENT_PAID
       payment.transR=transR
-      await this.datasource.manager.save(Payment,payment)
+      await this.em.save(Payment,payment)
       return {message:"Payment success , Thanks"}
 
     }
