@@ -24,7 +24,7 @@ export class PurshaseController {
   
   @Get("",[])
   async all(@Req() req:Request, @Res() res:Response):Promise<void>{
-    const allreques:_Purshase.GetAllPurshasesReq={
+    const allrequest:_Purshase.GetAllPurshasesReq={
       userId:0
     }
     this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshasesRes)=>{
