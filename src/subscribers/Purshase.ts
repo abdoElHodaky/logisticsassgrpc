@@ -1,4 +1,5 @@
-import {EventSubscriber ,EntitySubscriberInterface, LoadEvent } from "typeorm"
+import {EventSubscriber ,EntitySubscriberInterface,
+ InsertEvent } from "typeorm"
 import { Purshase,User } from "../entity/";
 @EventSubscriber()
 export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
@@ -12,15 +13,15 @@ export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
     /**
      * Called before post insertion.
      */
-  async  aferLoad(event: LoadEvent<Purshase>) {
+  async  aferInsert(event: InsertEvent<Purshase>) {
         const {entity,manager} =event
-        if(entity.items.length!=0 && entity.subTotal==0){
+        //if(entity.items.length!=0 && entity.subTotal==0){
           entity.items.reduce((acc:any,item:any)=>{
            entity.subTotal+=item?.product.price
            //return sum
           })
           await manager.save(Purshase,entity)
-        }
+       // }
         
     }
 }
