@@ -18,12 +18,15 @@ export class PurshaseController {
     address,
     credentials.createInsecure()
   )
-  private service=services.Orgz
+  private service=services.Purshase
   
   constructor(){}
   
   @Get("",[])
-  async all(@Req() req:Request, @Res() res:Response):Promise<Purshase[]|void>{
+  async all(@Req() req:Request, @Res() res:Response):Promise<void>{
+    const allreques:_Purshase.GetAllPurshasesReq={
+      userId:0
+    }
     this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshasesRes)=>{
         if (err) res.jsonp(err)
         else res.json(_Purshase.GetAllPurshasesRes.toJSON(resp))
