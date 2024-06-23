@@ -4,6 +4,7 @@ import { Env } from "../env";
 const {PAYTABS_PROFILE,PAYTABS_SERVERK,PAYTABS_REGION}=Env
 
 export class PayTabService{
+  private result:object;
   async values(obj:any){
       let arr=[]
       for(var i in obj){
@@ -28,13 +29,14 @@ export class PayTabService{
     await paytabs.createPaymentPage(['all'],['sale','ecom'],paymentinfo,
     clientinfo,shippinginfo,
     "AR",_urls,(result:any)=>{
-       return  (result!=undefined)? result.redirect_url:"/"
+       this.result=  (result!=undefined)? result:{}
      })
+     return this.result?.redirect_url
      
      
    }
-  async payCallback(result:any):Promise<any> {
-    let {respCode,respMessage,transRef,respStatus,cart} =result
+  async payCallback(result?:any):Promise<any> {
+    let {respCode,respMessage,transRef,respStatus,cart} =this.result
     return {
       trans:transRef,
       status:respStatus,
@@ -43,8 +45,8 @@ export class PayTabService{
       paymentId:cart.cart_id
     }
   }
-  async payReturn(result:any):Promise<any>{
-    let {respCode,respMessage,transRef,respStatus,cart} =result
+  async payReturn(result?:any):Promise<any>{
+    let {respCode,respMessage,transRef,respStatus,cart} =this.result
     return {
       trans:transRef,
       status:respStatus,
