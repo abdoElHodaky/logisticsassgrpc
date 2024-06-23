@@ -3,7 +3,7 @@ import { Router } from "express";
 
 export const purshasesgrpc=Router()
 
-purshasesgrpc.get("/purchases",(req,res)=>{
+purshasesgrpc.get("/purshases",(req,res)=>{
     /* 	#swagger.tags = ['GRPC.Purshase']
         #swagger.description = 'Endpoint to get purshases via grpc'
         
@@ -11,7 +11,7 @@ purshasesgrpc.get("/purchases",(req,res)=>{
 
 })
 
-purshasesgrpc.post("/purchases",({body},res)=>{
+purshasesgrpc.post("/purshases",({body},res)=>{
     /* 	#swagger.tags = ['GRPC.Purshase']
         #swagger.description = 'Endpoint to create in purshase via grpc' 
         #swagger.requestBody = {
