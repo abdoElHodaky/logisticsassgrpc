@@ -24,11 +24,11 @@ export class PurshaseController {
   
   @Get("",[])
   async all(@Req() req:Request, @Res() res:Response):Promise<Purshase[]|void>{
-    //const {auth}=req
-  //  console.log(auth)
-    let payments=await this.service.all()
-    if ((payments instanceof Array ) && payments.length!=0 ) return payments
-    else res.jsonp({message:payments?.message})
+    this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshasesRes)=>{
+        if (err) res.jsonp(err)
+        else res.json(_Purshase.GetAllPurshasesRes.toJSON(resp))
+    })
+    
   }
   
   @Post("",[AuthenticateMiddleware,ValidatedCreatePurshase ])
