@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Payment,User} from "../entity/"
+import { Payment,User,Purshase} from "../entity/"
 import { PaymentStatus} from "../entity/Payment";
 import { CreatePaymentDto } from "../dto/create-payment.dto"
 import { PayTabService } from "./";
