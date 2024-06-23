@@ -40,7 +40,7 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
      item.purshase=purshase
      return await item
    })
-   await  purshase.items.push(...items)
+  purchase.items.push(await Promise.all(items))
    let user=await this.datasource.manager.findOneOrFail(User,{
      where:{id:parseInt(userId)}
    })
