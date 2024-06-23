@@ -11,8 +11,8 @@ export class PurshaseGrpcService  {
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Purshase.PurshaseServiceServer = {
    
-    async all (call: ServerUnaryCall<_Purshase.GetAllPurshasesReq,_Purshase.GetAllPurshasesRes>,
-    callback: sendUnaryData<_Purshase.GetAllPurshasesRes>
+    async all (call: ServerUnaryCall<_Purshase.GetAllPurshaseReq,_Purshase.GetAllPurshaseRes>,
+    callback: sendUnaryData<_Purshase.GetAllPurshaseRes>
  ){
      let purchases=await PurshaseGrpcService.service.all(call.request?.userId)
      if(purchases instanceof Array){
@@ -26,7 +26,7 @@ export class PurshaseGrpcService  {
      }
      })
        
-       let res:_Purshase.GetAllPurshasesRes={userId:call.request?.userId,
+       let res:_Purshase.GetAllPurshaseRes={userId:call.request?.userId,
       purshases:_products,error:{
        Message:"",type:"",name:""}}
         callback(null,res)
