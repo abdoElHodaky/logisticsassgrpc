@@ -46,17 +46,17 @@ export class PurshaseGrpcService  {
      //  let {userId,product}=call.request
        
       // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
-       let _product=await PurshaseGrpcService.service.create(_Product.CreateProductReq.toJSON(call.request))
-       if(_product instanceof Purshase){
-        const product=_Product.Product.fromJSON(_product)
-         product.userId=call.request?.userId
+       let _purshase=await PurshaseGrpcService.service.create(_Purshase.CreatePurshaseReq.toJSON(call.request))
+       if(_purchase instanceof Purshase){
+        const purshase=_Purshase.Purshase.fromJSON(_purshase)
+         purshase.userId=call.request?.userId
          callback(null,{
-           product:product
+           purshase:purshase
          })
        }
       else{
         callback(null,{
-           product:_Product.createBaseProduct()
+           product:_Product.createBasePurshase()
          })
       } 
      }
