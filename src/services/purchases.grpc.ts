@@ -8,7 +8,7 @@ import {CreatePurshaseDto} from "../dto/";
 export class PurshaseGrpcService  {
   
 // @Service("Ticket")
-  static service:any=new PurahaseService()
+  static service:any=new PurshaseService()
   //public [name: string]:UntypedHandleCall;
   public SrvImpl: _Purshase.PurshaseServiceServer = {
    
