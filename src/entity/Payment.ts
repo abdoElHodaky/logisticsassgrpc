@@ -38,10 +38,10 @@ export class Payment {
     @OneToOne(()=>Purshase,purchase=>purchase.payment) purchase:Purshase;
     @ManyToOne(()=>User,user=>user.payments) user:User;
 
-    @BeforeUpdate()
+ /*   @BeforeUpdate()
     setamount(){
         if(this.amount==0 || this.amount==undefined){
            this.amount= this.purchase.subTotal *1.14
          }
-    }
+    } */
 }
