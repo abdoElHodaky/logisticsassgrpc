@@ -31,7 +31,7 @@ export class PurshaseService extends _Data {
 async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const purshase=new Purshase()
    const {userId,itemsIds}=dto
-   const items=  itemsIds.map(async (id:number):Promise<PurshaseItem> =>{
+  /* const items=  itemsIds.map(async (id:number):Promise<PurshaseItem> =>{
      const item=new PurshaseItem()
      let product:Product=await this.datasource.manager.findOneOrFail(Product,{
        where:{id:id}
@@ -39,8 +39,18 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
      item.product=product
      item.purshase=purshase
      return await item
-   })
-  purchase.items.push(await Promise.all(items))
+   })*/
+  const purchase=itemsIds.reduce((sum:number,id:number)=>{
+     const item=new PurshaseItem()
+     let product:Product=await this.datasource.manager.findOneOrFail(Product,{
+       where:{id:id}
+     })
+     item.product=product
+     item.purshase=purshase
+     purchase.items.push(item)
+     return purchase
+  })
+  
    let user=await this.datasource.manager.findOneOrFail(User,{
      where:{id:parseInt(userId)}
    })
