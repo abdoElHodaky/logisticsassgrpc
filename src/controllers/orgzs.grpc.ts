@@ -22,9 +22,9 @@ export class GrpcOrgzController {
   
   @Get("",[])
   async all(@Res() res:Response , @Req() req?:Request ):Promise<void>{
-   // console.log("89")
+   console.log(req?.query?.ownerId)
     const allorgzsreq:_Orgz.GetAllOrgzsReq={  
-       ownerId:parseInt(req?.body?.ownerId)
+       ownerId:1
     }
     console.log(allorgzsreq)
     this.client.all(allorgzsreq,(err:any,resp:_Orgz.GetAllOrgzsRes)=>{
