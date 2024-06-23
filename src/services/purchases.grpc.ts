@@ -48,14 +48,14 @@ export class PurshaseGrpcService  {
       let _purshase=await PurshaseGrpcService.service.create(dto)
        if(_purchase instanceof Purshase){
         const purshase=_Purshase.Purshase.fromJSON(_purshase)
-         purshase.userId=call.request?.userId
+        // purshase.userId=call.request?.userId
          callback(null,{
-           purshase:purshase
+           purchase:purshase
          })
        }
       else{
         callback(null,{
-           purshase:_Product.createBasePurshase()
+           purchase:_Product.createBasePurshase()
          })
       } 
      }
