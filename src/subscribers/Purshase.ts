@@ -14,12 +14,13 @@ export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
      */
   async  aferLoad(event: LoadEvent<Purshase>) {
         const {entity,manager} =event
-        if(entity.items.length!=0){
+        if(entity.items.length!=0 && entity.subTotal==0){
           entity.items.reduce((sum:any,item:any)=>{
            entity.subTotal+=item?.product.price
            return sum
           })
+          await manager.save(Purshase,entity)
         }
-        await manager.save(Purshase,entity)
+        
     }
 }
