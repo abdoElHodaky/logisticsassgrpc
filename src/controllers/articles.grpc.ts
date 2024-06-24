@@ -34,14 +34,11 @@ export class GrpcArticleController {
         res.json(resl)
      }
     })*/
-     try
-     {
-       let resp= await  this.clientPromise.all().sendMessage(req)
-       res.jsonp(_Article.GetAllRes.toJSON(resp))
-     }
-     catch(err:any){
-       res.json(err)
-     }
+     
+       this.clientPromise.all().sendMessage(req).
+       then(resp=>res.json(_Article.GetAllRes.toJSON(resp))).
+       catch(res.json)
+      
   }
   
  // @AuthenticateMiddleware
@@ -63,14 +60,14 @@ export class GrpcArticleController {
          article:_article
        }
       // res.jsonp(article)
-       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+      /* this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
          res.jsonp(err);
         console.error(err)
         } else {
           res.json(resp)
          }
-    })
+    })*/
        }
        else {res.json({message:"error"})}
       
