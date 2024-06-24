@@ -21,12 +21,12 @@ export class GrpcOrgzController {
   constructor(){}
   
   @Get("",[])
-  async all(@Res() res:Response , @Req() req?:Request ):Promise<void>{
-   console.log(req?.query?.ownerId)
+  async all(@Res() res:Response , ,@Req() req?:Request ):Promise<void>{
+   console.log(req?.query)
     const allorgzsreq:_Orgz.GetAllOrgzsReq={  
        ownerId:1
     }
-    console.log(allorgzsreq)
+   // console.log(allorgzsreq)
     this.client.all(allorgzsreq,(err:any,resp:_Orgz.GetAllOrgzsRes)=>{
       if (err) {
       res.jsonp(err);
