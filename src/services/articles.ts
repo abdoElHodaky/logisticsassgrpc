@@ -27,8 +27,8 @@ export class ArticleService extends _Data {
      
     const {userId,article}=articlecdto
     let _article=this.em.create(Article,{...article})
-    let author=await this.userS.id(userId)
-    _article.author=author
+    let author=await this.userS(userId)
+   if(author instanceof User) _article.author=author
     author.articles.push(_article)
     
     console.log("DataS ",_article)
