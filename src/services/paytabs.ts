@@ -30,9 +30,9 @@ export class PayTabService{
     clientinfo,shippinginfo,
     "AR",_urls,(result:any)=>{
        this.result= result
-      return result
+      return result?.redirect_url
      })
-     return this.result?.redirect_url
+     
      
      
    }
