@@ -34,7 +34,7 @@ export class PaymentService extends _Data {
 
  async create(createDto: CreatePaymentDto):Promise<Payment|void>{
      const {purshaseId}=createDto
-     const purchase=await this.em.find(Purshase,{
+     const purchase=await this.em.findOneOrFail(Purshase,{
       where:{id:purshaseId}
    })
     const payment = new Payment()
