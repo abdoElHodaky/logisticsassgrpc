@@ -18,6 +18,7 @@ import {
   type UntypedServiceImplementation,
 } from "@grpc/grpc-js";
 import _m0 from "protobufjs/minimal";
+import { Error } from "./error";
 import { Any } from "./google/protobuf/any";
 import { Timestamp } from "./google/protobuf/timestamp";
 
@@ -45,6 +46,7 @@ export interface GetAllPurshaseReq {
 export interface GetAllPurshaseRes {
   userId: number;
   purchases: Purshase[];
+  error?: Error | undefined;
 }
 
 export interface CreatePurshaseReq {
@@ -337,7 +339,7 @@ export const GetAllPurshaseReq = {
 };
 
 function createBaseGetAllPurshaseRes(): GetAllPurshaseRes {
-  return { userId: 0, purchases: [] };
+  return { userId: 0, purchases: [], error: undefined };
 }
 
 export const GetAllPurshaseRes = {
@@ -347,6 +349,9 @@ export const GetAllPurshaseRes = {
     }
     for (const v of message.purchases) {
       Purshase.encode(v!, writer.uint32(18).fork()).ldelim();
+    }
+    if (message.error !== undefined) {
+      Error.encode(message.error, writer.uint32(26).fork()).ldelim();
     }
     return writer;
   },
@@ -372,6 +377,13 @@ export const GetAllPurshaseRes = {
 
           message.purchases.push(Purshase.decode(reader, reader.uint32()));
           continue;
+        case 3:
+          if (tag !== 26) {
+            break;
+          }
+
+          message.error = Error.decode(reader, reader.uint32());
+          continue;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -387,6 +399,7 @@ export const GetAllPurshaseRes = {
       purchases: globalThis.Array.isArray(object?.purchases)
         ? object.purchases.map((e: any) => Purshase.fromJSON(e))
         : [],
+      error: isSet(object.error) ? Error.fromJSON(object.error) : undefined,
     };
   },
 
@@ -398,6 +411,9 @@ export const GetAllPurshaseRes = {
     if (message.purchases?.length) {
       obj.purchases = message.purchases.map((e) => Purshase.toJSON(e));
     }
+    if (message.error !== undefined) {
+      obj.error = Error.toJSON(message.error);
+    }
     return obj;
   },
 
@@ -408,6 +424,7 @@ export const GetAllPurshaseRes = {
     const message = createBaseGetAllPurshaseRes();
     message.userId = object.userId ?? 0;
     message.purchases = object.purchases?.map((e) => Purshase.fromPartial(e)) || [];
+    message.error = (object.error !== undefined && object.error !== null) ? Error.fromPartial(object.error) : undefined;
     return message;
   },
 };
