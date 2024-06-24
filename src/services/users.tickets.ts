@@ -20,7 +20,7 @@ export class UserTicketService extends _Data {
             tickets:true
            }
             })*/
-    let tickets=await this.datasource.manager.find(supTicket,{
+    let tickets=await this.em.find(supTicket,{
       where:{user:{id:id}},cache:true
     })
     if(tickets.length!=0) return tickets 
@@ -44,9 +44,9 @@ export class UserTicketService extends _Data {
     supticket.type="inquiry"
     supticket.subject="Greet"
     supticket.description="How are you?"
-    user=await this.datasource.manager.findOneByOrFail(User,{id:id})
+    user=await this.em.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
-    let u=await this.datasource.manager.save(User,user)
+    let u=await this.em.save(User,user)
     return u.tickets.at(-1)
     
   }
