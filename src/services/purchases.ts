@@ -3,10 +3,10 @@ import { Purshase ,PurshaseItem ,User,Product} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreatePurshaseDto } from "../dto/"
-
+import { UserService} from "./";
 //@Injectable()
 export class PurshaseService extends _Data {
-  
+  private userS=new UserService()
   constructor (){
       super()
   }
@@ -31,15 +31,6 @@ export class PurshaseService extends _Data {
 async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
    const purshase=new Purshase()
    const {userId,itemsIds}=dto
-  /* const items=  itemsIds.map(async (id:number):Promise<PurshaseItem> =>{
-     const item=new PurshaseItem()
-     let product:Product=await this.datasource.manager.findOneOrFail(Product,{
-       where:{id:id}
-     })
-     item.product=product
-     item.purshase=purshase
-     return await item
-   })*/
    itemsIds.forEach(async (id:number,inx:number)=>{
      const item=new PurshaseItem()
      let product:Product=await this.em.findOneOrFail(Product,{
@@ -48,13 +39,10 @@ async create(dto:CreatePurshaseDto ):Promise<Purshase|void>{
      item.product=product
      item.purshase=purshase
      purshase.items.push(item)
-     
   })
   
-   let user=await this.em.findOneOrFail(User,{
-     where:{id:parseInt(userId)}
-   })
-   purshase.user=user
+   let user=await this.userS.id(userId)
+   if(user instanceof User) purshase.user=user
    return await this.em.save(Purshase,purshase)
  } 
 
