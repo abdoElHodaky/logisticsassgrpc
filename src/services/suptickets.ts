@@ -12,7 +12,7 @@ export class supTicketService extends _Data {
   async all():Promise<supTicket[]>
   {
     //console.log(this._source)
-    return await this.datasource.manager.find(supTicket,{
+    return await this.em.find(supTicket,{
       relations:{
         user:true
       },
@@ -25,7 +25,7 @@ export class supTicketService extends _Data {
     
     let id=Number(userId)
    // let _ticket=<supTicket>{...ticket}
-    let supticket=this.datasource.manager.create(supTicket,{
+    let supticket=this.em.create(supTicket,{
       ...ticket
     //  type:ticket.type,subject:ticket.subject,description:ticket.description
     })
