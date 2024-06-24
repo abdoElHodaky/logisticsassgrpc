@@ -15,7 +15,7 @@ export class AuthorService  extends _Data {
 
   async all():Promise<Author[]|NotFoundError>{
    try{
-     let users=await this.datasource.getRepository(Author).find({
+     let users=await this.em.find(Author,{
         
         relations:{
           tickets:true,
@@ -38,7 +38,7 @@ export class AuthorService  extends _Data {
       //console.log(nationalIdvalid(userId))
       const _id=Number(userId)
     try{
-     let user=await this.datasource.getRepository(Author).findOneOrFail({
+     let user=await this.em.findOneOrFail(Author,{
         where:{
           id:_id
         },
