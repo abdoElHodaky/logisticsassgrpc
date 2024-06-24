@@ -14,7 +14,7 @@ export class OrgzService extends _Data {
   async all(userId?:number):Promise<Orgz[]|Error>
   {
   
-    const orgzs= await this.datasource.manager.find(Orgz,{
+    const orgzs= await this.em.find(Orgz,{
       where:(userId!=undefined)?{owner:{id:userId}}:{},
       relations:{
         owner:true
@@ -28,7 +28,7 @@ async create(userId:number,orgz:{type:string,title:string,description:string}):P
    let user= await services.User.id(userId) 
    if(user instanceof User) user = user as Owner
 
-   const _orgz=await this.datasource.manager.create(Orgz,{
+   const _orgz=await this.em.create(Orgz,{
       ...orgz
     })
    
