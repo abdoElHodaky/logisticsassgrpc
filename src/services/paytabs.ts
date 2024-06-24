@@ -30,12 +30,13 @@ export class PayTabService{
     clientinfo,shippinginfo,
     "AR",_urls,(result:any)=>{
        this.result= result
+      return result
      })
      return this.result?.redirect_url
      
      
    }
-  async payCallback(result?:any):Promise<any> {
+  async payCallback(result:any):Promise<any> {
     let {respCode,respMessage,transRef,respStatus,cart} =this.result
     return {
       trans:transRef,
@@ -45,7 +46,7 @@ export class PayTabService{
       paymentId:cart.cart_id
     }
   }
-  async payReturn(result?:any):Promise<any>{
+  async payReturn(result:any):Promise<any>{
     let {respCode,respMessage,transRef,respStatus,cart} =this.result
     return {
       trans:transRef,
