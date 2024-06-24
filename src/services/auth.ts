@@ -13,7 +13,7 @@ export class AuthService extends _Data {
   async login(loginUserDto:LoginUserDto):Promise<User|Error>{
     const { username,passwordHash}=loginUserDto
     try{
-     let user= await this.datasource.manager.findOneOrFail(User,{where:{
+     let user= await this.em.findOneOrFail(User,{where:{
         username:username,
         passwordHash:passwordHash,
        // id:id
@@ -28,7 +28,7 @@ export class AuthService extends _Data {
   
   async create(cdtouser:CreateUserDto):Promise<User|void> {
     const {email,...user}=cdtouser
-    let _user=await this.datasource.manager.create(User,{
+    let _user=await this.em.create(User,{
       email:{
         value:email
       },
