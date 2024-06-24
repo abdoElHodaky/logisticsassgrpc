@@ -18,7 +18,7 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  private clinetPromise=grpcPromise.promisifyAll(client)
+  private clientPromise=grpcPromise.promisifyAll(client)
 
 
   @Get("")
