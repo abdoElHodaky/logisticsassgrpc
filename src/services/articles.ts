@@ -14,7 +14,7 @@ export class ArticleService extends _Data {
   async all():Promise<Article[]|Error>
   {
     //console.log(this._source)
-    let articles= await this.datasource.manager.find(Article,{
+    let articles= await this.em.find(Article,{
       relations:{
         author:true
       },
@@ -26,7 +26,7 @@ export class ArticleService extends _Data {
  async create(articlecdto:{userId:number,article:CreateArticleDto}):Promise<Article|void>{
      
     const {userId,article}=articlecdto
-    let _article=this.datasource.manager.create(Article,{...article})
+    let _article=this.em.create(Article,{...article})
     let author=await this.userS.id(userId)
     _article.author=author
     author.articles.push(_article)
