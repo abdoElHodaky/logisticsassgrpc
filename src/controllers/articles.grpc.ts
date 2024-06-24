@@ -36,7 +36,7 @@ export class GrpcArticleController {
     })*/
        console.log(this.clientPromise.all())
        this.clientPromise.all().sendMessage(req).
-       then(res.json(_Article.GetAllRes.toJSON)).
+       then(console.log).
        catch(res.json)
       
   }
