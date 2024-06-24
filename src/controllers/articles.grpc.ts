@@ -7,7 +7,7 @@ import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 import {isEmpty} from "../helpers";
-import * as grpcPromise from 'grpc-promise';
+import * as grpcPromise from 'grpc-promise/index.js';
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
