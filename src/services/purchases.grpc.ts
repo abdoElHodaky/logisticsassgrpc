@@ -30,7 +30,7 @@ export class PurshaseGrpcService  {
        let res:_Purshase.GetAllPurshaseRes={
         userId:call.request?.userId,
         purchases:_purchases,
-        //error:{ Message:"",type:"",name:""}
+        error:{ Message:"",type:"",name:""}
       }
         callback(null,res)
      }
@@ -38,7 +38,7 @@ export class PurshaseGrpcService  {
        callback(null,{
            userId:call.request?.userId,
            purchases:[],
-          // error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
+           error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
          })
      }
      
