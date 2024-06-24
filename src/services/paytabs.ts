@@ -37,7 +37,7 @@ export class PayTabService{
      
    }
   async payCallback(result:any):Promise<any> {
-    let {respCode,respMessage,transRef,respStatus,cart} =this.result
+    let {respCode,respMessage,transRef,respStatus,cart} =result
     return {
       trans:transRef,
       status:respStatus,
@@ -47,7 +47,7 @@ export class PayTabService{
     }
   }
   async payReturn(result:any):Promise<any>{
-    let {respCode,respMessage,transRef,respStatus,cart} =this.result
+    let {respCode,respMessage,transRef,respStatus,cart} =result
     return {
       trans:transRef,
       status:respStatus,
