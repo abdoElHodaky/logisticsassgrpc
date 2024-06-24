@@ -14,7 +14,7 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
      */
   async  beforeUpdate(event: UpdateEvent<Payment>) {
         const {entity,manager} =event
-        if(entity.amount==undefined){
+        if(entity?.amount){
            entity.amount= entity.purchase.subTotal *1.14
          }
     }
