@@ -29,7 +29,8 @@ message GetAllPurshaseRes{
  repeated Purshase purchases=2;
 }
 message CreatePurshaseReq{
- Purshase purchase=1;
+ optional int32 userId=1;
+ repeated  PurshasedItem items=2;
 }
 message CreatePurshaseRes{
  Purshase purchase=1;
