@@ -29,18 +29,10 @@ export class ArticleService extends _Data {
     let _article=this.em.create(Article,{...article})
     let author=await this.userS.id(`${userId}`)
    if(author instanceof Author) _article.author=author
-    author.articles.push(_article)
     
     console.log("DataS ",_article)
-    /*_article.title=article.title
-   _article.imgurl=article.imgurl
-   _article.content=article.content*/
-   //onsole.log(article)
-   /* let author=await this.datasource.manager.findOneByOrFail(Author,{id:userId})
-    _article.author=author
-    author.articles.push(_article)
-    _article=await this.datasource.manager.save(Article,_article)*/
-    return _article
+    
+   return await this.em.save(Article,_article)
    
  }
 }
