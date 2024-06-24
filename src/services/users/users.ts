@@ -16,7 +16,7 @@ export class UserService extends _Data {
   async all(relation?:string[]):Promise<User[]>{
     const _relation=(relation!=undefined)?relation : this.relation
    
-    return await this.datasource.manager.find(User,{
+    return await this.em.find(User,{
       relations:[
         ..._relation
       ],
@@ -32,7 +32,7 @@ export class UserService extends _Data {
      // console.log(userId)
       const _id=Number(userId)
     try{
-      let user:User=await this.datasource.getRepository(User).findOneOrFail({
+      let user:User=await this.em.findOneOrFail(User,{
         where:{
           id:_id
         },
