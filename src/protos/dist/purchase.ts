@@ -59,7 +59,7 @@ export interface CreatePurshaseRes {
   purchase: Purshase | undefined;
 }
 
-function createBasePurshasedItem(): PurshasedItem {
+export function createBasePurshasedItem(): PurshasedItem {
   return { id: 0, props: undefined, productId: undefined };
 }
 
@@ -148,7 +148,7 @@ export const PurshasedItem = {
   },
 };
 
-function createBasePurshase(): Purshase {
+export function createBasePurshase(): Purshase {
   return { id: 0, items: [], userId: undefined, paymentId: undefined, createdAt: undefined, updatedAt: undefined };
 }
 
