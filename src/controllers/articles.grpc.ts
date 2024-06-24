@@ -7,7 +7,7 @@ import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 import {isEmpty} from "../helpers";
-//import {transformDate} from "../grpc/util";
+import * as grpcPromise from 'grpc-promise';
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
@@ -18,11 +18,13 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  
+  private clinetPromise=grpcPromise.promisifyAll(client)
+
+
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
-    this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
+   /* this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
@@ -31,7 +33,15 @@ export class GrpcArticleController {
        // console.log(resl?.articles.map(transformDate))
         res.json(resl)
      }
-    })
+    })*/
+     try
+     {
+       let resp= await  this.clientPromise.all().sendMessage(req)
+       res.jsonp(_Article.GetAllRes.toJSON(resp))
+     }
+     catch(err:any){
+       res.json(err)
+     }
   }
   
  // @AuthenticateMiddleware
