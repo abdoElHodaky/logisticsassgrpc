@@ -46,9 +46,9 @@ export class GrpcArticleController {
  // @AuthenticateMiddleware
   @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
   async store(@Req() req:Request,@Res() res:Response, @Body() carticledto:CreateArticleDto ):Promise<any>{
-    let user=req.auth
+    let user=req?.auth
     let articlecdto=carticledto
-    return await this.create(user.id,articlecdto)
+    return await this.create(user?.id,articlecdto)
 
  }
  async create( userId:number,dto:CreateArticleDto ):Promise<any>{
