@@ -6,7 +6,7 @@ import { Router } from "express";
 export const ticketsgrpc=Router()
 
 ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Ticket']
+    /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get articles via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
@@ -23,7 +23,7 @@ ticketsgrpc.get("/users/:userId/tickets",(req,res)=>{
     
 
 ticketsgrpc.post("/users/:userId/tickets",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Ticket']
+    /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to add new ticket via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
