@@ -7,7 +7,7 @@ export const productsgrpc=Router()
 
 
 productsgrpc.get("/products",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Product']
+    /* 	#swagger.tags = ['Product']
         #swagger.description = 'Endpoint to get products via grpc'
         
         */
@@ -17,7 +17,7 @@ productsgrpc.get("/products",(req,res)=>{
     
 
 productsgrpc.post("/products",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Product']
+    /* 	#swagger.tags = ['Product']
         #swagger.description = 'Endpoint to add new product via grpc' 
         #swagger.requestBody = {
             required: true,
@@ -36,7 +36,7 @@ productsgrpc.post("/products",({body},res)=>{
 })
 
 productsgrpc.post("/products/subscribe",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Product']
+    /* 	#swagger.tags = ['Product']
         #swagger.description = 'Endpoint to subscribe in product via grpc' 
         #swagger.requestBody = {
             required: true,
