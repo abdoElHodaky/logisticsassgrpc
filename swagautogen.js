@@ -9,8 +9,6 @@ const config = {
     },
     tags: [
     {
-        name:"Auth"
-    {
         name:"Auth",description:"authentication endpoints via grpc"
     },
     {
