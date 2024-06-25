@@ -24,7 +24,7 @@ export class GrpcArticleController {
     const req:_Article.GetAllReq={}
 
    const all=promisify(this.client.all)
-    console.log(await all(req,new Metadata()))
+    console.log(await all(req))
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
