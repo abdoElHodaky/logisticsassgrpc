@@ -2,7 +2,7 @@ import { Router } from "express";
 export const supticketsroute=Router()
 supticketsroute.get("/suptickets",(req,res)=>{
         console.log(req)
-/* 	#swagger.tags = ['GRPC.suptickets']
+/* 	#swagger.tags = ['suptickets']
 
         #swagger.description = 'Endpoint to get tickets' 
     */
@@ -14,7 +14,7 @@ supticketsroute.get("/suptickets",(req,res)=>{
     }).catch(console.log)*/
 })
 supticketsroute.post("/suptickets",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.suptickets']
+    /* 	#swagger.tags = ['suptickets']
         #swagger.description = 'Endpoint to create tickets for specific user'
         #swagger.requestBody = {
             required: true,
