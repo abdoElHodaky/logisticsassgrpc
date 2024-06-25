@@ -18,8 +18,10 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  private clientPromise=grpcPromise.promisifyAll(this.client)
-
+  private clientPromise:any
+  constructor() {
+    this.clientPromise=grpcPromise.promisifyAll(this.client)
+  }
 
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
