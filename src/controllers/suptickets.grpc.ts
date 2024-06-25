@@ -54,7 +54,8 @@ export class GrpcSupTicketController {
     }
   
   async create(supticketreq:_Ticket.CreateTicketReq):Promise<void>{
-    
+   
+    const client=this.client
     return new Promise((resolve,reject)=>{
     try{
       
