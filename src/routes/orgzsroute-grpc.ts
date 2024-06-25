@@ -3,7 +3,7 @@ import { Router } from "express";
 export const orgzsrpc=Router()
 
 orgzsrpc.get("/orgzs",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Organization']
+    /* 	#swagger.tags = ['Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
         #swagger.parameters["ownerId"] = {
             required:false,
@@ -16,7 +16,7 @@ orgzsrpc.get("/orgzs",(req,res)=>{
 })
 
 orgzsrpc.post("/orgzs",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Organization']
+    /* 	#swagger.tags = ['Organization']
         #swagger.description = 'Endpoint to get payments via grpc' 
         
        #swagger.requestBody = {
