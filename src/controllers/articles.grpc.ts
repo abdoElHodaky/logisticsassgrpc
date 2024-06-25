@@ -47,22 +47,22 @@ export class GrpcArticleController {
   
  // @AuthenticateMiddleware
   @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
-  async store(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<any>{
+  async store(@Req() req:Request,@Res() res:Response, @Body() carticledto:CreateArticleDto ):Promise<any>{
     let user=req.auth
-    let articlecdto=createarticledto
-   
+    let articlecdto=carticledto
+    return await this.create(user.id,articlecdto)
 
  }
- async create(/*@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto */):Promise<any>{
+ async create( userId:number,dto:CreateArticleDto ):Promise<any>{
      
      const client=this.client
     return new Promise((resolve,reject)=>{
     try{
     // if(user instanceof User){
-      const _article= _Article.Article.fromJSON(articlecdto)
-      _article.userId=user.id
+      const _article= _Article.Article.fromJSON(dto)
+   
        let article:_Article.CreateReq={
-         userId:user.id,
+         userId:userId,
          article:_article
        }
       // res.jsonp(article)
