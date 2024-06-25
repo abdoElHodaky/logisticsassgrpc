@@ -4,7 +4,7 @@ import { Router } from "express";
 export const purshasesgrpc=Router()
 
 purshasesgrpc.get("/purshases",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Purshase']
+    /* 	#swagger.tags = ['Purshase']
         #swagger.description = 'Endpoint to get purshases via grpc'
         
         */
@@ -12,7 +12,7 @@ purshasesgrpc.get("/purshases",(req,res)=>{
 })
 
 purshasesgrpc.post("/purshases",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Purshase']
+    /* 	#swagger.tags = ['Purshase']
         #swagger.description = 'Endpoint to create in purshase via grpc' 
         #swagger.requestBody = {
             required: true,
