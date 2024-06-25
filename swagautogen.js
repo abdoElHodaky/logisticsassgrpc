@@ -33,28 +33,28 @@ const config = {
        description:'tickets endpoints'
     },*/
     {
-        name:"GRPC.Auth",description:"authentication endpoints via grpc"
+        name:"Auth",description:"authentication endpoints via grpc"
     },
     {
-        name:"GRPC.Article",description:"articles endpoints via grpc"
+        name:"Article",description:"articles endpoints via grpc"
     },{
-        name:"GRPC.Author",description:"authors endpoints via grpc"
+        name:"Author",description:"authors endpoints via grpc"
     },{
-        name:"GRPC.User",description:"users endpoints via grpc"
+        name:"User",description:"users endpoints via grpc"
     },{
-        name:"GRPC.User.Ticket",description:"users' tickets endpoints via grpc"
+        name:"User.Ticket",description:"users' tickets endpoints via grpc"
       },
     {
-        name:"GRPC.User.Payment",description:"users' payments endpoints via grpc"
+        name:"User.Payment",description:"users' payments endpoints via grpc"
       },
       {
-        name:"GRPC.User.Organization",description:"owners' orgzs endpoints via grpc"
+        name:"User.Organization",description:"owners' orgzs endpoints via grpc"
       },
       {
-        name:"GRPC.Organization",description:"organizations endpoints via grpc"
+        name:"Organization",description:"organizations endpoints via grpc"
       },
       {
-        name:"GRPC.Purshase",description:"purshases' orgzs endpoints via grpc"
+        name:"Purshase",description:"purshases' orgzs endpoints via grpc"
       },
     ],
     host: '',
