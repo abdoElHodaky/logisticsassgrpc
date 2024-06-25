@@ -6,7 +6,7 @@ import { AppDataSource } from "../_datasource";
 export const authorsgrpc=Router()
 
 authorsgrpc.get("/authors",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.Author']
+    /* 	#swagger.tags = ['Author']
         #swagger.description = 'Endpoint to get authors via grpc' */
   let users; 
     AppDataSource.manager.find(User).then(console.log).catch(console.log)
@@ -15,7 +15,7 @@ authorsgrpc.get("/authors",(req,res)=>{
     
 
 authorsgrpc.post("/authors",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Author']
+    /* 	#swagger.tags = ['Author']
         #swagger.description = 'Endpoint to add new author via grpc' 
         #swagger.requestBody = {
             required: true,
