@@ -37,9 +37,9 @@ export class GrpcArticleController {
        // console.log(resl?.articles.map(transformDate))
         Promise.resolve(resl)
      }
-     return Promise
+     
     })
-       
+     return Promise
       
   }
   
