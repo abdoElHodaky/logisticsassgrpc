@@ -18,13 +18,13 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  private clientPromise=grpcPromise.promisifyAll(GrpcArticleController.client)
+  private clientPromise=grpcPromise.promisifyAll(this.client)
 
 
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
-   /* this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
+    this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
@@ -33,11 +33,11 @@ export class GrpcArticleController {
        // console.log(resl?.articles.map(transformDate))
         res.json(resl)
      }
-    })*/
+    })
        console.log(this.clientPromise.all())
        this.clientPromise.all().sendMessage(req).
        then(console.log).
-       catch(res.json)
+       catch(console.log)
       
   }
   
