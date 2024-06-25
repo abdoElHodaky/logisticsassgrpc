@@ -22,7 +22,7 @@ export class ArticleSubscriber implements EntitySubscriberInterface<Article> {
   async afterInsert(event:InsertEvent<Article>){
      const {entity,manager} =event
      entity.author?.articles.push(entity)
-     await manager.save(Author,entity.author)
+    // await manager.save(Author,entity.author)
 
     }
 
