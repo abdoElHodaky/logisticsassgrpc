@@ -24,7 +24,7 @@ export class GrpcArticleController {
     const req:_Article.GetAllReq={}
 
   // const resp=await this.promisedClient.allAsync()
-    console.log(await this.promisedClient.allAsync(req,{},{}))
+    console.log(await this.promisedClient.allAsync(req,null,null))
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
