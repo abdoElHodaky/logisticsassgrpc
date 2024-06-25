@@ -14,7 +14,7 @@ const address = "localhost:"+Env.GRPCSONEPORT
 const grpcPromise=require("grpc-promise")
 @Controller("/articles")
 export class GrpcArticleController {
- static client =new _Article.ArticleServiceClient(
+ private client =new _Article.ArticleServiceClient(
     address,
     credentials.createInsecure()
   )
