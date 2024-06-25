@@ -7,7 +7,7 @@ import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 import {isEmpty} from "../helpers";
-import {promisifyAll} from 'bluebird';
+import {promisify} from 'util';
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
@@ -18,13 +18,13 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  private promisedClient=promisifyAll(this.client)
+ // private promisedClient=promisifyAll(this.client)
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
 
-  // const resp=await this.promisedClient.allAsync()
-    console.log(await this.promisedClient.allAsync(req,new Metadata(),null))
+   const all=promisify(this.client.all)
+    console.log(await all(req,new Metadata()))
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
