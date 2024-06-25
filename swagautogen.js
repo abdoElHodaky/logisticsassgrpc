@@ -8,30 +8,8 @@ const config = {
         description: '',
     },
     tags: [
-   /* {
-        name:"Auth",
-        description:"Authentication"
-    },
     {
-        name:"Attachment",
-        description:"Attachment endpoints"
-    },
-    {
-      name: 'User',
-      description: 'users endpoints'
-    },
-    {
-      name: 'Author',
-      description: 'authors endpoints'
-    },
-    {
-        name:'Article',
-        description:'articles endpoints'
-    },
-    {
-       name:'suptickets',
-       description:'tickets endpoints'
-    },*/
+        name:"Auth"
     {
         name:"Auth",description:"authentication endpoints via grpc"
     },
