@@ -20,7 +20,9 @@ export class PurshaseSubscriber implements EntitySubscriberInterface<Purshase> {
            entity.subTotal+=item?.product.price
            return acc
           })
+          entity?.user.purchases.push(entity)
           await manager.save(Purshase,entity)
+          
        }
         
     }
