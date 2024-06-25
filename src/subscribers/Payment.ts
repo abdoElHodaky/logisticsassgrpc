@@ -22,7 +22,7 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
   async afterInsert(event:InsertEvent<Payment>){
      const {entity,manager} =event
      entity.user?.payments.push(entity)
-     await manager.save(User,entity.user)
+    // await manager.save(User,entity.user)
 
     }
 
