@@ -23,7 +23,7 @@ export class GrpcArticleController {
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
 
-   const resp=await this.promisedClient.allAsync(req)
+   const resp=await this.promisedClient.allAsync()
     console.log(_Article.GetAllRes.toJSON(resp))
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
