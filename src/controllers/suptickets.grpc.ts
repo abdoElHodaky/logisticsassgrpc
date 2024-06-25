@@ -41,13 +41,7 @@ export class GrpcSupTicketController {
   
   @Post("",[AuthenticateMiddleware])
   async store(@Req() req:Request, @Body() supticket:{type:string,subject:string,description:string}):Promise<any>{
-    
-  }
-  async create():Promise<void>{
     const {auth}=req
-    const empty=isEmpty(supticket)
-    try{
-    if(empty==false){
     const supticketreq:_Ticket.CreateTicketReq={  
       userId:auth?.id.toString(),
       ticket:_Ticket.Ticket.fromJSON({
@@ -55,19 +49,28 @@ export class GrpcSupTicketController {
         subject:supticket.subject,
         description:supticket.description
       })
+      return await this.create(supticketreq)
     }
-    this.client.create(supticketreq,(err:any,resp:_Ticket.CreateTicketRes)=>{
+  }
+  async create(supticketreq:_Ticket.CreateTicketReq):Promise<void>{
+    
+    return new Promise((resolve,reject)=>{
+    try{
+      
+    client.create(supticketreq,(err:any,resp:_Ticket.CreateTicketRes)=>{
       if (err) {
-      res.jsonp(err);
-        console.error(err)
+      reject(err)
     } else {
-       res.json(resp)
+       resolve(resp)
      }
     })
-    }
-    else{ throw new Error("Argument(s) is/are empty or not existed") }
-  }catch(err:any){  
+    }catch(err:any){  
      res.jsonp({message:err?.message})
    }
-}
+      
+    });
+    
+  }
+
+
 }
