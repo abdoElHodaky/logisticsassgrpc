@@ -1,4 +1,4 @@
-import { credentials } from "@grpc/grpc-js";
+import { credentials,Metadata } from "@grpc/grpc-js";
 import {_Article } from "../protos/dist/";
 import {CreateArticleDto,validatorDto} from "../dto/";
 import { User} from "../entity/";
@@ -24,7 +24,7 @@ export class GrpcArticleController {
     const req:_Article.GetAllReq={}
 
   // const resp=await this.promisedClient.allAsync()
-    console.log(await this.promisedClient.allAsync(req,null,null))
+    console.log(await this.promisedClient.allAsync(req,null as Metadata,null))
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
