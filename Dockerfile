@@ -6,7 +6,7 @@ COPY . .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor sudo
 RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 RUN npm cache clean --force
-RUN  yarn add chalk redis-url mariadb bluebird  && npm install pm2 npm-run-all -g
+RUN  yarn add chalk redis-url mariadb bluebird @types/bluebird && npm install pm2 npm-run-all -g
 #RUN yarn add ts-node-dev --dev
 RUN yarn install -y
 ENV GRPCSTWOPORT 3030
