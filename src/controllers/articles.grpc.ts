@@ -47,16 +47,18 @@ export class GrpcArticleController {
   
  // @AuthenticateMiddleware
   @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
-  async create(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<void>{
-     let user=req.auth
-     let articlecdto=createarticledto
-     const empty=isEmpty(articlecdto)
-     const errors=await validatorDto(CreateArticleDto,createarticledto)
-     console.log(empty)
+  async store(@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto ):Promise<any>{
+    let user=req.auth
+    let articlecdto=createarticledto
+   
+
+ }
+ async create(/*@Req() req:Request,@Res() res:Response, @Body() createarticledto:CreateArticleDto */):Promise<any>{
+     
+     const client=this.client
+    return new Promise((resolve,reject)=>{
     try{
-    if(errors.length==0){
-    try{
-     if(user instanceof User){
+    // if(user instanceof User){
       const _article= _Article.Article.fromJSON(articlecdto)
       _article.userId=user.id
        let article:_Article.CreateReq={
@@ -64,30 +66,22 @@ export class GrpcArticleController {
          article:_article
        }
       // res.jsonp(article)
-       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+       client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
-         res.jsonp(err);
-        console.error(err)
+         reject(err)
         } else {
-          res.json(resp)
+          resolve(_Article.CreateRes.toJSON(resp))
          }
     })
-       }
-       else {res.json({message:"error"})}
+       //}
+       //else {res.json({message:"error"})}
       
      } catch(err:any){
       console.log(err)
-      //const error=new Error("Argument(s) is/are empty or not existed",err)
-      res.status(400).jsonp({message:err?.message})
-     }
-    }
-    else {
-      throw new Error("Argument(s) is/are empty or not existed")
       
-    }
-    }catch(err:any){
-      res.status(400).jsonp({message:err?.message})
-    }
+     }
+    });
+    
  
   }
   
