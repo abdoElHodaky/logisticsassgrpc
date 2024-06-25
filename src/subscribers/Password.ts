@@ -16,6 +16,6 @@ export class PasswordSubscriber implements EntitySubscriberInterface<Password> {
         const {entity,manager} =event
         entity.user.passwordHash=entity.passphase
         entity.user.passwords.push(entity)
-        await manager.save(User,entity)
+       // await manager.save(User,entity)
     }
 }
