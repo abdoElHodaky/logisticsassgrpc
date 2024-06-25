@@ -6,7 +6,7 @@ import { Router } from "express";
 export const authgrpc=Router()
 
 authgrpc.post("/auth/login",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Auth']
+    /* 	#swagger.tags = ['Auth']
         #swagger.description = 'Endpoint to authenticate via grpc'
         #swagger.requestBody = {
             required: true,
@@ -24,7 +24,7 @@ authgrpc.post("/auth/login",({body},res)=>{
     
 
 authgrpc.post("/auth/register",({body},res)=>{
-    /* 	#swagger.tags = ['GRPC.Auth']
+    /* 	#swagger.tags = ['Auth']
         #swagger.description = 'Endpoint to add new user via grpc' 
         #swagger.requestBody = {
             required: true,
