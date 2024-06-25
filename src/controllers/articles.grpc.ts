@@ -14,11 +14,11 @@ const address = "localhost:"+Env.GRPCSONEPORT
 const grpcPromise=require("grpc-promise")
 @Controller("/articles")
 export class GrpcArticleController {
-  private client =new _Article.ArticleServiceClient(
+ static client =new _Article.ArticleServiceClient(
     address,
     credentials.createInsecure()
   )
-  private clientPromise=grpcPromise.promisifyAll(this.client)
+  private clientPromise=grpcPromise.promisifyAll(GrpcArticleController.client)
 
 
   @Get("")
