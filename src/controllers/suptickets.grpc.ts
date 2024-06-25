@@ -49,6 +49,7 @@ export class GrpcSupTicketController {
         subject:supticket.subject,
         description:supticket.description
       })
+      }
       return await this.create(supticketreq)
     }
   
