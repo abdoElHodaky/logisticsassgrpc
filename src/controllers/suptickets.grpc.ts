@@ -51,7 +51,7 @@ export class GrpcSupTicketController {
       })
       return await this.create(supticketreq)
     }
-  }
+  
   async create(supticketreq:_Ticket.CreateTicketReq):Promise<void>{
     
     return new Promise((resolve,reject)=>{
@@ -65,7 +65,7 @@ export class GrpcSupTicketController {
      }
     })
     }catch(err:any){  
-     res.jsonp({message:err?.message})
+     reject(err)
    }
       
     });
