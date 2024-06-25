@@ -18,14 +18,17 @@ export class GrpcArticleController {
     address,
     credentials.createInsecure()
   )
-  private clientPromise:any
-  constructor() {
-    this.clientPromise=grpcPromise.promisifyAll(this.client)
-  }
+  private clientPromise:any=grpcPromise.promisifyAll(this.client)
 
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
+
+   console.log(this.clientPromise.all())
+       this.clientPromise.all().sendMessage(req).
+       then(console.log).
+       catch(console.log)
+   
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
       res.jsonp(err);
@@ -36,10 +39,7 @@ export class GrpcArticleController {
         res.json(resl)
      }
     })
-       console.log(this.clientPromise.all())
-       this.clientPromise.all().sendMessage(req).
-       then(console.log).
-       catch(console.log)
+       
       
   }
   
@@ -62,14 +62,14 @@ export class GrpcArticleController {
          article:_article
        }
       // res.jsonp(article)
-      /* this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
+       this.client.create(article,(err:any,resp:_Article.CreateRes)=>{
          if (err) {
          res.jsonp(err);
         console.error(err)
         } else {
           res.json(resp)
          }
-    })*/
+    })
        }
        else {res.json({message:"error"})}
       
