@@ -11,20 +11,19 @@ import {isEmpty} from "../helpers";
 import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
-const grpcPromise=require("grpc-promise")
+
 @Controller("/articles")
 export class GrpcArticleController {
  private client =new _Article.ArticleServiceClient(
     address,
     credentials.createInsecure()
   )
-  private clientPromise:any=grpcPromise.promisifyAll(this.client)
-
+  
   @Get("")
   async all(@Res() res:Response ):Promise<void>{
     const req:_Article.GetAllReq={}
 
-   console.log(this.clientPromise)
+   
        
     this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
