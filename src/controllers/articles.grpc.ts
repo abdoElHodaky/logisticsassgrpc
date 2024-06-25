@@ -26,20 +26,22 @@ export class GrpcArticleController {
  
   async all():Promise<any>{
     const req:_Article.GetAllReq={}
+    const client=this.client
+    return new Promise((resolve,reject)=>{
 
- //  const all=promisify(this.client.all)
-  //  console.log(await all(req))
-    this.client.all(req,(err:any,resp:_Article.GetAllRes)=>{
+     client.all(req,(err:any,resp:_Article.GetAllRes)=>{
       if (err) {
-      Promise.reject(err)
+      reject(err)
     } else {
         const resl=_Article.GetAllRes.toJSON(resp)
        // console.log(resl?.articles.map(transformDate))
-        Promise.resolve(resl)
+        resolve(resl)
      }
      
     })
-     return Promise
+    })
+    
+     
       
   }
   
