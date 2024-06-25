@@ -18,26 +18,32 @@ export class GrpcSupTicketController {
   )
   
   @Get("")
-  async all(@Res() res:Response ):Promise<void>{
+  async index():Promise<any>{
+    return await this.all()
+  }
+  async all( ):Promise<any>{
    // console.log("89")
     const req:_Ticket.GetAllTicketReq={  
       userId:"0"
     }
-    console.log(req)
-    this.client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
+    const client=this.client
+    return new Promise((resolve,reject)=>{
+    client.all(req,(err:any,resp:_Ticket.GetAllTicketRes)=>{
       if (err) {
-      res.jsonp(err);
-        console.error(err)
+      reject(err)
     } else {
         const resl=_Ticket.GetAllTicketRes.toJSON(resp)
-        
-        res.json(resl)
+        resolve(resl)
      }
     })
+     })
   }
   
   @Post("",[AuthenticateMiddleware])
-  async create(@Req() req:Request, @Res() res:Response, @Body() supticket:{type:string,subject:string,description:string}):Promise<void>{
+  async store(@Req() req:Request, @Body() supticket:{type:string,subject:string,description:string}):Promise<any>{
+    
+  }
+  async create():Promise<void>{
     const {auth}=req
     const empty=isEmpty(supticket)
     try{
