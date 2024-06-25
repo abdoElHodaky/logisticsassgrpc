@@ -9,14 +9,14 @@ export const userspayrpc=Router()
 export const usersorgzsrpc=Router()
 
 usersgrpc.get("/users",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User']
+    /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get authors via grpc' */
 
 })
 
 
 megrpc.get("/me",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User']
+    /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get profile of authenticated user'
         #swagger.security = [{
             "JWTAuth": []
@@ -27,7 +27,7 @@ megrpc.get("/me",(req,res)=>{
 })
 
 megrpc.post("/me/changePassword",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User']
+    /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to change password of authenticated user'
         #swagger.security = [{
             "JWTAuth": []
@@ -46,7 +46,7 @@ megrpc.post("/me/changePassword",(req,res)=>{
 })
 
 userspayrpc.get("/users/:userId/payments",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Payment']
+    /* 	#swagger.tags = ['User.Payment']
         #swagger.description = 'Endpoint to get payments via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
@@ -61,7 +61,7 @@ userspayrpc.get("/users/:userId/payments",(req,res)=>{
 })
 
 usersorgzsrpc.get("/users/:userId/orgzs",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Organization']
+    /* 	#swagger.tags = ['User.Organization']
         #swagger.description = 'Endpoint to get orgzs of specific owner via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
@@ -76,7 +76,7 @@ usersorgzsrpc.get("/users/:userId/orgzs",(req,res)=>{
 })
 
 usersorgzsrpc.post("/users/:userId/orgzs",(req,res)=>{
-    /* 	#swagger.tags = ['GRPC.User.Organization']
+    /* 	#swagger.tags = ['User.Organization']
         #swagger.description = 'Endpoint to get payments via grpc' 
         #swagger.parameters['userId'] = {
             in: 'path',
