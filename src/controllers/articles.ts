@@ -2,7 +2,7 @@ import { services} from "../services/enum";
 import { Article  } from "../entity/"
 import { GrpcArticleController } from "./grpc/articles";
 import { CreateArticleDto } from "../dto/create-article.dto"
-import { Req,Res,  Controller , Get ,Post } from "@decorators/express";
+import { Req,Res, Body, Controller , Get ,Post } from "@decorators/express";
 import { Response  } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
