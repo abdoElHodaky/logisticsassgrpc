@@ -20,7 +20,7 @@ export class ArticleController {
 
   @Post("",[AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle])
 
-  async create(@Req() req:Request ,@Body() createArticleDto:CreateArticleDto):Promise<Article|void>{
+  async create(@Req() req:Request ,@Body() createArticleDto:CreateArticleDto):Promise<any>{
    
     return await this.grpcC.create(req?.auth?.id,createArticleDto)
     
