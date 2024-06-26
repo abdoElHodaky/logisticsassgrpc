@@ -27,10 +27,10 @@ message PaymentResult{
   optional google.protobuf.Any result=2;
 }
 
-message CreatePayReq{
- Payment payment=1;
+message CreatePaymentReq{
+ int32 purshaseId=1;
 }
-message CreatePayRes{
+message CreatePaymentRes{
 Payment payment=1;
 }
 
@@ -50,5 +50,6 @@ message GetPayResultRes{
 service PaymentService {
 
  rpc all(GetAllPayReq) returns (GetAllPayRes);
+ rpc create(CreatePaymentReq)returns(CreatePaymentRes);
  rpc result(GetPayResultReq) returns (GetPayResultRes);
 }
