@@ -12,14 +12,14 @@ import { Error} from "common-errors";
 import {Env} from "../env";
 const address = "localhost:"+Env.GRPCSONEPORT
 
-@Controller("/articles")
+//@Controller("/articles")
 export class GrpcArticleController {
  private client =new _Article.ArticleServiceClient(
     address,
     credentials.createInsecure()
   )
 
- @Get("")
+// @Get("")
  async index():Promise<any>{
    return await this.all()
  }
@@ -44,8 +44,8 @@ export class GrpcArticleController {
   }
   
  // @AuthenticateMiddleware
-  @Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
-  async store(@Req() req:Request,@Res() res:Response, @Body() carticledto:CreateArticleDto ):Promise<any>{
+  //@Post("",[AuthenticateMiddleware,AuthorMiddleware , ValidatedCreatedArticle  ])
+  async store(@Req() req:Request, @Body() carticledto:CreateArticleDto ):Promise<any>{
     let user=req?.auth
     let articlecdto=carticledto
     return await this.create(user?.id,articlecdto)
