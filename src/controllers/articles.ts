@@ -1,9 +1,10 @@
 import { services} from "../services/enum";
 import { Article  } from "../entity/"
-import { GrpcArticleController } from "./articles.grpc";
+import { GrpcArticleController } from "./grpc/articles";
 import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body } from '@decorators/express';
-import { Response ,Request} from "express"
+import { Response } from "express";
+import { Request } from "express-jwt";
+import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 
 
 @Controller('/articles')
@@ -18,8 +19,9 @@ export class ArticleController {
    return await  this.grpcC.all()
   }
 
-  @Post("")
-  async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto):Promise<Article|void>{
+  @Post("",[AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle])
+
+  async create(@Req() req:Request ,@Body() createArticleDto:CreateArticleDto):Promise<Article|void>{
    
     return await this.grpcC.create(req?.auth?.id,createArticleDto)
     
