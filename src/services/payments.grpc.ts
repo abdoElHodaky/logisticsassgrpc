@@ -3,7 +3,8 @@ import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryC
 import  {_Payment} from "../protos/dist/";
 import {PaymentService} from "./";
 import { Payment} from "../entity/";
-
+import {plainToClass} from "class-transformer";
+import {CreatePaymentDto} from "../dto/";
 export class PaymentGrpcService  {
   
 // @Service("Ticket")
@@ -43,18 +44,17 @@ export class PaymentGrpcService  {
      
       },
     async create (
-    call: ServerUnaryCall<_Payment.CreatePayReq,_Payment.CreatePayRes>,
-    callback: sendUnaryData<_Payment.CreatePayRes>
+    call: ServerUnaryCall<_Payment.CreatePaymentReq,_Payment.CreatePaymentRes>,
+    callback: sendUnaryData<_Payment.CreatePaymentRes>
   ){
-     //  let {userId,product}=call.request
-       
-      // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
-       let _product=await PaymentGrpcService.service.create(_Payment.CreatePayReq.toJSON(call.request))
-       if(_product instanceof Payment){
-        const product=_Payment.Payment.fromJSON(_product)
-         product.userId=call.request?.userId
+     let dto=plainToClass(CreatePaymentDto,_Payment.CreatePaymentReq.toJSON(call.request))
+      
+      let _payment=await PaymentGrpcService.service.create(dto)
+       if(_payment instanceof Payment){
+        const payment=_Payment.Payment.fromJSON(_payment)
+         payment.userId=call.request?.userId
          callback(null,{
-           payment:product
+           payment:payment
          })
        }
       else{
