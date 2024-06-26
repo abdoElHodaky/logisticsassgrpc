@@ -29,6 +29,7 @@ message PaymentResult{
 
 message CreatePaymentReq{
  int32 purshaseId=1;
+ optional int32 userId=2;
 }
 message CreatePaymentRes{
 Payment payment=1;
