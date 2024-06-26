@@ -40,6 +40,7 @@ export class PaymentService extends _Data {
     const payment = new Payment()
     payment.purchase=purchase
     payment.status=PaymentStatus.PAYMENT_PENDING
+    payment.user=purchase.user
     return await this.em.save(Payment,payment)
    
  }
