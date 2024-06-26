@@ -25,7 +25,7 @@ export class PurshaseController {
   @Get("",[])
   async all(@Req() req:Request, @Res() res:Response):Promise<void>{
     const allrequest:_Purshase.GetAllPurshaseReq={
-      userId:0
+      userId:(req?.auth)? req?.auth?.id:0
     }
     this.client.all(allrequest,(err,resp:_Purshase.GetAllPurshaseRes)=>{
         if (err) res.jsonp(err)
