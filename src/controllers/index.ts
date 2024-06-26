@@ -1,4 +1,4 @@
-import {GrpcArticleController} from "./articles.grpc";
+import {ArticleController} from "./articles";
 import {GrpcUserTicketController} from "./users-tickets.grpc";
 import {GrpcAuthController} from "./auth.grpc";
 import {GrpcAuthorController} from "./authors.grpc";
