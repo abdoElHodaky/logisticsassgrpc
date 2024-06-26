@@ -20,6 +20,9 @@ optional string date=3;
  Address address=7;
  optional string transR=8;
  int32 userId=9;
+ optional google.protobuf.Timestamp created_at=10;
+ optional google.protobuf.Timestamp updated_at=10;
+
 }
 
 message PaymentResult{
