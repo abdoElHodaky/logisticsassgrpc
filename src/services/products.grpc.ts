@@ -1,9 +1,10 @@
 import "reflect-metadata";
 import { sendUnaryData, ServerUnaryCall, status, UntypedHandleCall ,handleUnaryCall} from "@grpc/grpc-js";
-import  {_Product} from "../protos/dist/";
+import  {_Product,_Subscription} from "../protos/dist/";
 import {ProductService} from "./";
-import { Product } from "../entity/";
-
+import { Product,Subscription } from "../entity/";
+import {plainToClass} from "class-transformer";
+import {CreateSubscriptionDto,CreateProductDto} from "../dto/";
 export class ProductGrpcService  {
   
 // @Service("Ticket")
@@ -42,10 +43,8 @@ export class ProductGrpcService  {
     call: ServerUnaryCall<_Product.CreateProductReq,_Product.CreateProductRes>,
     callback: sendUnaryData<_Product.CreateProductRes>
   ){
-     //  let {userId,product}=call.request
-       
-      // const supticket=_Product.Product.toJSON((product!=undefined)?product:_Product.createBaseProduct())
-       let _product=await ProductGrpcService.service.create(_Product.CreateProductReq.toJSON(call.request))
+       const dto=plainToClass(CreateProductDto,_Product.CreateProductReq.toJSON(call.request))
+       let _product=await ProductGrpcService.service.create(dto)
        if(_product instanceof Product){
         const product=_Product.Product.fromJSON(_product)
          product.userId=call.request?.userId
@@ -63,6 +62,23 @@ export class ProductGrpcService  {
       call: ServerUnaryCall<_Product.SubscribeProductReq,_Product.SubscribeProductRes>,
       callback: sendUnaryData<_Product.SubscribeProductRes>)
     {
+      const dto=plainToClass(CreateSubscriptionDto,_Product.SubscribeProductReq.toJSON(call.request))
+      let subscription=await ProductGrpcService.service.subscribe(dto)
+      if(subscription instanceof Subscription){
+        const _subscription=_Subscription.Subscription.fromJSON(subscription)
+         _subscription.userId=call.request?.userId
+         _subscription.productsIds=subscription.products.map(p=>p.id)
+         callback(null,{
+           userId:call.request?.userId,
+           subscription:_subscription
+         })
+       }
+      else{
+        callback(null,{
+           userId:call.request?.userId,
+           subscription:_Subscription.createBaseSubscription()
+         })
+      } 
       
     },
     async allSubscriptions(
