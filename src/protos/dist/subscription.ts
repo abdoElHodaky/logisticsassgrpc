@@ -26,7 +26,7 @@ export interface CreateSubscriptionReq {
 export interface CreateSubscriptionRes {
 }
 
-function createBaseSubscription(): Subscription {
+export function createBaseSubscription(): Subscription {
   return { id: 0, productsIds: [], userId: 0, createdAt: undefined, renewalAt: undefined, updatedAt: undefined };
 }
 
