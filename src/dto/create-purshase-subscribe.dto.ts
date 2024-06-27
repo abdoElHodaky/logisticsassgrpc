@@ -1,5 +1,6 @@
 import { IsNotEmpty,IsArray} from "class-validator";
 export class CreatePurshaseDto {
+   
    @IsNotEmpty()
    userId:string
    @IsArray()
@@ -7,6 +8,10 @@ export class CreatePurshaseDto {
 }
 
 export class CreateSubscriptionDto {
-  userId:string
-  itemsIds:Array<number>
+   
+   @IsNotEmpty()
+   readonly userId:string
+
+   @IsArray()
+   readonly itemsIds:Array<number>
 }
