@@ -29,17 +29,18 @@ async create(dto:CreateProductDto ):Promise<Product|void>{
 async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
   const {itemsIds,userId}=dto
   const products=itemsIds.map(async (id:number):Promise<Product> =>{
-     return await this.em.findOneOrFail(Product,{
+     const p= await this.em.findOneOrFail(Product,{
        where:{id:id}
      })
+    return p
   })
  let subscription=new Subscription()
  const subscriber= await this.em.findOneOrFail(Subscriber,{
    where:{id:parseInt(userId)}
  })
-  products.forEach(async (p:Product)=>{
-   await subscription.products.push(p)
-   await p.subscriptions.push(subscription)
+  products.forEach( (p:Product)=>{
+    subscription.products.push(p)
+    p.subscriptions.push(subscription)
   })
   subscription.user=subscriber
   return await this.em.save(Subscription,subscription)
