@@ -35,6 +35,7 @@ async subscribe(dto:CreateSubscriptionDto):Promise<any>{
      })
   })
  let subscription=new Subscription()
+  subscription.products.push(...products)
 }
 
   
