@@ -37,9 +37,9 @@ async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
  const subscriber= await this.em.findOneOrFail(Subscriber,{
    where:{id:parseInt(userId)}
  })
-  products.forEach((p:Product)=>{
-    subscription.products.push(p)
-    p.subscriptions.push(subscription)
+  products.forEach(async (p:Product)=>{
+   await subscription.products.push(p)
+   await p.subscriptions.push(subscription)
   })
   subscription.user=subscriber
   return await this.em.save(Subscription,subscription)
