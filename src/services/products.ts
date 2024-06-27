@@ -3,8 +3,7 @@ import { Product ,User ,Subscription} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreateProductDto,CreateSubscriptionDto   } from "../dto/"
-import { UserService} from "./users";
-//@Injectable()
+
 export class ProductService extends _Data {
   constructor (){
       super()
@@ -35,13 +34,14 @@ async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
      })
   })
  let subscription=new Subscription()
- const subscriber= await (new UserService()).id(dto.userId)
+ const subscriber= await this.em.findOneOrFail(User,{
+   where:{id:parseInt(id)}
+ })
   products.forEach((p:Product)=>{
     subscription.products.push(p)
     p.subscriptions.push(subscription)
   })
   subscription.subscriber=subscriber
-  subscriber.subscriptions.push(subscription)
   return await this.em.save(Subscription,subscription)
 }
   
