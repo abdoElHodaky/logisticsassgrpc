@@ -2,8 +2,8 @@ import { _Data } from "./datasource";
 import { Product ,User } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
-import { CreateProductDto } from "../dto/"
-
+import { CreateProductDto,CreateSubscriptionDto   } from "../dto/"
+import { UserService} from "./users";
 //@Injectable()
 export class ProductService extends _Data {
   constructor (){
@@ -24,9 +24,18 @@ export class ProductService extends _Data {
   }
 
 async create(dto:CreateProductDto ):Promise<Product|void>{
-   const product=await this.datasource.manager.create(Product,dto)
+   const product=await this.em.create(Product,dto)
    return product
  }
+async subscribe(dto:CreateSubscriptionDto):Promise<any>{
+  const {itemsIds}=dto
+  const products=itemsIds.map(async (id:number)=>{
+     return await this.em.findOneOrFail(Product,{
+       where:{id:id}
+     })
+  })
+ let subscription=new Subscription()
+}
 
   
 }
