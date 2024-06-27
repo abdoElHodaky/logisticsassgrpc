@@ -58,7 +58,7 @@ export class GrpcProductController {
     
   }
   
-  @Post("subscribe",[AuthenticateMiddleware,ValidatedCreatedProduct])
+  @Post("/subscribe",[AuthenticateMiddleware,ValidatedCreatedProduct])
   async subscribe(@Req() req:Request,@Body() dto:CreateSubscriptionDto,  @Res() res:Response):Promise<void>{
     const {auth}=req
     
