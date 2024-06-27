@@ -28,7 +28,7 @@ async create(dto:CreateProductDto ):Promise<Product|void>{
  }
 async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
   const {itemsIds,userId}=dto
-  const products=await itemsIds.map(async (id:number)=>{
+  const products=itemsIds.map(async (id:number):Promise<Product> =>{
      return await this.em.findOneOrFail(Product,{
        where:{id:id}
      })
