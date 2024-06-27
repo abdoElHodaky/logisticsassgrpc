@@ -1,6 +1,9 @@
 import { PasswordSubscriber,PurshaseSubscriber,
-        PaymentSubscriber,ArticleSubscriber
+        PaymentSubscriber,ArticleSubscriber,
+        SubscriptionSubscriber
        } from "./";
 
 export const subscribers:any =[PasswordSubscriber, PurshaseSubscriber,
-                               PaymentSubscriber,  ArticleSubscriber ]
+                               PaymentSubscriber,  ArticleSubscriber,
+                               SubscriptionSubscriber
+                              ]
