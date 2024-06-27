@@ -41,7 +41,7 @@ async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
     subscription.products.push(p)
     p.subscriptions.push(subscription)
   })
-  subscription.subscriber=subscriber
+  subscription.user=subscriber
   return await this.em.save(Subscription,subscription)
 }
   
