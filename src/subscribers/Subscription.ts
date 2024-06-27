@@ -21,7 +21,7 @@ export class SubscriptionSubscriber implements EntitySubscriberInterface<Subscri
     
   async afterInsert(event:InsertEvent<Subscription>){
      const {entity,manager} =event
-     entity?.subscriber?.subscriptions.push(entity)
+     entity.user?.subscriptions.push(entity)
     // await manager.save(User,entity.user)
 
     }
