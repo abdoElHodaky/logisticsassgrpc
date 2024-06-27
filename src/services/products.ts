@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Product ,User ,Subscription} from "../entity/"
+import { Product ,Subscriber ,Subscription} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreateProductDto,CreateSubscriptionDto   } from "../dto/"
@@ -12,7 +12,7 @@ export class ProductService extends _Data {
   async all(userId?:number):Promise<Product[]|Error>
   {
   
-    const products= await this.datasource.manager.find(Product,{
+    const products= await this.em.find(Product,{
       where:(userId!=undefined)?{supplier:{id:userId}}:{},
       relations:{
         supplier:true
@@ -34,14 +34,14 @@ async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
      })
   })
  let subscription=new Subscription()
- const subscriber= await this.em.findOneOrFail(User,{
+ const subscriber= await this.em.findOneOrFail(Subscriber,{
    where:{id:parseInt(userId)}
  })
   products.forEach((p:Product)=>{
     subscription.products.push(p)
     p.subscriptions.push(subscription)
   })
-  subscription.user=subscriber
+  subscription.subscriber=subscriber
   return await this.em.save(Subscription,subscription)
 }
   
