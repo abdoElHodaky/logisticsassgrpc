@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Product ,User } from "../entity/"
+import { Product ,User ,Subscription} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreateProductDto,CreateSubscriptionDto   } from "../dto/"
@@ -27,7 +27,7 @@ async create(dto:CreateProductDto ):Promise<Product|void>{
    const product=await this.em.create(Product,dto)
    return product
  }
-async subscribe(dto:CreateSubscriptionDto):Promise<any>{
+async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
   const {itemsIds}=dto
   const products=itemsIds.map(async (id:number)=>{
      return await this.em.findOneOrFail(Product,{
@@ -35,8 +35,14 @@ async subscribe(dto:CreateSubscriptionDto):Promise<any>{
      })
   })
  let subscription=new Subscription()
-  subscription.products.push(...products)
+ const subscriber= await (new UserService()).id(dto.userId)
+  products.forEach((p:Product)=>{
+    subscription.products.push(p)
+    p.subscriptions.push(subscription)
+  })
+  subscription.subscriber=subscriber
+  subscriber.subscriptions.push(subscription)
+  return await this.em.save(Subscription,subscription)
 }
-
   
 }
