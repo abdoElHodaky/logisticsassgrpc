@@ -1,8 +1,8 @@
 import { credentials } from "@grpc/grpc-js";
-import { _Product } from "../protos/dist/"
+import { _Product,_Subscription } from "../protos/dist/"
 import { validatorDto } from "../dto/";
 import { AuthenticateMiddleware,ValidatedCreatedProduct } from "../middlewares/"
-import { CreateProductDto} from "../dto/";
+import { CreateProductDto,CreateSubscriptionDto} from "../dto/";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response} from "express"
 import { Request } from "express-jwt";
@@ -57,7 +57,26 @@ export class GrpcProductController {
   })
     
   }
+  
+  @Post("subscribe",[AuthenticateMiddleware,ValidatedCreatedProduct])
+  async subscribe(@Req() req:Request,@Body() dto:CreateSubscriptionDto,  @Res() res:Response):Promise<void>{
+    const {auth}=req
+    
 
+   const productreq:_Product.SubscribeProductReq=_Product.CreateProductReq.fromJSON(dto)
+     
+    this.client.create(productreq,(err:any,resp:_Product.CreateProductRes)=>{
+      if (err) {
+      res.jsonp(err);
+        console.error(err)
+    } else {
+        const resl=_Product.SubscribeProductRes.toJSON(resp)
+       // console.log(resl?.articles.map(transformDate))
+        res.json(resl)
+     }
+    })
+    
+  }
   
   
 }
