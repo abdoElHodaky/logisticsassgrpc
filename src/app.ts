@@ -46,8 +46,8 @@ app.use(
   )
 )
 app.use((error:any, req:any, res:any, next:any) => {
-  console.log(`${error}`
-  console.log('\x1b[33m Error Handling Middleware called \x1b[0m')
+  console.log(`\x1b[92m ${error} \x1b[0m`)
+  console.log('\x1b[91m Error Handling Middleware called \x1b[0m')
   console.log('\x1b[33m Path: '+ req.path+"\x1b[0m")
   next() // (optional) invoking next middleware
 })
@@ -71,7 +71,7 @@ const configureApplication = async  () => {
     console.log("Server started")
     server.start(); })*/
    app.listen(port, () => {
-	   console.log(`\x1b[33m,66m,40m Express app listening on port ${port} \x1b[0m`)
+	   console.log(`\x1b[33;66;40m Express app listening on port ${port} \x1b[0m`)
       servers.server
       servers.server2
   });
