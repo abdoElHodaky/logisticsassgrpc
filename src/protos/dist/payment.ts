@@ -21,7 +21,7 @@ import _m0 from "protobufjs/minimal";
 import { Address } from "./address";
 import { Any } from "./google/protobuf/any";
 import { Timestamp } from "./google/protobuf/timestamp";
-
+import { dateToReadable} from "../../grpc/util";
 export const protobufPackage = "";
 
 export enum PaymentStatus {
@@ -108,7 +108,7 @@ export interface GetPayResultRes {
   result?: PaymentResult | undefined;
 }
 
-function createBasePayment(): Payment {
+export function createBasePayment(): Payment {
   return {
     id: 0,
     title: undefined,
@@ -301,10 +301,10 @@ export const Payment = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt =dateToReadable( message.createdAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
     }
     return obj;
   },
