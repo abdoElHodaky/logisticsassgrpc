@@ -28,7 +28,7 @@ async create(dto:CreateProductDto ):Promise<Product|void>{
  }
 async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
   const {itemsIds,userId}=dto
-  let products:Product[];
+  let products:Product[]=[];
   itemsIds.forEach(async (id:number) =>{
      const p= await this.em.findOneOrFail(Product,{
        where:{id:id}
