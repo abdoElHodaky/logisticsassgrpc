@@ -63,7 +63,7 @@ export class GrpcProductController {
     const {auth}=req
     
 
-   const productreq:_Product.SubscribeProductReq=_Product.CreateProductReq.fromJSON(dto)
+   const productreq:_Product.SubscribeProductReq=_Product.SubscribeProductReq.fromJSON(dto)
      
     this.client.create(productreq,(err:any,resp:_Product.CreateProductRes)=>{
       if (err) {
