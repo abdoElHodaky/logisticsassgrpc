@@ -6,6 +6,7 @@ export { ProductService} from "./products";
 export { PurshaseService} from "./purchases";
 export {supTicketService} from "./suptickets";
 export {UserTicketService} from "./users.tickets";
+export { PaymentService} from "./payments";
 export {PayTabService} from "./paytabs";
 export {OrgzService} from "./orgzs";
 export {PasswordService} from "./passwords";
