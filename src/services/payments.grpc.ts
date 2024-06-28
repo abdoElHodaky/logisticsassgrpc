@@ -44,10 +44,10 @@ export class PaymentGrpcService  {
      
       },
     async create (
-    call: ServerUnaryCall<_Payment.CreatePayReq,_Payment.CreatePayRes>,
-    callback: sendUnaryData<_Payment.CreatePayRes>
+    call: ServerUnaryCall<_Payment.CreatePaymentReq,_Payment.CreatePaymentRes>,
+    callback: sendUnaryData<_Payment.CreatePaymentRes>
   ){
-     let dto=plainToClass(CreatePaymentDto,_Payment.CreatePayReq.toJSON(call.request))
+     let dto=plainToClass(CreatePaymentDto,_Payment.CreatePaymentReq.toJSON(call.request))
       
       let _payment=await PaymentGrpcService.service.create(dto)
        if(_payment instanceof Payment){
