@@ -40,8 +40,8 @@ async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
    where:{id:parseInt(userId)}
  })
   products.forEach( (p:Product)=>{
-    subscription.products.push(p)
-    p.subscriptions.push(subscription)
+    subscription?.products.push(p)
+    p?.subscriptions.push(subscription)
   })
   subscription.user=subscriber
   return await this.em.save(Subscription,subscription)
