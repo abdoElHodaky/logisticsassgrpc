@@ -62,7 +62,11 @@ export class PaymentGrpcService  {
            payment:_Payment.createBasePayment()
          })
       } 
-     }
+     },
+    async result(
+      call: ServerUnaryCall<_Payment.GetPayResultReq,_Payment.GetPayResultRes>,
+      callback: sendUnaryData<_Payment.GetPayResultRes>
+    ){}
     
   }
 
