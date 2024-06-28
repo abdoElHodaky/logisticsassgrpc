@@ -25,6 +25,6 @@ message GetAllSupscriptionRes{
  optional Error error=2;
 }
 
-service Subscription {
+service SubscriptionService {
  rpc all(GetAllSupscriptionReq) returns (GetAllSupscriptionRes);
 }
