@@ -46,9 +46,9 @@ app.use(
   )
 )
 app.use((error:any, req:any, res:any, next:any) => {
-  console.log(error)
-  console.log("Error Handling Middleware called")
-  console.log('Path: ', req.path)
+  console.log(`%c ${error}`,"color:red; font-size:6px;"
+  console.log("%c Error Handling Middleware called","color:red; font-size:8px;")
+  console.log('%c Path: '+ req.path,"color:red; font-size:10px;")
   next() // (optional) invoking next middleware
 })
 
@@ -71,7 +71,7 @@ const configureApplication = async  () => {
     console.log("Server started")
     server.start(); })*/
    app.listen(port, () => {
-	   console.log(`Express app listening on port ${port}`)
+	   console.log(`%c Express app listening on port ${port}`,"color:#568fe; font-size:10px;")
       servers.server
       servers.server2
   });
