@@ -69,13 +69,13 @@ export class ProductGrpcService  {
          _subscription.userId=call.request?.userId
          _subscription.productsIds=subscription.products.map(p=>p.id)
          callback(null,{
-           userId:call.request?.userId,
+           userId:call.request.userId,
            subscription:_subscription
          })
        }
       else{
         callback(null,{
-           userId:call.request?.userId,
+           userId:call.request.userId,
            subscription:_Subscription.createBaseSubscription()
          })
       } 
