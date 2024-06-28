@@ -65,7 +65,7 @@ export class GrpcProductController {
 
    const productreq:_Product.SubscribeProductReq=_Product.SubscribeProductReq.fromJSON(dto)
      
-    this.client.create(productreq,(err:any,resp:_Product.SubscribeProductRes)=>{
+    this.client.subscribe(productreq,(err:any,resp:_Product.SubscribeProductRes)=>{
       if (err) {
       res.jsonp(err);
         console.error(err)
