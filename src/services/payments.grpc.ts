@@ -52,7 +52,7 @@ export class PaymentGrpcService  {
       let _payment=await PaymentGrpcService.service.create(dto)
        if(_payment instanceof Payment){
         const payment=_Payment.Payment.fromJSON(_payment)
-         payment.userId=call.request?.userId
+         payment.userId=dto.userId
          callback(null,{
            payment:payment
          })
