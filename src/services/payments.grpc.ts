@@ -29,7 +29,7 @@ export class PaymentGrpcService  {
        
        let res:_Payment.GetAllPayRes={
          userId:call.request.userId,
-         products:_payments,
+         payments:_payments,
        // error:{ Message:"",type:"",name:""}
         }
         callback(null,res)
@@ -37,7 +37,7 @@ export class PaymentGrpcService  {
      else{
        callback(null,{
            userId:call.request.userId,
-           products:[],
+           payments:[],
           // error:{ Message:"No Records Matched",type:"NotFoundError",name:"" }
          })
      }
