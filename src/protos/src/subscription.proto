@@ -2,7 +2,8 @@ syntax="proto3";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/any.proto";
-//import "product.proto";
+import "error.proto";
+
 message Subscription {
  int32 id=1;
  repeated int32 productsIds=2;
@@ -14,11 +15,16 @@ message Subscription {
 
 }
 
-message CreateSubscriptionReq{
-  
+message GetAllSupscriptionReq{
+ optional int32 userId=1;
+ optional int32 productId=2;
 }
 
+message GetAllSupscriptionRes{
+ repeated Subscription subscriptions=1;
+ optional Error error=2;
+}
 
-message CreateSubscriptionRes{
-  
+service Subscription {
+ rpc all(GetAllSupscriptionReq) returns (GetAllSupscriptionRes);
 }
