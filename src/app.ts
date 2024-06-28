@@ -71,7 +71,7 @@ const configureApplication = async  () => {
     console.log("Server started")
     server.start(); })*/
    app.listen(port, () => {
-	   console.log(`Example app listening on port ${port}`)
+	   console.log(`Express app listening on port ${port}`)
       servers.server
       servers.server2
   });
