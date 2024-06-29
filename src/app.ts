@@ -12,10 +12,7 @@ import { apiv1 } from "./routes";
 /*const redisClient = new RedisClient({
 	//host:"red-cpdq71f109ks73elqfu0",
 	//port:6379
-	host:"frankfurt-redis.render.com",
-	username:"red-cpdq71f109ks73elqfu0",
-	password:"DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK",
-	port:6379
+	
 });*/
 
 const app=application();
