@@ -13,9 +13,7 @@ export const _AppDataSource = new DataSource({
       /*  type:"ioredis",
         options: {
        //...(require("redis-url").parse(process.env.REDIS))
-        host:"frankfurt-redis.render.com",
-	username:"red-cpdq71f109ks73elqfu0",
-	password:"DfjXZonDEL9uC4gT5Ua6qtq3F2nmVkGK",
+        host:"redis://red-cpdq71f109ks73elqfu0"
 	port:6379
         }, 
         */
