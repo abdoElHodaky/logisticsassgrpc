@@ -1,5 +1,6 @@
 import { _Data } from "./datasource";
-import { Product ,Subscriber ,Subscription} from "../entity/"
+import { Product ,Subscriber ,Subscription,
+         Category,ProductCategory} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { CreateProductDto,CreateSubscriptionDto   } from "../dto/"
@@ -24,6 +25,15 @@ export class ProductService extends _Data {
 
 async create(dto:CreateProductDto ):Promise<Product|void>{
    const product=await this.em.create(Product,dto)
+   const productcat=new ProductCategory()
+   const category=await this.em.findOneOrFail(Category,{
+     where:{
+       id:dto.category.id,
+       name:dto.category.name
+     }
+   })
+   productcat.category=category
+   product.categories.push(productcat)
    return product
  }
 async subscribe(dto:CreateSubscriptionDto):Promise<Subscription>{
