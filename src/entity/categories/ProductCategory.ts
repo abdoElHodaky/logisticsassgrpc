@@ -3,26 +3,30 @@ import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
         OneToMany,ManyToOne,Index} from "typeorm"
 import { Product } from "../";
 import { Category } from "./"
-@ChildEntity()
-export class ProductCategory extends Category {
+@Entity()
+export class ProductCategory {
    @Column({type:"varchar",default:"Product"})
    readonly forType:string="Product"
      
-   @ManyToMany(()=>Product,product=>product.categories)
-   @JoinTable({
-   joinColumns :[ { name: "ProductId", referencedColumnName: "id" },
-    { name: "id", referencedColumnName: "categoryId" }]
-    })
+   @OneToMany(()=>Product,product=>product.categories)
+   @JoinColumn([ { name: "ProductId", referencedColumnName: "id" },
+    { name: "id", referencedColumnName: "categoryId" }])
    product:Product
-  /* @OneToMany(()=>Product,entity=>entity.category) 
+
+
+  @ManyToOne(()=>Category) 
    @JoinColumn([
-    { name: "ProductId", referencedColumnName: "id" },
-    { name: "id", referencedColumnName: "categoryId" }
+   // { name: "ProductId", referencedColumnName: "id" },
+    { name: "categoryId", referencedColumnName: "id" }
     ])
-    entities:Product[]
-*/
+    category:Category
+
     @Index()
     @Column({type:"int"})
     productId:number
+
+    @Index()
+    @Column({type:"int"})
+    categoryId:number
     
 }
