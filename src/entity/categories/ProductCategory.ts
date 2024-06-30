@@ -5,6 +5,10 @@ import { Product } from "../";
 import { Category } from "./"
 @Entity()
 export class ProductCategory {
+   
+   @PrimaryGeneratedColumn("increment")
+   id:number
+        
    @Column({type:"varchar",default:"Product"})
    readonly forType:string="Product"
      
