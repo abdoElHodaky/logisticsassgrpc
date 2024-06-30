@@ -29,9 +29,9 @@ export class Product {
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products)
     @JoinTable()
     subscriptions?:Subscription[]
-    @ManyToMany(()=>Category<Product>,category=>category.entities)
+    @ManyToMany<Category<Product>>(category=>category.entities)
     @JoinTable()
-    categories?:Category[]
+    categories?:Category<Product>[]
    
 }
 
