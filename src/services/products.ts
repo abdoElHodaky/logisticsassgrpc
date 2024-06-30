@@ -28,7 +28,7 @@ async create(dto:CreateProductDto ):Promise<Product|void>{
    
    if (dto.category instanceof Array){
        const categories= []
-       dto.category?.forEach(_category=>{
+       dto.category?.forEach(async (_category:object)=>{
          const productcat=new ProductCategory()
          const category=await this.em.findOneOrFail(Category,{
           where:{
