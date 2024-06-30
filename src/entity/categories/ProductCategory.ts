@@ -10,14 +10,14 @@ export class ProductCategory extends Category {
      
    @ManyToOne(()=>Product,product=>product.categories)
    @JoinColumn([
-    { name: "productId", referencedColumnName: "id" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
+    { name: "ProductId", referencedColumnName: "id" },
+    { name: "id", referencedColumnName: "categoryId" }
     ])
    product:Product
    @OneToMany(()=>Product,entity=>entity.category) 
    @JoinColumn([
-    { name: "productId", referencedColumnName: "id" },
-    //{ name: "locale_id", referencedColumnName: "locale_id" }
+    { name: "ProductId", referencedColumnName: "id" },
+    { name: "id", referencedColumnName: "categoryId" }
     ])
     entities:Product[]
 
