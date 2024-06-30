@@ -9,8 +9,10 @@ export class ProductCategory {
    readonly forType:string="Product"
      
    @OneToMany(()=>Product,product=>product.categories)
-   @JoinColumn([ { name: "ProductId", referencedColumnName: "id" },
-    { name: "id", referencedColumnName: "categoryId" }])
+   @JoinColumn([ 
+   { name: "ProductId", referencedColumnName: "id" },
+    //{ name: "id", referencedColumnName: "categoryId" }
+   ])
    product:Product
 
 
