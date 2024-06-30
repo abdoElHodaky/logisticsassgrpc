@@ -1,5 +1,6 @@
 import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
-        CreateDateColumn, UpdateDateColumn,ChildEntity } from "typeorm"
+        CreateDateColumn, UpdateDateColumn,ChildEntity,
+        OneToMany,ManyToOne} from "typeorm"
 import { Product ,Category} from "../";
 @ChildEntity()
 export class ProductCategory extends Category {
