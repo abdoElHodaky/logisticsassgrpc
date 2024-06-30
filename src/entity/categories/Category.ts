@@ -19,7 +19,7 @@ export class Category
    @UpdateDateColumn()
    updatedAt:Date
 
-   @OneToMany(()=>ProductCategory,category=>category.categories)
+   @OneToMany(()=>ProductCategory,category=>category.category)
    @JoinColumn([
    // { name: "ProductId", referencedColumnName: "id" },
     { name: "id", referencedColumnName: "categoryId" }
