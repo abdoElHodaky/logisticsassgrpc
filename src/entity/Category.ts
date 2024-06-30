@@ -26,6 +26,9 @@ export class Category
 
 @ChildEntity()
 export class ProductCategory extends Category {
+   @Column({type:"varchar",default:"Product"})
+   readonly forType:string="Product"
+
    @ManyToMany<Product>(entity=>entity?.categories)
    @JoinTable()
    entities?:Product[] 
