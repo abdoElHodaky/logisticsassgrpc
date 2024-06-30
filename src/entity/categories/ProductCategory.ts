@@ -20,7 +20,7 @@ export class ProductCategory {
    product:Product
 
 
-  @ManyToOne(()=>Category,category=>category.category) 
+  @ManyToOne(()=>Category,category=>category.categories) 
    @JoinColumn([
    // { name: "ProductId", referencedColumnName: "id" },
     { name: "categoryId", referencedColumnName: "id" }
