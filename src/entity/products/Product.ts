@@ -29,17 +29,17 @@ export class Product {
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products)
     @JoinTable()
     subscriptions?:Subscription[]
-    @ManyToOne(()=>ProductCategory,Cat=>Cat.entities)
+   /* @ManyToOne(()=>ProductCategory,Cat=>Cat.entities)
      @JoinColumn([
     { name: "id", referencedColumnName: "productId" },
     { name: "categoryId", referencedColumnName: "id" }
     ])
-    category:ProductCategory
-    @OneToMany(()=>ProductCategory,entity=>entity.product) 
-    @JoinColumn([
-    { name: "id", referencedColumnName: "productId" },
-    { name: "categoryId", referencedColumnName: "id" }
-    ])
+    category:ProductCategory */
+    @ManyToMany(()=>ProductCategory,entity=>entity.product) 
+    @JoinTable({
+   joinColumns :[ { name: "ProductId", referencedColumnName: "id" },
+    { name: "id", referencedColumnName: "categoryId" }]
+    })
     categories:ProductCategory[]
         
     @Index()
