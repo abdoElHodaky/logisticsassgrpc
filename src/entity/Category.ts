@@ -1,7 +1,7 @@
 import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
         CreateDateColumn, UpdateDateColumn,ObjectType } from "typeorm"
 @Entity()
-export class Category<T extends ObjectType<Entity>>
+export class Category<T extends ObjectType<typeof Entity>>
 {
    @PrimaryGeneratedColumn("increment")
    id:number
