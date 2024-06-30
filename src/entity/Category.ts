@@ -18,7 +18,7 @@ export class Category<T extends BaseEntity>
    @UpdateDateColumn()
    updatedAt:Date
 
-   @ManyToMany(()=>T?.categories)
+   @ManyToMany(()=>T,t=>t?.categories)
    @JoinTable()
    entities?:T[]
 }
