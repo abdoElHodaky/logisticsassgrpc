@@ -1,4 +1,4 @@
-import { IsNotEmpty,IsArray, ValidateNested } from "class-validator";
+import { IsNotEmpty,IsArray, ValidateNested ,IsInt} from "class-validator";
 export class CreateProductDto{
   
   @IsNotEmpty()
@@ -9,6 +9,8 @@ export class CreateProductDto{
   @ValidateNested({ each: true })
   readonly specs:Spec[]
   
+  readonly category:Category|Category[]
+  
 }
 
 class Spec {
@@ -17,4 +19,12 @@ class Spec {
 
   @IsNotEmpty()
   readonly value:any
+}
+
+class Category {
+  @IsInt()
+  readonly id:number
+
+  @IsNotEmpty()
+  readonly name:string
 }
