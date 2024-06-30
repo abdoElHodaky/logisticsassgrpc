@@ -11,5 +11,5 @@ export { Book } from "./Book"
 export { Address } from "./Address";
 export { Product,AffiliateProduct,ProductSpec} from "./products/";
 export { Subscription } from "./Subscription";
-export { Category} from "./Category";
+export { ProductCategory} from "./Category";
 
