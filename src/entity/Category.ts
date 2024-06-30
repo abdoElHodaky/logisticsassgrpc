@@ -29,7 +29,6 @@ export class ProductCategory extends Category {
    @Column({type:"varchar",default:"Product"})
    readonly forType:string="Product"
 
-   @ManyToMany(()=>Product)
-   @JoinTable()
-   products:Product[] 
+   @ManyToOne(()=>Product,product=>product.categories) product:Product
+   @OneToMany(()=>Product,entity=>entity.category) entities:Product[]
 }
