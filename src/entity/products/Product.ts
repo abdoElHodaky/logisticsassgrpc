@@ -1,6 +1,6 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
         OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
-import { Supplier,Attachment,PurshaseItem, Category} from "../";
+import { Supplier,Attachment,PurshaseItem, ProductCategory} from "../";
 import { ProductAttachment } from "../attachments/";
 import { Subscription} from "../Subscription";
 import {AffiliateProduct} from "./"
@@ -29,9 +29,9 @@ export class Product {
     @ManyToMany(()=>Subscription,subscrip=>subscrip.products)
     @JoinTable()
     subscriptions?:Subscription[]
-    @ManyToMany<Category<Product>>(category=>category.entities)
+    @ManyToMany<ProductCategory>(category=>category.entities)
     @JoinTable()
-    categories?:Category<Product>[]
+    categories?:ProductCategory[]
    
 }
 
