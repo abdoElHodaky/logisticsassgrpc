@@ -25,20 +25,25 @@ export class ProductService extends _Data {
 
 async create(dto:CreateProductDto ):Promise<Product|void>{
    const product=await this.em.create(Product,dto)
-   const productcat=new ProductCategory()
+   
    if (dto.category instanceof Array){
        const categories= []
        dto.category?.forEach(_category=>{
+         const productcat=new ProductCategory()
          const category=await this.em.findOneOrFail(Category,{
           where:{
            id:_category.id,
            name:_category.name
                }
           })
-          categories.push(category)
+          productcat.category=category
+          product.categories.push(productcat)
        })
+       
    }
    else{
+  
+   const productcat=new ProductCategory()
    const category=await this.em.findOneOrFail(Category,{
      where:{
        id:dto.category.id,
