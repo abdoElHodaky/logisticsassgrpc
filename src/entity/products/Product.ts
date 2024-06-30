@@ -36,7 +36,7 @@ export class Product {
     ])
     category:ProductCategory */
     @ManyToOne(()=>ProductCategory,entity=>entity.product) 
-    @JoinTable([ { name: "ProductId", referencedColumnName: "id" },
+    @JoinColumn([ { name: "ProductId", referencedColumnName: "id" },
   //  { name: "id", referencedColumnName: "categoryId" }]
     ])
     categories:ProductCategory[]
