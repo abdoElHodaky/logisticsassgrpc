@@ -1,4 +1,4 @@
-import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
+import { Entity,Column,OneToMany,PrimaryGeneratedColumn,JoinColumn,
         CreateDateColumn, UpdateDateColumn,ChildEntity } from "typeorm"
 //import { Product } from "../";
 @Entity()
@@ -19,17 +19,10 @@ export class Category
    @UpdateDateColumn()
    updatedAt:Date
 
-  /* @ManyToMany<T>(entity=>entity?.categories)
-   @JoinTable()
-   entities?:T[] */
+   @OneToMany(()=>ProductCategory)
+   @JoinColumn([
+   // { name: "ProductId", referencedColumnName: "id" },
+    { name: "id", referencedColumnName: "categoryId" }
+    ])
+    categories:ProductCategory[]
 }
-/*
-@ChildEntity()
-export class ProductCategory extends Category {
-   @Column({type:"varchar",default:"Product"})
-   readonly forType:string="Product"
-
-   @ManyToOne(()=>Product,product=>product.categories) product:Product
-   @OneToMany(()=>Product,entity=>entity.category) entities:Product[]
-}
-*/
