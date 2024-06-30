@@ -1,7 +1,7 @@
 import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
-        CreateDateColumn, UpdateDateColumn,ObjectType } from "typeorm"
+        CreateDateColumn, UpdateDateColumn } from "typeorm"
 @Entity()
-export class Category<T extends ObjectType>
+export class Category<T extends Function>
 {
    @PrimaryGeneratedColumn("increment")
    id:number
@@ -18,7 +18,7 @@ export class Category<T extends ObjectType>
    @UpdateDateColumn()
    updatedAt:Date
 
-   @ManyToMany(()=>T,entity=>entity?.categories)
+   @ManyToMany<T>(entity=>entity?.categories)
    @JoinTable()
    entities?:T[]
 }
