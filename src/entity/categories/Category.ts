@@ -1,6 +1,6 @@
 import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
         CreateDateColumn, UpdateDateColumn,ChildEntity } from "typeorm"
-import { Product } from "../";
+//import { Product } from "../";
 @Entity()
 export class Category
 {
@@ -23,7 +23,7 @@ export class Category
    @JoinTable()
    entities?:T[] */
 }
-
+/*
 @ChildEntity()
 export class ProductCategory extends Category {
    @Column({type:"varchar",default:"Product"})
@@ -32,3 +32,4 @@ export class ProductCategory extends Category {
    @ManyToOne(()=>Product,product=>product.categories) product:Product
    @OneToMany(()=>Product,entity=>entity.category) entities:Product[]
 }
+*/
