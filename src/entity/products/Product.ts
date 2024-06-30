@@ -1,5 +1,5 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
-        OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn  } from "typeorm"
+        OneToMany, ManyToOne, ChildEntity, CreateDateColumn, UpdateDateColumn,Index  } from "typeorm"
 import { Supplier,Attachment,PurshaseItem, ProductCategory} from "../";
 import { ProductAttachment } from "../attachments/";
 import { Subscription} from "../Subscription";
