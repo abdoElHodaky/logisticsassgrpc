@@ -35,11 +35,10 @@ export class Product {
     { name: "categoryId", referencedColumnName: "id" }
     ])
     category:ProductCategory */
-    @ManyToMany(()=>ProductCategory,entity=>entity.product) 
-    @JoinTable({
-   joinColumns :[ { name: "ProductId", referencedColumnName: "id" },
-    { name: "id", referencedColumnName: "categoryId" }]
-    })
+    @ManyToOne(()=>ProductCategory,entity=>entity.product) 
+    @JoinTable([ { name: "ProductId", referencedColumnName: "id" },
+  //  { name: "id", referencedColumnName: "categoryId" }]
+    ])
     categories:ProductCategory[]
         
     @Index()
