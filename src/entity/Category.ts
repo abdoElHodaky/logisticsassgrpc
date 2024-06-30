@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,
-        CreateDateColumn, UpdateDateColumn,BaseEntity } from "typeorm"
+        CreateDateColumn, UpdateDateColumn,ObjectType } from "typeorm"
 @Entity()
 export class Category<T extends BaseEntity>
 {
