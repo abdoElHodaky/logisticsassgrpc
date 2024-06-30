@@ -1,4 +1,4 @@
-import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,
+import { Entity,Column,ManyToMany,PrimaryGeneratedColumn,JoinTable,
         CreateDateColumn, UpdateDateColumn,ObjectType } from "typeorm"
 @Entity()
 export class Category<T extends ObjectType>
@@ -18,7 +18,7 @@ export class Category<T extends ObjectType>
    @UpdateDateColumn()
    updatedAt:Date
 
-   @ManyToMany(()=>T,t=>t?.categories)
+   @ManyToMany(()=>T,entity=>entity?.categories)
    @JoinTable()
    entities?:T[]
 }
