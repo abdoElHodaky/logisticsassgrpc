@@ -32,7 +32,7 @@ export class Product {
     @ManyToOne(()=>ProductCategory,Cat=>Cat.entities)
      @JoinColumn([
     { name: "id", referencedColumnName: "productId" },
-    { name: "category_is", referencedColumnName: "id" }
+    { name: "categoryId", referencedColumnName: "id" }
     ])
     category:ProductCategory
     @OneToMany(()=>ProductCategory,entity=>entity.product) 
