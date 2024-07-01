@@ -5,7 +5,7 @@ import { _Article,_Ticket,_Auth
         _Orgz,_Product
        } from "../protos/dist/";
 import { addServiceToServer} from "./util";
-import { services } from "../services/enum";
+import { grpc_services as services} from "../services/enum";
 
 export const server = new Server()
 export const server2 = new Server()
