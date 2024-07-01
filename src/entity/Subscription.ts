@@ -37,5 +37,5 @@ export class Subscription {
     @Column({type:"date"})
     renewalAt: Date;
 
-    @OneToMany(()=>SubscriptionPayment,subspay=>subspay.payments) Subscription:Subscription[]
+    @OneToMany(()=>SubscriptionPayment,subspay=>subspay.subscriptions) payments:Payment[]
 }
