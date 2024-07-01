@@ -11,7 +11,7 @@ export {PayTabService} from "./paytabs";
 export {OrgzService} from "./orgzs";
 export {PasswordService} from "./passwords";
 export {CategoryService} from "./categories";
-
+export {SubscriptionService} from "./subscriptions";
 
 export {ArticleGrpcService} from "./articles.grpc";
 export {TicketGrpcService} from "./tickets.grpc";
