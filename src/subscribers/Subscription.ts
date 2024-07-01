@@ -18,6 +18,10 @@ export class SubscriptionSubscriber implements EntitySubscriberInterface<Subscri
            entity.amount= entity.purchase.subTotal *1.14
          } */
     }
+  async  afterUpdate(event: UpdateEvent<Subscription>) {
+       const {entity,manager} =event
+       
+    }
     
   async afterInsert(event:InsertEvent<Subscription>){
      const {entity,manager} =event
