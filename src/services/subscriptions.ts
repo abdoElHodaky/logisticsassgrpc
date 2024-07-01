@@ -24,7 +24,7 @@ export class SubscriptionService extends _Data {
     return (subscriptions.length!=0)? subscriptions : new NotFoundError("Subscription")
   }
 
-async createRenewPayment(id:number):Promise<Payment|void>{
+async createRenewlPayment(id:number):Promise<Payment|void>{
    const payment=new Payment()
    let subscription= await this.em.findOneOrFail(Subscription,{
      where:{id:id},
