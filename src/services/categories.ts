@@ -17,7 +17,7 @@ export class CategoryService extends _Data {
     const categories= await this.em.find(Category,{
      // where:(userId!=undefined)?{owner:{id:userId}}:{},
       relations:{
-        owner:true
+        categories:true
       },
       cache:true
     })
