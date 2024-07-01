@@ -38,10 +38,13 @@ export class Payment {
     @OneToOne(()=>Purshase,purchase=>purchase.payment) purchase:Purshase;
     @ManyToOne(()=>User,user=>user.payments) user:User;
 
- /*   @BeforeUpdate()
-    setamount(){
-        if(this.amount==0 || this.amount==undefined){
-           this.amount= this.purchase.subTotal *1.14
-         }
-    } */
+}
+
+@ChildEntity()
+export class SubscriptionPayment extends Payment{
+   @Column({type: "boolean"})
+   renewal:boolean=true
+
+   @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription:Subscription;
+
 }
