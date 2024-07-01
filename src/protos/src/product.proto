@@ -12,9 +12,10 @@ message Product {
  repeated Product subs=3;
  optional Product parent=4;
  repeated Attachment attachments=5;
- optional int32 userId=6;
- optional google.protobuf.Timestamp created_at=7;
- optional google.protobuf.Timestamp updated_at=8;
+ repeated categoriesIds=6;
+ optional int32 userId=7;
+ optional google.protobuf.Timestamp created_at=8;
+ optional google.protobuf.Timestamp updated_at=9;
 }
 
 message CreateProductReq {
