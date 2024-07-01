@@ -1,7 +1,7 @@
 import { Entity,Column,ManyToOne,BeforeUpdate,
         OneToOne,PrimaryGeneratedColumn,ChildEntity
        } from "typeorm"
-import { User,Address,Purshase } from "./";
+import { User,Address,Purshase,Subscription } from "./";
 
 export enum PaymentStatus{
     PAYMENT_DEFAULT="Default",
