@@ -9,6 +9,10 @@ export class Subscription {
 
     @Column({type: "varchar", nullable: true})
     title: string;
+
+    @Column({type: "varchar", default: "default"})
+    status: string;
+        
     @Column("int")
     renewalAmount:number
         
