@@ -12,7 +12,7 @@ message Product {
  repeated Product subs=3;
  optional Product parent=4;
  repeated Attachment attachments=5;
- repeated categoriesIds=6;
+ repeated int32 categoriesIds=6;
  optional int32 userId=7;
  optional google.protobuf.Timestamp created_at=8;
  optional google.protobuf.Timestamp updated_at=9;
