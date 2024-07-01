@@ -3,7 +3,7 @@ import { Category } from "../entity/"
 import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response } from "express"
 import { Request } from "express-jwt";
-
+import { Error } from "common-errors";
 
 @Controller('/categories')
 export class CategoryController {
@@ -17,6 +17,6 @@ export class CategoryController {
    /* 	#swagger.tags = ['Article']
         #swagger.description = 'Endpoint to get articles' */
     let attachments=await this.service.all()
-    res.json(attachments)
+    res.json((attachments instanceof Error)? attachments?.message: attachments)
    }
   }
