@@ -7,8 +7,10 @@ import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
     type:"better-sqlite3",
-    
-    database:"grpcendpoints.sqlite",
+    username:"abdo_grpcendpoin",
+    password:"arh.27934",
+    host:"db4free.net",
+    database:"grpcendpoints",
     cache: {
        type:"ioredis",
         options: {
