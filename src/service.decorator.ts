@@ -11,14 +11,14 @@ export function Service(servname: string): Function {
         };
     };*/
         
-    import("./services/enum").then(servs=>{
+    /*import("./services/enum").then(servs=>{
         const {_services}=servs
         let keys=Object.keys(_services)
         let values=Object.values(_services)
         let inx=keys.indexOf(servname)
         target["service"]=values[inx]
         //console.log(values[inx])
-    }).catch(console.log)
+    }).catch(console.log)*/
     
    
    
