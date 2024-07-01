@@ -12,11 +12,11 @@ export class Subscription {
     @Column("int")
     renewalAmount:number
         
-    @Column("int")
+   /* @Column("int")
     SuserId:number
 
     @Column("int")
-    SProductId:number
+    SProductId:number */
     
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
