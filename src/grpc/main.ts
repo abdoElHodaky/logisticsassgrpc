@@ -19,11 +19,11 @@ protoLoader.load("src/protos/src/servertworeflect.proto").then((pkg:any)=>{
 }).catch(console.log)
 
 server.bindAsync(`0.0.0.0:${GRPCSONEPORT}`, ServerCredentials.createInsecure(), () => {
-    console.log("\x1b[34;60;70m  GrpcServer started \xb1[0m")
+    console.log("\x1b[34;60;70m  GrpcServer started \x1b[0m")
     server.start(); })
 
 server2.bindAsync(`0.0.0.0:${GRPCSTWOPORT}`, ServerCredentials.createInsecure(), () => {
-    console.log("\x1b[34;60;70m  GrpcServer2 started \xb1[0m")
+    console.log("\x1b[34;60;70m  GrpcServer2 started \x1b[0m")
   
     server2.start(); })
 
