@@ -9,7 +9,7 @@ categorygrpc.get("/categories",(req,res)=>{
         
         */
 })
-categorygrpc.post(({body},res)=>{
+categorygrpc.post("/categories",({body},res)=>{
   /* 	#swagger.tags = ['Category']
         #swagger.description = 'Endpoint to add new Category via grpc' 
         #swagger.requestBody = {
