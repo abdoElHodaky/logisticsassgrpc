@@ -25,7 +25,9 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
   async afterInsert(event:InsertEvent<Payment>){
      const {entity,manager} =event
      entity.user?.payments.push(entity)
-    // await manager.save(User,entity.user)
+     if(entity.renewal==true && entity.status=="paid")
+     {entity.subscription.status="renewal"
+     await manager.save(Subscription,entity.subscription)}
 
     }
 
