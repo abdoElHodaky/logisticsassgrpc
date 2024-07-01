@@ -62,7 +62,7 @@ if(_AppDataSource.isConnected==false)
   }).catch(console.log)
 }
 else{
- console.log("\x1b[36,60,50m already connected \x1b[0m")
+ console.log("\x1b[36;60;50m already connected \x1b[0m")
 }
 
 },500000)
