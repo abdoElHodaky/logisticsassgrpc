@@ -29,7 +29,7 @@ async createRenewlPayment(supscripId:number):Promise<Payment|void>{
    const payment=new Payment()
    let subscription= await this.em.findOneOrFail(Subscription,{
      where:{id:supscripId},
-     relation:["user"]
+     relations:["user"]
    }) 
    const user=await this.em.findOneOrFail(Subscriber,{
      where:{id:subscription.user.id}
