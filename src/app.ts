@@ -9,11 +9,11 @@ import cors from "cors";
 import { AppDataSource } from "./_datasource";
 
 import { apiv1 } from "./routes";
-/*const redisClient = new RedisClient({
-	//host:"red-cpdq71f109ks73elqfu0",
-	//port:6379
+const redisClient = new RedisClient({
+	host:"red-cpdq71f109ks73elqfu0",
+	port:6379
 	
-});*/
+});
 
 const app=application();
 const port = process.env.PORT||4000
