@@ -1,8 +1,7 @@
 import { Entity,Column,ManyToOne,OneToMany,JoinColumn,JoinTable,
         PrimaryGeneratedColumn, CreateDateColumn,ManyToMany,
         UpdateDateColumn } from "typeorm"
-import { Subscriber } from "./users/";
-import { Product } from "./products/";
+import { Subscriber,Payment,Product } from "./";
 @Entity()
 export class Subscription {
     @PrimaryGeneratedColumn("increment")
@@ -10,12 +9,15 @@ export class Subscription {
 
     @Column({type: "varchar", nullable: true})
     title: string;
-
     @Column("int")
+    renewalAmount:number
+        
+   /* @Column("int")
     SuserId:number
 
     @Column("int")
     SProductId:number
+    */
 
     @ManyToOne(()=>Subscriber,user=>user.subscrips)
     //@JoinColumn({name:"userId", referencedColumnName:"id" })
@@ -34,4 +36,6 @@ export class Subscription {
 
     @Column({type:"date"})
     renewalAt: Date;
+
+    @OneToMany(()=>SubscriptionPayment,subspay=>subspay.payments) Subscription:Subscription[]
 }
