@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Subscription,Subscriber , Payment} from "../entity/"
+import { Subscription,Subscriber ,User, Payment} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { services} from "./enum";
@@ -24,19 +24,23 @@ export class SubscriptionService extends _Data {
     return (subscriptions.length!=0)? subscriptions : new NotFoundError("Subscription")
   }
 
-async renew(id:number):Promise<Subscription|void>{
+async createRenewPayment(id:number):Promise<Payment|void>{
+   const payment=new Payment()
    let subscription= await this.em.findOneOrFail(Subscription,{
      where:{id:id},
      relation:["subscriber"]
    }) 
-  
-
-   const _orgz=await this.em.create(Orgz,{
-      ...orgz
-    })
+   const user=await this.em.findOneOrFail(Subscriber,{
+     where:{id:subscription.subscriber.id}
+   }) 
+   payment.renewal=true
+   payment.user=user as User
+   payment.amount=subscription.renewalAmount
+   payment.subscription=subscription
+   subscriptions.payments.push(payment)
+   await this.em.save(Subscription,subscription)
    
-   _orgz.owner=user
-   return _orgz
+   return payment
     
     
     
