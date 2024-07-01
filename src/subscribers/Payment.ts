@@ -1,5 +1,6 @@
 import {EventSubscriber ,EntitySubscriberInterface, UpdateEvent,InsertEvent } from "typeorm"
 import { Payment,User } from "../entity/";
+const momment=require("moment")
 @EventSubscriber()
 export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
     /**
@@ -26,8 +27,11 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
      const {entity,manager} =event
      entity.user?.payments.push(entity)
      if(entity.renewal==true && entity.status=="paid")
-     {entity.subscription.status="renewal"
-     await manager.save(Subscription,entity.subscription)}
+     {
+     entity.subscription.status="renewal"
+     entity.subscription.renewalAt=momment()
+     await manager.save(Subscription,entity.subscription)
+     }
 
     }
 
