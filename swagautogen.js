@@ -116,7 +116,12 @@ const config = {
         }
        ,subscribeProduct:{
              $productId:1,
-         }
+         },
+        createCategory:{
+            $name:"",
+            $description:"",
+            forType:"Product"
+        }
     }}
 };
 
