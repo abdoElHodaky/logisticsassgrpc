@@ -4,7 +4,7 @@ import { Router } from "express";
 //import { AppDataSource } from "../_datasource";
 
 export const productsgrpc=Router()
-
+export const subscriptionsgrpc=Router()
 
 productsgrpc.get("/products",(req,res)=>{
     /* 	#swagger.tags = ['Product']
@@ -53,3 +53,44 @@ productsgrpc.post("/products/subscribe",({body},res)=>{
     
    
 })
+
+productsgrpc.get("/products",(req,res)=>{
+    /* 	#swagger.tags = ['Product']
+        #swagger.description = 'Endpoint to get products via grpc'
+        
+        */
+
+})
+
+    
+
+subscriptionsgrpc.get("/subscriptions",(req,res)=>{
+    /* 	#swagger.tags = ['Subscription']
+        #swagger.description = 'Endpoint to get subscriptions via grpc' 
+        
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
+    
+   
+})
+
+subscriptionsgrpc.post("/subscriptions/renewal",({body},res)=>{
+    /* 	#swagger.tags = ['Subscription']
+        #swagger.description = 'Endpoint to renew subscriptions  via grpc' 
+        #swagger.parameters["supscripId"] = {
+            required: true,
+            type:"int",in:"body"
+            
+            
+        } 
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
+    
+   
+})
+
+
