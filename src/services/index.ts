@@ -10,6 +10,7 @@ export { PaymentService} from "./payments";
 export {PayTabService} from "./paytabs";
 export {OrgzService} from "./orgzs";
 export {PasswordService} from "./passwords";
+export {CategoryService} from "./categories";
 
 
 export {ArticleGrpcService} from "./articles.grpc";
