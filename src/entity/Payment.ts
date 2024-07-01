@@ -1,5 +1,5 @@
 import { Entity,Column,ManyToOne,BeforeUpdate,
-        OneToOne,PrimaryGeneratedColumn
+        OneToOne,PrimaryGeneratedColumn,ChildEntity
        } from "typeorm"
 import { User,Address,Purshase } from "./";
 
