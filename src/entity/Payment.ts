@@ -38,8 +38,8 @@ export class Payment {
     @OneToOne(()=>Purshase,purchase=>purchase.payment) purchase:Purshase;
     @ManyToOne(()=>User,user=>user.payments) user:User;
    
-   @Column({type: "boolean"})
-    renewal:boolean=true
+    @Column({type: "boolean"})
+    renewal:boolean
 
    @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription?:Subscription;
 
