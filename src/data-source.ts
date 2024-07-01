@@ -39,7 +39,7 @@ export const _AppDataSource = new DataSource({
 if (_AppDataSource.isInitialized==false){
 _AppDataSource.initialize()
   .then(async () => {
-    console.log("\x1b[36;45;70m Connection initialized with database... \x1b[0m");
+    console.log("\x1b[36;44;50m Connection initialized with database... \x1b[0m");
   })
   .catch((error) => console.log(error));}
 
