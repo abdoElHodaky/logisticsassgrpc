@@ -37,14 +37,10 @@ export class Payment {
 
     @OneToOne(()=>Purshase,purchase=>purchase.payment) purchase:Purshase;
     @ManyToOne(()=>User,user=>user.payments) user:User;
-
-}
-
-@ChildEntity()
-export class SubscriptionPayment extends Payment{
+   
    @Column({type: "boolean"})
-   renewal:boolean=true
+    renewal:boolean=true
 
-   @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription:Subscription;
+   @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription?:Subscription;
 
 }
