@@ -6,7 +6,7 @@ import { subscribers } from "./subscribers/subscribers";
 import { Env } from "./env";
 
 export const _AppDataSource = new DataSource({
-    type:"better-sqlite3",
+    type:"mariadb",
     username:"abdo_grpcendpoin",
     password:"arh.27934",
     host:"db4free.net",
