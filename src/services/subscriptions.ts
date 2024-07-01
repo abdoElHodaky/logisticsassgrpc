@@ -38,7 +38,7 @@ async createRenewlPayment(id:number):Promise<Payment|void>{
    payment.user=user
    payment.amount=subscription.renewalAmount
    payment.subscription=subscription
-   subscriptions.payments.push(payment)
+   subscription.payments.push(payment)
    await this.em.save(Subscription,subscription)
    
    return payment
