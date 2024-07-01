@@ -34,7 +34,7 @@ async createRenewPayment(id:number):Promise<Payment|void>{
      where:{id:subscription.subscriber.id}
    }) 
    payment.renewal=true
-   payment.user=user as User
+   payment.user=user
    payment.amount=subscription.renewalAmount
    payment.subscription=subscription
    subscriptions.payments.push(payment)
