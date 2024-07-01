@@ -29,9 +29,9 @@ export class PaymentSubscriber implements EntitySubscriberInterface<Payment> {
      entity.user?.payments.push(entity)
      if(entity.renewal==true && entity.status==PaymentStatus.PAYMENT_PAID)
      {
-     entity.subscription.status="renewal"
-     entity.subscription.renewalAt=momment()
-     await manager.save(Subscription,entity.subscription)
+     entity.subscription?.status="renewal"
+     entity.subscription?.renewalAt=momment()
+     await manager.save(Subscription,entity?.subscription)
      }
 
     }
