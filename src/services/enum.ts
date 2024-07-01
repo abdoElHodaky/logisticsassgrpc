@@ -20,9 +20,9 @@ import {PurshaseService} from "./purchases";
 import {CategoryService} from "./categories";*/
 import {
   AuthService,AttachmentService,UserService,AuthorService,
-  ArticleService,UserTicketService,UserTicketService,
-  supTicketService,PaymentService,OrgzService,PurshaseService,
-  CategoryService,ProductService,ArticleGrpcService,TicketGrpcService,
+  ArticleService,UserTicketService,supTicketService,
+  PaymentService,OrgzService,PurshaseService,CategoryService,
+  ProductService,ArticleGrpcService,TicketGrpcService,
   supTicketGrpcService,AuthorGrpcService,UserGrpcService,
   AuthGrpcService,orgzGrpcService,ProductGrpcService,
   PurshaseGrpcService
