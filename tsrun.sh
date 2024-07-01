@@ -1,7 +1,6 @@
 #!/user/bin/bash
 
-npx tsc && rm swagger.json
-node swagautogen.js dist/app.js
+npm-run-all build swaggen start
 
 #node ./dist/grpc-reflect.js
 #npm-run-all --parallel start
