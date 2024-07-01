@@ -8,7 +8,7 @@ RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 RUN npm cache clean --force
 RUN  yarn add chalk redis-url mariadb  && npm install pm2 npm-run-all -g
 #RUN yarn add ts-node-dev --dev
-RUN yarn install -y 
+RUN rm swagger.json && yarn install -y 
 ENV GRPCSTWOPORT 3030
 ENV GRPCSONEPORT 5051
 ENV PORT 3000
