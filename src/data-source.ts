@@ -10,13 +10,13 @@ export const _AppDataSource = new DataSource({
     
     database:"grpcendpoints.sqlite",
     cache: {
-      /*  type:"ioredis",
+       type:"ioredis",
         options: {
        //...(require("redis-url").parse(process.env.REDIS))
-        host:"red-cpdq71f109ks73elqfu0"
+        host:"red-cpdq71f109ks73elqfu0",
 	port:6379
         }, 
-        */
+        
         duration: 300000
     },
     //metadataTableName:"typeorm-metadata",
