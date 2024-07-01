@@ -20,3 +20,8 @@ export class SubscriptionController {
     res.json((attachments instanceof Error)? attachments?.message: attachments)
    }
   }
+ @Post("")
+ async renew(@Req() req:Request):Promise<any>{
+   console.log(req?.params,req?.body,req?.query)
+   return "d"
+ }
