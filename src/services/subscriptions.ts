@@ -1,6 +1,5 @@
-
 import { _Data } from "./datasource";
-import { Subscription,Subscriber } from "../entity/"
+import { Subscription,Subscriber , Payment} from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { services} from "./enum";
@@ -15,19 +14,22 @@ export class SubscriptionService extends _Data {
   async all(userId?:number):Promise<Subscription[]|Error>
   {
   
-    const orgzs= await this.em.find(Subscription,{
-      where:(userId!=undefined)?{owner:{id:userId}}:{},
+    const subscriptions= await this.em.find(Subscription,{
+      where:(userId!=undefined)?{subscriber:{id:userId}}:{},
       relations:{
-        owner:true
+        subscriber:true
       },
       cache:true
     })
-    return (orgzs.length!=0)? orgzs : new NotFoundError("Subscription")
+    return (subscriptions.length!=0)? subscriptions : new NotFoundError("Subscription")
   }
 
-async create(userId:number,orgz:{type:string,title:string,description:string}):Promise<Orgz|void>{
-   let user= await services.User.id(userId) 
-   if(user instanceof User) user = user as Owner
+async renew(id:number):Promise<Subscription|void>{
+   let subscription= await this.em.findOneOrFail(Subscription,{
+     where:{id:id},
+     relation:["subscriber"]
+   }) 
+  
 
    const _orgz=await this.em.create(Orgz,{
       ...orgz
