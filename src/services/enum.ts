@@ -25,7 +25,7 @@ import {
   ProductService,ArticleGrpcService,TicketGrpcService,
   supTicketGrpcService,AuthorGrpcService,UserGrpcService,
   AuthGrpcService,orgzGrpcService,ProductGrpcService,
-  PurshaseGrpcService
+  PurshaseGrpcService,SubscriptionService
 
 } from "./";
 
@@ -42,7 +42,7 @@ export let services:any={
   Orgz:new OrgzService(),
   Purshase:new PurshaseService(),
   Category:new CategoryService(),
-  
+  Subscription: new SubscriptionService()
 }
 
 
