@@ -14,7 +14,7 @@ export class CategoryService extends _Data {
   async all():Promise<Category[]|Error>
   {
   
-    const categories= await this.em.find(Orgz,{
+    const categories= await this.em.find(Category,{
      // where:(userId!=undefined)?{owner:{id:userId}}:{},
       relations:{
         owner:true
