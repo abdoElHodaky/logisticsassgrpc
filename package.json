@@ -7,7 +7,7 @@
       "test": "echo \"Error: no test specified\" && exit 1",
       "start": "pm2-runtime start  dist/app.js  -i 2",
       "typeorm": "typeorm-ts-node-commonjs",
-      "build": "tsc && swagger.json",
+      "build": "tsc ",
       "swaggen": "node swagautogen.js",
       "redis": "redis-server --bind 0.0.0.0",
       "debug": "ts-node-dev --respawn --debug --deps  src/app.ts "
