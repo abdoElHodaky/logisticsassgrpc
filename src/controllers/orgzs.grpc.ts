@@ -1,6 +1,6 @@
 import { credentials } from "@grpc/grpc-js";
 import {_Orgz } from "../protos/dist/";
-import { AuthenticateMiddleware } from "../middlewares/"
+import { AuthenticateMiddleware ,OwnerMiddleware} from "../middlewares/"
 //import { CreatePaymentDto} from "../dto/create-payment.dto";
 import { Res, Post, Controller, Get, Body , Params ,Delete,Req,Query } from '@decorators/express';
 import { Response} from "express"
@@ -39,7 +39,7 @@ export class GrpcOrgzController {
     })
   }
   
-  @Post("",[AuthenticateMiddleware])
+  @Post("",[AuthenticateMiddleware, OwnerMiddleware ])
   async create(@Req() req:Request,/*@Body() createpaymentdto:CreatePaymentDto*/  @Res() res:Response):Promise<void>{
     const {auth}=req
    // console.log(auth)
