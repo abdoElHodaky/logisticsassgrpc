@@ -15,15 +15,10 @@ post(({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                    schema: { 
-                     $name:"",
-                     $description:"",
-                     forType:"Product"
-                    } 
-                  }
+                    schema: { $ref: '#/components/schemas/createCategory' }  }
                 }
+                
             }
-        } 
        #swagger.security = [{
             "JWTAuth": []
        }]
