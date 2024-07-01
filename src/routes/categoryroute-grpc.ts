@@ -18,7 +18,7 @@ post(({body},res)=>{
                     schema: { 
                      $name:"",
                      $description:"",
-                     $forType:"Product"
+                     forType:"Product"
                     } 
                   }
                 }
