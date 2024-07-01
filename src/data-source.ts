@@ -58,7 +58,7 @@ setInterval(function (){
 if(_AppDataSource.isConnected==false)
 {
   _AppDataSource.connect().then(e=>{
-  console.log("connected")
+  console.log("\x1b[40;30;55m connected \x1b[0m")
   }).catch(console.log)
 }
 else{
