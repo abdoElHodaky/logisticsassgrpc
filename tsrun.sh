@@ -1,6 +1,6 @@
 #!/user/bin/bash
 
-npm-run-all build swaggen 
+npx tsc && node swagautogen.js
 node dist/app.js
 
 #node ./dist/grpc-reflect.js
