@@ -17,7 +17,8 @@ export class SubscriptionService extends _Data {
     const subscriptions= await this.em.find(Subscription,{
       where:(userId!=undefined)?{subscriber:{id:userId}}:{},
       relations:{
-        subscriber:true
+        subscriber:true,
+        payments:true,
       },
       cache:true
     })
@@ -41,8 +42,6 @@ async createRenewlPayment(id:number):Promise<Payment|void>{
    await this.em.save(Subscription,subscription)
    
    return payment
-    
-    
     
  }
 }
