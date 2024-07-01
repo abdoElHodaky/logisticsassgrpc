@@ -1,7 +1,7 @@
 import { Entity,Column,ManyToOne,OneToMany,JoinColumn,JoinTable,
         PrimaryGeneratedColumn, CreateDateColumn,ManyToMany,
         UpdateDateColumn } from "typeorm"
-import { Subscriber,Payment,Product } from "./";
+import { Subscriber,Payment,Product,SubscriptionPayment } from "./";
 @Entity()
 export class Subscription {
     @PrimaryGeneratedColumn("increment")
