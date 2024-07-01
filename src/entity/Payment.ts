@@ -41,6 +41,6 @@ export class Payment {
     @Column({type: "boolean"})
     renewal:boolean
 
-   @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription?:Subscription;
+   @ManyToOne(()=>Subscription,subscription=>subscription.payments) subscription:Subscription;
 
 }
