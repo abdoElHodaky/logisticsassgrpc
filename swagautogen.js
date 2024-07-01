@@ -1,6 +1,6 @@
 const swaggerAutogen = require('swagger-autogen')({openapi:"3.0.0"});
 
-const outputFile = './src/swagger.json';
+const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
