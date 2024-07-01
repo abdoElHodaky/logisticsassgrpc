@@ -32,6 +32,9 @@ const config = {
       {
         name:"Purshase",description:"purshases' orgzs endpoints via grpc"
       },
+     {
+        name:"Category",description:"Categories'  endpoints via grpc"
+      },
     ],
     host: '',
     schemes: [],
