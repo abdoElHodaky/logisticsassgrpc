@@ -22,7 +22,7 @@ export class SubscriptionController {
   
  @Post("")
  async renew(@Req() req:Request):Promise<any>{
-   console.log(req.params+" "+req.body+" "+req.query)
+   console.log(req.body)
    return {}
  }
   
