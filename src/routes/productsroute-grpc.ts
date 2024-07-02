@@ -83,13 +83,13 @@ subscriptionsgrpc.post("/subscriptions/renewal",({body},res)=>{
             required: true,
             content: {
                 "application/json": {
-                  schema: { $subscripId:7  }  }
+                  schema: {
+                    { $subscripId:7} 
+                  }  }
                 }
             }
         } 
-       #swagger.security = [{
-            "JWTAuth": []
-       }]
+       
     */
     
    
