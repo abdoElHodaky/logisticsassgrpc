@@ -5,7 +5,7 @@ import { Response } from "express"
 import { Request } from "express-jwt";
 import { Error } from "common-errors";
 
-@Controller('/supscriptions')
+@Controller('/subscriptions')
 export class SubscriptionController {
   
   private service:any=services.Subscription
