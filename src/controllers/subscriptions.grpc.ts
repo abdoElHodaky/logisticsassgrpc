@@ -4,7 +4,7 @@ import { Req,Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response } from "express"
 import { Request } from "express-jwt";
 import { Error } from "common-errors";
-
+import { SubscriberMiddleware,AuthenticateMiddleware} from "../middlewares/";
 @Controller('/subscriptions')
 export class SubscriptionController {
   
@@ -20,7 +20,7 @@ export class SubscriptionController {
     res.json((attachments instanceof Error)? attachments?.message: attachments)
    }
   
- @Post("/renew")
+ @Post("/renew",[AuthenticateMiddleware,SubscriberMiddleware])
  async renew(@Req() req:Request):Promise<void>{
    console.log(req.body)
    console.log(req.query) 
