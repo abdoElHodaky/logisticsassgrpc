@@ -76,7 +76,7 @@ subscriptionsgrpc.get("/subscriptions",(req,res)=>{
    
 })
 
-subscriptionsgrpc.post("/subscriptions/:subscripId/renewal",({body},res)=>{
+subscriptionsgrpc.post("/subscriptions/renew",({body},res)=>{
     /* 	#swagger.tags = ['Subscription']
         #swagger.description = 'Endpoint to renew subscriptions  via grpc' 
         #swagger.parameters["subscripId"]={
