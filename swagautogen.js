@@ -121,6 +121,9 @@ const config = {
             $name:"",
             $description:"",
             forType:"Product"
+        },
+        renewSubscription:{
+            $subscripId:7
         }
     }}
 };
