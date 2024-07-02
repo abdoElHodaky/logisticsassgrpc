@@ -20,7 +20,7 @@ export class SubscriptionController {
     res.json((attachments instanceof Error)? attachments?.message: attachments)
    }
   
- @Post("/renew",[AuthenticateMiddleware,SubscriberMiddleware])
+ @Post("/renew",[AuthenticateMiddleware])
  async renew(@Req() req:Request,@Res() res:Response):Promise<void>{
    const payment=this.service.createRenewlPayment(req.body.subscripId)
    res.json(payment)
