@@ -23,6 +23,9 @@ export class SubscriptionController {
  @Post("/renew")
  async renew(@Req() req:Request):Promise<any>{
    console.log(req.body)
+   console.log(req.query) 
+   console.log(req.params)
+ 
    return {}
  }
   
