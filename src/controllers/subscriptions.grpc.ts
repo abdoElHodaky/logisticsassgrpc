@@ -19,7 +19,7 @@ export class SubscriptionController {
     let attachments=await this.service.all()
     res.json((attachments instanceof Error)? attachments?.message: attachments)
    }
-  }
+  
  @Post("")
  async renew(@Req() req:Request):Promise<any>{
    console.log(req.params+" "+req.body+" "+req.query)
