@@ -25,3 +25,5 @@ export class SubscriptionController {
    console.log(req.params+" "+req.body+" "+req.query)
    return "d"
  }
+  
+}
