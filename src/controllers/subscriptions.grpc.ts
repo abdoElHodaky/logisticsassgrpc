@@ -4,7 +4,7 @@ import { Req,Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response } from "express"
 import { Request } from "express-jwt";
 import { Error } from "common-errors";
-import { SubscriberMiddleware,AuthenticateMiddleware} from "../middlewares/";
+import { AuthenticateMiddleware } from "../middlewares/";
 @Controller('/subscriptions')
 export class SubscriptionController {
   
