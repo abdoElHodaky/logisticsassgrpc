@@ -55,6 +55,15 @@ megrpc.get("/me/subscriptions",(req,res)=>{
        }]
        */
 })
+megrpc.get("/me/subscriptions/renewalPayment/create",(req,res)=>{
+    /*  #swagger.tags = ['User']
+        #swagger.description = 'Endpoint to renew subscriptions of signedin user via grpc' 
+           
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
+       */
+})
 
 userspayrpc.get("/users/:userId/payments",(req,res)=>{
     /* 	#swagger.tags = ['User.Payment']
