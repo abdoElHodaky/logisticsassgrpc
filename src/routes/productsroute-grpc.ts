@@ -4,7 +4,7 @@ import { Router } from "express";
 //import { AppDataSource } from "../_datasource";
 
 export const productsgrpc=Router()
-export const subscriptionsgrpc=Router()
+//export const subscriptionsgrpc=Router()
 
 productsgrpc.get("/products",(req,res)=>{
     /* 	#swagger.tags = ['Product']
@@ -64,7 +64,7 @@ productsgrpc.get("/products",(req,res)=>{
 
     
 
-subscriptionsgrpc.get("/subscriptions",(req,res)=>{
+//subscriptionsgrpc.get("/subscriptions",(req,res)=>{
     /* 	#swagger.tags = ['Subscription']
         #swagger.description = 'Endpoint to get subscriptions via grpc' 
         
@@ -74,9 +74,9 @@ subscriptionsgrpc.get("/subscriptions",(req,res)=>{
     */
     
    
-})
+//})
 
-subscriptionsgrpc.post("/subscriptions/renew",({body},res)=>{
+//subscriptionsgrpc.post("/subscriptions/renew",({body},res)=>{
     /* 	#swagger.tags = ['Subscription']
         #swagger.description = 'Endpoint to renew subscriptions  via grpc' 
         #swagger.requestBody = {
@@ -94,6 +94,6 @@ subscriptionsgrpc.post("/subscriptions/renew",({body},res)=>{
     */
     
    
-})
+//})
 
 
