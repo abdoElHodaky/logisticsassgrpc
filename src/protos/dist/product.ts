@@ -23,7 +23,7 @@ import { Error } from "./error";
 import { Any } from "./google/protobuf/any";
 import { Timestamp } from "./google/protobuf/timestamp";
 import { Subscription } from "./subscription";
-
+import { dateToReadable} from "../../grpc/util";
 export const protobufPackage = "";
 
 export interface Product {
@@ -77,7 +77,7 @@ export interface GetAllProductsRes {
   error?: Error | undefined;
 }
 
-function createBaseProduct(): Product {
+export function createBaseProduct(): Product {
   return {
     id: 0,
     specs: undefined,
@@ -256,10 +256,10 @@ export const Product = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = dateToReadable(message.createdAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt = dateToReadable(message.updatedAt.toISOString());
     }
     return obj;
   },
