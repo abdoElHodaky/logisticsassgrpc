@@ -19,6 +19,7 @@ export class SubscriptionService extends _Data {
       relations:{
         user:true,
         payments:true,
+        products:true
       },
       cache:true
     })
