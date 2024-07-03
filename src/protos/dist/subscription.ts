@@ -20,7 +20,7 @@ import {
 import _m0 from "protobufjs/minimal";
 import { Error } from "./error";
 import { Timestamp } from "./google/protobuf/timestamp";
-
+import { dateToReadable} from "../../grpc/util";
 export const protobufPackage = "";
 
 export interface Subscription {
@@ -179,13 +179,13 @@ export const Subscription = {
       obj.userId = Math.round(message.userId);
     }
     if (message.createdAt !== undefined) {
-      obj.createdAt = message.createdAt.toISOString();
+      obj.createdAt = dateToReadable(message.createdAt.toISOString());
     }
     if (message.renewalAt !== undefined) {
-      obj.renewalAt = message.renewalAt.toISOString();
+      obj.renewalAt = dateToReadable(message.renewalAt.toISOString());
     }
     if (message.updatedAt !== undefined) {
-      obj.updatedAt = message.updatedAt.toISOString();
+      obj.updatedAt =dateToReadable( message.updatedAt.toISOString());
     }
     return obj;
   },
