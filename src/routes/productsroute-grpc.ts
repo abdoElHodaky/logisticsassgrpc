@@ -62,37 +62,6 @@ productsgrpc.get("/products",(req,res)=>{
 
 })
 
-    
-
-//subscriptionsgrpc.get("/subscriptions",(req,res)=>{
-    /* 	#swagger.tags = ['Subscription']
-        #swagger.description = 'Endpoint to get subscriptions via grpc' 
-        
-       #swagger.security = [{
-            "JWTAuth": []
-       }]
-    */
-    
-   
-//})
-
-//subscriptionsgrpc.post("/subscriptions/renew",({body},res)=>{
-    /* 	#swagger.tags = ['Subscription']
-        #swagger.description = 'Endpoint to renew subscriptions  via grpc' 
-        #swagger.requestBody = {
-            required: true,
-            content: {
-                "application/json": {
-                  schema: { $ref: '#/components/schemas/renewSubscription' }  }
-                }
-            }
-        } 
-       #swagger.security = [{
-            "JWTAuth": []
-       }]
-       
-    */
-    
    
 //})
 
