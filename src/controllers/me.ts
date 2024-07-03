@@ -36,4 +36,10 @@ export class GrpcMeController {
     res.redirect("/me")
   }
 
+  @Post("/subscriptions/renewalPayment/create",[AuthenticateMiddleware])
+  async createRenewal(@Req() req:Request,@Res() res:Response):Promise<void>
+  {
+    const payment=await services.Subscription.createRenewlPayment(req.body.subscripId)
+    res.redirect("")
+  }
 }
