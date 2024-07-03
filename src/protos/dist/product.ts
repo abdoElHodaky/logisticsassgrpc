@@ -32,6 +32,7 @@ export interface Product {
   subs: Product[];
   parent?: Product | undefined;
   attachments: Attachment[];
+  categoriesIds: number[];
   userId?: number | undefined;
   createdAt?: Date | undefined;
   updatedAt?: Date | undefined;
@@ -44,7 +45,7 @@ export interface CreateProductReq {
 
 export interface SubscribeProductReq {
   userId: number;
-  productId: number;
+  productIds: number[];
 }
 
 export interface SubscribeProductRes {
@@ -76,13 +77,14 @@ export interface GetAllProductsRes {
   error?: Error | undefined;
 }
 
-export function createBaseProduct(): Product {
+function createBaseProduct(): Product {
   return {
     id: 0,
     specs: undefined,
     subs: [],
     parent: undefined,
     attachments: [],
+    categoriesIds: [],
     userId: undefined,
     createdAt: undefined,
     updatedAt: undefined,
@@ -106,14 +108,19 @@ export const Product = {
     for (const v of message.attachments) {
       Attachment.encode(v!, writer.uint32(42).fork()).ldelim();
     }
+    writer.uint32(50).fork();
+    for (const v of message.categoriesIds) {
+      writer.int32(v);
+    }
+    writer.ldelim();
     if (message.userId !== undefined) {
-      writer.uint32(48).int32(message.userId);
+      writer.uint32(56).int32(message.userId);
     }
     if (message.createdAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(58).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.createdAt), writer.uint32(66).fork()).ldelim();
     }
     if (message.updatedAt !== undefined) {
-      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(66).fork()).ldelim();
+      Timestamp.encode(toTimestamp(message.updatedAt), writer.uint32(74).fork()).ldelim();
     }
     return writer;
   },
@@ -161,21 +168,38 @@ export const Product = {
           message.attachments.push(Attachment.decode(reader, reader.uint32()));
           continue;
         case 6:
-          if (tag !== 48) {
+          if (tag === 48) {
+            message.categoriesIds.push(reader.int32());
+
+            continue;
+          }
+
+          if (tag === 50) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.categoriesIds.push(reader.int32());
+            }
+
+            continue;
+          }
+
+          break;
+        case 7:
+          if (tag !== 56) {
             break;
           }
 
           message.userId = reader.int32();
           continue;
-        case 7:
-          if (tag !== 58) {
+        case 8:
+          if (tag !== 66) {
             break;
           }
 
           message.createdAt = fromTimestamp(Timestamp.decode(reader, reader.uint32()));
           continue;
-        case 8:
-          if (tag !== 66) {
+        case 9:
+          if (tag !== 74) {
             break;
           }
 
@@ -199,6 +223,9 @@ export const Product = {
       attachments: globalThis.Array.isArray(object?.attachments)
         ? object.attachments.map((e: any) => Attachment.fromJSON(e))
         : [],
+      categoriesIds: globalThis.Array.isArray(object?.categoriesIds)
+        ? object.categoriesIds.map((e: any) => globalThis.Number(e))
+        : [],
       userId: isSet(object.userId) ? globalThis.Number(object.userId) : undefined,
       createdAt: isSet(object.createdAt) ? fromJsonTimestamp(object.createdAt) : undefined,
       updatedAt: isSet(object.updatedAt) ? fromJsonTimestamp(object.updatedAt) : undefined,
@@ -221,6 +248,9 @@ export const Product = {
     }
     if (message.attachments?.length) {
       obj.attachments = message.attachments.map((e) => Attachment.toJSON(e));
+    }
+    if (message.categoriesIds?.length) {
+      obj.categoriesIds = message.categoriesIds.map((e) => Math.round(e));
     }
     if (message.userId !== undefined) {
       obj.userId = Math.round(message.userId);
@@ -246,6 +276,7 @@ export const Product = {
       ? Product.fromPartial(object.parent)
       : undefined;
     message.attachments = object.attachments?.map((e) => Attachment.fromPartial(e)) || [];
+    message.categoriesIds = object.categoriesIds?.map((e) => e) || [];
     message.userId = object.userId ?? undefined;
     message.createdAt = object.createdAt ?? undefined;
     message.updatedAt = object.updatedAt ?? undefined;
@@ -330,7 +361,7 @@ export const CreateProductReq = {
 };
 
 function createBaseSubscribeProductReq(): SubscribeProductReq {
-  return { userId: 0, productId: 0 };
+  return { userId: 0, productIds: [] };
 }
 
 export const SubscribeProductReq = {
@@ -338,9 +369,11 @@ export const SubscribeProductReq = {
     if (message.userId !== 0) {
       writer.uint32(8).int32(message.userId);
     }
-    if (message.productId !== 0) {
-      writer.uint32(16).int32(message.productId);
+    writer.uint32(18).fork();
+    for (const v of message.productIds) {
+      writer.int32(v);
     }
+    writer.ldelim();
     return writer;
   },
 
@@ -359,12 +392,22 @@ export const SubscribeProductReq = {
           message.userId = reader.int32();
           continue;
         case 2:
-          if (tag !== 16) {
-            break;
+          if (tag === 16) {
+            message.productIds.push(reader.int32());
+
+            continue;
           }
 
-          message.productId = reader.int32();
-          continue;
+          if (tag === 18) {
+            const end2 = reader.uint32() + reader.pos;
+            while (reader.pos < end2) {
+              message.productIds.push(reader.int32());
+            }
+
+            continue;
+          }
+
+          break;
       }
       if ((tag & 7) === 4 || tag === 0) {
         break;
@@ -377,7 +420,9 @@ export const SubscribeProductReq = {
   fromJSON(object: any): SubscribeProductReq {
     return {
       userId: isSet(object.userId) ? globalThis.Number(object.userId) : 0,
-      productId: isSet(object.productId) ? globalThis.Number(object.productId) : 0,
+      productIds: globalThis.Array.isArray(object?.productIds)
+        ? object.productIds.map((e: any) => globalThis.Number(e))
+        : [],
     };
   },
 
@@ -386,8 +431,8 @@ export const SubscribeProductReq = {
     if (message.userId !== 0) {
       obj.userId = Math.round(message.userId);
     }
-    if (message.productId !== 0) {
-      obj.productId = Math.round(message.productId);
+    if (message.productIds?.length) {
+      obj.productIds = message.productIds.map((e) => Math.round(e));
     }
     return obj;
   },
@@ -398,7 +443,7 @@ export const SubscribeProductReq = {
   fromPartial<I extends Exact<DeepPartial<SubscribeProductReq>, I>>(object: I): SubscribeProductReq {
     const message = createBaseSubscribeProductReq();
     message.userId = object.userId ?? 0;
-    message.productId = object.productId ?? 0;
+    message.productIds = object.productIds?.map((e) => e) || [];
     return message;
   },
 };
