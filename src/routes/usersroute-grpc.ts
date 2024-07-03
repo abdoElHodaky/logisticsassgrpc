@@ -58,9 +58,13 @@ megrpc.get("/me/subscriptions",(req,res)=>{
 megrpc.get("/me/subscriptions/renewalPayment/create",(req,res)=>{
     /*  #swagger.tags = ['User']
         #swagger.description = 'Endpoint to renew subscriptions of signedin user via grpc' 
-        #swagger.requestBody={
-         
-        }
+        swagger.requestBody={
+          required: true,
+            content: {
+                "application/json": {
+                   schema: { $ref: '#/components/schemas/renewSubscription' }   }
+                }
+            }
         #swagger.security = [{
             "JWTAuth": []
        }]
