@@ -14,13 +14,17 @@ usersgrpc.get("/users",(req,res)=>{
 
 })
 
-
+megrpc.use(
+    /*
+      #swagger.security = [{
+            "JWTAuth": []
+       }]
+    */
+)
 megrpc.get("/me",(req,res)=>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get profile of authenticated user'
-        #swagger.security = [{
-            "JWTAuth": []
-       }]
+        
     
     */
 
@@ -29,9 +33,7 @@ megrpc.get("/me",(req,res)=>{
 megrpc.post("/me/changePassword",(req,res)=>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to change password of authenticated user'
-        #swagger.security = [{
-            "JWTAuth": []
-       }]
+        
        #swagger.requestBody={
           required: true,
             content: {
@@ -50,9 +52,7 @@ megrpc.get("/me/subscriptions",(req,res)=>{
     /*  #swagger.tags = ['User']
         #swagger.description = 'Endpoint to get subscriptions of signedin user via grpc' 
         
-    #swagger.security = [{
-            "JWTAuth": []
-       }]
+    
        */
 })
 megrpc.post("/me/subscriptions/renewal/create",(req,res)=>{
@@ -65,9 +65,7 @@ megrpc.post("/me/subscriptions/renewal/create",(req,res)=>{
                    schema: { $ref: '#/components/schemas/renewSubscription' }   }
                 }
             }
-        #swagger.security = [{
-            "JWTAuth": []
-       }]
+        
        */
 })
 
