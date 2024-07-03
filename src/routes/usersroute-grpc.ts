@@ -45,6 +45,17 @@ megrpc.post("/me/changePassword",(req,res)=>{
 
 })
 
+
+megrpc.get("/me/subscriptions",(req,res)=>{
+    /*  #swagger.tags = ['User']
+        #swagger.description = 'Endpoint to get subscriptions of signedin user via grpc' 
+        
+    #swagger.security = [{
+            "JWTAuth": []
+       }]
+       */
+})
+
 userspayrpc.get("/users/:userId/payments",(req,res)=>{
     /* 	#swagger.tags = ['User.Payment']
         #swagger.description = 'Endpoint to get payments via grpc' 
