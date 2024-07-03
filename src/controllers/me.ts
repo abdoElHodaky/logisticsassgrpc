@@ -40,6 +40,6 @@ export class GrpcMeController {
   async createRenewal(@Req() req:Request,@Res() res:Response):Promise<void>
   {
     const payment=await services.Subscription.createRenewlPayment(req.body.subscripId)
-    res.redirect("")
+    res.json(payment)
   }
 }
