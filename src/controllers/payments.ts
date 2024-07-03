@@ -30,8 +30,8 @@ export class PaymentController {
   async create(@Req() req:Request,@Body() createpaymentdto:CreatePaymentDto , @Res() res:Response):Promise<Payment|void>{
     const {auth}=req
    // console.log(auth)
-    //let payment=await this.paymentService.create(createpaymentdto)
-   // return payment;
+    let payment=await this.paymentService.create(createpaymentdto)
+    return payment;
   }
 
   @Post("/:paymentId/Pay",[AuthenticateMiddleware])
