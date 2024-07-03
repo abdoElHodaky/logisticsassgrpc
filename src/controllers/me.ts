@@ -21,7 +21,7 @@ export class GrpcMeController {
  
   @Get("/subscriptions",[AuthenticateMiddleware])
   async subscriptions(@Req() req:Request,@Res() res:Response):Promise<void>{
-    const subscriptions=await services.Subscription.all(req?.auth.id)
+    const subscriptions=await services.Subscription.all(req.auth?.id)
     res.jsonp(subscriptions)
   }
  
