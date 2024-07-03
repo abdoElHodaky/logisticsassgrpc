@@ -7,6 +7,7 @@ export enum VerifyType {
     EMAIL="email",
     PHONE="phone",
     PRODUCT_TYPE_ENTITY="Product",
+    USER_ACCOUNT="User",
 }
 @Entity()
 export class Verification {
