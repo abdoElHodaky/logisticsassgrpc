@@ -18,6 +18,6 @@ export const controllers=[GrpcAuthController,GrpcAuthorController,
                           PaymentController,GrpcMeController,GrpcOrgzController,
                           GrpcUserPaymentController,GrpcProductController,
                           PurshaseController,CategoryController,
-                          SubscriptionController
+                          
 
                          ]
