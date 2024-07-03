@@ -4,7 +4,7 @@ import { Res,  Controller , Get ,Post,Req} from "@decorators/express";
 import { Response } from "express";
 import { Request } from "express-jwt";
 import {AuthenticateMiddleware} from "../middlewares/authenticate";
-import {PasswordService} from "../services/";
+import {services} from "../services/enum";
 //const address = "localhost:50051";
 @Controller("/me")
 export class GrpcMeController {
@@ -15,12 +15,19 @@ export class GrpcMeController {
   */
   @Get("",[AuthenticateMiddleware])
   async me(@Req() req:Request,@Res() res:Response ):Promise<void>{
-    res.json(req.auth)
+    const user=req.auth
+    res.json(user)
   }
-
+ 
+  @Get("/subscriptions",[AuthenticateMiddleware])
+  async subscriptions(@Req() req:Request,@Res() res:Response):Promise<void>{
+    const subscriptions=await services.Subscription.all(req?.auth.id)
+    res.jsonp(subscriptions)
+  }
+ 
   @Post("/changePassword",[AuthenticateMiddleware])
   async change_password(@Req() req:Request,@Res() res:Response ):Promise<void>{
-    const passwordS=new PasswordService()
+    const passwordS=services.Password
     const password=await passwordS.create({
      userId:req?.auth?.id,
      passphase:req?.body?.passphase
