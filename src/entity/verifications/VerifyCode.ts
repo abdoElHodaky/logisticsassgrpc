@@ -14,7 +14,7 @@ export class VerifyCode{
    @Column({type:"date"})
    expiresAt:Date
   
-   @ManyToOne(()=>Verification,verification=>verification.verify_codes)verification:Verification
+   @ManyToOne(()=>Verification,verification=>verification.codes) verification:Verification
    @BeforeInsert()
    setCode(){
         this.code=genCode()
