@@ -60,7 +60,7 @@ export class User {
    
 }
 
-@Entity()
+/*@Entity()
 export class Activated {
     
     @Column({type:"varchar",default:"inactivated"})
@@ -72,3 +72,4 @@ export class Activated {
     @Column("varchar")
     activateCode:string
 }
+*/
