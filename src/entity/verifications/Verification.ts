@@ -17,7 +17,7 @@ export class Verification {
     @Column({nullable:true})
     type:VerifyType;
     
-    @OneToMany(()=>VerifyCode,code=>code.verification) verify_codes:VerifyCode[];
+    @OneToMany(()=>VerifyCode,code=>code.verification) codes:VerifyCode[];
     
     @ManyToOne(()=>User,user=>user.verifications) user:User;
 }
