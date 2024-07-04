@@ -60,14 +60,13 @@ export class User {
    
 }
 
-@ChildEntity()
-export class Author extends User {
+@Entity()
+export class Activated {
     
-    @Column({default:"Author"})
-    type:string
+    @Column({default:"inactivated"})
+    activated:string
 
-    @OneToMany(()=>Article,article=>article.author) articles:Article[];
+    @Column("int")
+    activatePeriod:number
 
 }
-
-
