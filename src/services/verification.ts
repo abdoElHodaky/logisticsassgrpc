@@ -2,7 +2,7 @@
 import {_Data} from "./datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { UserService} from "./";
-import { Verification,VerfyCode,VerfyType ,User } from "../entity/";
+import { Verification,VerifyCode,VerifyType ,User } from "../entity/";
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 export class VerificationService extends _Data {
@@ -38,8 +38,12 @@ export class VerificationService extends _Data {
   async create(userId:number):Promise<Verification|void>{
     
     let user=await this.userS.id(`${userId}`)
-    let verifyCode=new VerifyCode()
-    
+    let Code=new VerifyCode()
+    let verification=new Verification()
+     verifications.codes.push(Code)
+     verification.user=user
+     verification.type=VerifyType.ACCOUNT
+     return await this.em.save(Verification,verification)
     
   }
   
