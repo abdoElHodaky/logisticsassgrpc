@@ -35,6 +35,9 @@ const config = {
      {
         name:"Category",description:"Categories'  endpoints via grpc"
       },
+        {
+        name:"Verification",description:"Verifications'  endpoints via grpc"
+        },
     ],
     host: '',
     schemes: [],
@@ -124,6 +127,15 @@ const config = {
         },
         renewSubscription:{
             $subscripId:7
+        },
+        AddVerification:{
+            $forWhat:{
+                type:"string",
+                "@enum":["User","Product"]
+            }
+        },
+        ValidateVerification:{
+            $verifyId:3
         }
     }}
 };
