@@ -1,4 +1,3 @@
-
 import {_Data} from "./datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { UserService} from "./";
@@ -43,7 +42,7 @@ export class VerificationService extends _Data {
     })
     let Code=new VerifyCode()
     let verification=new Verification()
-     verifications.codes.push(Code)
+     verification.codes.push(Code)
      verification.user=user
      verification.type=forWhat
      return await this.em.save(Verification,verification)
