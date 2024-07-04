@@ -11,13 +11,13 @@ import {GrpcProductController} from "./products.grpc";
 import {GrpcOrgzController} from "./orgzs.grpc";
 import {PurshaseController} from "./purshases.grpc";
 import {CategoryController} from "./categories";
-import {SubscriptionController} from "./subscriptions.grpc";
+import {VerificationController} from "./verifications";
 export const controllers=[GrpcAuthController,GrpcAuthorController,
                           ArticleController,GrpcUserTicketController,
                           GrpcUserController,GrpcSupTicketController,
                           PaymentController,GrpcMeController,GrpcOrgzController,
                           GrpcUserPaymentController,GrpcProductController,
                           PurshaseController,CategoryController,
-                          
+                          VerificationController
 
                          ]
