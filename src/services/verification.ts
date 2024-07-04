@@ -48,5 +48,19 @@ export class VerificationService extends _Data {
      return await this.em.save(Verification,verification)
     
   }
+
+  async validate(verifyId:number,code:string){
+   try{
+    const verification=await this.em.findOneOrFail(Verification,{
+      where:{id:verifyId},
+      relations:{
+        codes:true,user:true
+      }
+    })
+   return  verification.codes.some(c=>c.value==code)
+  }catch(err:any){
+    cosole.error(err)
+    }
+ }
   
 }
