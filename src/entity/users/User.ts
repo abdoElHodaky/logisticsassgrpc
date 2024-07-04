@@ -63,10 +63,12 @@ export class User {
 @Entity()
 export class Activated {
     
-    @Column({default:"inactivated"})
+    @Column({type:"varchar",default:"inactivated"})
     activated:string
 
     @Column("int")
     activatePeriod:number
 
+    @Column("varchar")
+    activateCode:string
 }
