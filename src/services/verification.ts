@@ -35,14 +35,14 @@ export class VerificationService extends _Data {
     else return new TypeError("userId should be number")
   }
   
-  async create(userId:number):Promise<Verification|void>{
+  async create(userId:number,forWhat:VerifyType):Promise<Verification|void>{
     
     let user=await this.userS.id(`${userId}`)
     let Code=new VerifyCode()
     let verification=new Verification()
      verifications.codes.push(Code)
      verification.user=user
-     verification.type=VerifyType.ACCOUNT
+     verification.type=forWhat
      return await this.em.save(Verification,verification)
     
   }
