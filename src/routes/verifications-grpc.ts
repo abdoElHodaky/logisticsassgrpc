@@ -35,7 +35,23 @@ verificationsgrpc.post("/verifications",({body},res)=>{
    
 })
 
-/*articlesroute.post("/verifications/validate",(req,res)=>{
+verificationsgrpc.post("/verifications/validate",(req,res)=>{
+    /*
     
+        #swagger.tags = ['Verification']
+        #swagger.description = 'Endpoint to validate specific verification via grpc' 
+        #swagger.requestBody = {
+            required: true,
+            content: {
+                "application/json": {
+                    schema: { $ref: '#/components/schemas/ValidateVerification' }  }
+                }
+            }
+        } 
+       #swagger.security = [{
+            "JWTAuth": []
+       }]
+    
+    */
 })
-*/
+
