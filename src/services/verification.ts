@@ -57,9 +57,9 @@ export class VerificationService extends _Data {
         codes:true,user:true
       }
     })
-   return  verification.codes.some(c=>c.value==code)
+   return  verification.codes.some(c=>c.code==code)
   }catch(err:any){
-    cosole.error(err)
+    console.error(err)
     }
  }
   
