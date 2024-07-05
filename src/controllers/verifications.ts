@@ -4,11 +4,13 @@ import { Verification ,User } from "../entity/"
 //import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
-import { Response ,Request} from "express"
+import { Response } from "express"
+import { Request } from "express-jwt";
+import { AuthenticateMiddleware} from "../middlewares/";
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error , NotFoundError } from "common-errors";
 
-@Controller('/verifications')
+@Controller('/verifications',[AuthenticateMiddleware])
 export class VerificationController {
   
   private  veerifyS:any=services.Verification
@@ -28,7 +30,15 @@ export class VerificationController {
   @Post("")
   async create(@Req() req:Request,@Res() res: Response ):Promise<any|void> 
   {
-    return req.body
+   const verification= await this.verifyS.create(req.body.forWhat)
+   res.json(verification)
+  }
+  
+  @Post("")
+  async validate(@Req() req:Request,@Res() res: Response ):Promise<any|void> 
+  {
+   const validated= await this.verifyS.validate(req.body)
+   res.json(validated)
   }
 
   
