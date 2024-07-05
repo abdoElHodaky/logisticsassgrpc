@@ -3,7 +3,7 @@ import { services } from "../services/enum";
 import { Verification ,User } from "../entity/"
 //import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
+import { Req,Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
 import { Response } from "express"
 import { Request } from "express-jwt";
 import { AuthenticateMiddleware} from "../middlewares/";
@@ -13,7 +13,7 @@ import { Error , NotFoundError } from "common-errors";
 @Controller('/verifications',[AuthenticateMiddleware])
 export class VerificationController {
   
-  private  veerifyS:any=services.Verification
+  private  verifyS:any=services.Verification
   constructor(){}
   
   @Get("")
