@@ -34,7 +34,7 @@ export class VerificationController {
    res.json(verification)
   }
   
-  @Post("")
+  @Post("/validate")
   async validate(@Req() req:Request,@Res() res: Response ):Promise<any|void> 
   {
    const validated= await this.verifyS.validate(req.body)
