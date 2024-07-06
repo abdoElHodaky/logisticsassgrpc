@@ -1,9 +1,0 @@
-syntax ="proto3";
-
-import "article.proto";
-import "ticket.proto";
-//import "error.proto";
-import "auth.proto";
-import "user.proto";
-import "product.proto";
-
