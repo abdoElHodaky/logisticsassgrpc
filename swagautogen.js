@@ -4,11 +4,7 @@ const outputFile = './swagger.json';
 const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
-<<<<<<< HEAD
-        title: 'Grpc endpoints docs',
-=======
         title: 'Supply chain/Logistics gRPC endpoints docs',
->>>>>>> mainrpc
         description: '',
     },
     tags: [
