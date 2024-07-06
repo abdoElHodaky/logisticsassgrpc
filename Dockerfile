@@ -1,4 +1,4 @@
-from node:18-alpine
+From node:18-alpine
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev redis supervisor sudo
 RUN rm -rf package-lock.json && mkdir /var/log/supervisor/
 RUN npm cache clean --force
