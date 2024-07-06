@@ -1,6 +1,6 @@
 FROM node:18-alpine
-<<<<<<< HEAD
-WORKDIR /app
+#<<<<<<< HEAD
+#WORKDIR /app
 COPY . .
 RUN apk add --no-cache tzdata  sqlite-dev postgresql-dev mysql-dev protobuf protobuf-dev
 RUN rm -rf package-lock.json && yarn add ts-proto @grpc/grpc-js
