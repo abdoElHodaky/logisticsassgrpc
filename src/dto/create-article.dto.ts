@@ -1,5 +1,13 @@
-import { Article } from "../entity/Article"
+import { IsNotEmpty} from "class-validator";
+
 export class CreateArticleDto{
-  readonly article:Article
-  readonly userid:string
+
+@IsNotEmpty()
+readonly  cateogry:string
+@IsNotEmpty()
+readonly  imgurl:string
+@IsNotEmpty()
+readonly  content:string
+@IsNotEmpty()
+readonly title:string
 }

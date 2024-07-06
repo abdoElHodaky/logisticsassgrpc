@@ -2,8 +2,9 @@ import { service } from "../services/";
 import { Article , Author } from "../entity/"
 import { AppDataSource } from "../_datasource";
 import { CreateAuthorDto } from "../dto/"
-import { Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
-import { Response ,Request} from "express"
+import { Req,Res, Post, Controller, Get, Body , Params ,Delete } from '@decorators/express';
+import { Response} from "express"
+import { Request} from "express-jwt";
 import { isNumeric,nationalIdvalid } from "../helpers";
 import { Error } from "common-errors";
 
@@ -14,19 +15,19 @@ export class AuthorController {
   constructor( ){}
   
   @Get("")
-  async all():Promise<Author[]>{
+  async all():Promise<Author[]|Error>{
     /* 	#swagger.tags = ['User']
         #swagger.description = 'Endpoint to get users' */
 
-    let resd:Author[]=await this.authorS.all()
+    let resd=await this.authorS.all()
       //await AppDataSource.getRepository(Author).find()
     return resd
   }
 
   @Post("")
-  async create(@Body() author:Author):Promise<Author|void>{
+  async create(@Req() req:Request):Promise<Author|Error|void>{
     let _author;
-   _author=await this.authorS.create(author)
+   _author=await this.authorS.create(req?.auth)
     return _author
   }
   

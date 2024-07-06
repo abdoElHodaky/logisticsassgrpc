@@ -1,0 +1,68 @@
+syntax="proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "attachment.proto";
+import "subscription.proto";
+import "error.proto";
+
+message Product {
+ int32 id=1;
+ google.protobuf.Any specs=2;
+ repeated Product subs=3;
+ optional Product parent=4;
+ repeated Attachment attachments=5;
+ repeated int32 categoriesIds=6;
+ optional int32 userId=7;
+ optional google.protobuf.Timestamp created_at=8;
+ optional google.protobuf.Timestamp updated_at=9;
+}
+
+message CreateProductReq {
+  int32 userId=1;
+  Product product=2;
+}
+
+message SubscribeProductReq {
+  int32 userId=1;
+  repeated int32 productIds=2;
+}
+
+message SubscribeProductRes {
+  optional int32 userId=1;
+  Subscription subscription=2;
+}
+
+message CreateProductRes {
+  optional  int32 userId=1;
+  Product product=2;
+}
+
+message GetAllProductsSubscriptionsReq {
+ repeated int32 productId=1;
+}
+
+message GetAllProductsSubscriptionsRes {
+ repeated int32 productsIds=1;
+ repeated Subscription subscriptions=2;
+ optional Error error=3;
+ 
+}
+
+message GetAllProductsReq {
+ optional int32 userId=1;
+}
+
+message GetAllProductsRes {
+ repeated Product products=1;
+ optional Error error=2;
+ 
+}
+
+service ProductService {
+  rpc create(CreateProductReq) returns(
+  CreateProductRes);
+  rpc all(GetAllProductsReq) returns (GetAllProductsRes);
+  rpc all_subscriptions (GetAllProductsSubscriptionsReq) returns (GetAllProductsSubscriptionsRes);
+  rpc subscribe(SubscribeProductReq) returns (SubscribeProductRes);
+}

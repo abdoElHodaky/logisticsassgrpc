@@ -1,41 +1,58 @@
-const swaggerAutogen = require('swagger-autogen')();
+const swaggerAutogen = require('swagger-autogen')({openapi:"3.0.0"});
 
 const outputFile = './swagger.json';
-const endpointsFiles = ['./dist/routes.js','./dist/controllers/*.js','./dist/routes/*.js'];
+const endpointsFiles = ['./dist/controllers/*.js','./dist/routes/*-grpc.js','./dist/routes/payroute.js'];
 const config = {
     info: {
+<<<<<<< HEAD
         title: 'Grpc endpoints docs',
+=======
+        title: 'Supply chain/Logistics gRPC endpoints docs',
+>>>>>>> mainrpc
         description: '',
     },
     tags: [
     {
-        name:"Auth",
-        description:"Authentication"
+        name:"Auth",description:"authentication endpoints via grpc"
     },
     {
-        name:"Attachment",
-        description:"Attachment endpoints"
-    },
+        name:"Article",description:"articles endpoints via grpc"
+    },{
+        name:"Author",description:"authors endpoints via grpc"
+    },{
+        name:"User",description:"users endpoints via grpc"
+    },{
+        name:"User.Ticket",description:"users' tickets endpoints via grpc"
+      },
     {
-      name: 'User',
-      description: 'users endpoints'
-    },
-    {
-      name: 'Author',
-      description: 'authors endpoints'
-    },
-    {
-        name:'Article',
-        description:'articles endpoints'
-    },
-    {
-       name:'suptickets',
-       description:'tickets endpoints'
-    }
+        name:"User.Payment",description:"users' payments endpoints via grpc"
+      },
+      {
+        name:"User.Organization",description:"owners' orgzs endpoints via grpc"
+      },
+      {
+        name:"Organization",description:"organizations endpoints via grpc"
+      },
+      {
+        name:"Purshase",description:"purshases' orgzs endpoints via grpc"
+      },
+     {
+        name:"Category",description:"Categories'  endpoints via grpc"
+      },
+        {
+        name:"Verification",description:"Verifications'  endpoints via grpc"
+        },
     ],
     host: '',
     schemes: [],
-    definitions:{
+    components:{
+        securitySchemes:{
+            JWTAuth: {
+                type: 'http',
+                scheme: 'bearer'
+            }
+        },
+        schemas:{
             LoginUser:{
                 username:"",
                 passwordHash:""
@@ -46,26 +63,21 @@ const config = {
                  lastname:"",
                  $IDcardNumber:2980865431210,
                  email:"",
-                 $age:0
+                 password:"",
+                 $age:0,
+                 type:{type:"string",'@enum':["user","author","supplier","affiliate","owner"]}
              },
              CreateAuthor:{
-                 username:"",
-                 firstname:"",
-                 lastname:"",
-                 $IDcardNumber:2980865431210,
-                 email:"",
-                 $age:0,
-                 type:"author"
+                 $type:"author"
              },
             AddArticle:{
                 cateogry:"",
                 imgurl:"",
                 content:"",
-                title:"",
-                $userid:4
+                title:""
             },
             userAddTicket:{
-                $type:"inquiry|complaint",
+                type:{type:"string",'@enum':["inquiry","complaint"]},
                 $subject:"greet",
                 $description:"how are you?"
             },
@@ -80,8 +92,56 @@ const config = {
                    source:"",
                    thumbnail:""
                }
-           }
-    }
+           },
+            ownerOrgz:{
+                $owerId:1
+            },
+          CreateOrgz:{
+              $userId:0,
+              $orgz:{
+                $type:"",
+                $title:"",
+                $description:"",
+                $specs:[{$name:"",$value:""}]
+             }
+          },
+          chnagePassword:{
+              $passphase:"test_65"
+          },
+         CreateProduct:{
+             $userId:1,
+             $product:{
+                 $title:"",
+                 $price:20,
+                 $specs:[{$name:"",$value:""}]
+             }
+             
+         },
+        CreatePurshase:{
+            $userId:"1",
+            $itemsIds:[1,2,3]
+        }
+       ,subscribeProduct:{
+             $productId:1,
+         },
+        createCategory:{
+            $name:"",
+            $description:"",
+            forType:"Product"
+        },
+        renewSubscription:{
+            $subscripId:7
+        },
+        AddVerification:{
+            $forWhat:{
+                type:"string",
+                "@enum":["User","Product"]
+            }
+        },
+        ValidateVerification:{
+            $verifyId:3
+        }
+    }}
 };
 
 swaggerAutogen(outputFile, endpointsFiles, config);

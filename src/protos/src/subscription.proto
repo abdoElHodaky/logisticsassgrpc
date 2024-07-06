@@ -1,0 +1,42 @@
+syntax="proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/any.proto";
+import "error.proto";
+
+message Subscription {
+ int32 id=1;
+ repeated int32 productsIds=2;
+ int32 userId=3;
+ optional google.protobuf.Timestamp created_at = 4;
+ optional google.protobuf.Timestamp renewal_at = 5;
+ optional google.protobuf.Timestamp updated_at = 6;
+}
+message RenewedSubscription{
+    int32 id=1;
+    int32 subscriptionId=2;
+    int32 paymentId=3;
+    optional google.protobuf.Timestamp next_renwal_at = 4;
+}
+message GetAllSupscriptionReq{
+ optional int32 userId=1;
+ optional int32 productId=2;
+}
+
+message RenewSupscriptionReq{
+ int32 subscriptionId=1;
+}
+
+message RenewSupscriptionRes{
+  RenewedSubscription subscription =1;
+}
+
+message GetAllSupscriptionRes{
+ repeated Subscription subscriptions=1;
+ optional Error error=2;
+}
+
+service SubscriptionService {
+ rpc renew(RenewSupscriptionReq) returns (RenewSupscriptionRes);
+ rpc all(GetAllSupscriptionReq) returns (GetAllSupscriptionRes);
+}

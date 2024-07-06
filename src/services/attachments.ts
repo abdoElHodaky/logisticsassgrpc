@@ -1,7 +1,6 @@
 import { Injectable , Inject } from "@decorators/di";
 import { DataSource ,AppDataSource ,_datasource } from "../includes"
 import { Attachment } from "../entity/"
-//import { CreateArticleDto } from "../dto/create-article.dto"
 
 //@Injectable()
 export class AttachmentService {

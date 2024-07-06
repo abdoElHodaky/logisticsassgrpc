@@ -1,18 +1,17 @@
 import { Router } from "express";
 import { Request,Response } from "express";
 import { AppDataSource } from "../_datasource";
-import { User } from "../entity/User";
-import { supTicket } from "../entity/supTicket";
+import { User } from "../entity/";
+import { supTicket } from "../entity/";
 import * as CircularJSON from "circular-json";
 export const suptickeroute=Router({mergeParams:true});
-suptickeroute.get("/users/:userid/tickets",(req:Request,res:Response)=>{
+suptickeroute.get("/users/:userId/tickets",(req:Request,res:Response)=>{
     /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get tickets' 
-        #swagger.parameters['userid'] = {
+        #swagger.parameters['userId'] = {
             in: 'path',
             description: 'get tickets.',
-            schema: { $ref: '#/definitions/userSupTicket' }
-    } 
+            type:"string"
     */
     
   //  let id=Number(req.params["userid"])
@@ -42,14 +41,14 @@ suptickeroute.get("/users/:userid/tickets",(req:Request,res:Response)=>{
   });
 
 
-suptickeroute.post("/users/:userid/tickets",(req:Request,res:Response)=>{
+suptickeroute.post("/users/:userId/tickets",(req:Request,res:Response)=>{
     
     /* 	#swagger.tags = ['User.Ticket']
         #swagger.description = 'Endpoint to get tickets' 
         #swagger.parameters['userid'] = {
             in: 'body',
             description: 'add tickets. for specific user',
-            schema: { $ref: '#/definitions/userAddTicket' }
+            schema: { $ref: '#/components/schemas/userAddTicket' }
     } 
     */
     

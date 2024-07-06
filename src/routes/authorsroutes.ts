@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Request,Response } from "express";
 import { AppDataSource } from "../_datasource";
-import { Author } from "../entity/Author";
+import { Author } from "../entity/";
 //import { suptickeroute } from "./usersupticketroutes";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const authorsroutes=Router();

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { Request,Response } from "express";
 import { AppDataSource } from "../_datasource";
-import { User } from "../entity/User";
+import { User } from "../entity/";
 import { suptickeroute } from "./usersupticketroutes";
 import { isNumeric,nationalIdvalid } from "../helpers";
 export const usersroute=Router();

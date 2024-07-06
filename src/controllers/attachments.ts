@@ -1,15 +1,22 @@
+<<<<<<< HEAD
 import { service } from "../services/";
+=======
+import { services } from "../services/enum";
+>>>>>>> mainrpc
 import { Attachment } from "../entity/"
-//import { AppDataSource } from "../_datasource";
-//import { CreateArticleDto } from "../dto/create-article.dto"
 import { Res, Post, Controller, Get, Body } from '@decorators/express';
 import { Response ,Request} from "express"
 
 
 @Controller('/attachments')
 export class AttachmentController {
+<<<<<<< HEAD
   @service("Attachment")
   private attachmentS:any
+=======
+  
+  private attachmentS:any=services.Attachment
+>>>>>>> mainrpc
   
   constructor( ) {}
 

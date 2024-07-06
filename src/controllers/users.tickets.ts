@@ -2,6 +2,7 @@
 import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
 import { Response ,Request} from "express"
 import { supTicket , User } from "../entity/";
+<<<<<<< HEAD
 import { service } from "../services/";
 import { Error } from "common-errors";
 @Controller('/users')
@@ -9,6 +10,13 @@ export class UserTicketController {
  
  @service("Ticket")
  private userticketS
+=======
+import { services } from "../services/enum";
+import { Error } from "common-errors";
+@Controller('/users')
+export class UserTicketController {
+ private userticketS:any =services.Ticket
+>>>>>>> mainrpc
   
  
   @Get("/:userid/tickets")

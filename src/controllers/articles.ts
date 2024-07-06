@@ -1,50 +1,39 @@
+<<<<<<< HEAD
 import { service } from "../services/";
 import { Article  } from "../entity/"
 //import { AppDataSource } from "../_datasource";
+=======
+import { GrpcArticleController } from "./grpc/articles";
+>>>>>>> mainrpc
 import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body } from '@decorators/express';
-import { Response ,Request} from "express"
+import { Req,Res, Body, Controller , Get ,Post } from "@decorators/express";
+import { Response  } from "express";
+import { Request } from "express-jwt";
+import {AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle  } from "../middlewares/";
 
 
 @Controller('/articles')
 export class ArticleController {
+  private grpcC=new GrpcArticleController()
   
+<<<<<<< HEAD
   @service("Article")
   private articleS;
+=======
+>>>>>>> mainrpc
   
   constructor( ) {}
 
   @Get("")
-  async all():Promise<Article[]> {
-   /* 	#swagger.tags = ['Article']
-        #swagger.description = 'Endpoint to get articles' */
-    let articles:Article[]=await this.articleS.all()
-    return articles
+  async all():Promise<any> {
+   return await  this.grpcC.all()
   }
 
-  @Post("")
-  async create(@Res() res:Response ,@Body() createArticleDto:CreateArticleDto):Promise<Article|void>{
-   //  #swagger.tags = ['Article']
-    /*let {article,userid}=createArticleDto
-    article=<Article>{...article}
-    let author=await AppDataSource.manager.findOneByOrFail(Author,{id:parseInt(userid)})
-    article.author=author
-    author.articles.push(article)
-    await AppDataSource.manager.save(Article,article)*/
-    let article=await this.articleS.create(createArticleDto)
-    res.json({message:"created successfully"})
-    /*AppDataSource.manager.findOneByOrFail(Author,{id:userid}).then(d=>{
-        author=d;
-        return author
-    }).then(a=>{
-        article.author=a;
-        a.articles=[]
-        a.articles.push(article)
-        return article
-    }).then(a=>{
-        AppDataSource.manager.save(Article,a)
-        //AppDataSource.manager.save(a.user)
-        res.json({message:"created successfully"})
-    })*/
+  @Post("",[AuthenticateMiddleware,AuthorMiddleware,ValidatedCreatedArticle])
+
+  async create(@Req() req:Request ,@Body() createArticleDto:CreateArticleDto):Promise<any>{
+   
+    return await this.grpcC.create(req?.auth?.id,createArticleDto)
+    
   }
 }

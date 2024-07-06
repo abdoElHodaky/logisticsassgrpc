@@ -1,7 +1,6 @@
 import {_Data} from "./datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
-import { Res, Post, Controller, Get, Body , Params } from '@decorators/express';
-import { Response ,Request} from "express"
+
 import { supTicket ,User } from "../entity/";
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
@@ -14,17 +13,21 @@ export class UserTicketService extends _Data {
     if(isNumeric(userId)==true){
      let id=Number(userId)
     try{
-     let user=await this.datasource.manager.findOneOrFail(User,{where:{
+    /* let user=await this.datasource.manager.findOneOrFail(User,{where:{
             id:id
            },
            relations:{
             tickets:true
            }
-            })
-    let tickets=user.tickets
-    return tickets }
+            })*/
+    let tickets=await this.em.find(supTicket,{
+      where:{user:{id:id}},cache:true
+    })
+    if(tickets.length!=0) return tickets 
+    else throw new NotFoundError("Tickets")
+    }
     catch (err:any){
-      return new NotFoundError("Tickets")
+      return err
     }
 
     }
@@ -41,9 +44,9 @@ export class UserTicketService extends _Data {
     supticket.type="inquiry"
     supticket.subject="Greet"
     supticket.description="How are you?"
-    user=await this.datasource.manager.findOneByOrFail(User,{id:id})
+    user=await this.em.findOneByOrFail(User,{id:id})
     user.tickets.push(supticket)
-    let u=await this.datasource.manager.save(User,user)
+    let u=await this.em.save(User,user)
     return u.tickets.at(-1)
     
   }

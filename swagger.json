@@ -1,0 +1,596 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "gRPC endpoints docs",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "",
+  "tags": [
+    {
+      "name": "GRPC.Auth",
+      "description": "authentication endpoints via grpc"
+    },
+    {
+      "name": "GRPC.Article",
+      "description": "articles endpoints via grpc"
+    },
+    {
+      "name": "GRPC.Author",
+      "description": "authors endpoints via grpc"
+    },
+    {
+      "name": "GRPC.User",
+      "description": "users endpoints via grpc"
+    },
+    {
+      "name": "GRPC.User.Ticket",
+      "description": "users' tickets endpoints via grpc"
+    },
+    {
+      "name": "GRPC.User.Payment",
+      "description": "users' payments endpoints via grpc"
+    }
+  ],
+  "paths": {
+    "/articles": {
+      "get": {
+        "tags": [
+          "GRPC.Article"
+        ],
+        "description": "Endpoint to get articles via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.Article"
+        ],
+        "description": "Endpoint to add new article via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddArticle"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/attachments": {
+      "get": {
+        "tags": [
+          "Grpc.Attachment"
+        ],
+        "description": "Endpoint to get attachments",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/authors": {
+      "get": {
+        "tags": [
+          "GRPC.Author"
+        ],
+        "description": "Endpoint to get authors via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.Author"
+        ],
+        "description": "Endpoint to add new author via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAuthor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": [
+          "GRPC.Auth"
+        ],
+        "description": "Endpoint to authenticate via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUser"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "GRPC.Auth"
+        ],
+        "description": "Endpoint to add new user via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/suptickets": {
+      "get": {
+        "tags": [
+          "GRPC.suptickets"
+        ],
+        "description": "Endpoint to get tickets",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "GRPC.suptickets"
+        ],
+        "description": "Endpoint to create tickets for specific user",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userAddTicket"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/{userId}/tickets": {
+      "get": {
+        "tags": [
+          "GRPC.User.Ticket"
+        ],
+        "description": "Endpoint to get articles via grpc",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "id of specific user."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "GRPC.User.Ticket"
+        ],
+        "description": "Endpoint to add new ticket via grpc",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Add new ticket."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Add new ticket.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/userAddTicket"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/userAddTicket"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "tags": [
+          "GRPC.User"
+        ],
+        "description": "Endpoint to get authors via grpc",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/me": {
+      "get": {
+        "tags": [
+          "GRPC.User"
+        ],
+        "description": "Endpoint to get profile of authenticated user",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      }
+    },
+    "/users/{userId}/payments": {
+      "get": {
+        "tags": [
+          "GRPC.User.Payment"
+        ],
+        "description": "Endpoint to get payments via grpc",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "id of specific user."
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      }
+    },
+    "/payments": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "Endpoint to get PAYMENTS",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      }
+    },
+    "/payments/{paymentId}/Pay": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "Endpoint to iniliatize specific payment",
+        "parameters": [
+          {
+            "name": "paymentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Payment identification"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      }
+    },
+    "/payments/result": {
+      "get": {
+        "tags": [
+          "Payment"
+        ],
+        "description": "Endpoint to get result of payment",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWTAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "JWTAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "LoginUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": ""
+          },
+          "passwordHash": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "LoginUser"
+        }
+      },
+      "CreateUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": ""
+          },
+          "firstname": {
+            "type": "string",
+            "example": ""
+          },
+          "lastname": {
+            "type": "string",
+            "example": ""
+          },
+          "IDcardNumber": {
+            "type": "number",
+            "example": 2980865431210
+          },
+          "email": {
+            "type": "string",
+            "example": ""
+          },
+          "password": {
+            "type": "string",
+            "example": ""
+          },
+          "age": {
+            "type": "number",
+            "example": 0
+          },
+          "type": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "required": [
+          "IDcardNumber",
+          "age"
+        ],
+        "xml": {
+          "name": "CreateUser"
+        }
+      },
+      "CreateAuthor": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "author"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "xml": {
+          "name": "CreateAuthor"
+        }
+      },
+      "AddArticle": {
+        "type": "object",
+        "properties": {
+          "cateogry": {
+            "type": "string",
+            "example": ""
+          },
+          "imgurl": {
+            "type": "string",
+            "example": ""
+          },
+          "content": {
+            "type": "string",
+            "example": ""
+          },
+          "title": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "xml": {
+          "name": "AddArticle"
+        }
+      },
+      "userAddTicket": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "example": "inquiry|complaint"
+          },
+          "subject": {
+            "type": "string",
+            "example": "greet"
+          },
+          "description": {
+            "type": "string",
+            "example": "how are you?"
+          }
+        },
+        "required": [
+          "type",
+          "subject",
+          "description"
+        ],
+        "xml": {
+          "name": "userAddTicket"
+        }
+      },
+      "userSupTicket": {
+        "type": "object",
+        "properties": {
+          "userid": {
+            "type": "string",
+            "example": "4"
+          }
+        },
+        "required": [
+          "userid"
+        ],
+        "xml": {
+          "name": "userSupTicket"
+        }
+      },
+      "AddBook": {
+        "type": "object",
+        "properties": {
+          "userid": {
+            "type": "string",
+            "example": "4"
+          },
+          "book": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string",
+                "example": ""
+              },
+              "description": {
+                "type": "string",
+                "example": ""
+              },
+              "source": {
+                "type": "string",
+                "example": ""
+              },
+              "thumbnail": {
+                "type": "string",
+                "example": ""
+              }
+            }
+          }
+        },
+        "required": [
+          "userid",
+          "book"
+        ],
+        "xml": {
+          "name": "AddBook"
+        }
+      }
+    }
+  }
+}

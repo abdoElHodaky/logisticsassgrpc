@@ -1,5 +1,6 @@
-import { Entity,Column,ManyToOne,PrimaryGeneratedColumn} from "typeorm"
-import { Author } from "./Author";
+import { Entity,Column,ManyToOne,OneToMany,PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Author } from "./users/";
+//import { Attachment } from "./Attachment";
 
 @Entity()
 export class Article {
@@ -12,11 +13,17 @@ export class Article {
     @Column({type: "varchar"})
     imgurl: string;
     
-    @Column({type: "varchar", nullable: true})
+    @Column({type: "longtext", nullable: true})
     content: string;
 
     @Column({type: "varchar", nullable: true})
     cateogry: string;
 
     @ManyToOne(()=>Author,author=>author.articles) author:Author;
+   
+    @CreateDateColumn()
+    createdAt: Date;
+
+    @UpdateDateColumn()
+    updatedAt: Date;
 }

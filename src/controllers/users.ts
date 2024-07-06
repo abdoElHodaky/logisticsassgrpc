@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { service } from "../services/";
+=======
+import { services } from "../services/enum";
+>>>>>>> mainrpc
 import { Article ,User } from "../entity/"
 import { AppDataSource } from "../_datasource";
 //import { CreateArticleDto } from "../dto/create-article.dto"
@@ -9,10 +13,15 @@ import { Error , NotFoundError } from "common-errors";
 
 @Controller('/users')
 export class UserController {
+<<<<<<< HEAD
 
 
   @service("User")
   private  userS:any;
+=======
+  
+  private  userS:any=services.User
+>>>>>>> mainrpc
   constructor(){}
   
   @Get("/")
