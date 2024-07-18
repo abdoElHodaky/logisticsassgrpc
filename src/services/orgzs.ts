@@ -33,9 +33,21 @@ async create(userId:number,orgz:{type:string,title:string,description:string}):P
     })
    
    _orgz.owner=user
-   return _orgz
-    
-    
-    
+   return await this.em.save(Orgz,_orgz)
+     
  }
+  
+  async createBranch(parentId:number,orgz:{type:string,title:string,description:string}):Promise<Orgz>
+  {
+    const parent=await this.em.findOneOrFail(Orgz,{
+      where:{id:parentId},
+      relations:["branches"]
+    })
+    const _orgz=await this.em.create(Branch,{
+      ...orgz
+    })
+    parent.branches.push(_orgz)
+    return await this.em.save(Orgz,parent)
+  }
+}
 }
