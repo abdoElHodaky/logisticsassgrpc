@@ -1,5 +1,5 @@
 import { _Data } from "./datasource";
-import { Orgz ,Owner,User } from "../entity/"
+import { Orgz ,Owner,User,Branch } from "../entity/"
 import { Error , NotFoundError } from "common-errors";
 import { isNumeric } from "../helpers";
 import { services} from "./enum";
