@@ -42,7 +42,7 @@ async createSub(parentId:number,category:{name:string,description:string}):Promi
     const _orgz=await this.em.create(Category,{
       ...category
     })
-    parent.categories.push(_orgz)
+    //parent.categories.push(_orgz)
     return await this.em.save(Category,parent)
   }
 }
