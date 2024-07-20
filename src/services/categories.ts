@@ -33,16 +33,5 @@ async create(category:{name:string,description:string}):Promise<Category|void>{
    //_orgz.owner=user
    return await this.em.save(Category,_orgz)
  }
-async createSub(parentId:number,category:{name:string,description:string}):Promise<Category>
-  {
-    const parent=await this.em.findOneOrFail(Category,{
-      where:{id:parentId},
-      relations:["categories"]
-    })
-    const _orgz=await this.em.create(Category,{
-      ...category
-    })
-    //parent.categories.push(_orgz)
-    return await this.em.save(Category,parent)
-  }
+
 }
