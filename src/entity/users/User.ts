@@ -1,5 +1,7 @@
 import { type } from "os"
-import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn, UpdateDateColumn  } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, JoinColumn, OneToOne,
+JoinTable ,Column, OneToMany, TableInheritance ,ChildEntity,CreateDateColumn,
+ UpdateDateColumn  } from "typeorm"
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,
         Address,Verification,Payment ,
@@ -58,7 +60,7 @@ export class User {
     affiliates:Affiliate[]
     @OneToMany(()=>Password,password=>password.user) passwords:Password[]
    
-    @Column(()=>Activated)
+    @OneToOne(()=>Activated)
     activated?:Activated
 }
 
