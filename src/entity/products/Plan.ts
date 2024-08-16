@@ -1,7 +1,8 @@
 import { ChildEntity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
          CreateDateColumn, UpdateDateColumn,Index  } from "typeorm"
 
-import { Product,Activated } from "../";
+import {Activated } from "../";
+import { Product } from "./";
 
 @ChildEntity()
 export class Plan extends Product {
