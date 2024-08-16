@@ -6,7 +6,7 @@ import { genCode } from "../helpers";
 export class Activated {
     
     @PrimaryGeneratedColumn("increment")
-    activatedId:number
+    id:number
 
     @Column({type:"varchar",default:"inactivated"})
     activated:string
@@ -22,5 +22,5 @@ export class Activated {
     genCode(){
      this.activateCode=genCode()
     }
-
+   
 }
