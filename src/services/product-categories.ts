@@ -33,7 +33,7 @@ async create(category:{name:string,description:string}):Promise<ProductCategory|
    //_orgz.owner=user
    return await this.em.save(ProductCategory,_orgz)
  }
-async create(parentId:number,category:{name:string,description:string}):Promise<ProductCategory>
+async createSub(parentId:number,category:{name:string,description:string}):Promise<ProductCategory>
   {
     const parent=await this.em.findOneOrFail(Category,{
       where:{id:parentId},
