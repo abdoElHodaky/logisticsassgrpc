@@ -11,4 +11,7 @@ export class Activated {
 
     @Column("varchar")
     activateCode:string
+
+    @Column("int")
+    activatePlanId:number
 }
