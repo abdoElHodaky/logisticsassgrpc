@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, JoinColumn, JoinTable ,Column, OneToMan
 import { Email } from "./Email"
 import { supTicket,Article,Attachment,
         Address,Verification,Payment ,
-        Purshase,Affiliate} from "../"
+        Purshase,Affiliate,Activated} from "../"
 import { Password} from "./Password";
 @Entity()
 @TableInheritance({column:{type:"varchar",name:"type"}})
@@ -58,6 +58,8 @@ export class User {
     affiliates:Affiliate[]
     @OneToMany(()=>Password,password=>password.user) passwords:Password[]
    
+    @Column(()=>Activated)
+    activated?:Activated
 }
 
 /*@Entity()
