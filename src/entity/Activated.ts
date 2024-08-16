@@ -1,7 +1,7 @@
 import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
          CreateDateColumn, UpdateDateColumn,Index,BeforeInsert  } from "typeorm"
 import { Plan } from "./";
-import { genCode} from "../helpers":
+import { genCode } from "../helpers";
 @Entity()
 export class Activated {
     
