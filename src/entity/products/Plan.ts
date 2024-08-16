@@ -1,10 +1,10 @@
-import { ChildEntity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
+import {Entity, ChildEntity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
          CreateDateColumn, UpdateDateColumn,Index  } from "typeorm"
 
 import {Activated } from "../";
-import { Product } from "./";
+import { Product } from "./Product";
 
-@ChildEntity()
+@Entity()
 export class Plan extends Product {
   
   @PrimaryGeneratedColumn("increment")
