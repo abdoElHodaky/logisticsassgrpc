@@ -11,7 +11,13 @@ export class ProductCategory {
         
    @Column({type:"varchar",default:"Product"})
    readonly forType:string="Product"
-     
+
+   @Column("varchar")
+   name:string
+        
+   @Column("varchar")
+   description:string
+        
    @OneToMany(()=>Product,product=>product.categories)
    @JoinColumn([ 
    { name: "ProductId", referencedColumnName: "id" },
