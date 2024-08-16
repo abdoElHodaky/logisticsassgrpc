@@ -12,4 +12,4 @@ export { Address } from "./Address";
 export { Product,AffiliateProduct,ProductSpec} from "./products/";
 export { Subscription } from "./Subscription";
 export { Category, ProductCategory} from "./categories/";
-
+export { Activated } from "./Activated";
