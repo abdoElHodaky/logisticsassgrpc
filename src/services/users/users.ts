@@ -49,4 +49,8 @@ export class UserService extends _Data {
     else return new TypeError("userId should be number")
   }
   
+  async activatePlan(planId:number):Promise<void>{
+    
+  }
+  
 }
