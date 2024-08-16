@@ -1,5 +1,5 @@
-import { Entity,Column} from "typeorm";
-
+import { Entity,Column,OneToOne} from "typeorm";
+import { Plan } from "./";
 @Entity()
 export class Activated {
     
@@ -12,6 +12,5 @@ export class Activated {
     @Column("varchar")
     activateCode:string
 
-    @Column("int")
-    activatePlanId:number
+    @OneToOne(()=>Plan,plan=> plan.client) activatedPlan:Plan
 }
