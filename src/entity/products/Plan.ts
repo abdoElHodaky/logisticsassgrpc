@@ -4,8 +4,8 @@ import {Entity, ChildEntity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,M
 import {Activated } from "../";
 import { Product } from "./Product";
 
-@ChildEntity()
-export class Plan extends Product {
+@Entity()
+export class Plan {
   
   @PrimaryGeneratedColumn("increment")
   id:number
