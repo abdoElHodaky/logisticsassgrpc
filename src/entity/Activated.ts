@@ -1,8 +1,12 @@
-import { Entity,Column,OneToOne} from "typeorm";
+import { Entity ,Column,PrimaryGeneratedColumn,OneToOne,JoinColumn,ManyToMany,JoinTable,
+         CreateDateColumn, UpdateDateColumn,Index  } from "typeorm"
 import { Plan } from "./";
 @Entity()
 export class Activated {
     
+    @PrimaryGeneratedColumn("increment")
+    id:number
+
     @Column({type:"varchar",default:"inactivated"})
     activated:string
 
