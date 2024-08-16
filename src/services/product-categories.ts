@@ -26,12 +26,12 @@ export class ProductCategoryService extends _Data {
 
 async create(category:{name:string,description:string}):Promise<ProductCategory|void>{
    
-   const _orgz=await this.em.create(ProductCategory,{
+   const _category=await this.em.create(ProductCategory,{
       ...category
     })
    
    //_orgz.owner=user
-   return await this.em.save(ProductCategory,_orgz)
+   return await this.em.save(ProductCategory,_category)
  }
 async createSub(parentId:number,category:{name:string,description:string}):Promise<ProductCategory>
   {
@@ -39,11 +39,11 @@ async createSub(parentId:number,category:{name:string,description:string}):Promi
       where:{id:parentId},
       relations:["categories"]
     })
-    const _orgz=await this.em.create(ProductCategory,{
+    const _category=await this.em.create(ProductCategory,{
       ...category
     })
    // await this.em.save(Category,parent)
-    parent.categories.push(_orgz)
-    return await this.em.save(ProductCategory,_orgz)
+    parent.categories.push(_category)
+    return await this.em.save(ProductCategory,_category)
   }
 }
