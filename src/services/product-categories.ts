@@ -24,7 +24,7 @@ export class ProductCategoryService extends _Data {
     return (categories.length!=0)? categories : new NotFoundError("Category")
   }
 
-async create(category:{name:string,description:string}):Promise<ProductCategory|void>{
+async createChild(category:{name:string,description:string}):Promise<ProductCategory|void>{
    
    const _category=await this.em.create(ProductCategory,{
       ...category
