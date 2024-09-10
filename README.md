@@ -12,11 +12,6 @@
 
 <p align="center">Simple description of what your project do or how to use it</p>
 
-
-<p align="center">
-<a href="https://github.com/ShaanCoding">📱 Visit this Project</a>
-</p>
-
 <h2 id="technologies">💻 Technologies</h2>
 
 - list of all technologies you used
@@ -59,16 +54,18 @@ Here you can list the main routes of your API, and what are their expected reque
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-|<kbd>POST /authenticate via grpc</kbd>     | authenticate user into the api see [request details](#post-auth-detail)
+|<kbd>/auth/login</kbd>     | login user into the api see [request details](#post-authlogin-detail)
+|<kbd>/auth/register</kbd> |  register user into the api see [request details](#post-authregister-detail)
 
 
-<h3 id="post-auth-detail">POST /auth/login </h3>
+<h3 id="post-authlogin-detail">POST /auth/login </h3>
 
 **REQUEST**
 ```json
 {
   "username": "",
-  "passwordHash": ""
+  "password": "",
+  
 }
 ```
 
@@ -76,5 +73,21 @@ Here you can list the main routes of your API, and what are their expected reque
 ```json
 {
   "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
+}
+```
+
+<h3 id="post-authregister-detail">POST /auth/register</h3>
+
+**REQUEST**
+```json
+{
+  "username": "",
+  "firstname": "",
+  "lastname": "",
+  "IDcardNumber": 2980865431210,
+  "email": "",
+  "password": "",
+  "age": 0,
+  "type": "user"
 }
 ```
